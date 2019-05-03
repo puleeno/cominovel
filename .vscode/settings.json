@@ -1,0 +1,6 @@
+{
+    "phpcs.standard": "WordPress",
+    "files.trimTrailingWhitespace": true,
+    "editor.renderWhitespace": "all",
+    "editor.insertSpaces": false
+}

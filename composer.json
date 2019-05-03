@@ -1,0 +1,13 @@
+{
+    "name": "ramphor/manga",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Puleeno Nguyen",
+            "email": "puleeno@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
