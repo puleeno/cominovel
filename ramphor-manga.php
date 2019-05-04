@@ -22,7 +22,9 @@ function load_ramphor_manga( $plugin_file ) {
 	}
 }
 
-define( 'RAMPHOR_MANGA_PLUGIN_FILE', __FILE__, true );
+/**
+ * Init Ramphor Manga plugin
+ */
+define( 'RAMPHOR_MANGA_PLUGIN_FILE', __FILE__ );
 load_ramphor_manga( RAMPHOR_MANGA_PLUGIN_FILE );
-
 $GLOBALS['rp_manga'] = Ramphor_Manga::instance();
