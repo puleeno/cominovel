@@ -18,7 +18,7 @@
  */
 function load_ramphor_manga( $plugin_file ) {
 	if ( ! class_exists( 'Ramphor_Manga' ) ) {
-		require_once dirname( $plugin_file ) . '/classes/class-ramphor-manga.php';
+		require_once dirname( $plugin_file ) . '/includes/class-ramphor-manga.php';
 	}
 }
 
