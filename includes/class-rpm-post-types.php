@@ -2,9 +2,12 @@
 
 class RPM_Post_Types {
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'register_taxonomies' ) );
-		add_action( 'init', array( __CLASS__, 'register_post_types' ) );
-		add_action( 'init', array( __CLASS__, 'register_post_status' ) );
+		add_action( 'init', array( __CLASS__, 'register_taxonomies' ), 5 );
+		add_action( 'init', array( __CLASS__, 'register_post_types' ), 5 );
+		add_action( 'init', array( __CLASS__, 'register_post_status' ), 10 );
+
+		add_filter( 'rest_api_allowed_post_types', array( __CLASS__, 'rest_api_allowed_post_types' ) );
+		add_filter( 'gutenberg_can_edit_post_type', array( __CLASS__, 'gutenberg_can_edit_post_type' ), 10, 2 );
 	}
 
 	public static function register_post_types() {
@@ -15,8 +18,8 @@ class RPM_Post_Types {
 		do_action('ramphor_manga_register_post_types');
 
 		$manga_rewrite = array(
-			'rewrite' => true,
 			'slug' => 'manga',
+			'feeds' => true,
 		);
 		$supports   = array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'publicize', 'wpcom-markdown' );
 		$has_archive = true;
@@ -56,10 +59,10 @@ class RPM_Post_Types {
 					'public' => true,
 					'show_ui' => true,
 					// 'capability_type' => 'manga',
-					// 'map_meta_cap' => true,
+					'map_meta_cap' => true,
 					'publicly_queryable' => true,
 					'exclude_from_search' => false,
-					'hierarchical' => false,
+					'hierarchical' => true,
 					'rewrite' => $manga_rewrite,
 					'query_var' => true,
 					'supports' => $supports,
@@ -71,30 +74,127 @@ class RPM_Post_Types {
 		);
 
 		register_post_type(
-			'manga_chapter',
+			'artist',
 			apply_filters(
-				'ramphor_manga_register_post_type_manga_chapter',
+				'ramphor_manga_register_post_type_artist',
 				array(
-					'label'           => __( 'Chapters', 'ramphor_manga' ),
-					'public'          => true,
-					'hierarchical'    => true,
-					'supports'        => array('title', 'editor', 'post-formats'),
-					// 'capability_type' => 'manga',
-					'rewrite'         => array(
-						'slug' => 'manga',
+					'labels' => array(
+						'name' => __('Artist', 'ramphor_manga'),
+						'singular_name' => __('Artist', 'ramphor_manga')
 					),
+					'public' => true,
+					'hierarchical' => false,
 					'show_in_menu' => false,
-					'show_in_nav_menus' => false
-				)
-			)
+					'show_in_rest' => true,
+				),
+			),
+		);
+
+		register_post_type(
+			'author',
+			apply_filters(
+				'ramphor_manga_register_post_type_author',
+				array(
+					'labels' => array(
+						'name' => __('Authors', 'ramphor_manga'),
+						'singular_name' => __('Author', 'ramphor_manga')
+					),
+					'public' => true,
+					'hierarchical' => false,
+					'show_in_menu' => false,
+					'show_in_rest' => true,
+				),
+			),
 		);
 	}
 
 	public static function register_taxonomies() {
+		$category_rewrite = array(
+			'slug' => 'genre',
+			'with_front' => false,
+			'hierarchical' => true,
+		);
+		register_taxonomy(
+			'manga_cat',
+			apply_filters(
+				'ramphor_manga_taxonomy_objects_manga_cat',
+				array( 'manga' ),
+			),
+			apply_filters(
+				'ramphor_manga_taxonomy_args_manga_cat',
+				array(
+					'hierarchical' => true,
+					'update_count_callback' => '_wc_term_recount',
+					'label' => __('Categories', 'ramphor_manga'),
+					'labels' => array(
+						'name' => __('Manga categories', 'ramphor_manga'),
+						'singular_name' => __('Category', 'ramphor_manga'),
+						'menu_name' => __('Categories', 'ramphor_manga'),
+						'search_items' => __('Search categories', 'ramphor_manga'),
+						'all_items' => __('All categories', 'ramphor_manga'),
+						'parent_item' => __('Parent category', 'ramphor_manga'),
+						'parent_item_colon' => __('Parent category:', 'ramphor_manga'),
+						'edit_item' => __('Edit category', 'ramphor_manga'),
+						'update_item' => __('update category', 'ramphor_manga'),
+						'add_new_item' => __('Add new category', 'ramphor_manga'),
+						'add_new_name' => __('New category name', 'ramphor_manga'),
+						'not_found' => __('No categories found', 'ramphor_manga'),
+					),
+					'show_ui' => true,
+					'public' => true,
+					'show_in_rest' => true,
+					'query_var' => true,
+					// 'capabilities' => array(
+					// 	'manage_terms' => 'manage_manga_terms',
+					// 	'edit_terms' => 'edit_manga_terms',
+					// 	'delete_terms' => 'delete_manga_terms',
+					// 	'assign_terms' => 'assign_manga_terms',
+					// ),
+					'rewrite' => $category_rewrite,
+				)
+			)
+		);
+
+		register_taxonomy(
+			'manga_release',
+			apply_filters('ramphor_manga_taxonomy_objects_manga_release', array( 'manga' ) ),
+			apply_filters('ramphor_manga_taxonomy_args_manga_release', array(
+				'labels'    => array(
+					'name' => __('Releases', 'ramphor_manga'),
+					'singular_name' => __('Release', 'ramphor_manga'),
+				),
+				'public'	=> true,
+				'hierarchical' => false,
+				'show_in_rest' => true,
+			))
+		);
+
+		register_taxonomy(
+			'manga_tag',
+			apply_filters('ramphor_manga_taxonomy_objects_manga_tag', array( 'manga' ) ),
+			apply_filters('ramphor_manga_taxonomy_args_manga_tag', array(
+				'labels'    => array(
+					'name' => __('Tags', 'ramphor_manga'),
+					'singular_name' => __('Tag', 'ramphor_manga'),
+				),
+				'public'	=> true,
+				'hierarchical' => false,
+				'show_in_rest' => true,
+			))
+		);
 	}
 
 	public static function register_post_status() {
 
+	}
+
+	public static function rest_api_allowed_post_types($post_types) {
+		$post_types[] = 'manga';
+		return $post_types;
+	}
+
+	public static function gutenberg_can_edit_post_type( $can_edit, $post_type ) {
+		return 'manga' === $post_type ? false : $can_edit;
 	}
 }
 

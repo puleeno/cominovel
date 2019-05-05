@@ -4,10 +4,9 @@ class RPM_Admin_Menus {
 		add_action('admin_menu', array($this, 'admin_menus'));
 	}
 
-
 	public function admin_menus() {
-		add_submenu_page( 'edit.php?post_type=manga', __( 'Attributes', 'woocommerce' ), __( 'Attributes', 'woocommerce' ), 'manage_options', 'manga_chapter', array( $this, 'attributes_page' ) );
-
+		add_submenu_page('edit.php?post_type=manga', __('Artists', 'ramphor_manga'), __('Artists', 'ramphor_manga'), 'manage_options', 'edit.php?post_type=artist');
+		add_submenu_page('edit.php?post_type=manga', __('Authors', 'ramphor_manga'), __('Authors', 'ramphor_manga'), 'manage_options', 'edit.php?post_type=author');
 	}
 }
 

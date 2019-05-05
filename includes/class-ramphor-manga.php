@@ -6,6 +6,8 @@
  * @author  Puleeno Nguyen <puleeno@gmail.com>
  */
 
+use Ramphor\UserProfile\UserProfile;
+
 /**
  * Class Ramphor_Manga is the main class of Ramphor Manga plugin
  */
@@ -64,6 +66,15 @@ class Ramphor_Manga {
 		require_once RPM_ABSPATH . 'includes/class-rpm-query.php';
 		require_once RPM_ABSPATH . 'includes/class-rpm-manga-query.php';
 
+		/**
+		 * Load libraries via composer
+		 */
+		$composer = RPM_ABSPATH . 'vendor/autoload.php';
+		if ( file_exists( $composer ) ) {
+			require_once $composer;
+		}
+
+
 		if ($this->is_request('admin')) {
 			require_once RPM_ABSPATH . 'includes/admin/class-rpm-admin.php';
 		}
@@ -105,11 +116,47 @@ class Ramphor_Manga {
 	}
 
 	public function hooks() {
+		add_action('init', array( $this, 'init' ) );
 	}
 
 	public function frontend_includes() {
 	}
 
 	private function theme_support_includes() {
+	}
+
+	public function init() {
+		do_action( 'before_ramphor_manga_init' );
+
+		$this->load_plugin_textdomain();
+		if ( is_child_theme() ) {
+			$usr_template_dirs = array(
+				get_stylesheet_directory() . 'manga/user-profile/',
+				get_template_directory() . 'manga/user-profile/',
+			);
+		} else {
+			$usr_template_dirs = array(
+				get_template_directory() . 'manga/user-profile/',
+			);
+		}
+		$usr_template_dirs = array_merge(
+			$usr_template_dirs,
+			array(
+				plugin_dir_path( RAMPHOR_MANGA_PLUGIN_FILE ) . 'templates/user-profile/',
+				plugin_dir_path( RAMPHOR_MANGA_PLUGIN_FILE ) . 'vendor/ramphor/user-profile/templates/',
+			)
+		);
+
+		if ( class_exists( 'UserProfile' ) ) {
+			UserProfile::instance( $usr_template_dirs );
+		}
+	}
+
+	public function load_plugin_textdomain() {
+		$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
+		$locale = apply_filters( 'plugin_locale', $locale, 'ramphor_manga' );
+		unload_textdomain('ramphor_manga');
+		load_textdomain('ramphor_manga', WP_LANG_DIR . '/ramphor-manga/ramphor-manga-' . $locale . '.mo');
+		load_plugin_textdomain('ramphor_manga', false, plugin_basename( dirname( RAMPHOR_MANGA_PLUGIN_FILE ) ) . '/languages' );
 	}
 }
