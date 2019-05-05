@@ -12,19 +12,17 @@
  */
 
 /**
- * Load plugin classes
- *
- * @param string $plugin_file  Main file of plugin to detect and load plugin.
- */
-function load_ramphor_manga( $plugin_file ) {
-	if ( ! class_exists( 'Ramphor_Manga' ) ) {
-		require_once dirname( $plugin_file ) . '/includes/class-ramphor-manga.php';
-	}
-}
-
-/**
  * Init Ramphor Manga plugin
  */
 define( 'RAMPHOR_MANGA_PLUGIN_FILE', __FILE__ );
-load_ramphor_manga( RAMPHOR_MANGA_PLUGIN_FILE );
-$GLOBALS['rp_manga'] = Ramphor_Manga::instance();
+if ( ! class_exists( 'Ramphor_Manga' ) ) {
+	require_once dirname( RAMPHOR_MANGA_PLUGIN_FILE ) . '/includes/class-ramphor-manga.php';
+}
+
+if (!function_exists('ramphor_manga')) {
+	function ramphor_manga(){
+		return Ramphor_Manga::instance();;
+	}
+}
+
+$GLOBALS['rp_manga'] = ramphor_manga();
