@@ -39,13 +39,13 @@ class Ramphor_Manga {
 	}
 
 	private function define( $name, $value ) {
-		if (!defined($name)) {
-			define($name, $value);
+		if ( ! defined( $name ) ) {
+			define( $name, $value );
 		}
 	}
 
 	public function define_constants() {
-		$this->define('RPM_ABSPATH', plugin_dir_path( RAMPHOR_MANGA_PLUGIN_FILE ) );
+		$this->define( 'RPM_ABSPATH', plugin_dir_path( RAMPHOR_MANGA_PLUGIN_FILE ) );
 	}
 
 	public function includes() {
@@ -74,12 +74,11 @@ class Ramphor_Manga {
 			require_once $composer;
 		}
 
-
-		if ($this->is_request('admin')) {
+		if ( $this->is_request( 'admin' ) ) {
 			require_once RPM_ABSPATH . 'includes/admin/class-rpm-admin.php';
 		}
 
-		if ( $this->is_request('frontend')) {
+		if ( $this->is_request( 'frontend' ) ) {
 			$this->frontend_includes();
 		}
 
@@ -116,7 +115,7 @@ class Ramphor_Manga {
 	}
 
 	public function hooks() {
-		add_action('init', array( $this, 'init' ) );
+		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	public function frontend_includes() {
@@ -155,8 +154,8 @@ class Ramphor_Manga {
 	public function load_plugin_textdomain() {
 		$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
 		$locale = apply_filters( 'plugin_locale', $locale, 'ramphor_manga' );
-		unload_textdomain('ramphor_manga');
-		load_textdomain('ramphor_manga', WP_LANG_DIR . '/ramphor-manga/ramphor-manga-' . $locale . '.mo');
-		load_plugin_textdomain('ramphor_manga', false, plugin_basename( dirname( RAMPHOR_MANGA_PLUGIN_FILE ) ) . '/languages' );
+		unload_textdomain( 'ramphor_manga' );
+		load_textdomain( 'ramphor_manga', WP_LANG_DIR . '/ramphor-manga/ramphor-manga-' . $locale . '.mo' );
+		load_plugin_textdomain( 'ramphor_manga', false, plugin_basename( dirname( RAMPHOR_MANGA_PLUGIN_FILE ) ) . '/languages' );
 	}
 }
