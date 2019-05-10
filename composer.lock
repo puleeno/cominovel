@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0e0c2d65f0c53031d7beea7916addde",
+    "content-hash": "f2262abeacf362c98dc30717bfed2bcf",
     "packages": [
+        {
+            "name": "jankx/fields",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/fields.git",
+                "reference": "fb44fc07bf7a8700333cdb0e55140c9f2383ae03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/fields/zipball/fb44fc07bf7a8700333cdb0e55140c9f2383ae03",
+                "reference": "fb44fc07bf7a8700333cdb0e55140c9f2383ae03",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Fields\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
+            "time": "2019-05-06T07:15:29+00:00"
+        },
         {
             "name": "ramphor/user-profile",
             "version": "dev-master",
@@ -44,7 +77,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ramphor/user-profile": 20
+        "ramphor/user-profile": 20,
+        "jankx/fields": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

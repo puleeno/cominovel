@@ -15,13 +15,19 @@
  * Init Ramphor Manga plugin
  */
 define( 'RAMPHOR_MANGA_PLUGIN_FILE', __FILE__ );
+
 if ( ! class_exists( 'Ramphor_Manga' ) ) {
 	require_once dirname( RAMPHOR_MANGA_PLUGIN_FILE ) . '/includes/class-ramphor-manga.php';
 }
 
-if (!function_exists('ramphor_manga')) {
-	function ramphor_manga(){
-		return Ramphor_Manga::instance();;
+if ( ! function_exists( 'ramphor_manga' ) ) {
+	/**
+	 * This function will be return Ramphor_Manga instance
+	 *
+	 * @return  Ramphor_Manga  main instance of Ramphor Manga
+	 */
+	function ramphor_manga() {
+		return Ramphor_Manga::instance();
 	}
 }
 

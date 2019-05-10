@@ -1,4 +1,5 @@
 const path = require('path');
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 const config = {
 	entry: {
@@ -17,7 +18,10 @@ const config = {
 				loader: 'babel-loader'
 			}
 		]
-	}
+	},
+	plugins: [
+		new LiveReloadPlugin({})
+	]
 };
 
 // Export the config object

@@ -6,7 +6,9 @@ class RPM_Admin {
 	}
 
 	public function includes() {
+		require_once dirname( __FILE__ ) . '/class-rpm-admin-post-types.php';
 		require_once dirname( __FILE__ ) . '/class-rpm-admin-menus.php';
+		require_once dirname( __FILE__ ) . '/class-rpm-admin-assets.php';
 	}
 
 	public function filter_mangas($query) {

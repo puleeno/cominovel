@@ -10,6 +10,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ramphor/user-profile": "dev-master"
+        "ramphor/user-profile": "dev-master",
+        "jankx/fields": "dev-master"
     }
 }
