@@ -120,6 +120,7 @@ if ( ! class_exists( 'Ramphor_Manga' ) ) {
 		}
 
 		public function frontend_includes() {
+			require_once RPM_ABSPATH . 'includes/class-rpm-manga-frontend.php';
 		}
 
 		private function theme_support_includes() {
@@ -160,7 +161,7 @@ if ( ! class_exists( 'Ramphor_Manga' ) ) {
 			load_plugin_textdomain( 'ramphor_manga', false, plugin_basename( dirname( RAMPHOR_MANGA_PLUGIN_FILE ) ) . '/languages' );
 		}
 
-		public function plugin_url( $path = '/') {
+		public function plugin_url( $path = '/' ) {
 			return untrailingslashit( plugins_url( $path, RAMPHOR_MANGA_PLUGIN_FILE ) );
 		}
 	}

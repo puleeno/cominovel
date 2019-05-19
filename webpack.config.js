@@ -1,5 +1,5 @@
-const path = require('path');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
+const path           = require( 'path' );
+var LiveReloadPlugin = require( 'webpack-livereload-plugin' );
 
 const config = {
 	entry: {
@@ -8,7 +8,7 @@ const config = {
 	},
 	output: {
 		filename: 'js/[name].js',
-		path: path.resolve(__dirname, 'public')
+		path: path.resolve( __dirname, 'public' )
 	},
 	module: {
 		rules: [
@@ -16,11 +16,11 @@ const config = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader'
-			}
+		}
 		]
 	},
 	plugins: [
-		new LiveReloadPlugin({})
+		new LiveReloadPlugin( {} )
 	]
 };
 

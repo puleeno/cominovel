@@ -4,9 +4,9 @@
   font-family: "ramphor-manga";
   src:url("fonts/ramphor-manga.eot");
   src:url("fonts/ramphor-manga.eot?#iefix") format("embedded-opentype"),
-    url("fonts/ramphor-manga.woff") format("woff"),
-    url("fonts/ramphor-manga.ttf") format("truetype"),
-    url("fonts/ramphor-manga.svg#ramphor-manga") format("svg");
+	url("fonts/ramphor-manga.woff") format("woff"),
+	url("fonts/ramphor-manga.ttf") format("truetype"),
+	url("fonts/ramphor-manga.svg#ramphor-manga") format("svg");
   font-weight: normal;
   font-style: normal;
 

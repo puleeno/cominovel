@@ -15,7 +15,7 @@ class RPM_Admin_Meta_Boxes {
 	}
 
 	public function add_meta_boxes() {
-		add_meta_box( 'ramphor-manga-data', __( 'Manga data', 'ramphor_manga' ),  array( $this, 'test' ), array( 'manga' ), 'advanced', 'high',   );
+		add_meta_box( 'ramphor-manga-data', __( 'Manga data', 'ramphor_manga' ), array( $this, 'test' ), array( 'manga' ), 'advanced', 'high', );
 	}
 
 	public function save_meta_boxes( $post_id, $post ) {

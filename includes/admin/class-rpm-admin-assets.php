@@ -27,7 +27,7 @@ class RPM_Admin_Assets {
 
 	public function admin_scripts() {
 		wp_register_script( 'ramphor-manga-admin', ramphor_manga()->plugin_url( 'public/js/admin.js' ) );
-		wp_enqueue_script( 'ramphor-manga-admin');
+		wp_enqueue_script( 'ramphor-manga-admin' );
 	}
 }
 

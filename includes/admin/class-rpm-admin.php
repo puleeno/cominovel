@@ -15,11 +15,11 @@ class RPM_Admin {
 		require_once dirname( __FILE__ ) . '/class-rpm-admin-assets.php';
 	}
 
-	public function filter_mangas($query) {
+	public function filter_mangas( $query ) {
 		if ( $query->get( 'post_type' ) != 'manga' ) {
 			return $query;
 		}
-		$query->set('post_parent', 0);
+		$query->set( 'post_parent', 0 );
 		return $query;
 	}
 
@@ -30,7 +30,7 @@ class RPM_Admin {
 			return $counts;
 		}
 		$cache_key = 'ramphor_managa_posts_count';
-		$counts = wp_cache_get( $cache_key, 'counts' );
+		$counts    = wp_cache_get( $cache_key, 'counts' );
 		if ( false !== $counts ) {
 			/** This filter is documented in wp-includes/post.php */
 			return apply_filters( 'ramphor_managa_posts_count', $counts, $type, $perm );
