@@ -109,36 +109,36 @@ class RPM_Post_Types {
 	}
 
 	public static function register_taxonomies() {
-		$category_rewrite = array(
+		$genre_rewrite = array(
 			'slug'         => 'genre',
 			'with_front'   => false,
 			'hierarchical' => true,
 		);
 		register_taxonomy(
-			'manga_cat',
+			'genre',
 			apply_filters(
-				'ramphor_manga_taxonomy_objects_manga_cat',
+				'ramphor_manga_taxonomy_objects_manga_genre',
 				array( 'manga' ),
 			),
 			apply_filters(
-				'ramphor_manga_taxonomy_args_manga_cat',
+				'ramphor_manga_taxonomy_args_manga_genre',
 				array(
 					'hierarchical'          => true,
 					'update_count_callback' => '_wc_term_recount',
-					'label'                 => __( 'Categories', 'ramphor_manga' ),
+					'label'                 => __( 'Genres', 'ramphor_manga' ),
 					'labels'                => array(
-						'name'              => __( 'Manga categories', 'ramphor_manga' ),
-						'singular_name'     => __( 'Category', 'ramphor_manga' ),
-						'menu_name'         => __( 'Categories', 'ramphor_manga' ),
-						'search_items'      => __( 'Search categories', 'ramphor_manga' ),
-						'all_items'         => __( 'All categories', 'ramphor_manga' ),
-						'parent_item'       => __( 'Parent category', 'ramphor_manga' ),
-						'parent_item_colon' => __( 'Parent category:', 'ramphor_manga' ),
-						'edit_item'         => __( 'Edit category', 'ramphor_manga' ),
-						'update_item'       => __( 'update category', 'ramphor_manga' ),
-						'add_new_item'      => __( 'Add new category', 'ramphor_manga' ),
-						'add_new_name'      => __( 'New category name', 'ramphor_manga' ),
-						'not_found'         => __( 'No categories found', 'ramphor_manga' ),
+						'name'              => __( 'Manga genres', 'ramphor_manga' ),
+						'singular_name'     => __( 'Genre', 'ramphor_manga' ),
+						'menu_name'         => __( 'Genres', 'ramphor_manga' ),
+						'search_items'      => __( 'Search genres', 'ramphor_manga' ),
+						'all_items'         => __( 'All genres', 'ramphor_manga' ),
+						'parent_item'       => __( 'Parent genre', 'ramphor_manga' ),
+						'parent_item_colon' => __( 'Parent genre:', 'ramphor_manga' ),
+						'edit_item'         => __( 'Edit genre', 'ramphor_manga' ),
+						'update_item'       => __( 'update genre', 'ramphor_manga' ),
+						'add_new_item'      => __( 'Add new genre', 'ramphor_manga' ),
+						'add_new_name'      => __( 'New genre name', 'ramphor_manga' ),
+						'not_found'         => __( 'No genres found', 'ramphor_manga' ),
 					),
 					'show_ui'               => true,
 					'public'                => true,
@@ -150,7 +150,7 @@ class RPM_Post_Types {
 					// 'delete_terms' => 'delete_manga_terms',
 					// 'assign_terms' => 'assign_manga_terms',
 					// ),
-					'rewrite'               => $category_rewrite,
+					'rewrite'               => $genre_rewrite,
 				)
 			)
 		);
@@ -168,6 +168,7 @@ class RPM_Post_Types {
 					'public'       => true,
 					'hierarchical' => false,
 					'show_in_rest' => true,
+					'show_in_menu' => false,
 				)
 			)
 		);
