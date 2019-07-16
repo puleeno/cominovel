@@ -1,7 +1,7 @@
 {
-  "name": "@ramphor/comic",
+  "name": "@ramphor/cominovel",
   "version": "1.0.0",
-  "description": "Manga WordPress plugin",
+  "description": "Comic WordPress plugin",
   "main": "index.js",
   "babel": {
     "presets": [

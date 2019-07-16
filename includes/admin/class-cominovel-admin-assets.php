@@ -3,7 +3,7 @@
  * Load assets for Cominovel admin page
  *
  * @package Ramphor/Admin
- * @category Manga
+ * @category Cominovel
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

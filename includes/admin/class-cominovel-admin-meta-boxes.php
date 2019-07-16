@@ -18,7 +18,7 @@ class Cominovel_Admin_Meta_Boxes {
 	}
 
 	public function add_meta_boxes() {
-		add_meta_box( 'cominovel-data', __( 'Manga data', 'cominovel' ), 'Cominovel_Meta_Box_Manga_Data::output', array( 'comic' ), 'advanced', 'high', );
+		add_meta_box( 'cominovel-data', __( 'Comic data', 'cominovel' ), 'Cominovel_Meta_Box_Comic_Data::output', array( 'comic' ), 'advanced', 'high', );
 	}
 
 	public function save_meta_boxes( $post_id, $post ) {

@@ -25,8 +25,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-[class^="rpm-"]:before,
-[class*=" rpm-"]:before {
+[class^="cominovel-"]:before,
+[class*=" cominovel-"]:before {
   font-family: "cominovel" !important;
   font-style: normal !important;
   font-weight: normal !important;
@@ -38,615 +38,615 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.rpm-naruto:before {
+.cominovel-naruto:before {
   content: "\35";
 }
-.rpm-naruto-face:before {
+.cominovel-naruto-face:before {
   content: "\61";
 }
-.rpm-naruto-leaf-village:before {
+.cominovel-naruto-leaf-village:before {
   content: "\62";
 }
-.rpm-candy:before {
+.cominovel-candy:before {
   content: "\63";
 }
-.rpm-bear:before {
+.cominovel-bear:before {
   content: "\64";
 }
-.rpm-bat:before {
+.cominovel-bat:before {
   content: "\65";
 }
-.rpm-bear-face:before {
+.cominovel-bear-face:before {
   content: "\66";
 }
-.rpm-foot:before {
+.cominovel-foot:before {
   content: "\67";
 }
-.rpm-eagle:before {
+.cominovel-eagle:before {
   content: "\6b";
 }
-.rpm-stork:before {
+.cominovel-stork:before {
   content: "\6c";
 }
-.rpm-dog-bone:before {
+.cominovel-dog-bone:before {
   content: "\6d";
 }
-.rpm-butterfly:before {
+.cominovel-butterfly:before {
   content: "\6f";
 }
-.rpm-butterfly-filled:before {
+.cominovel-butterfly-filled:before {
   content: "\70";
 }
-.rpm-camel:before {
+.cominovel-camel:before {
   content: "\71";
 }
-.rpm-cat:before {
+.cominovel-cat:before {
   content: "\75";
 }
-.rpm-cat-2:before {
+.cominovel-cat-2:before {
   content: "\76";
 }
-.rpm-cats:before {
+.cominovel-cats:before {
   content: "\77";
 }
-.rpm-cat-face:before {
+.cominovel-cat-face:before {
   content: "\78";
 }
-.rpm-cow-head:before {
+.cominovel-cow-head:before {
   content: "\7a";
 }
-.rpm-crab:before {
+.cominovel-crab:before {
   content: "\42";
 }
-.rpm-dog:before {
+.cominovel-dog:before {
   content: "\45";
 }
-.rpm-wolf:before {
+.cominovel-wolf:before {
   content: "\46";
 }
-.rpm-dolphin:before {
+.cominovel-dolphin:before {
   content: "\48";
 }
-.rpm-fish-bone:before {
+.cominovel-fish-bone:before {
   content: "\4b";
 }
-.rpm-elephant:before {
+.cominovel-elephant:before {
   content: "\4f";
 }
-.rpm-fish:before {
+.cominovel-fish:before {
   content: "\53";
 }
-.rpm-fish-2:before {
+.cominovel-fish-2:before {
   content: "\54";
 }
-.rpm-fish-1:before {
+.cominovel-fish-1:before {
   content: "\55";
 }
-.rpm-fish-3:before {
+.cominovel-fish-3:before {
   content: "\56";
 }
-.rpm-fox:before {
+.cominovel-fox:before {
   content: "\57";
 }
-.rpm-fox-2:before {
+.cominovel-fox-2:before {
   content: "\58";
 }
-.rpm-frog:before {
+.cominovel-frog:before {
   content: "\30";
 }
-.rpm-giraffe:before {
+.cominovel-giraffe:before {
   content: "\33";
 }
-.rpm-gorilla:before {
+.cominovel-gorilla:before {
   content: "\37";
 }
-.rpm-tod:before {
+.cominovel-tod:before {
   content: "\39";
 }
-.rpm-seahorse:before {
+.cominovel-seahorse:before {
   content: "\21";
 }
-.rpm-jellyfish:before {
+.cominovel-jellyfish:before {
   content: "\24";
 }
-.rpm-lion:before {
+.cominovel-lion:before {
   content: "\28";
 }
-.rpm-monkey:before {
+.cominovel-monkey:before {
   content: "\2d";
 }
-.rpm-octopus:before {
+.cominovel-octopus:before {
   content: "\3a";
 }
-.rpm-owl:before {
+.cominovel-owl:before {
   content: "\3b";
 }
-.rpm-panda:before {
+.cominovel-panda:before {
   content: "\3c";
 }
-.rpm-panther:before {
+.cominovel-panther:before {
   content: "\3e";
 }
-.rpm-footprint:before {
+.cominovel-footprint:before {
   content: "\5b";
 }
-.rpm-pelican:before {
+.cominovel-pelican:before {
   content: "\5d";
 }
-.rpm-penguin:before {
+.cominovel-penguin:before {
   content: "\5e";
 }
-.rpm-pig:before {
+.cominovel-pig:before {
   content: "\5f";
 }
-.rpm-ferocious-pig:before {
+.cominovel-ferocious-pig:before {
   content: "\60";
 }
-.rpm-pigeons:before {
+.cominovel-pigeons:before {
   content: "\7c";
 }
-.rpm-rabbit:before {
+.cominovel-rabbit:before {
   content: "\7e";
 }
-.rpm-rhino:before {
+.cominovel-rhino:before {
   content: "\e001";
 }
-.rpm-rooster:before {
+.cominovel-rooster:before {
   content: "\e002";
 }
-.rpm-seahorse-1:before {
+.cominovel-seahorse-1:before {
   content: "\e003";
 }
-.rpm-icofont-95:before {
+.cominovel-icofont-95:before {
   content: "\e004";
 }
-.rpm-snail:before {
+.cominovel-snail:before {
   content: "\e007";
 }
-.rpm-snail-filled:before {
+.cominovel-snail-filled:before {
   content: "\e009";
 }
-.rpm-squirrel:before {
+.cominovel-squirrel:before {
   content: "\e00d";
 }
-.rpm-tiger:before {
+.cominovel-tiger:before {
   content: "\e00e";
 }
-.rpm-turtle:before {
+.cominovel-turtle:before {
   content: "\e010";
 }
-.rpm-whale:before {
+.cominovel-whale:before {
   content: "\e011";
 }
-.rpm-hummingbirds:before {
+.cominovel-hummingbirds:before {
   content: "\e012";
 }
-.rpm-sailor-moon-filled:before {
+.cominovel-sailor-moon-filled:before {
   content: "\e014";
 }
-.rpm-naruto-filled:before {
+.cominovel-naruto-filled:before {
   content: "\e015";
 }
-.rpm-sailor-moon:before {
+.cominovel-sailor-moon:before {
   content: "\e016";
 }
-.rpm-onigiri:before {
+.cominovel-onigiri:before {
   content: "\e017";
 }
-.rpm-restaurant:before {
+.cominovel-restaurant:before {
   content: "\e018";
 }
-.rpm-service:before {
+.cominovel-service:before {
   content: "\e019";
 }
-.rpm-pudding:before {
+.cominovel-pudding:before {
   content: "\e01a";
 }
-.rpm-rice-bowl:before {
+.cominovel-rice-bowl:before {
   content: "\e01b";
 }
-.rpm-chicken:before {
+.cominovel-chicken:before {
   content: "\e01c";
 }
-.rpm-green-tea:before {
+.cominovel-green-tea:before {
   content: "\e01d";
 }
-.rpm-mushroom:before {
+.cominovel-mushroom:before {
   content: "\e01e";
 }
-.rpm-squid:before {
+.cominovel-squid:before {
   content: "\e01f";
 }
-.rpm-ice-cream:before {
+.cominovel-ice-cream:before {
   content: "\e020";
 }
-.rpm-angle:before {
+.cominovel-angle:before {
   content: "\e026";
 }
-.rpm-death:before {
+.cominovel-death:before {
   content: "\e02a";
 }
-.rpm-monster-2:before {
+.cominovel-monster-2:before {
   content: "\e02b";
 }
-.rpm-monster-3:before {
+.cominovel-monster-3:before {
   content: "\e02c";
 }
-.rpm-ninja:before {
+.cominovel-ninja:before {
   content: "\e033";
 }
-.rpm-monster-1:before {
+.cominovel-monster-1:before {
   content: "\e034";
 }
-.rpm-witch:before {
+.cominovel-witch:before {
   content: "\e036";
 }
-.rpm-queen:before {
+.cominovel-queen:before {
   content: "\e038";
 }
-.rpm-monster:before {
+.cominovel-monster:before {
   content: "\e039";
 }
-.rpm-combatant:before {
+.cominovel-combatant:before {
   content: "\e03c";
 }
-.rpm-king:before {
+.cominovel-king:before {
   content: "\e03d";
 }
-.rpm-girl-two-pony-tails:before {
+.cominovel-girl-two-pony-tails:before {
   content: "\e03f";
 }
-.rpm-girl-pony-tail:before {
+.cominovel-girl-pony-tail:before {
   content: "\e040";
 }
-.rpm-boy-with-shirt:before {
+.cominovel-boy-with-shirt:before {
   content: "\e041";
 }
-.rpm-girl-smilling:before {
+.cominovel-girl-smilling:before {
   content: "\e042";
 }
-.rpm-boy-smilling:before {
+.cominovel-boy-smilling:before {
   content: "\e043";
 }
-.rpm-boy-shummer-clothes:before {
+.cominovel-boy-shummer-clothes:before {
   content: "\e044";
 }
-.rpm-boy-t-shirt:before {
+.cominovel-boy-t-shirt:before {
   content: "\e045";
 }
-.rpm-boy-shirt:before {
+.cominovel-boy-shirt:before {
   content: "\e046";
 }
-.rpm-boy-short-trausers:before {
+.cominovel-boy-short-trausers:before {
   content: "\e047";
 }
-.rpm-girl-long-hair:before {
+.cominovel-girl-long-hair:before {
   content: "\e048";
 }
-.rpm-anime-character:before {
+.cominovel-anime-character:before {
   content: "\e049";
 }
-.rpm-caveman:before {
+.cominovel-caveman:before {
   content: "\e04a";
 }
-.rpm-character-hair-up:before {
+.cominovel-character-hair-up:before {
   content: "\e04b";
 }
-.rpm-girl-with-shirt:before {
+.cominovel-girl-with-shirt:before {
   content: "\e04c";
 }
-.rpm-girl-with-skirt:before {
+.cominovel-girl-with-skirt:before {
   content: "\e04d";
 }
-.rpm-boy-wild-hair:before {
+.cominovel-boy-wild-hair:before {
   content: "\e04e";
 }
-.rpm-boy-with-tie:before {
+.cominovel-boy-with-tie:before {
   content: "\e04f";
 }
-.rpm-boy-headphone:before {
+.cominovel-boy-headphone:before {
   content: "\e050";
 }
-.rpm-anime-girl-with-skirt:before {
+.cominovel-anime-girl-with-skirt:before {
   content: "\e051";
 }
-.rpm-boy-shirt-big-eyes:before {
+.cominovel-boy-shirt-big-eyes:before {
   content: "\e052";
 }
-.rpm-boy-with-hood:before {
+.cominovel-boy-with-hood:before {
   content: "\e053";
 }
-.rpm-anime-girl-long-hair:before {
+.cominovel-anime-girl-long-hair:before {
   content: "\e054";
 }
-.rpm-boy-short-trauser:before {
+.cominovel-boy-short-trauser:before {
   content: "\e055";
 }
-.rpm-boy-big-eyes:before {
+.cominovel-boy-big-eyes:before {
   content: "\e056";
 }
-.rpm-boy-with-shirt-1:before {
+.cominovel-boy-with-shirt-1:before {
   content: "\e057";
 }
-.rpm-girl-with-plush:before {
+.cominovel-girl-with-plush:before {
   content: "\e058";
 }
-.rpm-boy-with-t-shirt:before {
+.cominovel-boy-with-t-shirt:before {
   content: "\e059";
 }
-.rpm-home:before {
+.cominovel-home:before {
   content: "\e05a";
 }
-.rpm-install:before {
+.cominovel-install:before {
   content: "\e05c";
 }
-.rpm-instagrem:before {
+.cominovel-instagrem:before {
   content: "\e05d";
 }
-.rpm-socicon:before {
+.cominovel-socicon:before {
   content: "\e05e";
 }
-.rpm-chrome:before {
+.cominovel-chrome:before {
   content: "\e05f";
 }
-.rpm-android:before {
+.cominovel-android:before {
   content: "\e060";
 }
-.rpm-envato:before {
+.cominovel-envato:before {
   content: "\e061";
 }
-.rpm-github:before {
+.cominovel-github:before {
   content: "\e062";
 }
-.rpm-firefox:before {
+.cominovel-firefox:before {
   content: "\e063";
 }
-.rpm-google:before {
+.cominovel-google:before {
   content: "\e064";
 }
-.rpm-google-photos:before {
+.cominovel-google-photos:before {
   content: "\e065";
 }
-.rpm-blogger:before {
+.cominovel-blogger:before {
   content: "\e066";
 }
-.rpm-google-play-store:before {
+.cominovel-google-play-store:before {
   content: "\e067";
 }
-.rpm-facebook-messenger:before {
+.cominovel-facebook-messenger:before {
   content: "\e068";
 }
-.rpm-wordpress-1:before {
+.cominovel-wordpress-1:before {
   content: "\e069";
 }
-.rpm-vimeo:before {
+.cominovel-vimeo:before {
   content: "\e06a";
 }
-.rpm-facetime:before {
+.cominovel-facetime:before {
   content: "\e06b";
 }
-.rpm-youtube:before {
+.cominovel-youtube:before {
   content: "\e06c";
 }
-.rpm-vk:before {
+.cominovel-vk:before {
   content: "\e06d";
 }
-.rpm-twitch:before {
+.cominovel-twitch:before {
   content: "\e06e";
 }
-.rpm-twitter:before {
+.cominovel-twitter:before {
   content: "\e06f";
 }
-.rpm-facebook:before {
+.cominovel-facebook:before {
   content: "\e070";
 }
-.rpm-appstore:before {
+.cominovel-appstore:before {
   content: "\e071";
 }
-.rpm-imgur-icon:before {
+.cominovel-imgur-icon:before {
   content: "\e073";
 }
-.rpm-firewall:before {
+.cominovel-firewall:before {
   content: "\e075";
 }
-.rpm-password:before {
+.cominovel-password:before {
   content: "\e078";
 }
-.rpm-ftp:before {
+.cominovel-ftp:before {
   content: "\e07c";
 }
-.rpm-access-denied:before {
+.cominovel-access-denied:before {
   content: "\e083";
 }
-.rpm-sound:before {
+.cominovel-sound:before {
   content: "\e08c";
 }
-.rpm-globe:before {
+.cominovel-globe:before {
   content: "\e08d";
 }
-.rpm-language:before {
+.cominovel-language:before {
   content: "\e08f";
 }
-.rpm-chat:before {
+.cominovel-chat:before {
   content: "\e090";
 }
-.rpm-basket:before {
+.cominovel-basket:before {
   content: "\e091";
 }
-.rpm-bucket:before {
+.cominovel-bucket:before {
   content: "\e092";
 }
-.rpm-adjust:before {
+.cominovel-adjust:before {
   content: "\e093";
 }
-.rpm-loading:before {
+.cominovel-loading:before {
   content: "\e095";
 }
-.rpm-loading-1:before {
+.cominovel-loading-1:before {
   content: "\e096";
 }
-.rpm-loading-2:before {
+.cominovel-loading-2:before {
   content: "\e097";
 }
-.rpm-loading-3:before {
+.cominovel-loading-3:before {
   content: "\e098";
 }
-.rpm-loading-4:before {
+.cominovel-loading-4:before {
   content: "\e099";
 }
-.rpm-megaphone:before {
+.cominovel-megaphone:before {
   content: "\e09c";
 }
-.rpm-address:before {
+.cominovel-address:before {
   content: "\e09d";
 }
-.rpm-graduation-cap:before {
+.cominovel-graduation-cap:before {
   content: "\e09e";
 }
-.rpm-database:before {
+.cominovel-database:before {
   content: "\e0a1";
 }
-.rpm-chart-area:before {
+.cominovel-chart-area:before {
   content: "\e0a2";
 }
-.rpm-chart-bar:before {
+.cominovel-chart-bar:before {
   content: "\e0a3";
 }
-.rpm-chart-line:before {
+.cominovel-chart-line:before {
   content: "\e0a4";
 }
-.rpm-cog:before {
+.cominovel-cog:before {
   content: "\e0a5";
 }
-.rpm-ccw:before {
+.cominovel-ccw:before {
   content: "\e0a8";
 }
-.rpm-bell:before {
+.cominovel-bell:before {
   content: "\e0aa";
 }
-.rpm-dot-2:before {
+.cominovel-dot-2:before {
   content: "\e09a";
 }
-.rpm-dot-3:before {
+.cominovel-dot-3:before {
   content: "\e09b";
 }
-.rpm-dot:before {
+.cominovel-dot:before {
   content: "\e0ab";
 }
-.rpm-help:before {
+.cominovel-help:before {
   content: "\e0ac";
 }
-.rpm-hourglass:before {
+.cominovel-hourglass:before {
   content: "\e0ae";
 }
-.rpm-mic:before {
+.cominovel-mic:before {
   content: "\e0b2";
 }
-.rpm-up-open-big:before {
+.cominovel-up-open-big:before {
   content: "\e0b4";
 }
-.rpm-up-open-mini:before {
+.cominovel-up-open-mini:before {
   content: "\e0b5";
 }
-.rpm-up:before {
+.cominovel-up:before {
   content: "\e0b6";
 }
-.rpm-photo-picture:before {
+.cominovel-photo-picture:before {
   content: "\e0b7";
 }
-.rpm-contact-add:before {
+.cominovel-contact-add:before {
   content: "\e0b8";
 }
-.rpm-contact-big:before {
+.cominovel-contact-big:before {
   content: "\e0b9";
 }
-.rpm-bug:before {
+.cominovel-bug:before {
   content: "\e0ba";
 }
-.rpm-address-at:before {
+.cominovel-address-at:before {
   content: "\e0bb";
 }
-.rpm-contact:before {
+.cominovel-contact:before {
   content: "\e0bc";
 }
-.rpm-cog-outline:before {
+.cominovel-cog-outline:before {
   content: "\e0bd";
 }
-.rpm-cog-2:before {
+.cominovel-cog-2:before {
   content: "\e0be";
 }
-.rpm-gear-setting:before {
+.cominovel-gear-setting:before {
   content: "\e0bf";
 }
-.rpm-mixer:before {
+.cominovel-mixer:before {
   content: "\e0c0";
 }
-.rpm-talk-chat:before {
+.cominovel-talk-chat:before {
   content: "\e0c1";
 }
-.rpm-chat-1:before {
+.cominovel-chat-1:before {
   content: "\e0c2";
 }
-.rpm-tags:before {
+.cominovel-tags:before {
   content: "\e0c3";
 }
-.rpm-timer-clock:before {
+.cominovel-timer-clock:before {
   content: "\e0c4";
 }
-.rpm-timer:before {
+.cominovel-timer:before {
   content: "\e0c5";
 }
-.rpm-user-circle:before {
+.cominovel-user-circle:before {
   content: "\e0c6";
 }
-.rpm-user-circle-outline:before {
+.cominovel-user-circle-outline:before {
   content: "\e0c7";
 }
-.rpm-wordpress-2:before {
+.cominovel-wordpress-2:before {
   content: "\e0c8";
 }
-.rpm-wordpress-outline:before {
+.cominovel-wordpress-outline:before {
   content: "\e0c9";
 }
-.rpm-photos-pictures:before {
+.cominovel-photos-pictures:before {
   content: "\e0ca";
 }
-.rpm-beer:before {
+.cominovel-beer:before {
   content: "\e0cb";
 }
-.rpm-buoy-help:before {
+.cominovel-buoy-help:before {
   content: "\e0cc";
 }
-.rpm-clipboard:before {
+.cominovel-clipboard:before {
   content: "\e0cd";
 }
-.rpm-compose:before {
+.cominovel-compose:before {
   content: "\e0ce";
 }
-.rpm-cw:before {
+.cominovel-cw:before {
   content: "\e05b";
 }
-.rpm-arrows-ccw:before {
+.cominovel-arrows-ccw:before {
   content: "\e094";
 }
-.rpm-help-circled:before {
+.cominovel-help-circled:before {
   content: "\e08b";
 }
-.rpm-alarm-clock:before {
+.cominovel-alarm-clock:before {
   content: "\e08e";
 }
-.rpm-contrast:before {
+.cominovel-contrast:before {
   content: "\e09f";
 }
-.rpm-heart-small:before {
+.cominovel-heart-small:before {
   content: "\e0a0";
 }
-.rpm-heart-small-outline:before {
+.cominovel-heart-small-outline:before {
   content: "\e0a6";
 }
-.rpm-privacy:before {
+.cominovel-privacy:before {
   content: "\68";
 }
-.rpm-imgur:before {
+.cominovel-imgur:before {
   content: "\69";
 }

@@ -1,2 +1,2 @@
 # comic
-Manga compoments
+Comic compoments
