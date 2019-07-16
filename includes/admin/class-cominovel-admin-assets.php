@@ -11,9 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * RPM_Admin_Assets class.
+ * Cominovel_Admin_Assets class.
  */
-class RPM_Admin_Assets {
+class Cominovel_Admin_Assets {
 	protected $screen;
 
 	public function __construct() {
@@ -31,4 +31,4 @@ class RPM_Admin_Assets {
 	}
 }
 
-return new RPM_Admin_Assets();
+return new Cominovel_Admin_Assets();

@@ -1,3 +1,3 @@
 <?php
-abstract class RPM_Manga_Text extends RPM_Manga {
+abstract class Cominovel_Text extends Cominovel {
 }

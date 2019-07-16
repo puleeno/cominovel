@@ -1,6 +1,6 @@
 <?php
 
-class RPM_Post_Types {
+class Cominovel_Post_Types {
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register_taxonomies' ), 5 );
 		add_action( 'init', array( __CLASS__, 'register_post_types' ), 5 );
@@ -206,4 +206,4 @@ class RPM_Post_Types {
 }
 
 
-RPM_Post_Types::init();
+Cominovel_Post_Types::init();

@@ -1,5 +1,5 @@
 <?php
 
-class RPM_Install {
+class Cominovel_Install {
 
 }

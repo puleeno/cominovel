@@ -1,4 +1,4 @@
 <?php
 
-abstract class RPM_Manga {
+abstract class Cominovel {
 }

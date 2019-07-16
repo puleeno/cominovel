@@ -1,6 +1,6 @@
 <?php
 
-class RPM_Admin_Meta_Boxes {
+class Cominovel_Admin_Meta_Boxes {
 
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 10 );
@@ -18,11 +18,11 @@ class RPM_Admin_Meta_Boxes {
 	}
 
 	public function add_meta_boxes() {
-		add_meta_box( 'cominovel-data', __( 'Manga data', 'cominovel' ), 'RPM_Meta_Box_Manga_Data::output', array( 'comic' ), 'advanced', 'high', );
+		add_meta_box( 'cominovel-data', __( 'Manga data', 'cominovel' ), 'Cominovel_Meta_Box_Manga_Data::output', array( 'comic' ), 'advanced', 'high', );
 	}
 
 	public function save_meta_boxes( $post_id, $post ) {
 	}
 }
 
-return new RPM_Admin_Meta_Boxes();
+return new Cominovel_Admin_Meta_Boxes();

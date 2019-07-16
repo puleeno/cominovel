@@ -1,5 +1,5 @@
 <?php
-class RPM_Admin_Menus {
+class Cominovel_Admin_Menus {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'admin_menus' ) );
 	}
@@ -11,4 +11,4 @@ class RPM_Admin_Menus {
 	}
 }
 
-return new RPM_Admin_Menus();
+return new Cominovel_Admin_Menus();

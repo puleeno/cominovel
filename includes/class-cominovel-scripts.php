@@ -1,7 +1,7 @@
 <?php
 
-class RPM_Frontend_Scripts {
+class Cominovel_Frontend_Scripts {
 
 }
 
-RPM_Frontend_Scripts::init();
+Cominovel_Frontend_Scripts::init();

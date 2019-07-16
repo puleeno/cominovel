@@ -1,5 +1,5 @@
 <?php
-class RPM_Admin {
+class Cominovel_Admin {
 	protected $screen;
 
 	public function __construct() {
@@ -10,9 +10,9 @@ class RPM_Admin {
 	}
 
 	public function includes() {
-		require_once dirname( __FILE__ ) . '/class-rpm-admin-post-types.php';
-		require_once dirname( __FILE__ ) . '/class-rpm-admin-menus.php';
-		require_once dirname( __FILE__ ) . '/class-rpm-admin-assets.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-admin-post-types.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-admin-menus.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-admin-assets.php';
 	}
 
 	public function filter_comics( $query ) {
@@ -64,4 +64,4 @@ class RPM_Admin {
 	}
 }
 
-return new RPM_Admin();
+return new Cominovel_Admin();
