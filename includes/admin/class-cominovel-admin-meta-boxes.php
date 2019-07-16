@@ -10,15 +10,15 @@ class RPM_Admin_Meta_Boxes {
 	}
 
 	public function remove_meta_boxes() {
-		remove_meta_box( 'postexcerpt', 'manga', 'normal' );
-		remove_meta_box( 'tagsdiv-manga_release', 'manga', 'side' );
+		remove_meta_box( 'postexcerpt', 'comic', 'normal' );
+		remove_meta_box( 'tagsdiv-comic_release', 'comic', 'side' );
 	}
 
 	public function rename_meta_boxes() {
 	}
 
 	public function add_meta_boxes() {
-		add_meta_box( 'ramphor-manga-data', __( 'Manga data', 'ramphor_manga' ), 'RPM_Meta_Box_Manga_Data::output', array( 'manga' ), 'advanced', 'high', );
+		add_meta_box( 'cominovel-data', __( 'Manga data', 'cominovel' ), 'RPM_Meta_Box_Manga_Data::output', array( 'comic' ), 'advanced', 'high', );
 	}
 
 	public function save_meta_boxes( $post_id, $post ) {

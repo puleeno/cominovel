@@ -1,6 +1,6 @@
 <?php
 /**
- * Load assets for Ramphor Manga admin page
+ * Load assets for Cominovel admin page
  *
  * @package Ramphor/Admin
  * @category Manga
@@ -26,8 +26,8 @@ class RPM_Admin_Assets {
 	}
 
 	public function admin_scripts() {
-		wp_register_script( 'ramphor-manga-admin', ramphor_manga()->plugin_url( 'public/js/admin.js' ) );
-		wp_enqueue_script( 'ramphor-manga-admin' );
+		wp_register_script( 'cominovel-admin', cominovel()->plugin_url( 'public/js/admin.js' ) );
+		wp_enqueue_script( 'cominovel-admin' );
 	}
 }
 

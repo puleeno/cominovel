@@ -1,2 +1,2 @@
-# manga
+# comic
 Manga compoments

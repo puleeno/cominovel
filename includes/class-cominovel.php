@@ -1,29 +1,29 @@
 <?php
 /**
- * The main Ramphor Manga plugin file
+ * The main Cominovel plugin file
  *
- * @package Ramphor/Manga
+ * @package Cominovel
  * @author  Puleeno Nguyen <puleeno@gmail.com>
  */
 
 use Ramphor\UserProfile\UserProfile;
 
-if ( ! class_exists( 'Ramphor_Manga' ) ) {
+if ( ! class_exists( 'Cominovel' ) ) {
 	/**
-	 * Class Ramphor_Manga is the main class of Ramphor Manga plugin
+	 * Class Cominovel is the main class of Cominovel plugin
 	 */
-	class Ramphor_Manga {
+	class Cominovel {
 		/**
-		 * The instance of class Ramphor_Manga.
+		 * The instance of class Cominovel.
 		 *
-		 * @var Ramphor_Manga
+		 * @var Cominovel
 		 */
 		protected static $instance;
 
 		/**
-		 * Get Ramphor manga instance or create if not exists.
+		 * Get Ramphor comic instance or create if not exists.
 		 *
-		 * @return  Ramphor_Manga  The instance of Ramphor_Manga class.
+		 * @return  Cominovel  The instance of Cominovel class.
 		 */
 		public static function instance() {
 			if ( is_null( self::$instance ) ) {
@@ -46,7 +46,7 @@ if ( ! class_exists( 'Ramphor_Manga' ) ) {
 		}
 
 		public function define_constants() {
-			$this->define( 'RPM_ABSPATH', plugin_dir_path( RAMPHOR_MANGA_PLUGIN_FILE ) );
+			$this->define( 'RPM_ABSPATH', plugin_dir_path( COMINOVEL_PLUGIN_FILE ) );
 		}
 
 		public function includes() {
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Ramphor_Manga' ) ) {
 			require_once RPM_ABSPATH . 'includes/class-rpm-post-types.php';
 			require_once RPM_ABSPATH . 'includes/class-rpm-install.php';
 			require_once RPM_ABSPATH . 'includes/class-rpm-query.php';
-			require_once RPM_ABSPATH . 'includes/class-rpm-manga-query.php';
+			require_once RPM_ABSPATH . 'includes/class-cominovel-query.php';
 
 			/**
 			 * Load libraries via composer
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Ramphor_Manga' ) ) {
 			}
 			$rest_prefix         = trailingslashit( rest_get_url_prefix() );
 			$is_rest_api_request = ( false !== strpos( $_SERVER['REQUEST_URI'], $rest_prefix ) ); // phpcs:disable WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			return apply_filters( 'ramphor_manga_is_rest_api_request', $is_rest_api_request );
+			return apply_filters( 'cominovel_is_rest_api_request', $is_rest_api_request );
 		}
 
 		public function hooks() {
@@ -120,31 +120,31 @@ if ( ! class_exists( 'Ramphor_Manga' ) ) {
 		}
 
 		public function frontend_includes() {
-			require_once RPM_ABSPATH . 'includes/class-rpm-manga-frontend.php';
+			require_once RPM_ABSPATH . 'includes/class-cominovel-frontend.php';
 		}
 
 		private function theme_support_includes() {
 		}
 
 		public function init() {
-			do_action( 'before_ramphor_manga_init' );
+			do_action( 'before_cominovel_init' );
 
 			$this->load_plugin_textdomain();
 			if ( is_child_theme() ) {
 				$usr_template_dirs = array(
-					get_stylesheet_directory() . 'manga/user-profile/',
-					get_template_directory() . 'manga/user-profile/',
+					get_stylesheet_directory() . 'comic/user-profile/',
+					get_template_directory() . 'comic/user-profile/',
 				);
 			} else {
 				$usr_template_dirs = array(
-					get_template_directory() . 'manga/user-profile/',
+					get_template_directory() . 'comic/user-profile/',
 				);
 			}
 			$usr_template_dirs = array_merge(
 				$usr_template_dirs,
 				array(
-					plugin_dir_path( RAMPHOR_MANGA_PLUGIN_FILE ) . 'templates/user-profile/',
-					plugin_dir_path( RAMPHOR_MANGA_PLUGIN_FILE ) . 'vendor/ramphor/user-profile/templates/',
+					plugin_dir_path( COMINOVEL_PLUGIN_FILE ) . 'templates/user-profile/',
+					plugin_dir_path( COMINOVEL_PLUGIN_FILE ) . 'vendor/ramphor/user-profile/templates/',
 				)
 			);
 
@@ -155,14 +155,14 @@ if ( ! class_exists( 'Ramphor_Manga' ) ) {
 
 		public function load_plugin_textdomain() {
 			$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
-			$locale = apply_filters( 'plugin_locale', $locale, 'ramphor_manga' );
-			unload_textdomain( 'ramphor_manga' );
-			load_textdomain( 'ramphor_manga', WP_LANG_DIR . '/ramphor-manga/ramphor-manga-' . $locale . '.mo' );
-			load_plugin_textdomain( 'ramphor_manga', false, plugin_basename( dirname( RAMPHOR_MANGA_PLUGIN_FILE ) ) . '/languages' );
+			$locale = apply_filters( 'plugin_locale', $locale, 'cominovel' );
+			unload_textdomain( 'cominovel' );
+			load_textdomain( 'cominovel', WP_LANG_DIR . '/cominovel/cominovel-' . $locale . '.mo' );
+			load_plugin_textdomain( 'cominovel', false, plugin_basename( dirname( COMINOVEL_PLUGIN_FILE ) ) . '/languages' );
 		}
 
 		public function plugin_url( $path = '/' ) {
-			return untrailingslashit( plugins_url( $path, RAMPHOR_MANGA_PLUGIN_FILE ) );
+			return untrailingslashit( plugins_url( $path, COMINOVEL_PLUGIN_FILE ) );
 		}
 	}
 }

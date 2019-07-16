@@ -5,7 +5,7 @@ class RPM_Admin {
 	public function __construct() {
 		add_action( 'init', array( $this, 'includes' ) );
 
-		add_filter( 'pre_get_posts', array( $this, 'filter_mangas' ) );
+		add_filter( 'pre_get_posts', array( $this, 'filter_comics' ) );
 		add_filter( 'wp_count_posts', array( $this, 'count_posts' ), 10, 3 );
 	}
 
@@ -15,8 +15,8 @@ class RPM_Admin {
 		require_once dirname( __FILE__ ) . '/class-rpm-admin-assets.php';
 	}
 
-	public function filter_mangas( $query ) {
-		if ( $query->get( 'post_type' ) != 'manga' ) {
+	public function filter_comics( $query ) {
+		if ( $query->get( 'post_type' ) != 'comic' ) {
 			return $query;
 		}
 		$query->set( 'post_parent', 0 );
@@ -26,7 +26,7 @@ class RPM_Admin {
 	public function count_posts( $counts, $type, $perm ) {
 		global $wpdb;
 
-		if ( $type !== 'manga' ) {
+		if ( $type !== 'comic' ) {
 			return $counts;
 		}
 		$cache_key = 'ramphor_managa_posts_count';
@@ -48,7 +48,7 @@ class RPM_Admin {
 		}
 		$query .= ' GROUP BY post_status';
 
-		$query = apply_filters( 'ramphor_manga_count_managa_posts_query', $query, $counts, $type, $perm );
+		$query = apply_filters( 'cominovel_count_managa_posts_query', $query, $counts, $type, $perm );
 
 		$results = (array) $wpdb->get_results( $wpdb->prepare( $query, $type, 0 ), ARRAY_A );
 		$counts  = array_fill_keys( get_post_stati(), 0 );
