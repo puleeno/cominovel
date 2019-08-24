@@ -1,5 +1,5 @@
 <?php
 
-class Cominovel_Query
-{
+class Cominovel_Query {
+
 }

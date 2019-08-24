@@ -83,7 +83,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			}
 
 			$this->theme_support_includes();
-			if (class_exists('Cominovel_Query')) {
+			if ( class_exists( 'Cominovel_Query' ) ) {
 				$this->query = new Cominovel_Query();
 			}
 		}
@@ -117,6 +117,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		public function hooks() {
+			register_activation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'active' ) );
 			add_action( 'init', array( $this, 'init' ) );
 		}
 
