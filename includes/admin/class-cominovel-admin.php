@@ -11,6 +11,7 @@ class Cominovel_Admin {
 
 	public function includes() {
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-post-types.php';
+		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-manga-data.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-menus.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-assets.php';
 	}
