@@ -65,7 +65,6 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once Cominovel_ABSPATH . 'includes/class-cominovel-post-types.php';
 			require_once Cominovel_ABSPATH . 'includes/class-cominovel-install.php';
 			require_once Cominovel_ABSPATH . 'includes/class-cominovel-query.php';
-			require_once Cominovel_ABSPATH . 'includes/class-cominovel-query.php';
 
 			/**
 			 * Load libraries via composer
@@ -84,7 +83,9 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			}
 
 			$this->theme_support_includes();
-			$this->query = new Cominovel_Query();
+			if (class_exists('Cominovel_Query')) {
+				$this->query = new Cominovel_Query();
+			}
 		}
 
 		/**
