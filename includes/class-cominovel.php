@@ -46,7 +46,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		public function define_constants() {
-			$this->define( 'Cominovel_ABSPATH', plugin_dir_path( COMINOVEL_PLUGIN_FILE ) );
+			$this->define( 'COMINOVEL_ABSPATH', plugin_dir_path( COMINOVEL_PLUGIN_FILE ) );
+			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf('%s/templates', COMINOVEL_ABSPATH) );
 		}
 
 		public function includes() {
@@ -61,21 +62,21 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			/**
 			 * Core classses
 			 */
-			require_once Cominovel_ABSPATH . 'includes/cominovel-core-functions.php';
-			require_once Cominovel_ABSPATH . 'includes/class-cominovel-post-types.php';
-			require_once Cominovel_ABSPATH . 'includes/class-cominovel-install.php';
-			require_once Cominovel_ABSPATH . 'includes/class-cominovel-query.php';
+			require_once COMINOVEL_ABSPATH . 'includes/cominovel-core-functions.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-post-types.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-install.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-query.php';
 
 			/**
 			 * Load libraries via composer
 			 */
-			$composer = Cominovel_ABSPATH . 'vendor/autoload.php';
+			$composer = COMINOVEL_ABSPATH . 'vendor/autoload.php';
 			if ( file_exists( $composer ) ) {
 				require_once $composer;
 			}
 
 			if ( $this->is_request( 'admin' ) ) {
-				require_once Cominovel_ABSPATH . 'includes/admin/class-cominovel-admin.php';
+				require_once COMINOVEL_ABSPATH . 'includes/admin/class-cominovel-admin.php';
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
@@ -122,7 +123,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		public function frontend_includes() {
-			require_once Cominovel_ABSPATH . 'includes/class-cominovel-frontend.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template.php';
 		}
 
 		private function theme_support_includes() {
