@@ -4,20 +4,77 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2262abeacf362c98dc30717bfed2bcf",
+    "content-hash": "d4789b95cdfa2b524ab767e307bd4410",
     "packages": [
+        {
+            "name": "hybridauth/hybridauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hybridauth/hybridauth.git",
+                "reference": "4e068f184b26de4d6806e142316820a2c85c5849"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/4e068f184b26de4d6806e142316820a2c85c5849",
+                "reference": "4e068f184b26de4d6806e142316820a2c85c5849",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "~4.8.35"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hybridauth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Miled",
+                    "email": "hybridauth@gmail.com"
+                }
+            ],
+            "description": "PHP Social Authentication Library",
+            "homepage": "https://hybridauth.github.io",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "api",
+                "authorization",
+                "facebook",
+                "google",
+                "oauth",
+                "social",
+                "twitter"
+            ],
+            "time": "2019-09-09T14:33:28+00:00"
+        },
         {
             "name": "jankx/fields",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jankx/fields.git",
-                "reference": "fb44fc07bf7a8700333cdb0e55140c9f2383ae03"
+                "url": "https://github.com/jankx/field.git",
+                "reference": "0bb791f1b7f7cf28f0a68f07c3252c8efe7a590f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/fields/zipball/fb44fc07bf7a8700333cdb0e55140c9f2383ae03",
-                "reference": "fb44fc07bf7a8700333cdb0e55140c9f2383ae03",
+                "url": "https://api.github.com/repos/jankx/field/zipball/0bb791f1b7f7cf28f0a68f07c3252c8efe7a590f",
+                "reference": "0bb791f1b7f7cf28f0a68f07c3252c8efe7a590f",
                 "shasum": ""
             },
             "type": "library",
@@ -37,7 +94,73 @@
                 }
             ],
             "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
-            "time": "2019-05-06T07:15:29+00:00"
+            "time": "2019-06-16T06:07:59+00:00"
+        },
+        {
+            "name": "puleeno/wallery",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/puleeno/wallery.git",
+                "reference": "7a7e7856748247c442ca1dd8d03cdf00de149f84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/puleeno/wallery/zipball/7a7e7856748247c442ca1dd8d03cdf00de149f84",
+                "reference": "7a7e7856748247c442ca1dd8d03cdf00de149f84",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puleeno\\Wallery\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "WordPress gallery for meta box and frontend post",
+            "time": "2019-09-18T18:56:34+00:00"
+        },
+        {
+            "name": "ramphor/updater",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/updater.git",
+                "reference": "69b20a8bb6b5f67707fc5a5e8422485ae3fcaf36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/updater/zipball/69b20a8bb6b5f67707fc5a5e8422485ae3fcaf36",
+                "reference": "69b20a8bb6b5f67707fc5a5e8422485ae3fcaf36",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramphor\\Updater\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ramphor Premium",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The embeded updater for themes, plugins in WordPress",
+            "time": "2019-08-22T02:12:52+00:00"
         },
         {
             "name": "ramphor/user-profile",
@@ -45,18 +168,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/user-profile.git",
-                "reference": "c03f53b4485c4cac3ca95c891847582fe7bfe0d7"
+                "reference": "6f2b0ceea59d57b0fef03374b644b6416c2b61b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/c03f53b4485c4cac3ca95c891847582fe7bfe0d7",
-                "reference": "c03f53b4485c4cac3ca95c891847582fe7bfe0d7",
+                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/6f2b0ceea59d57b0fef03374b644b6416c2b61b3",
+                "reference": "6f2b0ceea59d57b0fef03374b644b6416c2b61b3",
                 "shasum": ""
+            },
+            "require": {
+                "hybridauth/hybridauth": "~3.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Ramphor\\UserProfile\\": "src/"
+                    "Ramphor\\User\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -70,7 +196,7 @@
                 }
             ],
             "description": "User profile core for embed to other plugins or themes",
-            "time": "2019-05-04T15:32:28+00:00"
+            "time": "2019-09-19T01:09:05+00:00"
         }
     ],
     "packages-dev": [],
@@ -78,7 +204,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "ramphor/user-profile": 20,
-        "jankx/fields": 20
+        "jankx/fields": 20,
+        "puleeno/wallery": 20,
+        "ramphor/updater": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

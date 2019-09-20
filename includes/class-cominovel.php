@@ -6,7 +6,8 @@
  * @author  Puleeno Nguyen <puleeno@gmail.com>
  */
 
-use Ramphor\UserProfile\UserProfile;
+use Ramphor\User\Profile as UserProfile;
+use Ramphor\User\LoginStyle\Enum as LoginStyle;
 
 if ( ! class_exists( 'Cominovel' ) ) {
 	/**
@@ -47,7 +48,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 
 		public function define_constants() {
 			$this->define( 'COMINOVEL_ABSPATH', plugin_dir_path( COMINOVEL_PLUGIN_FILE ) );
-			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf('%s/templates', COMINOVEL_ABSPATH) );
+			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf( '%s/templates', COMINOVEL_ABSPATH ) );
 		}
 
 		public function includes() {
@@ -74,6 +75,10 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			if ( file_exists( $composer ) ) {
 				require_once $composer;
 			}
+
+			require_once COMINOVEL_ABSPATH . 'includes/abstracts/class-cominovel-data.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-comic.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-novel.php';
 
 			if ( $this->is_request( 'admin' ) ) {
 				require_once COMINOVEL_ABSPATH . 'includes/admin/class-cominovel-admin.php';
@@ -134,26 +139,17 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			do_action( 'before_cominovel_init' );
 
 			$this->load_plugin_textdomain();
-			if ( is_child_theme() ) {
-				$usr_template_dirs = array(
-					get_stylesheet_directory() . 'comic/user-profile/',
-					get_template_directory() . 'comic/user-profile/',
-				);
-			} else {
-				$usr_template_dirs = array(
-					get_template_directory() . 'comic/user-profile/',
-				);
-			}
-			$usr_template_dirs = array_merge(
-				$usr_template_dirs,
-				array(
-					plugin_dir_path( COMINOVEL_PLUGIN_FILE ) . 'templates/user-profile/',
-					plugin_dir_path( COMINOVEL_PLUGIN_FILE ) . 'vendor/ramphor/user-profile/templates/',
-				)
-			);
 
-			if ( class_exists( 'UserProfile' ) ) {
-				UserProfile::instance( $usr_template_dirs );
+			if ( class_exists( UserProfile::class ) ) {
+				UserProfile::init(
+					array(
+						'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
+						'login_styles'       => array(
+							LoginStyle::LOGIN_STYLE_WORDPRESS_NATIVE,
+							LoginStyle::LOGIN_STYLE_POPUP_MODAL,
+						),
+					)
+				);
 			}
 		}
 

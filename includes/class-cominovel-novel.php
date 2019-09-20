@@ -1,3 +1,3 @@
 <?php
-abstract class Cominovel_Text extends Cominovel {
+abstract class Cominovel_Novel extends Cominovel_Data {
 }

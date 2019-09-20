@@ -11,7 +11,9 @@ class Cominovel_Admin {
 
 	public function includes() {
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-post-types.php';
-		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-manga-data.php';
+		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-comic-data.php';
+		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-chapter-data.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-admin-setting-page.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-menus.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-assets.php';
 	}
@@ -30,11 +32,11 @@ class Cominovel_Admin {
 		if ( $type !== 'comic' ) {
 			return $counts;
 		}
-		$cache_key = 'ramphor_managa_posts_count';
+		$cache_key = 'cominovel_posts_count';
 		$counts    = wp_cache_get( $cache_key, 'counts' );
 		if ( false !== $counts ) {
 			/** This filter is documented in wp-includes/post.php */
-			return apply_filters( 'ramphor_managa_posts_count', $counts, $type, $perm );
+			return apply_filters( 'cominovel_posts_count', $counts, $type, $perm );
 		}
 
 		$query = "SELECT post_status, COUNT( * ) AS num_posts FROM {$wpdb->posts} WHERE post_type = %s AND post_parent = %d";

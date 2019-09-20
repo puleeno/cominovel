@@ -11,6 +11,8 @@
     "minimum-stability": "dev",
     "require": {
         "ramphor/user-profile": "dev-master",
-        "jankx/fields": "dev-master"
+        "jankx/fields": "dev-master",
+        "puleeno/wallery": "dev-master",
+        "ramphor/updater": "dev-master"
     }
 }
