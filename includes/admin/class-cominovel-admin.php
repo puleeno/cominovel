@@ -3,19 +3,34 @@ class Cominovel_Admin {
 	protected $screen;
 
 	public function __construct() {
-		add_action( 'init', array( $this, 'includes' ) );
-
-		add_filter( 'pre_get_posts', array( $this, 'filter_comics' ) );
-		add_filter( 'wp_count_posts', array( $this, 'count_posts' ), 10, 3 );
+		$this->includes();
+		$this->init_admin_hooks();
 	}
 
 	public function includes() {
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-post-types.php';
-		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-comic-data.php';
-		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-chapter-data.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-setting-page.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-menus.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-assets.php';
+	}
+
+	public function init_admin_hooks() {
+		add_filter( 'admin_url', array( $this, 'add_chapter_parent_data_type' ), 10, 2 );
+		add_filter( 'pre_get_posts', array( $this, 'filter_comics' ) );
+		add_filter( 'wp_count_posts', array( $this, 'count_posts' ), 10, 3 );
+	}
+
+	public function add_chapter_parent_data_type( $url, $path ) {
+		if ( $path !== 'post-new.php?post_type=chapter' ) {
+			return $url;
+		}
+		$allowed_post_types = Cominovel_Post_Types::get_allowed_post_types();
+		$post_type          = empty( $_GET['data_type'] ) ? 'comic' : $_GET['data_type'];
+		$data_type          = sprintf(
+			'&data_type=%s',
+			in_array( $post_type, $allowed_post_types ) ? $post_type : array_shift( $allowed_post_types )
+		);
+		return admin_url( sprintf( '%s%s', $path, $data_type ) );
 	}
 
 	public function filter_comics( $query ) {
@@ -51,7 +66,7 @@ class Cominovel_Admin {
 		}
 		$query .= ' GROUP BY post_status';
 
-		$query = apply_filters( 'cominovel_count_managa_posts_query', $query, $counts, $type, $perm );
+		$query = apply_filters( 'cominovel_count_comic_posts_query', $query, $counts, $type, $perm );
 
 		$results = (array) $wpdb->get_results( $wpdb->prepare( $query, $type, 0 ), ARRAY_A );
 		$counts  = array_fill_keys( get_post_stati(), 0 );
