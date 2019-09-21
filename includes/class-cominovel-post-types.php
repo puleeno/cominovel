@@ -168,7 +168,7 @@ class Cominovel_Post_Types {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
 		);
 
 		register_post_type( 'chapter', apply_filters( 'cominovel_register_post_type_chapter_args', $args ) );
@@ -235,7 +235,7 @@ class Cominovel_Post_Types {
 			'add_new_name'      => __( 'New genre name', 'cominovel' ),
 			'not_found'         => __( 'No genres found', 'cominovel' ),
 		);
-		$args = array(
+		$args   = array(
 			'hierarchical'          => false,
 			'labels'                => $labels,
 			'show_ui'               => true,
@@ -267,7 +267,47 @@ class Cominovel_Post_Types {
 			'cmn_release',
 			$this->allowed_post_types,
 			apply_filters(
-				'cominovel_taxonomy_args_cominovel_release',
+				'cominovel_taxonomy_args_cominovel_release_args',
+				$args
+			)
+		);
+
+		$labels = array(
+			'name'          => __( 'Authors', 'cominovel' ),
+			'singular_name' => __( 'Author', 'cominovel' ),
+		);
+		$args   = array(
+			'labels'            => $labels,
+			'public'            => false,
+			'hierarchical'      => false,
+			'show_admin_column' => true,
+			'show_in_menu'      => false,
+		);
+		register_taxonomy(
+			'author',
+			$this->allowed_post_types,
+			apply_filters(
+				'cominovel_taxonomy_args_cominovel_author_args',
+				$args
+			)
+		);
+
+		$labels = array(
+			'name'          => __( 'Artists', 'cominovel' ),
+			'singular_name' => __( 'Artist', 'cominovel' ),
+		);
+		$args   = array(
+			'labels'            => $labels,
+			'public'            => false,
+			'hierarchical'      => false,
+			'show_admin_column' => true,
+			'show_in_menu'      => false,
+		);
+		register_taxonomy(
+			'artist',
+			$this->allowed_post_types,
+			apply_filters(
+				'cominovel_taxonomy_args_cominovel_artist_args',
 				$args
 			)
 		);
@@ -278,13 +318,15 @@ class Cominovel_Post_Types {
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_tag',
 				array(
-					'labels'       => array(
+					'labels'            => array(
 						'name'          => __( 'Tags', 'cominovel' ),
 						'singular_name' => __( 'Tag', 'cominovel' ),
 					),
-					'public'       => true,
-					'hierarchical' => false,
-					'show_in_rest' => true,
+					'public'            => true,
+					'hierarchical'      => false,
+					'show_ui'           => true,
+					'show_admin_column' => true,
+					'show_in_rest'      => true,
 				)
 			)
 		);
