@@ -79,6 +79,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/abstracts/class-cominovel-data.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-comic.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-novel.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
 
 			if ( $this->is_request( 'admin' ) ) {
 				require_once COMINOVEL_ABSPATH . 'includes/admin/class-cominovel-admin.php';
