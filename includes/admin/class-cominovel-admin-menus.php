@@ -4,6 +4,7 @@ class Cominovel_Admin_Menus {
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'admin_menus' ) );
+		add_action( 'admin_menu', array( $this, 'set_chapters_active_menu' ) );
 		add_action( 'admin_menu', array( $this, 'sort_cominovel_menus' ), 99 );
 	}
 
@@ -15,9 +16,9 @@ class Cominovel_Admin_Menus {
 
 		foreach ( Cominovel_Post_Types::get_allowed_post_types() as $post_type ) {
 			$menu_slug = sprintf( 'edit.php?post_type=%s', $post_type );
-			add_submenu_page( $menu_slug, __( 'Chapters', 'cominovel' ), __( 'Chapters', 'cominovel' ), 'manage_options', 'edit.php?post_type=chapter' );
-			add_submenu_page( $menu_slug, __( 'Artists', 'cominovel' ), __( 'Artists', 'cominovel' ), 'manage_options', 'edit.php?post_type=artist' );
-			add_submenu_page( $menu_slug, __( 'Authors', 'cominovel' ), __( 'Authors', 'cominovel' ), 'manage_options', 'edit.php?post_type=author' );
+			add_submenu_page( $menu_slug, __( 'Chapters', 'cominovel' ), __( 'Chapters', 'cominovel' ), 'manage_options', 'edit.php?post_type=chapter&data_type=' . $post_type );
+			add_submenu_page( $menu_slug, __( 'Artists', 'cominovel' ), __( 'Artists', 'cominovel' ), 'manage_options', 'edit.php?post_type=artist&data_type=' . $post_type );
+			add_submenu_page( $menu_slug, __( 'Authors', 'cominovel' ), __( 'Authors', 'cominovel' ), 'manage_options', 'edit.php?post_type=author&data_type=' . $post_type );
 		}
 	}
 
@@ -39,6 +40,10 @@ class Cominovel_Admin_Menus {
 				continue;
 			}
 		}
+	}
+
+	public function set_chapters_active_menu() {
+		global $submenu, $menu;
 	}
 }
 
