@@ -17,6 +17,14 @@ class Cominovel_Post_Types {
 		return (array) $post_types;
 	}
 
+	public static function check_active_data_type() {
+		$allowed_post_types = self::get_allowed_post_types();
+		if ( isset( $_GET['data_type'] ) && in_array( $_GET['data_type'], $allowed_post_types ) ) {
+			return $_GET['data_type'];
+		}
+		return array_shift( $allowed_post_types );
+	}
+
 	public function init_data() {
 		add_action( 'init', array( $this, 'register_post_status' ), 10 );
 		add_action( 'init', array( $this, 'register_main_post_types' ), 5 );
@@ -328,6 +336,24 @@ class Cominovel_Post_Types {
 					'show_admin_column' => true,
 					'show_in_rest'      => true,
 				)
+			)
+		);
+
+		$post_type        = self::check_active_data_type();
+		$post_type_object = get_post_type_object( $post_type );
+		$args             = array(
+			'labels'            => $post_type_object->labels,
+			'public'            => false,
+			'hierarchical'      => false,
+			'show_admin_column' => true,
+			'show_in_menu'      => false,
+		);
+		register_taxonomy(
+			$post_type,
+			'chapter',
+			apply_filters(
+				"cominovel_taxonomy_args_cominovel_{$post_type}_args",
+				$args
 			)
 		);
 	}
