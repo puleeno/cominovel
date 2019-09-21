@@ -3,25 +3,29 @@
 class Cominovel_Admin_Meta_Boxes {
 
 	public function __construct() {
-		add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 10 );
-		add_action( 'add_meta_boxes', array( $this, 'rename_meta_boxes' ), 20 );
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
-		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
+		$this->include_meta_boxes();
+		$this->init_hooks();
 	}
 
-	public function remove_meta_boxes() {
+	public function include_meta_boxes() {
+		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-comic-data.php';
+		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-chapter-data.php';
+	}
+
+	public function init_hooks() {
+		add_action( 'add_meta_boxes', array( $this, 'rename_meta_boxes' ), 20 );
+		add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 30 );
+	}
+
+	public function remove_meta_boxes( $screen ) {
 		remove_meta_box( 'postexcerpt', 'comic', 'normal' );
 		remove_meta_box( 'tagsdiv-comic_release', 'comic', 'side' );
+		if ( $screen === 'chapter' ) {
+			remove_meta_box( 'edit-slug-box', $screen, 'advanced' );
+		}
 	}
 
 	public function rename_meta_boxes() {
-	}
-
-	public function add_meta_boxes() {
-		add_meta_box( 'cominovel-data', __( 'Comic data', 'cominovel' ), 'Cominovel_Meta_Box_Comic_Data::output', array( 'comic' ), 'advanced', 'high', );
-	}
-
-	public function save_meta_boxes( $post_id, $post ) {
 	}
 }
 
