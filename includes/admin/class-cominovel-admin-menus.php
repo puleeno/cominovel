@@ -10,9 +10,9 @@ class Cominovel_Admin_Menus {
 
 	public function admin_menus() {
 		add_menu_page( __( 'Cominovel', 'cominovel' ), __( 'Cominovel', 'cominovel' ), 'manage_options', 'cominovel', array( Cominovel_Admin_Setting_Page::class, 'render' ), null );
-		add_submenu_page( 'cominovel', __( 'Documentation', 'cominovel' ), __( 'Documentation', 'cominovel' ), 'manage_options', 'edit.php?post_type=chapter' );
-		add_submenu_page( 'cominovel', __( 'Storages', 'cominovel' ), __( 'Storages', 'cominovel' ), 'manage_options', 'edit.php?post_type=chapter' );
-		add_submenu_page( 'cominovel', __( 'Extensions', 'cominovel' ), __( 'Extensions', 'cominovel' ), 'manage_options', 'edit.php?post_type=chapter' );
+		add_submenu_page( 'cominovel', __( 'Documentation', 'cominovel' ), __( 'Documentation', 'cominovel' ), 'manage_options', '' );
+		add_submenu_page( 'cominovel', __( 'Storages', 'cominovel' ), __( 'Storages', 'cominovel' ), 'manage_options', '' );
+		add_submenu_page( 'cominovel', __( 'Extensions', 'cominovel' ), __( 'Extensions', 'cominovel' ), 'manage_options', '' );
 
 		foreach ( Cominovel_Post_Types::get_allowed_post_types() as $post_type ) {
 			$menu_slug = sprintf( 'edit.php?post_type=%s', $post_type );
