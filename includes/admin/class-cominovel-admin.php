@@ -12,6 +12,7 @@ class Cominovel_Admin {
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-setting-page.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-menus.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-assets.php';
+		require_once dirname( __FILE__ ) . '/wp-tables/class-cominoval-admin-wp-tables.php';
 	}
 
 	public function init_admin_hooks() {
