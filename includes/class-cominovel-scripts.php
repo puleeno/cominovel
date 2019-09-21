@@ -1,7 +1,8 @@
 <?php
 
-class Cominovel_Frontend_Scripts {
-
+class Cominovel_Scripts {
+	public function __construct() {
+	}
 }
 
-Cominovel_Frontend_Scripts::init();
+new Cominovel_Scripts();
