@@ -25,10 +25,11 @@ class Cominovel_Template_Loader {
 		return __return_empty_string();
 	}
 
-	public function locale_template( $template ) {
-		$template = locale_template( $template );
-		if ( $template ) {
-			return $template;
+	public function locate_template( $template ) {
+		$theme_template = sprintf( 'cominovel/%s', $template );
+		$template_file  = locate_template( $theme_template, false );
+		if ( $template_file ) {
+			return $template_file;
 		}
 		return $this->core_template( $template );
 	}
