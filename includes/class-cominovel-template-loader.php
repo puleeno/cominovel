@@ -26,7 +26,7 @@ class Cominovel_Template_Loader {
 	}
 
 	public function locate_template( $template ) {
-		$theme_template = sprintf( 'cominovel/%s', $template );
+		$theme_template = sprintf( 'cominovel/%s.php', $template );
 		$template_file  = locate_template( $theme_template, false );
 		if ( $template_file ) {
 			return $template_file;
