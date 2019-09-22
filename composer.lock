@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hybridauth/hybridauth.git",
-                "reference": "4e068f184b26de4d6806e142316820a2c85c5849"
+                "reference": "f3dc3be7d7df398998c52a8c134919bc45de90a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/4e068f184b26de4d6806e142316820a2c85c5849",
-                "reference": "4e068f184b26de4d6806e142316820a2c85c5849",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/f3dc3be7d7df398998c52a8c134919bc45de90a2",
+                "reference": "f3dc3be7d7df398998c52a8c134919bc45de90a2",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2019-09-09T14:33:28+00:00"
+            "time": "2019-09-22T01:33:19+00:00"
         },
         {
             "name": "jankx/fields",
