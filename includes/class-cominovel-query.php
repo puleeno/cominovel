@@ -11,7 +11,7 @@ class Cominovel_Query {
 	}
 
 	public function custom_chapter_link( $permalink, $post ) {
-		if ( $post->post_type !== 'chapter' ) {
+		if ( $post->post_type !== 'chapter' || in_array($post->post_status, array('auto-draft')) ) {
 			return $permalink;
 		}
 		$permalink = get_the_permalink( $post->post_parent );
@@ -38,17 +38,6 @@ class Cominovel_Query {
 					'post_parent' => $parents,
 				)
 			);
-		}
-		return $posts;
-	}
-
-	public function change_chapter_to_parent_type( $posts, $query ) {
-		if ( $this->isChapter && empty( $posts ) ) {
-			$post = get_page_by_path( 'test-comic/chapter-1/', 'OBJECT', 'chapter' );
-			var_dump( $post );
-			die;
-			var_dump( $query->query['name'] );
-			die;
 		}
 		return $posts;
 	}
