@@ -6,7 +6,7 @@
  * Author URI: https://puleeno.com
  * Version: 1.0.1
  * Description: The Comic and Novel WordPress plugin by Ramphor Premium
- * Tags: comic, comic, novel, cloud, cdn
+ * Tags:  comic, novel, cloud, storage, cdn
  *
  * @package Cominovel
  */
