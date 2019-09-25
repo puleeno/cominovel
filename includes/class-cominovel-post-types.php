@@ -1,6 +1,7 @@
 <?php
 
 class Cominovel_Post_Types {
+
 	protected $allowed_post_types;
 
 	public function __construct() {
@@ -92,7 +93,6 @@ class Cominovel_Post_Types {
 				'comic',
 				apply_filters( 'cominovel_register_post_type_comic_args', $args )
 			);
-
 		}
 		if ( in_array( 'novel', $this->allowed_post_types ) ) {
 			$labels = array(
@@ -143,7 +143,6 @@ class Cominovel_Post_Types {
 				'novel',
 				apply_filters( 'cominovel_register_post_type_novel_args', $args )
 			);
-
 		}
 
 		$labels = array(
@@ -359,7 +358,6 @@ class Cominovel_Post_Types {
 	}
 
 	public function register_post_status() {
-
 	}
 
 	public function rest_api_allowed_post_types( $post_types ) {

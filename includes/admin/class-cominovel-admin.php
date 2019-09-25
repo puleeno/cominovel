@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Admin {
+
 	protected $screen;
 
 	public function __construct() {

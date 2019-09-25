@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Query {
+
 	protected $isChapter = false;
 
 	public function __construct() {

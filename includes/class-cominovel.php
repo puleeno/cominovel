@@ -14,6 +14,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 	 * Class Cominovel is the main class of Cominovel plugin
 	 */
 	class Cominovel {
+
 		/**
 		 * The instance of class Cominovel.
 		 *
@@ -80,6 +81,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-comic.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-novel.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-shortcodes.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-seo.php';
 
 			if ( $this->is_request( 'admin' ) ) {
 				require_once COMINOVEL_ABSPATH . 'includes/admin/class-cominovel-admin.php';
@@ -125,13 +128,14 @@ if ( ! class_exists( 'Cominovel' ) ) {
 
 		public function hooks() {
 			register_activation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'active' ) );
+			register_deactivation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'deactive' ) );
+
 			add_action( 'init', array( $this, 'init' ) );
 		}
 
 		public function frontend_includes() {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template.php';
-			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-seo.php';
 		}
 
 		private function theme_support_includes() {

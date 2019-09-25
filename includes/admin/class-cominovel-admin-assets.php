@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Cominovel_Admin_Assets class.
  */
 class Cominovel_Admin_Assets {
+
 	protected $screen;
 
 	public function __construct() {
@@ -22,7 +23,6 @@ class Cominovel_Admin_Assets {
 	}
 
 	public function admin_styles() {
-
 	}
 
 	public function admin_scripts() {

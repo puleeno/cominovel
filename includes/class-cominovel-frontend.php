@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Frontend {
+
 	public static function init() {
 		add_action( 'admin_bar_menu', array( __CLASS__, 'change_edit_chapter_link_to_comic' ), 999 );
 		add_filter( 'cominovel_edit_comic_node', array( __CLASS__, 'edit_comic_node' ), 10, 2 );

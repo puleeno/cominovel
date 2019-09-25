@@ -1,6 +1,7 @@
 <?php
 
 class Cominovel_Template {
+
 	protected $isSingle    = false;
 	protected $useTemplate = false;
 
