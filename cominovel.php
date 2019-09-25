@@ -31,4 +31,4 @@ if ( ! function_exists( 'cominovel' ) ) {
 	}
 }
 
-$GLOBALS['rp_comic'] = cominovel();
+$GLOBALS['cominovel'] = cominovel();
