@@ -11,7 +11,7 @@ class Cominovel_Query {
 	}
 
 	public function custom_chapter_link( $permalink, $post ) {
-		if ( $post->post_type !== 'chapter' || in_array($post->post_status, array('auto-draft')) ) {
+		if ( $post->post_type !== 'chapter' || in_array( $post->post_status, array( 'auto-draft' ) ) ) {
 			return $permalink;
 		}
 		$permalink = get_the_permalink( $post->post_parent );
