@@ -1,11 +1,15 @@
 <?php
 
 class Cominovel_Install {
+
 	public static function active() {
-		flush_rewrite_rules();
+		/**
+		 * Flush rewrite rules after register Cominovel post types
+		 */
+		add_action( 'init', 'flush_rewrite_rules', 90 );
 	}
 
 	public static function deactive() {
-		flush_rewrite_rules();
+		add_action( 'init', 'flush_rewrite_rules', 90 );
 	}
 }
