@@ -28,8 +28,10 @@ class Cominovel_Metabox_Chapter_Data {
 		}
 		$this->is_chapter_edit = true;
 
-		$post_type       = get_post_type_object( Cominovel_Post_Types::check_active_data_type() );
-		$this->post_type = $parent_data_type;
+		$this->post_type = Cominovel_Post_Types::check_active_data_type(
+			isset( $_GET['post'] ) ? $_GET['post'] : 0
+		);
+		$post_type       = get_post_type_object( $this->post_type );
 		add_meta_box(
 			'cominovel_comic_of_chapter',
 			sprintf( __( 'Choose %s', 'cominovel' ), $post_type->labels->singular_name ),
@@ -38,7 +40,7 @@ class Cominovel_Metabox_Chapter_Data {
 			'side'
 		);
 
-		if ( ! empty( $this->wallery ) && $parent_data_type === 'comic' ) {
+		if ( ! empty( $this->wallery ) && $this->post_type === 'comic' ) {
 			add_meta_box(
 				'cominovel_chapter_images',
 				__( 'Chaper Images', 'cominovel' ),

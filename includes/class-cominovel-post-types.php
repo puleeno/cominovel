@@ -18,10 +18,17 @@ class Cominovel_Post_Types {
 		return (array) $post_types;
 	}
 
-	public static function check_active_data_type() {
+	public static function check_active_data_type( $post_id = 0 ) {
 		$allowed_post_types = self::get_allowed_post_types();
 		if ( isset( $_GET['data_type'] ) && in_array( $_GET['data_type'], $allowed_post_types ) ) {
 			return $_GET['data_type'];
+		} elseif ( $post_id > 0 ) {
+			$post_type = get_post_type(
+				wp_get_post_parent_id( $post_id )
+			);
+			if ( ! is_wp_error( $post_type ) ) {
+				return $post_type;
+			}
 		}
 		return array_shift( $allowed_post_types );
 	}
