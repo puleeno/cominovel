@@ -10,6 +10,7 @@ class Cominovel_Admin {
 
 	public function includes() {
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-post-types.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-admin-query.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-setting-page.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-menus.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-admin-assets.php';
