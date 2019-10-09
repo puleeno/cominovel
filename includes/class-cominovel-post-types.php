@@ -7,7 +7,6 @@ class Cominovel_Post_Types {
 	public function __construct() {
 		$this->allowed_post_types = self::get_allowed_post_types();
 		$this->init_data();
-		$this->init_rest_api();
 	}
 
 	public static function get_allowed_post_types() {
@@ -40,17 +39,13 @@ class Cominovel_Post_Types {
 		add_action( 'init', array( $this, 'register_taxonomies' ), 5 );
 	}
 
-	public function init_rest_api() {
-		add_filter( 'rest_api_allowed_post_types', array( $this, 'rest_api_allowed_post_types' ) );
-		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'gutenberg_can_edit_post_type' ), 10, 2 );
-	}
-
 	public function register_main_post_types() {
 		if ( ! is_blog_installed() || post_type_exists( 'comic' ) ) {
 			return;
 		}
 		do_action( 'cominovel_register_post_types' );
 		$supports = array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'publicize', 'wpcom-markdown' );
+
 		if ( in_array( 'comic', $this->allowed_post_types ) ) {
 			$labels = array(
 				'name'                  => __( 'Comics', 'cominovel' ),
@@ -345,23 +340,25 @@ class Cominovel_Post_Types {
 			)
 		);
 
-		$post_type        = self::check_active_data_type();
-		$post_type_object = get_post_type_object( $post_type );
-		$args             = array(
-			'labels'            => $post_type_object->labels,
-			'public'            => false,
-			'hierarchical'      => false,
-			'show_admin_column' => true,
-			'show_in_menu'      => false,
-		);
-		register_taxonomy(
-			$post_type,
-			'chapter',
-			apply_filters(
-				"cominovel_taxonomy_args_cominovel_{$post_type}_args",
-				$args
-			)
-		);
+		$post_types = self::get_allowed_post_types();
+		foreach ( $post_types as $post_type ) {
+			$post_type_object = get_post_type_object( $post_type );
+			$args             = array(
+				'labels'            => $post_type_object->labels,
+				'public'            => false,
+				'hierarchical'      => false,
+				'show_admin_column' => true,
+				'show_in_menu'      => false,
+			);
+			register_taxonomy(
+				"tax_{$post_type}",
+				'chapter',
+				apply_filters(
+					"cominovel_taxonomy_args_cominovel_{$post_type}_args",
+					$args
+				)
+			);
+		}
 	}
 
 	public function register_post_status() {
