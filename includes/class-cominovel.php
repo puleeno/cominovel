@@ -113,17 +113,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 				case 'cron':
 					return defined( 'DOING_CRON' );
 				case 'frontend':
-					return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! $this->is_rest_api_request();
+					return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 			}
-		}
-
-		public function is_rest_api_request() {
-			if ( empty( $_SERVER['REQUEST_URI'] ) ) {
-				return false;
-			}
-			$rest_prefix         = trailingslashit( rest_get_url_prefix() );
-			$is_rest_api_request = ( false !== strpos( $_SERVER['REQUEST_URI'], $rest_prefix ) ); // phpcs:disable WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			return apply_filters( 'cominovel_is_rest_api_request', $is_rest_api_request );
 		}
 
 		public function hooks() {
