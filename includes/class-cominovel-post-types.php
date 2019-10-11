@@ -347,7 +347,7 @@ class Cominovel_Post_Types {
 				'labels'            => $post_type_object->labels,
 				'public'            => false,
 				'hierarchical'      => false,
-				'show_admin_column' => true,
+				'show_admin_column' => self::check_active_data_type() === $post_type,
 				'show_in_menu'      => false,
 			);
 			register_taxonomy(
