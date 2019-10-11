@@ -43,7 +43,7 @@ class Cominovel_Metabox_Chapter_Data {
 		if ( ! empty( $this->wallery ) && $this->post_type === 'comic' ) {
 			add_meta_box(
 				'cominovel_chapter_images',
-				__( 'Chaper Images', 'cominovel' ),
+				__( 'Upload Chapter Images', 'cominovel' ),
 				array( $this->wallery, 'render' ),
 				'chapter',
 				'advanced',
