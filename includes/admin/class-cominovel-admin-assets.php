@@ -36,6 +36,9 @@ class Cominovel_Admin_Assets {
 	}
 
 	public function admin_styles() {
+		wp_register_style( 'cominovel-common', cominovel_asset_url( 'css/common.css' ), null, Cominovel::VERSION );
+
+		wp_enqueue_style( 'cominovel-common' );
 	}
 
 	public function admin_scripts() {
