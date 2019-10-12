@@ -15,6 +15,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 	 */
 	class Cominovel {
 
+		const VERSION = '1.0.1';
+
 		/**
 		 * The instance of class Cominovel.
 		 *
