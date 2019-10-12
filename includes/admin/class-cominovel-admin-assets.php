@@ -21,17 +21,17 @@ class Cominovel_Admin_Assets {
 	protected $dev_port;
 
 	public function __construct() {
-		if (defined('COMINOVEL_DEV_MODE') && COMINOVEL_DEV_MODE) {
+		if ( defined( 'COMINOVEL_DEV_MODE' ) && COMINOVEL_DEV_MODE ) {
 			$this->run_mode = 'dev';
 			$this->init_dev_mode();
 		}
-		add_action('current_screen', array($this, 'get_screen'));
+		add_action( 'current_screen', array( $this, 'get_screen' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_react_app' ) );
 	}
 
-	public function get_screen(){
+	public function get_screen() {
 		$this->current_screen = get_current_screen();
 	}
 
@@ -44,15 +44,15 @@ class Cominovel_Admin_Assets {
 	}
 
 	private function init_dev_mode() {
-		if (defined('COMINOVEL_DEV_PORT') && COMINOVEL_DEV_PORT != 80) {
-			$this->dev_port = sprintf(':%s', COMINOVEL_DEV_PORT) ;
+		if ( defined( 'COMINOVEL_DEV_PORT' ) && COMINOVEL_DEV_PORT != 80 ) {
+			$this->dev_port = sprintf( ':%s', COMINOVEL_DEV_PORT );
 		}
-		if (defined('COMINOVEL_DEV_HOST')) {
+		if ( defined( 'COMINOVEL_DEV_HOST' ) ) {
 			$this->dev_host = COMINOVEL_DEV_HOST;
 		}
 	}
 
-	private function dev_asset_url($path = '') {
+	private function dev_asset_url( $path = '' ) {
 		return sprintf(
 			'%s%s/%s',
 			$this->dev_host,
@@ -69,7 +69,7 @@ class Cominovel_Admin_Assets {
 				Cominovel_Post_Types::get_allowed_post_types()
 			)
 		) {
-			if ($this->run_mode === 'dev') {
+			if ( $this->run_mode === 'dev' ) {
 				$this->register_dev_react_assets();
 			} else {
 				$this->register_prod_react_assets();
@@ -78,11 +78,11 @@ class Cominovel_Admin_Assets {
 	}
 
 	public function register_dev_react_assets() {
-		wp_register_script('cominovel-bundle', $this->dev_asset_url('static/js/bundle.js'), array(), null, true);
-		wp_register_script('cominovel-runtime', $this->dev_asset_url('static/js/0.chunk.js'), array(), null, true);
-		wp_register_script('cominovel-main', $this->dev_asset_url('static/js/main.chunk.js'), array('cominovel-bundle', 'cominovel-runtime'), null, true);
+		wp_register_script( 'cominovel-bundle', $this->dev_asset_url( 'static/js/bundle.js' ), array(), null, true );
+		wp_register_script( 'cominovel-runtime', $this->dev_asset_url( 'static/js/0.chunk.js' ), array(), null, true );
+		wp_register_script( 'cominovel-main', $this->dev_asset_url( 'static/js/main.chunk.js' ), array( 'cominovel-bundle', 'cominovel-runtime' ), null, true );
 
-		wp_enqueue_script('cominovel-main');
+		wp_enqueue_script( 'cominovel-main' );
 	}
 
 	public function register_prod_react_assets() {
