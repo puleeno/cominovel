@@ -9,7 +9,7 @@ class Cominovel_Admin_Meta_Boxes {
 	}
 
 	public function include_meta_boxes() {
-		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-comic-data.php';
+		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-main-data.php';
 		require_once dirname( __FILE__ ) . '/meta-boxes/class-cominovel-metabox-chapter-data.php';
 	}
 
