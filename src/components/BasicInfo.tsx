@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
-import { Typography, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
-import Form from '../antd/Form';
+import { Cascader, DatePicker, Input, InputNumber, PageHeader, Select, TimePicker } from "antd";
+import React, { Component } from "react";
+import Form from "../antd/Form";
 
-const { Title } = Typography;
 const { Option } = Select;
 
 interface IProps {
-};
+}
 
 interface IState {
 }
 
-class BasicInfo extends Component<IProps,IState> {
-  render() {
+class BasicInfo extends Component<IProps, IState> {
+  public render() {
     return (
       <div>
-        <Title level={2}>Basic Info</Title>
-        <Form {...formItemLayout}>
+        <PageHeader title="Basic Info" subTitle="Đây là các thông tin cơ bản của truyện" />
+        <Form
+          {...formItemLayout}
+          labelAlign="left"
+        >
           <Form.Item
             label="Name"
             validateStatus="error"
@@ -56,11 +58,11 @@ class BasicInfo extends Component<IProps,IState> {
           </Form.Item>
 
           <Form.Item label="Success" hasFeedback validateStatus="success">
-            <DatePicker style={{ width: '100%' }} />
+            <DatePicker style={{ width: "100%" }} />
           </Form.Item>
 
           <Form.Item label="Warning" hasFeedback validateStatus="warning">
-            <TimePicker style={{ width: '100%' }} />
+            <TimePicker style={{ width: "100%" }} />
           </Form.Item>
 
           <Form.Item label="Error" hasFeedback validateStatus="error">
@@ -77,25 +79,25 @@ class BasicInfo extends Component<IProps,IState> {
             validateStatus="validating"
             help="The information is being validated..."
           >
-            <Cascader defaultValue={['1']} options={[]} />
+            <Cascader defaultValue={["1"]} options={[]} />
           </Form.Item>
 
           <Form.Item label="inline" style={{ marginBottom: 0 }}>
             <Form.Item
               validateStatus="error"
               help="Please select the correct date"
-              style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
+              style={{ display: "inline-block", width: "calc(50% - 12px)" }}
             >
               <DatePicker />
             </Form.Item>
-            <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>-</span>
-            <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+            <span style={{ display: "inline-block", width: "24px", textAlign: "center" }}>-</span>
+            <Form.Item style={{ display: "inline-block", width: "calc(50% - 12px)" }}>
               <DatePicker />
             </Form.Item>
           </Form.Item>
 
           <Form.Item label="Success" hasFeedback validateStatus="success">
-            <InputNumber style={{ width: '100%' }} />
+            <InputNumber style={{ width: "100%" }} />
           </Form.Item>
         </Form>
       </div>

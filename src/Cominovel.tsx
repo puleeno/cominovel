@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Tabs } from 'antd';
-import Setup from './bootstrap/Setup';
-import BasicInfo from './components/BasicInfo';
-import Chapters from './components/Chapters';
-import Composer from './components/Composer';
+import { Tabs } from "antd";
+import React, { Component } from "react";
+import Setup from "./bootstrap/Setup";
+import BasicInfo from "./components/BasicInfo";
+import Chapters from "./components/Chapters";
+import Composer from "./components/Composer";
 
 const { TabPane } = Tabs;
 
@@ -11,17 +11,17 @@ interface IState {}
 
 interface IProps {}
 
-class SlidingTabsDemo extends Component<IProps, IState> {
-  componentWillMount() {
+class Cominovel extends Component<IProps, IState> {
+  public componentWillMount() {
     Setup.bootstrap();
   }
 
-  handleModeChange = (e:any) => {
+  public handleModeChange = (e: any) => {
     const mode = e.target.value;
     this.setState({ mode });
-  };
+  }
 
-  render() {
+  public render() {
     return (
       <Tabs
         defaultActiveKey="1"
@@ -53,4 +53,4 @@ class SlidingTabsDemo extends Component<IProps, IState> {
   }
 }
 
-export default SlidingTabsDemo;
+export default Cominovel;
