@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Typography, Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
+import { Typography, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
+import Form from '../antd/Form';
 
 const { Title } = Typography;
 const { Option } = Select;
@@ -17,11 +18,11 @@ class BasicInfo extends Component<IProps,IState> {
         <Title level={2}>Basic Info</Title>
         <Form {...formItemLayout}>
           <Form.Item
-            label="Fail"
+            label="Name"
             validateStatus="error"
             help="Should be combination of numbers & alphabets"
           >
-            <Input placeholder="unavailable choice" id="error" />
+            <Input name="cominovel_name" placeholder="unavailable choice" id="error" />
           </Form.Item>
 
           <Form.Item label="Warning" validateStatus="warning">
