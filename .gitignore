@@ -7,3 +7,4 @@ composer.phar
 node_modules
 public/*
 build
+.sass-cache
