@@ -6,6 +6,9 @@
   min-width: 130px;
 }
 
+#cominovel {
+  min-height: 400px;
+}
 #cominovel .cominovel-tab-content {
   min-height: 400px;
 }
