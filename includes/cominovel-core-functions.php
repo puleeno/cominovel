@@ -40,3 +40,28 @@ function cominovel_asset_url( $path = '' ) {
 		$path
 	);
 }
+
+
+function cominovel_echo( $text, $context = null ) {
+	if ( ! empty( $context ) ) {
+		$text = apply_filters( "cominovel_echo_{$context}", $text );
+	}
+	echo wp_kses_post( $text );
+}
+
+if ( ! function_exists( 'array_get' ) ) {
+	function array_get( $arr, $arrayIndex, $defaultValue = null ) {
+		if ( is_string( $arrayIndex ) ) {
+			$arrayIndex = explode( '.', $arrayIndex );
+		} else {
+			$arrayIndex = (array) $arrayIndex;
+		}
+		foreach ( $arrayIndex as $index ) {
+			if ( ! isset( $arr[ $index ] ) ) {
+				return $defaultValue;
+			}
+			$arr = $arr[ $index ];
+		}
+		return $arr;
+	}
+}
