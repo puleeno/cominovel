@@ -19,7 +19,7 @@ class Cominovel_Meta_Box_Comic_Data {
 	}
 
 	public function render() {
-		cominovel_core_template( 'admin/metaboxes/cominovel' );
+		cominovel_core_template( 'metaboxes/cominovel', [], 'admin' );
 	}
 
 	public function save_cominovel_data( $post_id ) {
