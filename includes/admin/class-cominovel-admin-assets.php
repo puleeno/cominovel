@@ -26,24 +26,11 @@ class Cominovel_Admin_Assets {
 			$this->init_dev_mode();
 		}
 		add_action( 'current_screen', array( $this, 'get_screen' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_react_app' ) );
 	}
 
 	public function get_screen() {
 		$this->current_screen = get_current_screen();
-	}
-
-	public function admin_styles() {
-		wp_register_style( 'cominovel-common', cominovel_asset_url( 'css/common.css' ), null, Cominovel::VERSION );
-
-		wp_enqueue_style( 'cominovel-common' );
-	}
-
-	public function admin_scripts() {
-		// wp_register_script( 'cominovel-admin', cominovel()->plugin_url( 'public/js/admin.js' ) );
-		// wp_enqueue_script( 'cominovel-admin' );
 	}
 
 	private function init_dev_mode() {
