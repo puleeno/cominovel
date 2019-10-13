@@ -82,6 +82,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/abstracts/class-cominovel-data.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-comic.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-novel.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-chapter.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-shortcodes.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-seo.php';
@@ -133,6 +134,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		private function theme_support_includes() {
+			require_once COMINOVEL_ABSPATH . 'includes/class-coninovel-integrated-jankx.php';
 		}
 
 		public function init() {
