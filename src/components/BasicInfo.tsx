@@ -4,7 +4,6 @@ import {
 import React, { Component } from "react";
 import Form from "../antd/Form";
 
-const { MonthPicker } = DatePicker;
 const { Item } = Form;
 const { Option } = Select;
 const { TreeNode } = Tree;
@@ -32,7 +31,7 @@ const formItemLayout = {
 class BasicInfo extends Component<IProps, IState> {
   public render() {
     return (
-      <div>
+      <div className="cominovel-tab-content">
         <PageHeader title="Basic Info" subTitle="Đây là các thông tin cơ bản của truyện" />
         <Form
           {...formItemLayout}

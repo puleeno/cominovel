@@ -32,7 +32,7 @@ class Composer extends Component<IProps> {
       wrapperCol: { span: 14 },
     };
     return (
-      <div>
+      <div className="cominovel-tab-content">
         <PageHeader title="Composer" subTitle="Trình biên soạn chapter cho truyện" />
         <Form
           {...formItemLayout}

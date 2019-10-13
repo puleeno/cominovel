@@ -1,7 +1,9 @@
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
+import "../assets/css/common.css";
 
 class Setup {
-  static bootstrap() {
+  public static bootstrap() {
+    // Setup environment
   }
 }
 

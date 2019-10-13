@@ -49,18 +49,12 @@ class Seasons extends Component<IProps> {
 
   public render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
-    const formItemLayoutWithOutLabel = {
-      wrapperCol: {
-        xs: { span: 24, offset: 0 },
-        sm: { span: 20, offset: 4 },
-      },
-    };
+
     getFieldDecorator("keys", { initialValue: [] });
     const keys = getFieldValue("keys");
     const formItems = keys.map((k: string, index: number) => (
       <Form.Item
-        {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-        label={index === 0 ? "Seasons" : ""}
+        label={`Season ${index + 1}`}
         required={false}
         key={k}
       >
@@ -85,18 +79,20 @@ class Seasons extends Component<IProps> {
     ));
 
     return (
-      <div>
+      <div className="cominovel-tab-content">
         <PageHeader title="Seasons" subTitle="Biên soạn season cho truyện" />
-
-        <Form>
+        <Form
+          {...formItemLayout}
+          labelAlign="left"
+        >
           {formItems}
-          <Form.Item {...formItemLayoutWithOutLabel}>
+          <Form.Item>
             <Button type="dashed" onClick={this.add} style={{ width: "60%" }}>
               <Icon type="plus" /> Add New Season
             </Button>
           </Form.Item>
-          <Form.Item {...formItemLayoutWithOutLabel}>
-            <Button type="primary" htmlType="submit">
+          <Form.Item>
+            <Button size="large" type="primary" htmlType="submit">
               Save
             </Button>
           </Form.Item>

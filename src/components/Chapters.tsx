@@ -15,7 +15,7 @@ class Chapters extends Component<IProps, IState> {
 
   public render() {
     return (
-      <div>
+      <div className="cominovel-tab-content">
         <PageHeader
           title="Chapters"
           subTitle="Danh sách các chapter hiện tại đang có"

@@ -4,6 +4,7 @@ import Setup from "./bootstrap/Setup";
 import BasicInfo from "./components/BasicInfo";
 import Chapters from "./components/Chapters";
 import Composer from "./components/Composer";
+import Seasons from "./components/Seasons";
 
 const { TabPane } = Tabs;
 
@@ -43,8 +44,15 @@ class Cominovel extends Component<IProps, IState> {
           </TabPane>
 
           <TabPane
-            tab="Composer"
+            tab="Seasons"
             key="3"
+          >
+            <Seasons />
+          </TabPane>
+
+          <TabPane
+            tab="Composer"
+            key="4"
           >
             <Composer />
           </TabPane>
