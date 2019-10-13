@@ -2,6 +2,8 @@
 
 class Cominovel_Template {
 
+	protected static $template_info;
+
 	protected $isSingle    = false;
 	protected $useTemplate = false;
 
@@ -11,16 +13,17 @@ class Cominovel_Template {
 	}
 
 	public function check_single_template( $templates ) {
-		$template = locate_template( $templates, false );
-		$template = substr( basename( $template ), 0, 12 );
+		$post_type          = get_post_type();
+		$allowed_post_types = Cominovel_Post_Types::get_allowed_post_types();
+		array_push( $allowed_post_types, 'chapter' );
 
-		if ( in_array( 'single-comic.php', $templates ) ) {
-			$this->isSingle    = true;
-			$this->useTemplate = 'single-comic';
-		} elseif ( in_array( 'single-novel.php', $templates ) ) {
-			$this->isSingle    = true;
-			$this->useTemplate = 'single-novel';
-		}
+		$this->isSingle    = in_array( 'single.php', $templates ) && in_array( $post_type, $allowed_post_types );
+		$this->useTemplate = sprintf( 'single-%s', $post_type );
+
+		self::$template_info = array(
+			'is_cominovel' => $this->isSingle,
+			'type'         => $post_type,
+		);
 
 		return $templates;
 	}
@@ -33,6 +36,10 @@ class Cominovel_Template {
 			$template = sprintf( '%s/%s.php', COMINOVEL_TEMPLATES_DIR, $this->useTemplate );
 		}
 		return $template;
+	}
+
+	public static function get_template_info() {
+		return self::$template_info;
 	}
 }
 
