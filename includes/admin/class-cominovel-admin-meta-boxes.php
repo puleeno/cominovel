@@ -19,8 +19,9 @@ class Cominovel_Admin_Meta_Boxes {
 	}
 
 	public function remove_meta_boxes( $screen ) {
-		remove_meta_box( 'postexcerpt', 'comic', 'normal' );
-		remove_meta_box( 'tagsdiv-comic_release', 'comic', 'side' );
+		remove_meta_box( 'postexcerpt', Cominovel_Post_Types::get_allowed_post_types(), 'normal' );
+		remove_meta_box( 'genrediv', Cominovel_Post_Types::get_allowed_post_types(), 'side' );
+		remove_meta_box( 'tagsdiv-release', Cominovel_Post_Types::get_allowed_post_types(), 'side' );
 		if ( $screen === 'chapter' ) {
 			remove_meta_box( 'edit-slug-box', $screen, 'advanced' );
 		}
