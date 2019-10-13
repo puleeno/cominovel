@@ -33,7 +33,7 @@ function cominovel_template( $template, $data = array(), $require_once = false )
 	}
 }
 
-function cominovel_asset_url( $path = '') {
+function cominovel_asset_url( $path = '' ) {
 	return sprintf(
 		'%sassets/%s',
 		plugin_dir_url( COMINOVEL_PLUGIN_FILE ),

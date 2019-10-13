@@ -16,10 +16,10 @@ class Cominovel_Template_Loader {
 		return self::$instance;
 	}
 
-	public function core_template( $templates, $parent_template_directory = '') {
+	public function core_template( $templates, $parent_template_directory = '' ) {
 		foreach ( (array) $templates as $template ) {
-			if ($parent_template_directory) {
-				$parent_template_directory = sprintf('includes/%s/templates', $parent_template_directory);
+			if ( $parent_template_directory ) {
+				$parent_template_directory = sprintf( 'includes/%s/templates', $parent_template_directory );
 			} else {
 				$parent_template_directory = 'templates';
 			}
