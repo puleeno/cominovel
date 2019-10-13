@@ -34,7 +34,7 @@ class Cominovel_Admin_Setting_Storage {
 
 	public function settings() {
 		ob_start();
-		cominovel_core_template( 'admin/settings/storages', $this->data );
+		cominovel_core_template( 'settings/storages', $this->data, 'admin' );
 		$this->output = ob_get_clean();
 	}
 
