@@ -9,9 +9,10 @@ class Cominovel_Metabox_Chapter_Data {
 	protected $is_chapter_edit;
 
 	public function __construct() {
-		add_action( 'admin_head', array( $this, 'hide_editor_area' ) );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ), 5 );
+		add_action( 'admin_head', array( $this, 'hide_editor_area' ) );
 		add_action( 'save_post', array( $this, 'save_chapter_data' ), 10, 2 );
+
 		add_filter( 'cominovel_register_post_type_chapter_args', array( $this, 'remove_editor_for_comic' ) );
 		add_filter( 'pre_wp_unique_post_slug', array( $this, 'allow_dupplicate_slug' ), 10, 6 );
 
@@ -35,7 +36,7 @@ class Cominovel_Metabox_Chapter_Data {
 		add_meta_box(
 			'cominovel_comic_of_chapter',
 			sprintf( __( 'Choose %s', 'cominovel' ), $post_type->labels->singular_name ),
-			array( $this, 'choose_chapter_parent' ),
+			array( $this, 'chapter_information' ),
 			'chapter',
 			'side'
 		);
@@ -50,16 +51,27 @@ class Cominovel_Metabox_Chapter_Data {
 				'high'
 			);
 		}
+
+		add_meta_box(
+			'cominovel_cloud_storages',
+			__( 'Cloud Storages', 'cominovel' ),
+			array( $this, 'cloud_storage' ),
+			'chapter',
+			'side',
+		);
 	}
 
-	public function choose_chapter_parent( $post ) {
+	public function cloud_storage() {
+	}
+
+	public function chapter_information( $post ) {
 		$posts = get_posts(
 			array(
 				'post_type'      => $this->post_type,
 				'posts_per_page' => -1,
 			)
 		);
-		cominovel_core_template( 'admin/metaboxes/choose-parent', compact( 'post', 'posts' ) );
+		cominovel_core_template( 'metaboxes/chapter-info', compact( 'post', 'posts' ), 'admin' );
 	}
 
 	public function hide_editor_area() {
