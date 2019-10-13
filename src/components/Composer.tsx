@@ -1,12 +1,7 @@
-import {
-  Button, Checkbox, Col, Icon, InputNumber, PageHeader, Radio,
-  Rate, Row, Select, Slider, Switch, Upload,
-} from "antd";
+import { Button, Checkbox, Col, Icon, PageHeader, Radio, Row, Select, Upload } from "antd";
 import React, { Component, FormEvent } from "react";
 import Form from "../antd/Form";
 import { FileInfo } from "../interfaces/Composer";
-
-const { Option } = Select;
 
 interface IProps {
   form: any;
@@ -43,79 +38,7 @@ class Composer extends Component<IProps> {
           {...formItemLayout}
           labelAlign="left"
         >
-          <Form.Item label="Plain Text">
-            <span className="ant-form-text">China</span>
-          </Form.Item>
-          <Form.Item label="Select" hasFeedback>
-            {getFieldDecorator("select", {
-              rules: [{ required: true, message: "Please select your country!" }],
-            })(
-              <Select placeholder="Please select a country">
-                <Option value="china">China</Option>
-                <Option value="usa">U.S.A</Option>
-              </Select>,
-            )}
-          </Form.Item>
-
-          <Form.Item label="Select[multiple]">
-            {getFieldDecorator("select-multiple", {
-              rules: [
-                { required: true, message: "Please select your favourite colors!", type: "array" },
-              ],
-            })(
-              <Select mode="multiple" placeholder="Please select favourite colors">
-                <Option value="red">Red</Option>
-                <Option value="green">Green</Option>
-                <Option value="blue">Blue</Option>
-              </Select>,
-            )}
-          </Form.Item>
-
-          <Form.Item label="InputNumber">
-            {getFieldDecorator("input-number", { initialValue: 3 })(<InputNumber min={1} max={10} />)}
-            <span className="ant-form-text"> machines</span>
-          </Form.Item>
-
-          <Form.Item label="Switch">
-            {getFieldDecorator("switch", { valuePropName: "checked" })(<Switch />)}
-          </Form.Item>
-
-          <Form.Item label="Slider">
-            {getFieldDecorator("slider")(
-              <Slider
-                marks={{
-                  0: "A",
-                  20: "B",
-                  40: "C",
-                  60: "D",
-                  80: "E",
-                  100: "F",
-                }}
-              />,
-            )}
-          </Form.Item>
-
-          <Form.Item label="Radio.Group">
-            {getFieldDecorator("radio-group")(
-              <Radio.Group>
-                <Radio value="a">item 1</Radio>
-                <Radio value="b">item 2</Radio>
-                <Radio value="c">item 3</Radio>
-              </Radio.Group>,
-            )}
-          </Form.Item>
-
-          <Form.Item label="Radio.Button">
-            {getFieldDecorator("radio-button")(
-              <Radio.Group>
-                <Radio.Button value="a">item 1</Radio.Button>
-                <Radio.Button value="b">item 2</Radio.Button>
-                <Radio.Button value="c">item 3</Radio.Button>
-              </Radio.Group>,
-            )}
-          </Form.Item>
-
-          <Form.Item label="Checkbox.Group">
+          <Form.Item label="Cloud Storage">
             {getFieldDecorator("checkbox-group", {
               initialValue: ["A", "B"],
             })(
@@ -143,26 +66,39 @@ class Composer extends Component<IProps> {
             )}
           </Form.Item>
 
-          <Form.Item label="Rate">
-            {getFieldDecorator("rate", {
-              initialValue: 3.5,
-            })(<Rate />)}
+          <Form.Item
+            label="Season"
+          >
+            <Select
+              showSearch
+              style={{ width: 200 }}
+              placeholder="Select comic type"
+              optionFilterProp="children"
+              filterOption={(input: string, option: any) =>
+                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              <Select.Option value="manga">Manga</Select.Option>
+              <Select.Option value="manhua">Manhua</Select.Option>
+              <Select.Option value="manhwa">Manhwa</Select.Option>
+            </Select>
           </Form.Item>
 
-          <Form.Item label="Upload" extra="longgggggggggggggggggggggggggggggggggg">
-            {getFieldDecorator("upload", {
-              valuePropName: "fileList",
-              getValueFromEvent: this.normFile,
-            })(
-              <Upload name="logo" action="/upload.do" listType="picture">
-                <Button>
-                  <Icon type="upload" /> Click to upload
-                </Button>
-              </Upload>,
+          <Form.Item
+            label="ZIP Mode"
+          >
+            {getFieldDecorator("radio-button")(
+              <Radio.Group>
+                <Radio.Button value="a">Auto</Radio.Button>
+                <Radio.Button value="c">Single Chapter</Radio.Button>
+                <Radio.Button value="b">Multi Chapter</Radio.Button>
+              </Radio.Group>,
             )}
           </Form.Item>
 
-          <Form.Item label="Dragger">
+          <Form.Item
+            label="Upload"
+          >
             {getFieldDecorator("dragger", {
               valuePropName: "fileList",
               getValueFromEvent: this.normFile,
@@ -179,7 +115,7 @@ class Composer extends Component<IProps> {
 
           <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
             <Button type="primary" htmlType="submit">
-              Submit
+              Compose
             </Button>
           </Form.Item>
         </Form>

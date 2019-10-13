@@ -1,111 +1,22 @@
-import { Cascader, DatePicker, Input, InputNumber, PageHeader, Select, TimePicker } from "antd";
+import {
+  AutoComplete, DatePicker, Input, PageHeader, Select, Tree,
+} from "antd";
 import React, { Component } from "react";
 import Form from "../antd/Form";
 
+const { MonthPicker } = DatePicker;
+const { Item } = Form;
 const { Option } = Select;
+const { TreeNode } = Tree;
+const { Search } = Input;
+const { TextArea } = Input;
 
 interface IProps {
 }
 
 interface IState {
+  isUploading: false;
 }
-
-class BasicInfo extends Component<IProps, IState> {
-  public render() {
-    return (
-      <div>
-        <PageHeader title="Basic Info" subTitle="Đây là các thông tin cơ bản của truyện" />
-        <Form
-          {...formItemLayout}
-          labelAlign="left"
-        >
-          <Form.Item
-            label="Name"
-            validateStatus="error"
-            help="Should be combination of numbers & alphabets"
-          >
-            <Input name="cominovel_name" placeholder="unavailable choice" id="error" />
-          </Form.Item>
-
-          <Form.Item label="Warning" validateStatus="warning">
-            <Input placeholder="Warning" id="warning" />
-          </Form.Item>
-
-          <Form.Item
-            label="Validating"
-            hasFeedback
-            validateStatus="validating"
-            help="The information is being validated..."
-          >
-            <Input placeholder="I'm the content is being validated" id="validating" />
-          </Form.Item>
-
-          <Form.Item label="Success" hasFeedback validateStatus="success">
-            <Input placeholder="I'm the content" id="success" />
-          </Form.Item>
-
-          <Form.Item label="Warning" hasFeedback validateStatus="warning">
-            <Input placeholder="Warning" id="warning2" />
-          </Form.Item>
-
-          <Form.Item
-            label="Fail"
-            hasFeedback
-            validateStatus="error"
-            help="Should be combination of numbers & alphabets"
-          >
-            <Input placeholder="unavailable choice" id="error2" />
-          </Form.Item>
-
-          <Form.Item label="Success" hasFeedback validateStatus="success">
-            <DatePicker style={{ width: "100%" }} />
-          </Form.Item>
-
-          <Form.Item label="Warning" hasFeedback validateStatus="warning">
-            <TimePicker style={{ width: "100%" }} />
-          </Form.Item>
-
-          <Form.Item label="Error" hasFeedback validateStatus="error">
-            <Select defaultValue="1">
-              <Option value="1">Option 1</Option>
-              <Option value="2">Option 2</Option>
-              <Option value="3">Option 3</Option>
-            </Select>
-          </Form.Item>
-
-          <Form.Item
-            label="Validating"
-            hasFeedback
-            validateStatus="validating"
-            help="The information is being validated..."
-          >
-            <Cascader defaultValue={["1"]} options={[]} />
-          </Form.Item>
-
-          <Form.Item label="inline" style={{ marginBottom: 0 }}>
-            <Form.Item
-              validateStatus="error"
-              help="Please select the correct date"
-              style={{ display: "inline-block", width: "calc(50% - 12px)" }}
-            >
-              <DatePicker />
-            </Form.Item>
-            <span style={{ display: "inline-block", width: "24px", textAlign: "center" }}>-</span>
-            <Form.Item style={{ display: "inline-block", width: "calc(50% - 12px)" }}>
-              <DatePicker />
-            </Form.Item>
-          </Form.Item>
-
-          <Form.Item label="Success" hasFeedback validateStatus="success">
-            <InputNumber style={{ width: "100%" }} />
-          </Form.Item>
-        </Form>
-      </div>
-    );
-  }
-}
-
-export default BasicInfo;
 
 const formItemLayout = {
   labelCol: {
@@ -117,3 +28,113 @@ const formItemLayout = {
     sm: { span: 12 },
   },
 };
+
+class BasicInfo extends Component<IProps, IState> {
+  public render() {
+    return (
+      <div>
+        <PageHeader title="Basic Info" subTitle="Đây là các thông tin cơ bản của truyện" />
+        <Form
+          {...formItemLayout}
+          labelAlign="left"
+        >
+          <Item
+          label="Alternatve Name"
+          >
+            <Input name="alternative_name" />
+          </Item>
+
+          <Item
+            label="Comic Type"
+          >
+            <Select
+              showSearch
+              style={{ width: 200 }}
+              placeholder="Select comic type"
+              mode="tags"
+              optionFilterProp="children"
+              filterOption={(input: string, option: any) =>
+                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              <Option value="manga">Manga</Option>
+              <Option value="manhua">Manhua</Option>
+              <Option value="manhwa">Manhwa</Option>
+            </Select>
+          </Item>
+          <Item
+            label="Status"
+          >
+            <Select
+              style={{ width: 200 }}
+              placeholder="The status of the comic"
+            >
+              <Option value="manga">On Going</Option>
+              <Option value="manhua">Pending</Option>
+              <Option value="manhwa">Completed</Option>
+            </Select>
+          </Item>
+
+          <Item
+            label="Release Year"
+          >
+            <DatePicker
+              style={{width: 200}}
+              mode="year"
+            />
+          </Item>
+
+          <Item
+            label="Authors"
+          >
+            <Select
+              mode="multiple"
+              style={{ width: "100%" }}
+              placeholder="Please select"
+              defaultValue={["option1", "option2"]}
+            >
+              <Option key="option1">Option 1</Option>
+              <Option key="option2">Option 2</Option>
+            </Select>
+          </Item>
+
+          <Item label="Artists">
+          <AutoComplete style={{ width: "100%" }} placeholder="Tiểu Tôn Tuyết Đăng">
+            <AutoComplete.Option key="option1">Opion 1</AutoComplete.Option>
+          </AutoComplete>
+          </Item>
+
+          <Item
+            label="Genres"
+          >
+            <Search style={{ marginBottom: 8 }} placeholder="Search" />
+            <Tree
+              checkable
+              defaultExpandedKeys={['0-0-0', '0-0-1']}
+              defaultSelectedKeys={['0-0-0', '0-0-1']}
+              defaultCheckedKeys={['0-0-0', '0-0-1']}
+            >
+              <TreeNode title="parent 1" key="0-0">
+                <TreeNode title="parent 1-0" key="0-0-0" disabled>
+                  <TreeNode title="leaf" key="0-0-0-0" disableCheckbox />
+                  <TreeNode title="leaf" key="0-0-0-1" />
+                </TreeNode>
+                <TreeNode title="parent 1-1" key="0-0-1">
+                  <TreeNode title={<span style={{ color: '#1890ff' }}>sss</span>} key="0-0-1-0" />
+                </TreeNode>
+              </TreeNode>
+            </Tree>
+          </Item>
+
+          <Item
+            label="Short Description"
+          >
+            <TextArea name="exceprt" rows={4} />
+          </Item>
+        </Form>
+      </div>
+    );
+  }
+}
+
+export default BasicInfo;

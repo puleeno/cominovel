@@ -1,15 +1,18 @@
-import { Button, Divider, Icon, PageHeader, Table, Tag } from "antd";
+import { Button, Icon, PageHeader, Table, Upload } from "antd";
 import React, { Component } from "react";
 
 interface ChapterRow {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags?: string[];
 }
 
-class Chapters extends Component {
+interface IProps {
+}
+
+interface IState {
+  isUploading: boolean;
+}
+
+class Chapters extends Component<IProps, IState> {
+
   public render() {
     return (
       <div>
@@ -20,7 +23,7 @@ class Chapters extends Component {
             <Button>
               <Icon type="plus" />
               New Chapter
-            </Button>
+            </Button>,
           ]}
         />
         <Table columns={columns} dataSource={data} />
@@ -33,74 +36,86 @@ export default Chapters;
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    dataIndex: "no",
+    editable: true,
     render: (text: string) => <span>{text}</span>,
+    title: "No.",
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    dataIndex: "thumbnail",
+    render: (imageUrl: string) => {
+      const uploadButton = (
+        <div>
+          <Icon type="plus" />
+          <div className="ant-upload-text">Upload</div>
+        </div>
+      );
+      return (
+        <Upload
+          name="avatar"
+          listType="picture-card"
+          className="avatar-uploader"
+          showUploadList={false}
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        >
+          { uploadButton }
+        </Upload>
+      );
+    },
+    title: "Thumbnail",
+    },
+  {
+    dataIndex: "name",
+    editable: true,
+    title: "Name",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (tags: string[]) => (
-      <span>
-        {tags.map((tag: string) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </span>
+    dataIndex: "season",
+    render: () => (
+      <span>Vol 1</span>
     ),
+    title: "Season",
   },
   {
-    title: "Action",
-    key: "action",
+    dataIndex: "createdAt",
+    title: "Created At",
+  },
+  {
     render: (text: string, record: ChapterRow) => (
-      <span>
-        <span>Invite {record.name}</span>
-        <Divider type="vertical" />
-        <span>Delete</span>
-      </span>
+      <div>
+        <a href="/wp-admin/post.php?post=14290&action=edit">
+          <Button icon="edit" style={{marginRight: 10}} />
+        </a>
+        <Button type="danger" icon="delete" />
+      </div>
     ),
+    title: "Action",
   },
 ];
 
 const data: ChapterRow[] = [
   {
-    key: "1",
+    author: "Puleeno Nguyen",
+    createdAt: "2019-09-09 10:00",
     name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    no: 1,
+    season: "Season 1",
+    thumbnail: "",
   },
   {
-    key: "2",
+    author: "Puleeno Nguyen",
+    createdAt: "2019-09-09 10:00",
     name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
+    no: 2,
+    season: "Season 2",
+    thumbnail: "",
   },
   {
-    key: "3",
+    author: "Puleeno Nguyen",
+    createdAt: "2019-09-09 10:00",
     name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
+    no: 3,
+    season: "Season 3",
+    thumbnail: "",
   },
 ];
