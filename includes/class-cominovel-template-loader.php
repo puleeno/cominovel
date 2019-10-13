@@ -16,9 +16,15 @@ class Cominovel_Template_Loader {
 		return self::$instance;
 	}
 
-	public function core_template( $templates ) {
+	public function core_template( $templates, $parent_template_directory = '') {
 		foreach ( (array) $templates as $template ) {
-			$template_file = sprintf( '%s/%s.php', $this->defaultTemplateDir, $template );
+			if ($parent_template_directory) {
+				$parent_template_directory = sprintf('includes/%s/templates', $parent_template_directory);
+			} else {
+				$parent_template_directory = 'templates';
+			}
+
+			$template_file = sprintf( '%s%s/%s.php', COMINOVEL_ABSPATH, $parent_template_directory, $template );
 			if ( file_exists( $template_file ) ) {
 				return $template_file;
 			}
@@ -32,6 +38,6 @@ class Cominovel_Template_Loader {
 		if ( $template_file ) {
 			return $template_file;
 		}
-		return $this->core_template( $template );
+		return $this->core_template( $template, '' );
 	}
 }

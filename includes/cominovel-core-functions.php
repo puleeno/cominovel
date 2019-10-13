@@ -1,8 +1,8 @@
 <?php
 
-function cominovel_core_template( $template, $data = array(), $require_once = false ) {
+function cominovel_core_template( $template, $data = array(), $parent_template_directory = '', $require_once = false ) {
 	$template_loader = Cominovel_Template_Loader::instance();
-	$template        = $template_loader->core_template( $template );
+	$template        = $template_loader->core_template( $template, $parent_template_directory );
 	if ( $template ) {
 		extract( $data );
 		if ( $require_once ) {
