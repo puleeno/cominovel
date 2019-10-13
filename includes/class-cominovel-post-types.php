@@ -44,7 +44,7 @@ class Cominovel_Post_Types {
 			return;
 		}
 		do_action( 'cominovel_register_post_types' );
-		$supports = array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'publicize', 'wpcom-markdown' );
+		$supports = array( 'title', 'editor', 'thumbnail', 'custom-fields', 'publicize', 'wpcom-markdown' );
 
 		if ( in_array( 'comic', $this->allowed_post_types ) ) {
 			$labels = array(
@@ -177,7 +177,8 @@ class Cominovel_Post_Types {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'comments' ),
+			'show_in_rest'       => false,
 		);
 
 		register_post_type( 'chapter', apply_filters( 'cominovel_register_post_type_chapter_args', $args ) );
@@ -245,7 +246,7 @@ class Cominovel_Post_Types {
 			'not_found'         => __( 'No genres found', 'cominovel' ),
 		);
 		$args   = array(
-			'hierarchical'          => false,
+			'hierarchical'          => true,
 			'labels'                => $labels,
 			'show_ui'               => true,
 			'show_admin_column'     => true,
@@ -269,11 +270,11 @@ class Cominovel_Post_Types {
 			'labels'       => $labels,
 			'public'       => true,
 			'hierarchical' => false,
-			'show_in_rest' => true,
+			'show_in_rest' => false,
 			'show_in_menu' => false,
 		);
 		register_taxonomy(
-			'cmn_release',
+			'release',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_release_args',
@@ -322,7 +323,7 @@ class Cominovel_Post_Types {
 		);
 
 		register_taxonomy(
-			'cmn_tag',
+			'cm_tag',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_tag',
