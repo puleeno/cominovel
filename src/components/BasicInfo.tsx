@@ -19,12 +19,12 @@ interface IState {
 
 const formItemLayout = {
   labelCol: {
-    xs: { span: 24 },
     sm: { span: 5 },
+    xs: { span: 24 },
   },
   wrapperCol: {
-    xs: { span: 24 },
     sm: { span: 12 },
+    xs: { span: 24 },
   },
 };
 
@@ -47,14 +47,8 @@ class BasicInfo extends Component<IProps, IState> {
             label="Comic Type"
           >
             <Select
-              showSearch
               style={{ width: 200 }}
-              placeholder="Select comic type"
-              mode="tags"
-              optionFilterProp="children"
-              filterOption={(input: string, option: any) =>
-                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-              }
+              placeholder="Regions or Comic types"
             >
               <Option value="manga">Manga</Option>
               <Option value="manhua">Manhua</Option>
@@ -109,9 +103,9 @@ class BasicInfo extends Component<IProps, IState> {
             <Search style={{ marginBottom: 8 }} placeholder="Search" />
             <Tree
               checkable
-              defaultExpandedKeys={['0-0-0', '0-0-1']}
-              defaultSelectedKeys={['0-0-0', '0-0-1']}
-              defaultCheckedKeys={['0-0-0', '0-0-1']}
+              defaultExpandedKeys={["0-0-0", "0-0-1"]}
+              defaultSelectedKeys={["0-0-0", "0-0-1"]}
+              defaultCheckedKeys={["0-0-0", "0-0-1"]}
             >
               <TreeNode title="parent 1" key="0-0">
                 <TreeNode title="parent 1-0" key="0-0-0" disabled>
@@ -119,7 +113,7 @@ class BasicInfo extends Component<IProps, IState> {
                   <TreeNode title="leaf" key="0-0-0-1" />
                 </TreeNode>
                 <TreeNode title="parent 1-1" key="0-0-1">
-                  <TreeNode title={<span style={{ color: '#1890ff' }}>sss</span>} key="0-0-1-0" />
+                  <TreeNode title={<span style={{ color: "#1890ff" }}>sss</span>} key="0-0-1-0" />
                 </TreeNode>
               </TreeNode>
             </Tree>
