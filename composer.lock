@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4789b95cdfa2b524ab767e307bd4410",
+    "content-hash": "42ca88d0e62043b1f94e48fdf44bec8b",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -130,6 +130,75 @@
             "time": "2019-09-18T18:56:34+00:00"
         },
         {
+            "name": "ramphor/plugin-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/plugin-core.git",
+                "reference": "c82d02028522d6b270754619fafd9a3aff026538"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/plugin-core/zipball/c82d02028522d6b270754619fafd9a3aff026538",
+                "reference": "c82d02028522d6b270754619fafd9a3aff026538",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/fields": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramphor\\Plugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The core of plugins are developed by The Ramphor Premium",
+            "time": "2019-07-13T12:58:45+00:00"
+        },
+        {
+            "name": "ramphor/seo-adapter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/seo-adapter.git",
+                "reference": "ebe42a018f6205d93778e22e74186a5856b5f675"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/seo-adapter/zipball/ebe42a018f6205d93778e22e74186a5856b5f675",
+                "reference": "ebe42a018f6205d93778e22e74186a5856b5f675",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramphor\\Seo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ramphor Premium",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The SEO adapter to support custom data for popular SEO plugins",
+            "time": "2019-10-14T14:22:30+00:00"
+        },
+        {
             "name": "ramphor/updater",
             "version": "dev-master",
             "source": {
@@ -206,7 +275,9 @@
         "ramphor/user-profile": 20,
         "jankx/fields": 20,
         "puleeno/wallery": 20,
-        "ramphor/updater": 20
+        "ramphor/updater": 20,
+        "ramphor/plugin-core": 20,
+        "ramphor/seo-adapter": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

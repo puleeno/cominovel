@@ -13,6 +13,8 @@
         "ramphor/user-profile": "dev-master",
         "jankx/fields": "dev-master",
         "puleeno/wallery": "dev-master",
-        "ramphor/updater": "dev-master"
+        "ramphor/updater": "dev-master",
+        "ramphor/plugin-core": "dev-master",
+        "ramphor/seo-adapter": "dev-master"
     }
 }
