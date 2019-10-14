@@ -75,7 +75,7 @@ abstract class Cominovel_Data {
 		return array_get( $this->chapters, 0, 0 );
 	}
 
-	public function get_latest_chapters($num = 3) {
+	public function get_latest_chapters( $num = 3 ) {
 	}
 
 	public function follow_url() {
