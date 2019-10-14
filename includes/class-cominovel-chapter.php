@@ -29,7 +29,7 @@ class Cominovel_Chapter extends Cominovel_Data {
 		if ( empty( $images ) ) {
 			$image_ids = unserialize( array_get( $this->raw_data['cominovel_chapter_images'], 0 ) );
 			$images    = array();
-			foreach ( (array)$image_ids as $image_id ) {
+			foreach ( (array) $image_ids as $image_id ) {
 				$image = array(
 					'ID'  => $image_id,
 					'url' => wp_get_attachment_url( $image_id ),
