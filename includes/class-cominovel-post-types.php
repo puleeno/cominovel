@@ -177,7 +177,7 @@ class Cominovel_Post_Types {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'supports'           => array( 'title', 'editor', 'thumbnail', 'comments' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'comments', 'slug' ),
 			'show_in_rest'       => false,
 		);
 
