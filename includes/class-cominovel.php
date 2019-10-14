@@ -51,7 +51,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 
 		public function define_constants() {
 			$this->define( 'COMINOVEL_ABSPATH', plugin_dir_path( COMINOVEL_PLUGIN_FILE ) );
-			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf( '%s/templates', COMINOVEL_ABSPATH ) );
+			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf( '%stemplates', COMINOVEL_ABSPATH ) );
 		}
 
 		public function includes() {
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-novel.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-chapter.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
-			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-shortcodes.php';
+			require_once COMINOVEL_ABSPATH . 'includes/shortcodes/class-cominovel-shortcode.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-seo.php';
 
 			if ( $this->is_request( 'admin' ) ) {
@@ -125,6 +125,11 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			register_deactivation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'deactive' ) );
 
 			add_action( 'init', array( $this, 'init' ) );
+
+			/**
+			 * Register Cominovel Shortcode
+			 */
+			add_shortcode( 'cominovel', array( Cominovel_Shortcode::class, 'register' ) );
 		}
 
 		public function frontend_includes() {
