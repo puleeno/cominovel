@@ -1,7 +1,7 @@
 <?php
 use Jankx\SiteLayout\Layout;
 
-class Coninovel_Integrated_Jankx {
+class Cominovel_Integrate_Jankx {
 
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'integrate' ) );
@@ -34,4 +34,4 @@ class Coninovel_Integrated_Jankx {
 	}
 }
 
-new Coninovel_Integrated_Jankx();
+new Cominovel_Integrate_Jankx();
