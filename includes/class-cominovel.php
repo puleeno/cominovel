@@ -139,7 +139,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		private function theme_support_includes() {
-			require_once COMINOVEL_ABSPATH . 'includes/theme-supports/class-coninovel-integrated-jankx.php';
+			require_once COMINOVEL_ABSPATH . 'includes/theme-supports/class-cominovel-integrate-elementor.php';
+			require_once COMINOVEL_ABSPATH . 'includes/theme-supports/class-cominovel-integrate-jankx.php';
 		}
 
 		public function init() {
