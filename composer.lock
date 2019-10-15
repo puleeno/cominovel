@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hybridauth/hybridauth.git",
-                "reference": "f3dc3be7d7df398998c52a8c134919bc45de90a2"
+                "reference": "4cb541daf091ee51fba7b7402d0302f09978cc85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/f3dc3be7d7df398998c52a8c134919bc45de90a2",
-                "reference": "f3dc3be7d7df398998c52a8c134919bc45de90a2",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/4cb541daf091ee51fba7b7402d0302f09978cc85",
+                "reference": "4cb541daf091ee51fba7b7402d0302f09978cc85",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2019-09-22T01:33:19+00:00"
+            "time": "2019-10-01T19:52:19+00:00"
         },
         {
             "name": "jankx/fields",
@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/puleeno/wallery.git",
-                "reference": "7a7e7856748247c442ca1dd8d03cdf00de149f84"
+                "reference": "e896a2fa50192ea18dec7a9539030463e1bc23b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/puleeno/wallery/zipball/7a7e7856748247c442ca1dd8d03cdf00de149f84",
-                "reference": "7a7e7856748247c442ca1dd8d03cdf00de149f84",
+                "url": "https://api.github.com/repos/puleeno/wallery/zipball/e896a2fa50192ea18dec7a9539030463e1bc23b2",
+                "reference": "e896a2fa50192ea18dec7a9539030463e1bc23b2",
                 "shasum": ""
             },
             "type": "library",
@@ -127,7 +127,7 @@
                 }
             ],
             "description": "WordPress gallery for meta box and frontend post",
-            "time": "2019-09-18T18:56:34+00:00"
+            "time": "2019-10-10T14:45:29+00:00"
         },
         {
             "name": "ramphor/plugin-core",
