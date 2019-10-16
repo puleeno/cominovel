@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/puleeno/wallery.git",
-                "reference": "e896a2fa50192ea18dec7a9539030463e1bc23b2"
+                "reference": "fce999e1f562ec3afbbfcb40428658107df3c5e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/puleeno/wallery/zipball/e896a2fa50192ea18dec7a9539030463e1bc23b2",
-                "reference": "e896a2fa50192ea18dec7a9539030463e1bc23b2",
+                "url": "https://api.github.com/repos/puleeno/wallery/zipball/fce999e1f562ec3afbbfcb40428658107df3c5e6",
+                "reference": "fce999e1f562ec3afbbfcb40428658107df3c5e6",
                 "shasum": ""
             },
             "type": "library",
@@ -127,7 +127,7 @@
                 }
             ],
             "description": "WordPress gallery for meta box and frontend post",
-            "time": "2019-10-10T14:45:29+00:00"
+            "time": "2019-10-15T13:11:03+00:00"
         },
         {
             "name": "ramphor/plugin-core",
