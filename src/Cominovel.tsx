@@ -1,6 +1,7 @@
 import { Tabs } from "antd";
 import React, { Component } from "react";
 import Setup from "./bootstrap/Setup";
+import Advanced from "./components/Advanced";
 import BasicInfo from "./components/BasicInfo";
 import Chapters from "./components/Chapters";
 import Composer from "./components/Composer";
@@ -51,8 +52,15 @@ class Cominovel extends Component<IProps, IState> {
           </TabPane>
 
           <TabPane
-            tab="Composer"
+            tab="Advanced"
             key="4"
+          >
+            <Advanced />
+          </TabPane>
+
+          <TabPane
+            tab="Composer"
+            key="5"
           >
             <Composer />
           </TabPane>
