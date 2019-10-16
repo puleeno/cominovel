@@ -15,3 +15,7 @@
 #cominovel .ant-page-header {
   padding: 24px 0;
 }
+
+.edit-post-meta-boxes-area #cominovel-main-info.postbox > .inside {
+  padding: 0 14px 0px;
+}
