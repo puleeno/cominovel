@@ -1,10 +1,8 @@
 <?php
-
-class Cominovel_Shortcode_Tax_Posts extends Cominovel_Shortcode_Abstract {
+class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Abstract {
 	protected $accepted_attributes = array(
-		'layout' => 'vcard',
-		'items_per_row' => 6,
-		'num'           => 6,
+		'items_per_row' => 5,
+		'num'           => 10,
 	);
 
 	public function render() {
@@ -45,4 +43,3 @@ class Cominovel_Shortcode_Tax_Posts extends Cominovel_Shortcode_Abstract {
 		}
 	}
 }
-

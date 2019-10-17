@@ -22,10 +22,10 @@ class Cominovel_Shortcode {
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-post.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-daily.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-genre.php';
-		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-novel.php';
-		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-post.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-tax-posts.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-ranking.php';
-		require_once dirname( __FILE__ ) . '/class-comiovel-shortcode-hot.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-hot.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-featured.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-popular.php';
 	}
 
@@ -33,11 +33,11 @@ class Cominovel_Shortcode {
 		$shortcodes = apply_filters(
 			'cominovel_shortcodes',
 			array(
-				'comic'     => Cominovel_Shortcode_Comic::class,
+				'post'       => Cominovel_Shortcode_Post::class,
 				'daily'     => Cominovel_Shortcode_Daily::class,
+				'featured'     => Cominovel_Shortcode_Featured::class,
 				'genres'    => Cominovel_Shortcode_Genre::class,
 				'hot'       => Cominovel_Shortcode_Hot::class,
-				'novel'     => Cominovel_Shortcode_Novel::class,
 				'popular'   => Cominovel_Shortcode_Popular::class,
 				'ranking'   => Cominovel_Shortcode_Ranking::class,
 				'tax_posts' => Cominovel_Shortcode_Tax_Posts::class,
