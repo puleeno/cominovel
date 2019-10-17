@@ -33,13 +33,14 @@ class Cominovel_Shortcode {
 		$shortcodes = apply_filters(
 			'cominovel_shortcodes',
 			array(
-				'comic'   => Cominovel_Shortcode_Comic::class,
-				'daily'   => Cominovel_Shortcode_Daily::class,
-				'genres'  => Cominovel_Shortcode_Genre::class,
-				'hot'     => Cominovel_Shortcode_Hot::class,
-				'novel'   => Cominovel_Shortcode_Novel::class,
-				'popular' => Cominovel_Shortcode_Popular::class,
-				'ranking' => Cominovel_Shortcode_Ranking::class,
+				'comic'     => Cominovel_Shortcode_Comic::class,
+				'daily'     => Cominovel_Shortcode_Daily::class,
+				'genres'    => Cominovel_Shortcode_Genre::class,
+				'hot'       => Cominovel_Shortcode_Hot::class,
+				'novel'     => Cominovel_Shortcode_Novel::class,
+				'popular'   => Cominovel_Shortcode_Popular::class,
+				'ranking'   => Cominovel_Shortcode_Ranking::class,
+				'tax_posts' => Cominovel_Shortcode_Tax_Posts::class,
 			)
 		);
 

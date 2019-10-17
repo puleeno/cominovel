@@ -1,6 +1,5 @@
 <?php
-class Cominovel_Shortcode_Genre {
-
-	public function __construct() {
+class Cominovel_Shortcode_Genre extends Cominovel_Shortcode_Abstract {
+	public function render() {
 	}
 }
