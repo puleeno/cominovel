@@ -1,8 +1,8 @@
 <?php
 
-class Cominovel_Shortcode_Featured extends Cominovel_Shortcode_Abstract {
+class Cominovel_Shortcode_Featured extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
-		'layout' => 'summary',
+		'layout'        => 'summary',
 		'items_per_row' => 4,
 		'num'           => 4,
 	);

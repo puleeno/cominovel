@@ -33,9 +33,9 @@ class Cominovel_Shortcode {
 		$shortcodes = apply_filters(
 			'cominovel_shortcodes',
 			array(
-				'post'       => Cominovel_Shortcode_Post::class,
+				'post'      => Cominovel_Shortcode_Post::class,
 				'daily'     => Cominovel_Shortcode_Daily::class,
-				'featured'     => Cominovel_Shortcode_Featured::class,
+				'featured'  => Cominovel_Shortcode_Featured::class,
 				'genres'    => Cominovel_Shortcode_Genre::class,
 				'hot'       => Cominovel_Shortcode_Hot::class,
 				'popular'   => Cominovel_Shortcode_Popular::class,

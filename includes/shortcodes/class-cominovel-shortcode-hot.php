@@ -1,5 +1,5 @@
 <?php
-class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Abstract {
+class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
 		'items_per_row' => 5,
 		'num'           => 10,

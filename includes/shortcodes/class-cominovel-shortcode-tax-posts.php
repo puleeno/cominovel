@@ -1,8 +1,8 @@
 <?php
 
-class Cominovel_Shortcode_Tax_Posts extends Cominovel_Shortcode_Abstract {
+class Cominovel_Shortcode_Tax_Posts extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
-		'layout' => 'vcard',
+		'layout'        => 'vcard',
 		'items_per_row' => 6,
 		'num'           => 6,
 	);

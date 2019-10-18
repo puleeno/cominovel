@@ -3,6 +3,14 @@ abstract class Cominovel_Shortcode_Abstract {
 	protected $attributes;
 	protected $content;
 	protected $accepted_attributes;
+	protected $default_attributes = array(
+		'image_size' => 'thumbnail',
+		'layout'     => 'default',
+		'num'        => 10,
+		'post_type'  => 'comic',
+		'title'      => '',
+		'type'       => 'post',
+	);
 
 	public function __construct( $attributes, $content ) {
 		$this->content = $content;
@@ -13,12 +21,9 @@ abstract class Cominovel_Shortcode_Abstract {
 		$this->attributes = shortcode_atts(
 			wp_parse_args(
 				$this->accepted_attributes,
-				array(
-					'type'      => 'post',
-					'layout'    => 'default',
-					'post_type' => 'comic',
-					'title'     => '',
-					'num'       => 10,
+				apply_filters(
+					'cominvel_default_shortcode_attributes',
+					$this->default_attributes,
 				)
 			),
 			$attributes

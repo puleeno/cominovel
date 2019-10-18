@@ -1,7 +1,7 @@
 <?php
-class Cominovel_Shortcode_Ranking extends Cominovel_Shortcode_Abstract {
+class Cominovel_Shortcode_Ranking extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
-		'layout' => 'rank',
+		'layout'        => 'rank',
 		'items_per_row' => 3,
 		'num'           => 12,
 	);
