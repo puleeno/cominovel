@@ -1,20 +1,43 @@
-<div class="items fl  padding16">
-	<a href="/web/topic/1033" target="_blank" class="tabLink">
-		<span class="imgBox">
-			<img alt="blank"
-				src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-				class="blankImg"> <img vw="144" class="imgs"
-				src="http://f2.kkmh.com/image/170714/1lxgemyyu.webp-fe.w180.webp.m.i1"
-			/>
-			<span class="labelList">
-				<i class="iItem fl">古风</i>
-				<i class="iItem fl">唯美</i>
-			</span>
-		</span>
-		<span class="itemTitle">山神与小枣</span>
-	</a>
-	<div class="itemFooter cls">
-		<div class="left fl"> 虫虫家家+乌鸦散步 </div>
-		<div class="right fr"><span>99万+</span></div>
+<div class="cm item card-layout">
+	<div class="cm-inner">
+		<div class="cm item-thumbnail">
+			<div class="overlay"></div>
+			<a class="cm item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<div class="cm-inner link-inner">
+					<?php cm_post_thumbnail( $image_size ); ?>
+					<div class="bot-inf">
+						<?php if ( in_array( 'author', $fields ) ) : ?>
+							<div class="author">
+								<?php cm_the_author(); ?>
+							</div>
+						<?php endif; ?>
+						<?php if ( in_array( 'likes', $fields ) ) : ?>
+							<div class="likes">
+								<span class="fa fa-thumbs-up"></span>
+								<?php cm_the_likes(); ?>
+							</div>
+						<?php endif; ?>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="cm-main">
+			<?php if ( in_array( 'title', $fields ) ) : ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<?php
+				cm_the_title(
+					get_the_title(),
+					$title_tag
+				);
+				?>
+			</a>
+			<?php endif; ?>
+			<?php if ( in_array( 'summary', $fields ) ) : ?>
+			<div class="cm summary">
+				<?php the_excerpt(); ?>
+			</div>
+			<?php endif; ?>
+		</div>
 	</div>
 </div>

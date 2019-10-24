@@ -1,18 +1,43 @@
-<div class="hovers cls" style="display:;">
-	<div class="left fl"><a href="/web/topic/906" target="_blank"><img alt="blank"
-				src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-				class="blankImg"> <img vw="120" class="img"
-				data-src="http://f2.kkmh.com/image/180703/5MTLzw5TQ.webp-fe.w180.webp.m.i1"
-				src="http://f2.kkmh.com/image/180703/5MTLzw5TQ.webp-fe.w180.webp.m.i1" lazy="loaded"></a> <i
-			style="background:#F5A623;">1</i></div>
-	<div class="right fr">
-		<div class="title"><a href="/web/topic/906" target="_blank">甜美的咬痕</a></div>
-		<div class="labelList cls"><span class="fl">奇幻</span><span class="fl">唯美</span></div>
-		<div class="depict"><a target="_blank"
-				title="多次登上每周排行榜第一名宝座！  不可一世的血族王子，恋上卑微血仆少女。一场禁锢与占有的鼠猫游戏，一场人类与血族的对抗，真爱是否能冲破束缚最终在一起？【独家/周六更新 责编：珉xi】"
-				href="javascript:void(0);"
-				style="display: -webkit-box;text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;: -webkit-box;-webkit-line-clamp: 2;line-clamp: 2;-webkit-box-orient: vertical;">多次登上每周排行榜第一名宝座！
-				不可一世的血族王子，恋上卑…</a></div> <a href="/web/comic/205981" target="_blank" class="chapter"><span
-				class="L fl">更新至：</span> <span class="R fl">守护篇 第46话 超级惊喜</span></a>
+<div class="cm item card-layout">
+	<div class="cm-inner">
+		<div class="cm item-thumbnail">
+			<div class="overlay"></div>
+			<a class="cm item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<div class="cm-inner link-inner">
+					<?php cm_post_thumbnail( $image_size ); ?>
+					<div class="bot-inf">
+						<?php if ( in_array( 'author', $fields ) ) : ?>
+							<div class="author">
+								<?php cm_the_author(); ?>
+							</div>
+						<?php endif; ?>
+						<?php if ( in_array( 'likes', $fields ) ) : ?>
+							<div class="likes">
+								<span class="fa fa-thumbs-up"></span>
+								<?php cm_the_likes(); ?>
+							</div>
+						<?php endif; ?>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="cm-main">
+			<?php if ( in_array( 'title', $fields ) ) : ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<?php
+				cm_the_title(
+					get_the_title(),
+					$title_tag
+				);
+				?>
+			</a>
+			<?php endif; ?>
+			<?php if ( in_array( 'summary', $fields ) ) : ?>
+			<div class="cm summary">
+				<?php the_excerpt(); ?>
+			</div>
+			<?php endif; ?>
+		</div>
 	</div>
 </div>
