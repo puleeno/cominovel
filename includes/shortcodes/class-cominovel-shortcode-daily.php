@@ -18,6 +18,7 @@ class Cominovel_Shortcode_Daily extends Cominovel_Shortcode_Post {
 			)
 		);
 		if ( $wp_query->have_posts() ) {
+			cominovel_template( 'heading/daily' );
 			cominovel_template(
 				'loop/start',
 				array(
@@ -32,9 +33,10 @@ class Cominovel_Shortcode_Daily extends Cominovel_Shortcode_Post {
 				cominovel_template(
 					'loop/item-' . $layout,
 					array(
-						'item' => $post->post_type === 'comic'
+						'item'      => $post->post_type === 'comic'
 							? new Cominovel_Comic( $post )
 							: new Cominovel_Novel( $post ),
+						'title_tag' => array_get( $this->attributes, 'title_tag' ),
 					)
 				);
 			}

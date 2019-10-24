@@ -65,3 +65,20 @@ if ( ! function_exists( 'array_get' ) ) {
 		return $arr;
 	}
 }
+
+if ( ! function_exists( 'array_combine_args' ) ) {
+	function array_combine_args() {
+	}
+}
+
+function cm_post_thumbnail( $size = 'thumbnail' ) {
+	if ( has_post_thumbnail() ) {
+		the_post_thumbnail( $size );
+	}
+}
+
+function cm_the_title( $title, $tag = 'h3' ) {
+	var_dump( $tag );
+	die;
+	echo wp_kses_post( sprintf( '<%1$s>%2$s</%1$s>', $tag, $title ) );
+}

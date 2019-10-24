@@ -31,9 +31,10 @@ class Cominovel_Shortcode_Popular extends Cominovel_Shortcode_Post {
 				cominovel_template(
 					'loop/item-' . $layout,
 					array(
-						'item' => $post->post_type === 'comic'
+						'item'      => $post->post_type === 'comic'
 							? new Cominovel_Comic( $post )
 							: new Cominovel_Novel( $post ),
+						'title_tag' => array_get( $this->attributes, 'title_tag' ),
 					)
 				);
 			}

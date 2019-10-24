@@ -24,15 +24,18 @@ class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 					'layout'    => $layout,
 				)
 			);
+			var_dump( $this->attributes );
+			die;
 			while ( $wp_query->have_posts() ) {
 				$wp_query->the_post();
 				$post = $wp_query->post;
 				cominovel_template(
 					'loop/item-' . $layout,
 					array(
-						'item' => $post->post_type === 'comic'
+						'item'      => $post->post_type === 'comic'
 							? new Cominovel_Comic( $post )
 							: new Cominovel_Novel( $post ),
+						'title_tag' => array_get( $this->attributes, 'title_tag' ),
 					)
 				);
 			}

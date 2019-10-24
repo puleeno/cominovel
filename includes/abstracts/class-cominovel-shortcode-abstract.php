@@ -10,6 +10,7 @@ abstract class Cominovel_Shortcode_Abstract {
 		'post_type'  => 'comic',
 		'title'      => '',
 		'type'       => 'post',
+		'title_tag'  => 'h3',
 	);
 
 	public function __construct( $attributes, $content ) {
@@ -19,7 +20,7 @@ abstract class Cominovel_Shortcode_Abstract {
 
 	protected function fitter_attributes( $attributes ) {
 		$this->attributes = shortcode_atts(
-			wp_parse_args(
+			array_combine_args(
 				$this->accepted_attributes,
 				apply_filters(
 					'cominvel_default_shortcode_attributes',

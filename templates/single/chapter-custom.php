@@ -1,1 +1,1 @@
-<?php apply_filters( 'the_content', $content ); ?>
+<?php apply_filters( 'the_content', $content );
