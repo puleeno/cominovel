@@ -32,11 +32,12 @@ class Cominovel_Shortcode_Featured extends Cominovel_Shortcode_Post {
 				cominovel_template(
 					'loop/item-' . $layout,
 					array(
-						'item'      => $post->post_type === 'comic'
+						'item'       => $post->post_type === 'comic'
 							? new Cominovel_Comic( $post )
 							: new Cominovel_Novel( $post ),
-						'title_tag' => array_get( $this->attributes, 'title_tag' ),
-						'fields'    => $this->parse_post_fields(),
+						'title_tag'  => array_get( $this->attributes, 'title_tag' ),
+						'image_size' => array_get( $this->attributes, 'image_size' ),
+						'fields'     => $this->parse_post_fields(),
 					)
 				);
 			}
