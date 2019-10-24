@@ -3,15 +3,6 @@ abstract class Cominovel_Shortcode_Abstract {
 	protected $attributes;
 	protected $content;
 	protected $accepted_attributes;
-	protected $default_attributes = array(
-		'image_size' => 'thumbnail',
-		'layout'     => 'default',
-		'num'        => 10,
-		'post_type'  => 'comic',
-		'title'      => '',
-		'type'       => 'post',
-		'title_tag'  => 'h3',
-	);
 
 	public function __construct( $attributes, $content ) {
 		$this->content = $content;
@@ -21,23 +12,31 @@ abstract class Cominovel_Shortcode_Abstract {
 	protected function fitter_attributes( $attributes ) {
 		$this->attributes = shortcode_atts(
 			array_combine_args(
-				$this->accepted_attributes,
 				apply_filters(
 					'cominvel_default_shortcode_attributes',
-					$this->default_attributes,
-				)
+					$this->default_attributes(),
+				),
+				$this->accepted_attributes
 			),
 			$attributes
 		);
 	}
 
+	public function default_attributes() {
+		return array(
+			'image_size' => 'thumbnail',
+			'layout'     => 'default',
+			'num'        => 10,
+			'post_type'  => 'comic',
+			'title'      => '',
+			'type'       => 'post',
+			'title_tag'  => 'h3',
+		);
+	}
+
 	public function get_post_type() {
-		return array_filter(
-			array_map(
-				'trim',
-				explode( ',', $this->attributes['post_type'] )
-			),
-			'strlen'
+		return array_trim(
+			explode( ',', $this->attributes['post_type'] )
 		);
 	}
 

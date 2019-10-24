@@ -35,6 +35,7 @@ class Cominovel_Shortcode_Popular extends Cominovel_Shortcode_Post {
 							? new Cominovel_Comic( $post )
 							: new Cominovel_Novel( $post ),
 						'title_tag' => array_get( $this->attributes, 'title_tag' ),
+						'fields'    => $this->parse_post_fields(),
 					)
 				);
 			}

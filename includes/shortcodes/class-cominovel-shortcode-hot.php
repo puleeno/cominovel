@@ -24,8 +24,6 @@ class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 					'layout'    => $layout,
 				)
 			);
-			var_dump( $this->attributes );
-			die;
 			while ( $wp_query->have_posts() ) {
 				$wp_query->the_post();
 				$post = $wp_query->post;
@@ -36,6 +34,7 @@ class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 							? new Cominovel_Comic( $post )
 							: new Cominovel_Novel( $post ),
 						'title_tag' => array_get( $this->attributes, 'title_tag' ),
+						'fields'    => $this->parse_post_fields(),
 					)
 				);
 			}

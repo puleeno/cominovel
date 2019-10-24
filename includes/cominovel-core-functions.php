@@ -41,14 +41,6 @@ function cominovel_asset_url( $path = '' ) {
 	);
 }
 
-
-function cominovel_echo( $text, $context = null ) {
-	if ( ! empty( $context ) ) {
-		$text = apply_filters( "cominovel_echo_{$context}", $text );
-	}
-	echo wp_kses_post( $text );
-}
-
 if ( ! function_exists( 'array_get' ) ) {
 	function array_get( $arr, $arrayIndex, $defaultValue = null ) {
 		if ( is_string( $arrayIndex ) ) {
@@ -67,18 +59,31 @@ if ( ! function_exists( 'array_get' ) ) {
 }
 
 if ( ! function_exists( 'array_combine_args' ) ) {
-	function array_combine_args() {
+	function array_combine_args( $default_args, $new_args ) {
+		if ( is_array( $default_args ) ) {
+			$args = $default_args;
+		} else {
+			$args = array();
+		}
+		foreach ( (array) $new_args as $index => $value ) {
+			if ( is_numeric( $index ) ) {
+				$args[] = $value;
+			} else {
+				$args[ $index ] = $value;
+			}
+		}
+		return $args;
 	}
 }
 
-function cm_post_thumbnail( $size = 'thumbnail' ) {
-	if ( has_post_thumbnail() ) {
-		the_post_thumbnail( $size );
+if ( ! function_exists( 'array_trim' ) ) {
+	function array_trim( $arr ) {
+		return array_filter(
+			array_map(
+				'trim',
+				$arr
+			),
+			'strlen'
+		);
 	}
-}
-
-function cm_the_title( $title, $tag = 'h3' ) {
-	var_dump( $tag );
-	die;
-	echo wp_kses_post( sprintf( '<%1$s>%2$s</%1$s>', $tag, $title ) );
 }

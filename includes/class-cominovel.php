@@ -135,6 +135,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		public function frontend_includes() {
+			require_once COMINOVEL_ABSPATH . 'includes/cominovel-template-functions.php';
+
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-scripts.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template.php';
