@@ -4,7 +4,7 @@
 			<div class="overlay"></div>
 			<a class="cm item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<div class="cm-inner link-inner">
-					<?php cm_post_thumbnail(); ?>
+					<?php cm_post_thumbnail( $image_size ); ?>
 					<div class="bot-inf">
 						<?php if ( in_array( 'author', $fields ) ) : ?>
 							<div class="author">
