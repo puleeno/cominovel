@@ -14,7 +14,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 	 * Class Cominovel is the main class of Cominovel plugin
 	 */
 	class Cominovel {
-
+		const NAME    = 'cominovel';
 		const VERSION = '1.0.1';
 
 		/**
@@ -67,6 +67,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			 * Core classses
 			 */
 			require_once COMINOVEL_ABSPATH . 'includes/cominovel-core-functions.php';
+			require_once COMINOVEL_ABSPATH . 'includes/cominovel-template-functions.php';
+
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-post-types.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-install.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-query.php';
@@ -135,8 +137,6 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		public function frontend_includes() {
-			require_once COMINOVEL_ABSPATH . 'includes/cominovel-template-functions.php';
-
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-scripts.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template.php';

@@ -3,8 +3,8 @@
 class Cominovel_Shortcode_Featured extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
 		'layout'        => 'summary',
-		'items_per_row' => 4,
-		'num'           => 4,
+		'items_per_row' => 6,
+		'num'           => 6,
 	);
 
 	public function render() {
