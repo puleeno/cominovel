@@ -1,4 +1,4 @@
-<div class="cm item card-layout">
+<div class="cm item rank-layout">
 	<div class="cm-inner">
 		<div class="cm item-thumbnail">
 			<div class="overlay"></div>
