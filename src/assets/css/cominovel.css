@@ -1,0 +1,25 @@
+/*!
+ * Author: Ramphor Premium
+ */
+@media (min-width: 576px) {
+  .cm-layouts .items .item {
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .cm-layouts.r2-items .item {
+    width: 50%;
+  }
+  .cm-layouts.r3-items .item {
+    width: 33.33333%;
+  }
+  .cm-layouts.r4-items .item {
+    width: 25%;
+  }
+  .cm-layouts.r5-items .item {
+    width: 20%;
+  }
+  .cm-layouts.r6-items .item {
+    width: 16.66667%;
+  }
+}
