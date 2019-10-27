@@ -49,8 +49,7 @@
 .cm-chapter-list {}
 
 .cm-loop-chapter {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px;
     transition: 0.3s all;
 
     &:hover {
@@ -69,8 +68,24 @@
 
     }
     .cm-chapter-thumbnail {
-        width: 200px;
-        height: auto;
+        width: 250px;
+        overflow: hidden;
+        a {
+            display: block;
+            width: 100%;
+            height: 125px;
+            overflow: hidden;
+        }
+        img, .img-thumbnail {
+            max-height: initial;
+            max-width: initial;
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    .cm-chapter-name, .cm-likes,.cm-update-date{
+        margin-top:48px;
     }
     .cm-chapter-name {
     }

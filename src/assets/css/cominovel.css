@@ -5,6 +5,20 @@
   clear: both;
 }
 
+.img-thumbnail {
+  padding: 0 !important;
+  background-color: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.ui-bootstrap a {
+  color: #ffe000;
+}
+.ui-bootstrap a:hover {
+  color: #998600;
+}
+
 @media (min-width: 576px) {
   .cm-layouts .items {
     margin-left: -10px;
@@ -198,8 +212,7 @@
 }
 
 .cm-loop-chapter {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 10px;
   transition: 0.3s all;
 }
 .cm-loop-chapter:hover {
@@ -214,8 +227,23 @@
   float: right;
 }
 .cm-loop-chapter .cm-chapter-thumbnail {
-  width: 200px;
-  height: auto;
+  width: 250px;
+  overflow: hidden;
+}
+.cm-loop-chapter .cm-chapter-thumbnail a {
+  display: block;
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
+}
+.cm-loop-chapter .cm-chapter-thumbnail img, .cm-loop-chapter .cm-chapter-thumbnail .img-thumbnail {
+  max-height: initial;
+  max-width: initial;
+  height: 100%;
+  width: auto;
+}
+.cm-loop-chapter .cm-chapter-name, .cm-loop-chapter .cm-likes, .cm-loop-chapter .cm-update-date {
+  margin-top: 48px;
 }
 .cm-loop-chapter .cm-likes {
   width: 100px;

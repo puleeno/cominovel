@@ -15,7 +15,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 	 */
 	class Cominovel {
 		const NAME    = 'cominovel';
-		const VERSION = '1.0.9.8';
+		const VERSION = '1.0.12.0';
 
 		/**
 		 * The instance of class Cominovel.
