@@ -17,7 +17,7 @@ class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 		);
 		if ( $wp_query->have_posts() ) {
 			cominovel_template(
-				'loop/start',
+				'block/start-loop',
 				array(
 					'items'     => array_get( $this->attributes, 'items_per_row' ),
 					'post_type' => $post_type,
@@ -40,7 +40,7 @@ class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 				);
 			}
 			wp_reset_query();
-			cominovel_template( 'loop/end' );
+			cominovel_template( 'block/end-loop' );
 		} else {
 			cominovel_template( 'loop/no-content' );
 		}
