@@ -1,9 +1,10 @@
 <?php
 class Cominovel_Shortcode_Ranking extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
+		'fields'        => 'title,rank,change,author,description',
 		'layout'        => 'rank',
 		'items_per_row' => 3,
-		'num'           => 12,
+		'num'           => 9,
 	);
 
 	public function render() {

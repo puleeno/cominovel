@@ -2,6 +2,7 @@
 
 class Cominovel_Shortcode_Daily extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
+		'fields'        => 'title,author,likes',
 		'layout'        => 'card',
 		'items_per_row' => 5,
 		'num'           => 10,

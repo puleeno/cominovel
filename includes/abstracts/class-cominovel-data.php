@@ -85,4 +85,8 @@ abstract class Cominovel_Data {
 		$this->set( 'likes', 999 );
 		$this->set( 'read', 10000 );
 	}
+
+	public function has_content() {
+		return ! empty( $this->data['content'] ) || ! empty( $this->post->post_content );
+	}
 }

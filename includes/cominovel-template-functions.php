@@ -15,13 +15,13 @@ function cm_post_thumbnail( $size = 'thumbnail' ) {
 }
 
 function cm_the_title( $title, $tag = 'h3' ) {
-	echo wp_kses_post( sprintf( '<%1$s>%2$s</%1$s>', $tag, $title ) );
+	echo wp_kses_post( sprintf( '<%1$s class="item-title">%2$s</%1$s>', $tag, $title ) );
 }
 
 
 function cm_the_author() {
 	echo wp_kses_post(
-		'Puleeno Nguyen'
+		'<a href="#">Puleeno</a>'
 	);
 }
 
