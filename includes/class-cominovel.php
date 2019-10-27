@@ -15,7 +15,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 	 */
 	class Cominovel {
 		const NAME    = 'cominovel';
-		const VERSION = '1.0.1';
+		const VERSION = '1.0.9.1';
 
 		/**
 		 * The instance of class Cominovel.
@@ -87,6 +87,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-comic.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-novel.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-chapter.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
 			require_once COMINOVEL_ABSPATH . 'includes/shortcodes/class-cominovel-shortcode.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-seo.php';
@@ -138,8 +139,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 
 		public function frontend_includes() {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-scripts.php';
-			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-breadcrumb.php';
 		}
 
 		private function theme_support_includes() {

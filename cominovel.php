@@ -4,7 +4,7 @@
  * Plugin URI: https://puleeno.com
  * Author: Ramphor Premium
  * Author URI: https://puleeno.com
- * Version: 1.0.1
+ * Version: 1.0.9.1
  * Description: The Comic and Novel WordPress plugin by Ramphor Premium
  * Tags:  comic, novel, cloud, storage, cdn
  *
