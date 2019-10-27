@@ -3,8 +3,10 @@ get_header( 'comic' );
 
 if ( have_posts() ) {
 	the_post();
-	$comic = new Cominovel_Comic( $GLOBALS['post'] );
-	cominovel_template( 'single/comic', compact( 'comic' ) );
+	$comic       = new Cominovel_Comic( $GLOBALS['post'] );
+	$has_sidebar = is_registered_sidebar( 'cominovel_single' ) && is_active_sidebar( 'cominovel_single' );
+	$breadcrumb  = Cominovel_Breadcrumb::create( $comic );
+	cominovel_template( 'single/comic', compact( 'comic', 'has_sidebar', 'breadcrumb' ) );
 }
 
 do_action( 'cominovel_sidebars' );

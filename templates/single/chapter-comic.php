@@ -1,4 +1,6 @@
 <?php
+cominovel_template( 'heading/chapter-content' );
+
 $pre_comic_content = apply_filters( 'cominovel_comic_content', false );
 if ( empty( $pre_comic_content ) ) {
 	$total_images = count( $chapter->chapter_images );
@@ -10,3 +12,5 @@ if ( empty( $pre_comic_content ) ) {
 } else {
 	cominovel_template( 'single/chapter-custom', array( 'content' => $pre_comic_content ) );
 }
+
+comments_template();

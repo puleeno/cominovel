@@ -1,21 +1,22 @@
-<div class="cm cm-loop cm-loop-chapter">
-	<div class="cm-inner">
-		<div class="cm cm-chapter-thumbnail">
+<div class="cm-loop-chapter">
+	<div class="cm-block-inner">
+		<div class="e-chapter cm-chapter-thumbnail">
 			<a href="<?php the_permalink(); ?>">
 				<?php the_post_thumbnail(); ?>
 			</a>
 		</div>
-		<div class="cm cm-chapter-name">
+		<div class="e-chapter cm-chapter-name">
 			<a href="<?php the_permalink(); ?>">
 				<?php the_title(); ?>
 			</a>
 		</div>
-		<div class="cm cm-likes">
+		<div class="e-chapter cm-likes">
 			<span class="fa fa-thumbs-up"></span>
 			<?php cominovel_echo( $chapter->likes ); ?>
 		</div>
-		<div class="cm cm-update-date">
-			<?php cominovel_echo( $chapter->created_at ); ?>
+		<div class="e-chapter cm-update-date">
+			<?php cominovel_echo( '15/02/2018' ); ?>
 		</div>
+		<div class="clearfix"></div>
 	</div>
 </div>

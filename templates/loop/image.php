@@ -1,4 +1,4 @@
-<div class="cm cm-image">
-	<div class="cm cm-overlay"></div>
+<div class="cm-image">
+	<div class="overlay"></div>
 	<img src="<?php echo $image['url']; ?>" />
 </div>
