@@ -10,11 +10,12 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ramphor/user-profile": "dev-master",
+        "jankx/breadcrumb": "dev-master",
         "jankx/fields": "dev-master",
         "puleeno/wallery": "dev-master",
-        "ramphor/updater": "dev-master",
         "ramphor/plugin-core": "dev-master",
-        "ramphor/seo-adapter": "dev-master"
+        "ramphor/seo-adapter": "dev-master",
+        "ramphor/updater": "dev-master",
+        "ramphor/user-profile": "dev-master"
     }
 }
