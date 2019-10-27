@@ -62,16 +62,23 @@
         }
         &.r6-items {
             .item {
-                width: percentage(1/2);
+                width: percentage(1/3);
             }
         }
     }
 }
 
-@media (min-width: 768px) and (min-width: 992px) {
+@media (min-width: 768px) and (max-width: 991px) {
     .cm-layouts {
         &.r5-items {
             .item {
+            }
+        }
+        &.r6-items {
+            .item {
+                &:nth-child(3n+1) {
+                    clear: both;
+                }
             }
         }
     }
