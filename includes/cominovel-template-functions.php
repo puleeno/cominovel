@@ -1,12 +1,10 @@
 <?php
-
 function cominovel_echo( $text, $context = null ) {
 	if ( ! empty( $context ) ) {
 		$text = apply_filters( "cominovel_echo_{$context}", $text );
 	}
 	echo wp_kses_post( $text );
 }
-
 
 function cm_post_thumbnail( $size = 'thumbnail' ) {
 	if ( has_post_thumbnail() ) {
@@ -28,4 +26,58 @@ function cm_the_author() {
 
 function cm_the_likes() {
 	echo wp_kses_post( '199 Tr' );
+}
+
+
+add_action( 'cominovel_after_comic_chapter_content', 'cominovel_related_content' );
+add_action( 'cominovel_after_comic_content', 'cominovel_related_content' );
+function cominovel_related_content( $current_object = null ) {
+	$limit     = get_option( 'cominovel_related_limit_posts', 6 );
+	$post_type = $current_object->post_type === 'chapter'
+	? get_post_type( $current_object->parent )
+	: $current_object->post_type;
+	$args      = apply_filters(
+		'cominovel_related_args',
+		array(
+			'post_type'      => $post_type,
+			'posts_per_page' => $limit,
+		)
+	);
+
+	$wp_query = new WP_Query( $args );
+	if ( $wp_query->have_posts() ) {
+		cominovel_template( 'heading/related-' . $post_type );
+
+		cominovel_template(
+			'block/start-related',
+			array(
+				'items'     => 6,
+				'post_type' => array( $post_type ),
+				'layout'    => 'card',
+			)
+		);
+		while ( $wp_query->have_posts() ) {
+			$wp_query->the_post();
+			$post = $wp_query->post;
+			cominovel_template(
+				'loop/item-card',
+				array(
+					'item'       => $post->post_type === 'comic'
+						? new Cominovel_Comic( $post )
+						: new Cominovel_Novel( $post ),
+					'title_tag'  => 'h2',
+					'image_size' => 'medium',
+					'fields'     => array( 'title', 'author', 'likes' ),
+				)
+			);
+		}
+		echo '<div class="clearfix"></div>';
+		wp_reset_query();
+		cominovel_template( 'block/end-related' );
+	}
+}
+
+
+add_action( 'cominovel_before_chapter_list', 'cominovel_chapter_list_toolbars' );
+function cominovel_chapter_list_toolbars() {
 }
