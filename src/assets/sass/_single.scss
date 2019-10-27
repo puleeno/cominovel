@@ -1,0 +1,102 @@
+.cm-featured {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .cm-main-image,
+    .cm-block-features,
+    .cm-user-actions,
+    .cm-statistics {
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .cm-main-image {
+        width: 35%;
+        height: 240px;
+        overflow: hidden;
+        a {
+            display: block;
+        }
+    }
+    .cm-block-features {
+        width: 65%;
+    }
+    .cm-user-actions {
+        width: 40%;
+    }
+    .cm-statistics{
+        width: 60%;
+        text-align: right;
+    }
+}
+.cm-single-content {
+    &.has-sidebar{
+    .cm-chapter-list, .cominovel-sidebar {
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+.cm-chapter-list{
+    width: 70%;
+    min-height: 50px;
+}
+.cominovel-sidebar {
+    width: 30%;
+}
+    }
+}
+
+
+
+
+.cm-block-inner {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.cm-shares, .cm-popular, .cm-likes {
+    display: inline;
+}
+
+.cm-chapter-list {
+
+}
+
+.cm-loop-chapter {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: 0.3s all;
+
+    &:hover {
+        background: rgba(222, 222, 222, 0.6);
+    }
+    .e-chapter {
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .cm-chapter-thumbnail {
+        width: 200px;
+        height: auto;
+    }
+}
+
+.cm-image {
+    position: relative;
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media(min-width: 767px) {
+
+}

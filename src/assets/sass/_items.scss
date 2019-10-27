@@ -1,0 +1,97 @@
+.cm {
+    &.item {
+        margin-bottom: 20px;
+
+        .cm-inner {
+            position: relative;
+        }
+
+        .bot-inf {
+            position: absolute;
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            bottom: 0;
+            left: 0;
+            font-size: 12px;
+            &.gradient {
+                background: rgb(0,0,0);
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);
+                color: #fff;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+
+        .block-left,.block-right {
+            width: 50%;
+            float: left;
+            white-space: nowrap;
+        }
+
+        .tags {
+            a {
+                background: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                padding: 3px 5px;
+                border-radius: 4px;
+            }
+        }
+
+        .block-left {
+
+        }
+        .block-right {
+            text-align: right;
+        }
+
+        .item-title {
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.item-thumbnail {
+    position: relative;
+    img {
+        min-width: 100%;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {
+    .item {
+        &.rank-layout {
+            .item-thumbnail {
+                float: left;
+                width: 48%;
+                padding-right: 5px;
+            }
+
+            .item-info {
+                float: left;
+                width: 52%;
+                padding-left: 5px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+}
