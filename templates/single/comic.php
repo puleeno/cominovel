@@ -22,9 +22,11 @@
 			<div class="cm-actions">
 				<div class="cm-block-inner">
 					<div class="cm-user-actions">
-						<a class="btn btn-primary" href="<?php the_permalink(); ?>">
+					<?php if ( $first_chapter ) : ?>
+						<a class="btn btn-primary" href="<?php the_permalink( $first_chapter ); ?>">
 							<?php _e( 'Read', 'comnovel' ); ?>
 						</a>
+					<?php endif; ?>
 						<a class="btn btn-default" href="<?php cominovel_echo( $comic->follow_url() ); ?>">
 							<?php _e( 'Follow', 'comnovel' ); ?>
 						</a>
