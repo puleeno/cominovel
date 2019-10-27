@@ -1,0 +1,25 @@
+.chapter-heading {
+    background: $chapter_bar_background;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.chapter-navigation {
+    .block-left, .block-right {
+        float: left;
+        width: 50%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .block-left{
+    }
+
+    .block-right {
+        text-align: right;
+    }
+}
+
+.cm-related-heading {
+    margin-top: 20px;
+}
