@@ -39,30 +39,45 @@
     width: 50%;
   }
   .cm-layouts.r4-items .item {
-    width: 33.33333%;
+    width: 50%;
   }
   .cm-layouts.r5-items .item {
-    width: 20%;
+    width: 50%;
   }
   .cm-layouts.r6-items .item {
-    width: 16.66667%;
+    width: 50%;
   }
 }
 @media (min-width: 992px) {
   .cm-layouts.r2-items .item {
     width: 50%;
   }
+  .cm-layouts.r2-items .item:nth-child(2n+1) {
+    clear: both;
+  }
   .cm-layouts.r3-items .item {
     width: 33.33333%;
+  }
+  .cm-layouts.r3-items .item:nth-child(3n+1) {
+    clear: both;
   }
   .cm-layouts.r4-items .item {
     width: 25%;
   }
+  .cm-layouts.r4-items .item:nth-child(4n+1) {
+    clear: both;
+  }
   .cm-layouts.r5-items .item {
     width: 20%;
   }
+  .cm-layouts.r5-items .item:nth-child(5n+1) {
+    clear: both;
+  }
   .cm-layouts.r6-items .item {
     width: 16.66667%;
+  }
+  .cm-layouts.r6-items .item:nth-child(6n+1) {
+    clear: both;
   }
 }
 .cm.item {
@@ -166,27 +181,15 @@
   width: 60%;
   text-align: right;
 }
-
-.cm-single-content.has-sidebar .cm-chapter-list, .cm-single-content.has-sidebar .cominovel-sidebar {
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.cm-single-content.has-sidebar .cm-chapter-list {
-  width: 70%;
-  min-height: 50px;
-}
-.cm-single-content.has-sidebar .cominovel-sidebar {
-  width: 30%;
+.cm-featured .cm-shares,
+.cm-featured .cm-popular,
+.cm-featured .cm-likes {
+  display: inline;
 }
 
 .cm-block-inner {
   margin-left: -10px;
   margin-right: -10px;
-}
-
-.cm-shares, .cm-popular, .cm-likes {
-  display: inline;
 }
 
 .cm-loop-chapter {
@@ -206,6 +209,15 @@
   width: 200px;
   height: auto;
 }
+.cm-loop-chapter .cm-chapter-name {
+  width: 100%;
+}
+.cm-loop-chapter .cm-likes {
+  width: 100px;
+}
+.cm-loop-chapter .cm-update-date {
+  width: 120px;
+}
 
 .cm-image {
   position: relative;
@@ -220,4 +232,25 @@
 .cm-image img {
   width: 100%;
   height: auto;
+}
+
+.chapter-images {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 767px) {
+  .cm-single-content.has-sidebar .cm-chapter-list,
+  .cm-single-content.has-sidebar .cominovel-sidebar {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .cm-single-content.has-sidebar .cm-chapter-list {
+    width: 70%;
+    min-height: 50px;
+  }
+  .cm-single-content.has-sidebar .cominovel-sidebar {
+    width: 30%;
+  }
 }
