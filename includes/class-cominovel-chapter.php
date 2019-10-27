@@ -49,4 +49,20 @@ class Cominovel_Chapter extends Cominovel_Data {
 
 	public function load_novel_chapter() {
 	}
+
+	public function get_next_chapter() {
+		return [
+			'id'   => '',
+			'url'  => '',
+			'name' => '',
+		];
+	}
+
+	public function get_previous_chapter() {
+		return [
+			'id'   => '',
+			'url'  => '',
+			'name' => '',
+		];
+	}
 }
