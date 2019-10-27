@@ -11,5 +11,6 @@ $prev_chapter = $chapter->get_previous_chapter();
 		<div class="block-right">
 			<a href="<?php echo wp_kses_post( $next_chapter['url'] ); ?>"><?php _e( 'Next Chapter', 'cominovel' ); ?></a>
 		</div>
+		<div class="clearfix"></div>
 	</div>
 </div>
