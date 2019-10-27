@@ -39,6 +39,7 @@ class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 					)
 				);
 			}
+			echo '<div class="clearfix"></div>';
 			wp_reset_query();
 			cominovel_template( 'block/end-loop' );
 		} else {

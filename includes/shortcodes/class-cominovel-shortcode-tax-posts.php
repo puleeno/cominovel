@@ -41,6 +41,7 @@ class Cominovel_Shortcode_Tax_Posts extends Cominovel_Shortcode_Post {
 					)
 				);
 			}
+			echo '<div class="clearfix"></div>';
 			wp_reset_query();
 			cominovel_template( 'block/end-loop' );
 		} else {
