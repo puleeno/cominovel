@@ -44,7 +44,7 @@ class Cominovel_Post_Types {
 			return;
 		}
 		do_action( 'cominovel_register_post_types' );
-		$supports = array( 'title', 'editor', 'thumbnail', 'comments', 'wpcom-markdown' );
+		$supports = array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' );
 
 		if ( in_array( 'comic', $this->allowed_post_types ) ) {
 			$labels = array(
