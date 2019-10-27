@@ -1,10 +1,11 @@
 {
-    "name": "ramphor/comic",
+    "name": "ramphor/cominovel",
+    "description": "The Comic and Novel WordPress plugin by Ramphor Premium",
     "type": "project",
-    "license": "MIT",
+    "license": "GPL-2.0",
     "authors": [
         {
-            "name": "Puleeno Nguyen",
+            "name": "Ramphor Premium",
             "email": "puleeno@gmail.com"
         }
     ],
