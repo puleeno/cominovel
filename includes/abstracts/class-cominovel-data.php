@@ -89,4 +89,8 @@ abstract class Cominovel_Data {
 	public function has_content() {
 		return ! empty( $this->data['content'] ) || ! empty( $this->post->post_content );
 	}
+
+	public function is_oneshot() {
+		return false;
+	}
 }

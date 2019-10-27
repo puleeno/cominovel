@@ -1,4 +1,4 @@
-<div>
+<div class="cominovel-breadcumb">
 	<?php echo $breadcrumb; ?>
 </div>
 <div class="cm-featured">
@@ -60,12 +60,13 @@
 </div>
 <?php endif; ?>
 
+<?php if ( ! $is_oneshot ) : ?>
 <div class="cm-single-content
-<?php
-if ( $has_sidebar ) {
-	echo ' has-sidebar';
-}
-?>
+	<?php
+	if ( $has_sidebar ) {
+		echo ' has-sidebar';
+	}
+	?>
 ">
 	<?php do_action( 'cominovel_before_chapter_list' ); ?>
 	<div class="<?php echo $has_sidebar ? 'cm-block-inner' : 'cm-inner'; ?>">
@@ -90,5 +91,10 @@ if ( $has_sidebar ) {
 		<div class="clearfix"></div>
 	</div>
 </div>
+	<?php
+else :
+	do_action( 'cominovel_oneshot_comic_content', $comic );
+endif;
+?>
 
 <?php comments_template(); ?>
