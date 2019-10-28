@@ -24,13 +24,14 @@ abstract class Cominovel_Shortcode_Abstract {
 
 	public function default_attributes() {
 		return array(
-			'image_size' => 'thumbnail',
-			'layout'     => 'default',
-			'num'        => 10,
-			'post_type'  => 'comic',
-			'title'      => '',
-			'type'       => 'post',
-			'title_tag'  => 'h3',
+			'image_size'    => 'thumbnail',
+			'layout'        => 'default',
+			'content_style' => 'dark-content',
+			'num'           => 10,
+			'post_type'     => 'comic',
+			'title'         => '',
+			'type'          => 'post',
+			'title_tag'     => 'h3',
 		);
 	}
 
