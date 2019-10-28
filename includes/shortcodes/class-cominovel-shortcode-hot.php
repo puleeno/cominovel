@@ -1,6 +1,7 @@
 <?php
 class Cominovel_Shortcode_Hot extends Cominovel_Shortcode_Post {
 	protected $accepted_attributes = array(
+		'fields' => 'title,author,likes,genres',
 		'items_per_row' => 5,
 		'num'           => 10,
 	);
