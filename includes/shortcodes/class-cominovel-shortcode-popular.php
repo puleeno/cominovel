@@ -20,9 +20,10 @@ class Cominovel_Shortcode_Popular extends Cominovel_Shortcode_Post {
 			cominovel_template(
 				'block/start-loop',
 				array(
-					'items'     => array_get( $this->attributes, 'items_per_row' ),
-					'post_type' => $post_type,
-					'layout'    => $layout,
+					'items'         => array_get( $this->attributes, 'items_per_row' ),
+					'content_style' => array_get( $this->attributes, 'content_style' ),
+					'post_type'     => $post_type,
+					'layout'        => $layout,
 				)
 			);
 			while ( $wp_query->have_posts() ) {
