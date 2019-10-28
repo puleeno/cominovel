@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42ca88d0e62043b1f94e48fdf44bec8b",
+    "content-hash": "7d3cd5c4ffbf31dad986154adb97a2f4",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -62,6 +62,39 @@
                 "twitter"
             ],
             "time": "2019-10-01T19:52:19+00:00"
+        },
+        {
+            "name": "jankx/breadcrumb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/breadcrumb.git",
+                "reference": "8e18fcd62481af5972a0477c9ba56dcdbe66e25c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/breadcrumb/zipball/8e18fcd62481af5972a0477c9ba56dcdbe66e25c",
+                "reference": "8e18fcd62481af5972a0477c9ba56dcdbe66e25c",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Breadcrumb\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jankx Framework",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The embed UI Breadcrumb for WordPress plugins and WordPress themes",
+            "time": "2019-10-27T12:33:02+00:00"
         },
         {
             "name": "jankx/fields",
@@ -135,12 +168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/plugin-core.git",
-                "reference": "c82d02028522d6b270754619fafd9a3aff026538"
+                "reference": "f525e35a7b6147344b01d9d8daea59ad9ff7507d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/plugin-core/zipball/c82d02028522d6b270754619fafd9a3aff026538",
-                "reference": "c82d02028522d6b270754619fafd9a3aff026538",
+                "url": "https://api.github.com/repos/ramphor/plugin-core/zipball/f525e35a7b6147344b01d9d8daea59ad9ff7507d",
+                "reference": "f525e35a7b6147344b01d9d8daea59ad9ff7507d",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +196,7 @@
                 }
             ],
             "description": "The core of plugins are developed by The Ramphor Premium",
-            "time": "2019-07-13T12:58:45+00:00"
+            "time": "2019-10-17T04:59:33+00:00"
         },
         {
             "name": "ramphor/seo-adapter",
@@ -171,12 +204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/seo-adapter.git",
-                "reference": "ebe42a018f6205d93778e22e74186a5856b5f675"
+                "reference": "f2a9a732ebe5252d731512b8e2861de35a81daa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/seo-adapter/zipball/ebe42a018f6205d93778e22e74186a5856b5f675",
-                "reference": "ebe42a018f6205d93778e22e74186a5856b5f675",
+                "url": "https://api.github.com/repos/ramphor/seo-adapter/zipball/f2a9a732ebe5252d731512b8e2861de35a81daa9",
+                "reference": "f2a9a732ebe5252d731512b8e2861de35a81daa9",
                 "shasum": ""
             },
             "type": "library",
@@ -196,7 +229,7 @@
                 }
             ],
             "description": "The SEO adapter to support custom data for popular SEO plugins",
-            "time": "2019-10-14T14:22:30+00:00"
+            "time": "2019-10-17T05:00:15+00:00"
         },
         {
             "name": "ramphor/updater",
@@ -204,12 +237,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/updater.git",
-                "reference": "69b20a8bb6b5f67707fc5a5e8422485ae3fcaf36"
+                "reference": "de0cc9ab6ea37b214534210c2de0164b3c32113f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/updater/zipball/69b20a8bb6b5f67707fc5a5e8422485ae3fcaf36",
-                "reference": "69b20a8bb6b5f67707fc5a5e8422485ae3fcaf36",
+                "url": "https://api.github.com/repos/ramphor/updater/zipball/de0cc9ab6ea37b214534210c2de0164b3c32113f",
+                "reference": "de0cc9ab6ea37b214534210c2de0164b3c32113f",
                 "shasum": ""
             },
             "type": "library",
@@ -229,7 +262,7 @@
                 }
             ],
             "description": "The embeded updater for themes, plugins in WordPress",
-            "time": "2019-08-22T02:12:52+00:00"
+            "time": "2019-10-17T04:58:49+00:00"
         },
         {
             "name": "ramphor/user-profile",
@@ -272,12 +305,13 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ramphor/user-profile": 20,
+        "jankx/breadcrumb": 20,
         "jankx/fields": 20,
         "puleeno/wallery": 20,
-        "ramphor/updater": 20,
         "ramphor/plugin-core": 20,
-        "ramphor/seo-adapter": 20
+        "ramphor/seo-adapter": 20,
+        "ramphor/updater": 20,
+        "ramphor/user-profile": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
