@@ -1,5 +1,5 @@
 import "antd/dist/antd.css";
-import "../assets/css/admin/common.css";
+import "../assets/admin/css/common.css";
 
 class Setup {
   public static bootstrap() {
