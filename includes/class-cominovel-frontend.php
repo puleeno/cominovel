@@ -5,6 +5,7 @@ class Cominovel_Frontend {
 		add_action( 'admin_bar_menu', array( __CLASS__, 'change_edit_chapter_link_to_comic' ), 999 );
 		add_filter( 'cominovel_edit_comic_node', array( __CLASS__, 'edit_comic_node' ), 10, 2 );
 		add_action( 'widgets_init', array( __CLASS__, 'register_sidebar' ), 15 );
+		add_action( 'admin_bar_menu', array( __CLASS__, 'add_edit_chapter_link' ), 75 );
 	}
 
 	public function change_edit_chapter_link_to_comic( $wp_admin_bar ) {
@@ -44,6 +45,22 @@ class Cominovel_Frontend {
 			)
 		);
 	}
+
+	public static function add_edit_chapter_link( $wp_admin_bar ) {
+		if ( 'chapter' !== get_post_type()) {
+			return;
+		}
+		$args = array(
+			'id'    => 'edit-chapter',
+			'title' => __( 'Edit Chapter', 'cominovel' ),
+			'href'  => get_edit_post_link(),
+			'meta'  => array(
+				'class' => 'edit-chapter',
+			),
+		);
+		$wp_admin_bar->add_node( $args );
+	}
+
 }
 
 Cominovel_Frontend::init();
