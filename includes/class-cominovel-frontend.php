@@ -47,7 +47,7 @@ class Cominovel_Frontend {
 	}
 
 	public static function add_edit_chapter_link( $wp_admin_bar ) {
-		if ( 'chapter' !== get_post_type()) {
+		if ( 'chapter' !== get_post_type() ) {
 			return;
 		}
 		$args = array(
