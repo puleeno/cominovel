@@ -2,9 +2,9 @@
 
 abstract class Cominovel_Data {
 	public $ID;
+	public $data = array();
 
 	protected $post;
-	protected $data     = array();
 	protected $raw_data = array();
 
 	public function __construct( $post = null, $autoload = true ) {
@@ -96,5 +96,52 @@ abstract class Cominovel_Data {
 
 	public function is_oneshot() {
 		return false;
+	}
+
+	public function load_data() {
+		$this->parse_data_from_post();
+		$this->load_custom_data();
+	}
+
+	public function parse_data_from_post() {
+		$public_keys = apply_filters(
+			'cominovel_public_post_keys',
+			array(
+				'ID',
+				'post_type',
+				'post_parent',
+				'post_status',
+				'post_name',
+				'post_title',
+				'post_content',
+				'post_exceprt',
+				'post_modified',
+			)
+		);
+		foreach ( $public_keys as $public_key ) {
+			$this->set( $public_key, $this->post->$public_key );
+		}
+	}
+
+	public function load_custom_data() {
+		$custom_keys = apply_filters(
+			'cominovel_custom_data_keys',
+			array(
+				'alternate_name',
+				'type',
+				'status',
+				'release',
+				'author',
+				'artist',
+				'generes',
+				'short_description',
+				'seasons',
+				'audult',
+				'badge',
+			)
+		);
+		foreach ( $custom_keys as $custom_key ) {
+			$this->set( $custom_key, array_get( $this->raw_data, $custom_key, '' ) );
+		}
 	}
 }
