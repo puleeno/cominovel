@@ -26,10 +26,9 @@ class Cominovel_Rest_Api {
 
 		$languages_config = require dirname( __FILE__ ) . '/configs/react-app-languages.php';
 		$json             = sprintf( 'var cominovel = {languages: %s}; window.cominovel = cominovel;', json_encode( $languages_config ) );
-		$response         = new WP_REST_Response( $json );
-		$response->header( 'Content-Type', 'text/javascript' );
 
-		return $response;
+		header( 'Content-Type: text/javascript' );
+		die( $json );
 	}
 }
 
