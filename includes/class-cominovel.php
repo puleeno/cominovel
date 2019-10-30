@@ -92,6 +92,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/shortcodes/class-cominovel-shortcode.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-seo.php';
 
+			require_once COMINOVEL_ABSPATH . 'includes/rest/class-cominovel-rest-api.php';
+
 			if ( $this->is_request( 'admin' ) ) {
 				require_once COMINOVEL_ABSPATH . 'includes/admin/class-cominovel-admin.php';
 			}
