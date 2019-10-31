@@ -1,7 +1,7 @@
 import { Button, Checkbox, Col, Icon, PageHeader, Radio, Row, Select, Upload } from "antd";
 import React, { Component, FormEvent } from "react";
 import Form from "../antd/Form";
-import { FileInfo } from "../interfaces/Composer";
+import { IFileInfo } from "../interfaces/Composer";
 
 interface IProps {
   form: any;
@@ -17,7 +17,7 @@ class Composer extends Component<IProps> {
     });
   }
 
-  public normFile = (e: FileInfo) => {
+  public normFile = (e: IFileInfo) => {
     console.log("Upload event:", e);
     if (Array.isArray(e)) {
       return e;

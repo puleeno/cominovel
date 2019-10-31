@@ -11,4 +11,6 @@ const store = createStore(
     applyMiddleware(epicMiddleware),
 );
 
+epicMiddleware.run(rootEpics);
+
 export default store;
