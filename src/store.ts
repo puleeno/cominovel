@@ -3,7 +3,7 @@ import { createEpicMiddleware } from "redux-observable";
 import rootEpics from "./epics";
 import reducers from "./reducers";
 
-const epicMiddleware = createEpicMiddleware(rootEpics);
+const epicMiddleware = createEpicMiddleware();
 
 const store = createStore(
     reducers,
