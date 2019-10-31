@@ -1,5 +1,8 @@
 import { Tabs } from "antd";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchCominovel } from "./actions";
 import Setup from "./bootstrap/Setup";
 import Advanced from "./components/Advanced";
 import BasicInfo from "./components/BasicInfo";
@@ -11,11 +14,17 @@ const { TabPane } = Tabs;
 
 interface IState {}
 
-interface IProps {}
+interface IProps {
+}
+
 
 class Cominovel extends Component<IProps, IState> {
-  public componentWillMount() {
+  public UNSAFE_componentWillMount() {
     Setup.bootstrap();
+  }
+
+  public componentDidMount() {
+    //
   }
 
   public handleModeChange = (e: any) => {
