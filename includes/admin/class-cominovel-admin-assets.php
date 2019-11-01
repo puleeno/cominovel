@@ -27,6 +27,7 @@ class Cominovel_Admin_Assets {
 		}
 		add_action( 'current_screen', array( $this, 'get_screen' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_react_app' ) );
+		add_action( 'admin_footer', array( $this, 'init_cominovel_info' ), 5 );
 	}
 
 	public function get_screen() {
@@ -65,6 +66,24 @@ class Cominovel_Admin_Assets {
 				$this->register_prod_react_assets();
 			}
 		}
+	}
+
+	public function init_cominovel_info() {
+		if (
+			$this->current_screen->base !== 'post' ||
+			! in_array(
+				$this->current_screen->id,
+				Cominovel_Post_Types::get_allowed_post_types()
+			)
+		) {
+			return;
+		}
+		?>
+		<script type="text/javascript">
+			window.Cominovel = window.Cominovel || {};
+			window.Cominovel.currentID = <?php echo $GLOBALS['post']->ID; ?>;
+		</script>
+		<?php
 	}
 
 	public function register_dev_react_assets() {

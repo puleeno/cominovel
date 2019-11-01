@@ -38,7 +38,15 @@ class Cominovel_Rest_Api {
 		);
 
 		$languages_config = require dirname( __FILE__ ) . '/configs/react-app-languages.php';
-		$json             = sprintf( 'var cominovel = {languages: %s}; window.cominovel = cominovel;', json_encode( $languages_config ) );
+		$messages_config  = require dirname( __FILE__ ) . '/configs/react-app-messages.php';
+		$json             = sprintf(
+			'window.Cominovel = window.Cominovel || {};%1$s'
+				. 'window.Cominovel.languages = %2$s;%1$s'
+				. 'window.Cominovel.messages = %3$s',
+			"\n",
+			json_encode( $languages_config ),
+			json_encode( $messages_config )
+		);
 
 		header( 'Content-Type: text/javascript' );
 		die( $json );
