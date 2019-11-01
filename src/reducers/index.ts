@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
 
-const reducers = combineReducers({});
+// const isLoaded = false;
 
+const reducers = combineReducers({
+});
+
+export type AppState = ReturnType<typeof reducers>;
 export default reducers;

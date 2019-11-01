@@ -4,6 +4,8 @@ export interface IEndpoint {
 }
 
 export interface ICominovelProps {
-    languages: object;
+    currentID: BigInt;
     endpoints: IEndpoint[];
+    languages: any;
+    messages: any;
 }

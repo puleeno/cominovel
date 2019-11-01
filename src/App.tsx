@@ -1,13 +1,12 @@
 import React from "react";
 import { IntlProvider } from "react-intl";
 import Cominovel from "./Cominovel";
-
-interface CominovelWindowProps {
-}
+import { ICominovelProps } from './interfaces/CominovelProps';
 
 declare global {
+  // tslint:disable-next-line: interface-name
   interface Window {
-    Cominovel: CominovelWindowProps;
+    Cominovel: ICominovelProps;
   }
 }
 

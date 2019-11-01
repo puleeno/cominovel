@@ -1,4 +1,4 @@
-import { FETCH_COMINOVEL, FETCH_COMINOVEL_FULLFILLED } from './types';
+import { FETCH_COMINOVEL, FETCH_COMINOVEL_FULLFILLED } from "./types";
 
 export function fetchCominovel(id: BigInt) {
     return {
