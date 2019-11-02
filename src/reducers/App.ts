@@ -1,16 +1,21 @@
-import { ActionType } from "typesafe-actions";
-import { setAppStatus } from "../actions";
+import { AnyAction } from "redux";
 import { IS_LOADED } from "../actions/types";
 
-type Action = ActionType<typeof setAppStatus>;
+export interface IAppState {
+    isLoaded: boolean;
+}
 
-export const appState = (state: {}, action: Action) => {
+const initState = {
+    isLoaded: false,
+};
+
+export const appState = (previousState: IAppState = initState, action: AnyAction): IAppState => {
     switch (action.type) {
         case IS_LOADED: {
-            return action.payload;
+            return previousState;
         }
         default: {
-            return state;
+            return previousState;
         }
     }
 };

@@ -2,16 +2,20 @@ import { Tabs } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
-import { fetchCominovel } from "./actions";
+import { ActionType } from "typesafe-actions";
+import * as actions from "./actions";
+// import { fetchCominovel } from "./actions";
 import Setup from "./bootstrap/Setup";
 import Advanced from "./components/Advanced";
 import BasicInfo from "./components/BasicInfo";
 import Chapters from "./components/Chapters";
 import Composer from "./components/Composer";
 import Seasons from "./components/Seasons";
-import { AppState } from "./reducers";
+import { IRootState } from "./reducers";
 
 const { TabPane } = Tabs;
+
+type Action = ActionType<typeof actions>;
 
 interface IState {}
 
@@ -26,7 +30,7 @@ class Cominovel extends Component<IProps, IState> {
     if (typeof window.Cominovel.currentID === undefined) {
       return;
     }
-    this.props.fetchCominovel(window.Cominovel.currentID);
+    // this.props.fetchCominovel(window.Cominovel.currentID);
   }
 
   public handleModeChange = (e: any) => {
@@ -80,12 +84,13 @@ class Cominovel extends Component<IProps, IState> {
   }
 }
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: IRootState) => ({
   isLoaded: state.isLoaded,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({
-  fetchCominovel,
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
+bindActionCreators({
+  // fetchCominovel,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cominovel);

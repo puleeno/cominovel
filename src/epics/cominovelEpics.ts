@@ -1,4 +1,5 @@
-import { Epic } from "redux-observable";
+
+/* import { Epic } from "redux-observable";
 import { from } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { filter, map, mergeMap } from "rxjs/operators";
@@ -21,3 +22,6 @@ const fetchCominovelEpic: Epic<Action, Action, AppState> = (action$, store) => a
 );
 
 export default fetchCominovelEpic;
+*/
+
+export {};
