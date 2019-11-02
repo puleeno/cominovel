@@ -1,13 +1,36 @@
 import { AnyAction } from "redux";
 import { FETCH_COMINOVEL_FULLFILLED } from "../actions/types";
-import { ICominovelInfo } from "../interfaces/CominovelProps";
+import { ICominovelData } from "../interfaces/CominovelProps";
 
 export interface ICominovelState {
-    info: ICominovelInfo;
+    info: ICominovelData;
 }
 
 const initState: ICominovelState = {
-    info: {},
+    info: {
+        ID: 0,
+        alternate_name: "",
+        artist: "",
+        audult: "",
+        author: "",
+        badge: "",
+        chapters: [],
+        generes: "",
+        parent: 0,
+        post_content: "",
+        post_excerpt: "",
+        post_modified: "",
+        post_name: "",
+        post_parent: 0,
+        post_status: "",
+        post_title: "",
+        post_type: "",
+        release: "",
+        seasons: "",
+        short_description: "",
+        status: "",
+        type: "",
+    },
 };
 
 export function cominovelInfo(previewState: ICominovelState = initState, action: AnyAction): ICominovelState {
@@ -15,7 +38,7 @@ export function cominovelInfo(previewState: ICominovelState = initState, action:
         case FETCH_COMINOVEL_FULLFILLED: {
             const newState = {
                 ...previewState,
-                info: action.payload,
+                ...action.payload,
             };
             return newState;
         }

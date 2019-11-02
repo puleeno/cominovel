@@ -6,12 +6,12 @@ import { appState } from "./App";
 
 export interface IRootState {
     isLoaded: IAppState;
-    info: ICominovelState;
+    cominovel: ICominovelState;
 }
 
 const reducers = combineReducers({
+    cominovel: cominovelInfo,
     isLoaded: appState,
-    info: cominovelInfo,
 });
 
 export default reducers;
