@@ -22,7 +22,7 @@ abstract class Cominovel_Data {
 		}
 		if ( $this->post ) {
 			$this->set( 'post_type', $post->post_type );
-			$this->set( 'parent', $post->post_parent );
+			$this->set( 'parent', (int) $post->post_parent );
 		}
 		$this->autoload_data( $autoload );
 	}
@@ -114,7 +114,7 @@ abstract class Cominovel_Data {
 				'post_name',
 				'post_title',
 				'post_content',
-				'post_exceprt',
+				'post_excerpt',
 				'post_modified',
 			)
 		);

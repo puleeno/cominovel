@@ -29,14 +29,14 @@ class Cominovel_Rest_Data {
 		$comic = new Cominovel_Comic( $request->get_param( 'id' ) );
 		$comic->load_data();
 
-		$response = new WP_REST_Response( $comic );
+		$response = new WP_REST_Response( $comic->data );
 		return $response;
 	}
 	public function get_novel( WP_REST_Request $request ) {
-		$comic = new Cominovel_Novel( $request->get_param( 'id' ) );
-		$comic->load_data();
+		$novel = new Cominovel_Novel( $request->get_param( 'id' ) );
+		$novel->load_data();
 
-		$response = new WP_REST_Response( $comic );
+		$response = new WP_REST_Response( $novel->data );
 		return $response;
 	}
 }
