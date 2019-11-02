@@ -1,19 +1,16 @@
 
-import { Epic } from "redux-observable";
+import { Action, AnyAction } from "redux";
+import { Epic, ofType } from "redux-observable";
 import { from } from "rxjs";
 import { ajax } from "rxjs/ajax";
-import { filter, map, mergeMap } from "rxjs/operators";
-import { ActionType, isActionOf } from "typesafe-actions";
+import { map, mergeMap } from "rxjs/operators";
 import { fetchCominovelData } from "../actions";
-import * as actions from "../actions";
-import { IRootState } from "../reducers";
+import { FETCH_COMINOVEL } from "../actions/types";
 
-type Action = ActionType<typeof actions>;
-
-const fetchCominovelEpic: Epic<Action, Action, IRootState> = (action$, store) => action$.pipe(
-    filter(isActionOf(actions.fetchCominovel)),
+const fetchCominovelEpic: Epic<Action<any>, Action<any>, void> = (action$, store) => action$.pipe(
+    ofType(FETCH_COMINOVEL),
     mergeMap(
-        (action: Action) => from(
+        (action: AnyAction) => from(
             ajax.getJSON(`http://loveofboys.io/wp-json/cominovel/v1/comic/${action.payload}`),
         ).pipe(
             map((response: any) => fetchCominovelData(response)),
