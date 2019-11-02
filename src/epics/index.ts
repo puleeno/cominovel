@@ -1,13 +1,6 @@
-import { combineEpics, ofType } from "redux-observable";
-import {  delay, mapTo } from "rxjs/operators";
+import { combineEpics } from "redux-observable";
+import fetchCominovel from "./Cominovel";
 
-const PING = "PING";
-const PONG = "PONG";
-
-const pingEpic = (action$: any) => action$.pipe(
-  ofType(PING),
-  delay(1000),
-  mapTo({ type: PONG }),
+export default combineEpics(
+  fetchCominovel,
 );
-
-export default combineEpics(pingEpic);

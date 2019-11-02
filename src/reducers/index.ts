@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
 
-// const isLoaded = false;
+import { appState } from "./App";
 
 const reducers = combineReducers({
+    isLoaded: true,
 });
 
 export type AppState = ReturnType<typeof reducers>;
