@@ -9,3 +9,6 @@ export interface ICominovelProps {
     languages: any;
     messages: any;
 }
+
+export interface ICominovelInfo {
+}

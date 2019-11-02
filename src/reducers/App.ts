@@ -5,7 +5,7 @@ export interface IAppState {
     isLoaded: boolean;
 }
 
-const initState = {
+const initState: IAppState = {
     isLoaded: false,
 };
 

@@ -1,7 +1,7 @@
 import { combineEpics } from "redux-observable";
 
-// import fetchCominovel from "./cominovelEpics";
+import fetchCominovel from "./cominovelEpics";
 
 export default combineEpics(
-  // fetchCominovel,
+  fetchCominovel,
 );

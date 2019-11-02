@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
 import { ActionType } from "typesafe-actions";
 import * as actions from "./actions";
-// import { fetchCominovel } from "./actions";
+import { fetchCominovel } from "./actions";
 import Setup from "./bootstrap/Setup";
 import Advanced from "./components/Advanced";
 import BasicInfo from "./components/BasicInfo";
@@ -30,7 +30,7 @@ class Cominovel extends Component<IProps, IState> {
     if (typeof window.Cominovel.currentID === undefined) {
       return;
     }
-    // this.props.fetchCominovel(window.Cominovel.currentID);
+    this.props.fetchCominovel(window.Cominovel.currentID);
   }
 
   public handleModeChange = (e: any) => {
@@ -90,7 +90,7 @@ const mapStateToProps = (state: IRootState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
 bindActionCreators({
-  // fetchCominovel,
+  fetchCominovel,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cominovel);

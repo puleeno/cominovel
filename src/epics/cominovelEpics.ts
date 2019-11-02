@@ -1,16 +1,16 @@
 
-/* import { Epic } from "redux-observable";
+import { Epic } from "redux-observable";
 import { from } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { filter, map, mergeMap } from "rxjs/operators";
 import { ActionType, isActionOf } from "typesafe-actions";
 import { fetchCominovelData } from "../actions";
 import * as actions from "../actions";
-import { AppState } from "../reducers";
+import { IRootState } from "../reducers";
 
 type Action = ActionType<typeof actions>;
 
-const fetchCominovelEpic: Epic<Action, Action, AppState> = (action$, store) => action$.pipe(
+const fetchCominovelEpic: Epic<Action, Action, IRootState> = (action$, store) => action$.pipe(
     filter(isActionOf(actions.fetchCominovel)),
     mergeMap(
         (action: Action) => from(
@@ -22,6 +22,3 @@ const fetchCominovelEpic: Epic<Action, Action, AppState> = (action$, store) => a
 );
 
 export default fetchCominovelEpic;
-*/
-
-export {};
