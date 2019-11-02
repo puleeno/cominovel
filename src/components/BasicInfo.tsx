@@ -2,7 +2,9 @@ import {
   AutoComplete, DatePicker, Input, PageHeader, Select, Tree,
 } from "antd";
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Form from "../antd/Form";
+import { IRootState } from "../reducers";
 
 const { Item } = Form;
 const { Option } = Select;
@@ -10,8 +12,7 @@ const { TreeNode } = Tree;
 const { Search } = Input;
 const { TextArea } = Input;
 
-interface IProps {
-}
+type IProps = ReturnType<typeof mapStateToProps>;
 
 interface IState {
   isUploading: false;
@@ -40,7 +41,7 @@ class BasicInfo extends Component<IProps, IState> {
           <Item
           label="Alternatve Name"
           >
-            <Input name="alternative_name" />
+            <Input name="alternative_name" value={this.props.alternate_name} />
           </Item>
 
           <Item
@@ -122,7 +123,7 @@ class BasicInfo extends Component<IProps, IState> {
           <Item
             label="Short Description"
           >
-            <TextArea name="exceprt" rows={4} />
+            <TextArea name="exceprt" rows={4} value={this.props.post_excerpt} />
           </Item>
         </Form>
       </div>
@@ -130,4 +131,10 @@ class BasicInfo extends Component<IProps, IState> {
   }
 }
 
-export default BasicInfo;
+const mapStateToProps = (state: IRootState) => {
+  return {
+    ...state.cominovel.info,
+  };
+};
+
+export default connect(mapStateToProps)(BasicInfo);
