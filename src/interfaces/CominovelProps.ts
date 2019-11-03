@@ -12,7 +12,7 @@ export interface ICominovelProps {
 
 export interface ICominovelData {
     ID: BigInt | number;
-    alternate_name: string;
+    alternative_name: string;
     artist: string;
     audult: string;
     author: string;

@@ -12,7 +12,10 @@ const initState: IAppState = {
 export const appState = (previousState: IAppState = initState, action: AnyAction): IAppState => {
     switch (action.type) {
         case IS_LOADED: {
-            return previousState;
+            return {
+                ...previousState,
+                isLoaded: action.payload,
+            };
         }
         default: {
             return previousState;

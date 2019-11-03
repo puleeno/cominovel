@@ -5,13 +5,13 @@ import { cominovelInfo, ICominovelState } from "../reducers/cominovelReducer";
 import { appState } from "./App";
 
 export interface IRootState {
-    isLoaded: IAppState;
+    app: IAppState;
     cominovel: ICominovelState;
 }
 
 const reducers = combineReducers({
+    app: appState,
     cominovel: cominovelInfo,
-    isLoaded: appState,
 });
 
 export default reducers;

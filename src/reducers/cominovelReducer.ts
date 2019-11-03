@@ -9,7 +9,7 @@ export interface ICominovelState {
 const initState: ICominovelState = {
     info: {
         ID: 0,
-        alternate_name: "",
+        alternative_name: "",
         artist: "",
         audult: "",
         author: "",
@@ -38,7 +38,7 @@ export function cominovelInfo(previewState: ICominovelState = initState, action:
         case FETCH_COMINOVEL_FULLFILLED: {
             const newState = {
                 ...previewState,
-                ...action.payload,
+                info: action.payload,
             };
             return newState;
         }

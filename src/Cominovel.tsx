@@ -1,9 +1,7 @@
-import { Tabs } from "antd";
+import { Spin, Tabs } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
-import { ActionType } from "typesafe-actions";
-import * as actions from "./actions";
 import { fetchCominovel } from "./actions";
 import Setup from "./bootstrap/Setup";
 import Advanced from "./components/Advanced";
@@ -14,12 +12,8 @@ import Seasons from "./components/Seasons";
 import { IRootState } from "./reducers";
 
 const { TabPane } = Tabs;
-
-type Action = ActionType<typeof actions>;
-
-interface IState {}
-
 type IProps = ReturnType<typeof mapDispatchToProps> & ReturnType<typeof mapStateToProps>;
+interface IState {}
 
 class Cominovel extends Component<IProps, IState> {
   public UNSAFE_componentWillMount() {
@@ -39,6 +33,11 @@ class Cominovel extends Component<IProps, IState> {
   }
 
   public render() {
+    if (!this.props.isLoaded) {
+      return(
+        <Spin size="large" />
+      );
+    }
     return (
       <Tabs
         defaultActiveKey="1"
@@ -85,7 +84,7 @@ class Cominovel extends Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: IRootState) => ({
-  isLoaded: state.isLoaded,
+  isLoaded: state.app.isLoaded,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
