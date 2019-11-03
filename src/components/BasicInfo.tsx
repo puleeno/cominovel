@@ -4,6 +4,7 @@ import {
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Form from "../antd/Form";
+import { ICominovelData } from "../interfaces/CominovelProps";
 import { IRootState } from "../reducers";
 
 const { Item } = Form;
@@ -14,8 +15,7 @@ const { TextArea } = Input;
 
 type IProps = ReturnType<typeof mapStateToProps>;
 
-interface IState {
-  isUploading: false;
+interface IState extends ICominovelData {
 }
 
 const formItemLayout = {
@@ -30,6 +30,11 @@ const formItemLayout = {
 };
 
 class BasicInfo extends Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = props.info;
+  }
+
   public render() {
     return (
       <div className="cominovel-tab-content">
@@ -41,7 +46,11 @@ class BasicInfo extends Component<IProps, IState> {
           <Item
           label="Alternatve Name"
           >
-            <Input name="alternative_name" value={this.props.alternate_name} />
+            <Input
+              name="alternative_name"
+              onChange={(e) => this.setState({alternative_name: e.target.value})}
+              value={this.state.post_excerpt}
+            />
           </Item>
 
           <Item
@@ -123,7 +132,7 @@ class BasicInfo extends Component<IProps, IState> {
           <Item
             label="Short Description"
           >
-            <TextArea name="exceprt" rows={4} value={this.props.post_excerpt} />
+            <TextArea name="exceprt" rows={4} />
           </Item>
         </Form>
       </div>
@@ -132,8 +141,9 @@ class BasicInfo extends Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: IRootState) => {
+  console.log(state);
   return {
-    ...state.cominovel.info,
+    info: state.cominovel.info,
   };
 };
 
