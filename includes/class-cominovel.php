@@ -179,5 +179,9 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		public function plugin_url( $path = '/' ) {
 			return untrailingslashit( plugins_url( $path, COMINOVEL_PLUGIN_FILE ) );
 		}
+
+		public static function create_meta_key( $key ) {
+			return sprintf( 'cominovel_%s', $key );
+		}
 	}
 }

@@ -127,7 +127,7 @@ abstract class Cominovel_Data {
 		$custom_keys = apply_filters(
 			'cominovel_custom_data_keys',
 			array(
-				'alternate_name',
+				'alternative_name',
 				'type',
 				'status',
 				'release',
@@ -141,7 +141,11 @@ abstract class Cominovel_Data {
 			)
 		);
 		foreach ( $custom_keys as $custom_key ) {
-			$this->set( $custom_key, array_get( $this->raw_data, $custom_key, '' ) );
+			$data = array_get( $this->raw_data, Cominovel::create_meta_key( $custom_key ), '' );
+			if ( gettype( $data ) === 'array' ) {
+				$data = array_shift( $data );
+			}
+			$this->set( $custom_key, $data );
 		}
 	}
 }
