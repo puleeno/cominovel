@@ -2,11 +2,11 @@
 return array(
 	'css' => array(
 		'main' => 'main.f36107e4.chunk.css',
-		'library' => '2.65d0fb34.chunk.css',
+		'library' => '2.802837ff.chunk.css',
 	),
 	'js' => array(
-		'main' => 'main.e5363489.chunk.js',
-		'runtime' => 'runtime-main.88220290.js',
-		'library' => '2.6ec94e34.chunk.js',
+		'main' => 'main.b8e091bb.chunk.js',
+		'runtime' => 'runtime-main.77c67387.js',
+		'library' => '2.039a3380.chunk.js',
 	),
 );
