@@ -35,6 +35,12 @@ class BasicInfo extends Component<IProps, IState> {
     this.state = props.info;
   }
 
+  public UNSAFE_componentWillReceiveProps(nextProps: IProps) {
+    if (this.props.info !== nextProps.info) {
+      this.setState(nextProps.info);
+    }
+  }
+
   public render() {
     return (
       <div className="cominovel-tab-content">
@@ -43,13 +49,14 @@ class BasicInfo extends Component<IProps, IState> {
           {...formItemLayout}
           labelAlign="left"
         >
+          <Input name="cominovel_loaded" hidden value="true" />
           <Item
           label="Alternatve Name"
           >
             <Input
               name="alternative_name"
               onChange={(e) => this.setState({alternative_name: e.target.value})}
-              value={this.state.post_excerpt}
+              value={this.state.alternative_name}
             />
           </Item>
 
@@ -141,7 +148,6 @@ class BasicInfo extends Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: IRootState) => {
-  console.log(state);
   return {
     info: state.cominovel.info,
   };
