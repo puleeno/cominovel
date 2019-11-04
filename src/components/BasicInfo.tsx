@@ -139,7 +139,12 @@ class BasicInfo extends Component<IProps, IState> {
           <Item
             label="Short Description"
           >
-            <TextArea name="exceprt" rows={4} />
+            <TextArea
+              name="post_excerpt"
+              rows={4}
+              onChange={(e) => this.setState({post_excerpt: e.target.value})}
+              value={this.state.post_excerpt}
+            />
           </Item>
         </Form>
       </div>

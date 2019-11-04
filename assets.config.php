@@ -1,12 +1,12 @@
 <?php
 return array(
 	'css' => array(
-		'main' => 'main.f36107e4.chunk.css',
+		'main'    => 'main.f36107e4.chunk.css',
 		'library' => '2.802837ff.chunk.css',
 	),
-	'js' => array(
-		'main' => 'main.b8e091bb.chunk.js',
+	'js'  => array(
 		'runtime' => 'runtime-main.77c67387.js',
-		'library' => '2.039a3380.chunk.js',
+		'main'    => 'main.a521ed7c.chunk.js',
+		'library' => '2.97de8266.chunk.js',
 	),
 );
