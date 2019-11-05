@@ -44,7 +44,7 @@ class Cominovel_Post_Types {
 			return;
 		}
 		do_action( 'cominovel_register_post_types' );
-		$supports = array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments', 'wpcom-markdown' );
+		$supports = array( 'title', 'editor', 'thumbnail', 'comments', 'wpcom-markdown' );
 
 		if ( in_array( 'comic', $this->allowed_post_types ) ) {
 			$labels = array(
@@ -259,6 +259,26 @@ class Cominovel_Post_Types {
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_genre',
 				$args,
+			)
+		);
+
+		$labels = array(
+			'name'          => __( 'Countries', 'cominovel' ),
+			'singular_name' => __( 'Country', 'cominovel' ),
+		);
+		$args   = array(
+			'labels'       => $labels,
+			'public'       => true,
+			'hierarchical' => false,
+			'show_in_rest' => false,
+			'show_in_menu' => true,
+		);
+		register_taxonomy(
+			'country',
+			$this->allowed_post_types,
+			apply_filters(
+				'cominovel_taxonomy_args_cominovel_country_args',
+				$args
 			)
 		);
 
