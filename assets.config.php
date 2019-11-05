@@ -1,5 +1,5 @@
 <?php
-array (
+return array (
   'css' => 
   array (
     'library' => '2.802837ff.chunk.css',

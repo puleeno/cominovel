@@ -91,7 +91,7 @@ class Cominovel_Deploy_React_App {
 		$configs = var_export( $configs, true );
 		$h       = fopen( $this->asset_config_file, 'w' );
 
-		fwrite( $h, sprintf( '<?php%1$s%2$s;%1$s', "\n", $configs ) );
+		fwrite( $h, sprintf( '<?php%1$sreturn %2$s;%1$s', "\n", $configs ) );
 		fclose( $h );
 	}
 
