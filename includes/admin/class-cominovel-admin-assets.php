@@ -27,7 +27,7 @@ class Cominovel_Admin_Assets {
 		}
 		add_action( 'current_screen', array( $this, 'get_screen' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_react_app' ) );
-		add_action( 'admin_footer', array( $this, 'init_cominovel_info' ),5 );
+		add_action( 'admin_footer', array( $this, 'init_cominovel_info' ), 5 );
 	}
 
 	public function get_screen() {
