@@ -29,18 +29,6 @@ class Advanced extends Component {
               </Row>
             </Checkbox.Group>,
           </Form.Item>
-          <Form.Item label="Badge">
-            <Select
-              showSearch
-              style={{ width: 200 }}
-              placeholder="Select a person"
-              optionFilterProp="children"
-            >
-              <Select.Option value="jack">Jack</Select.Option>
-              <Select.Option value="lucy">Lucy</Select.Option>
-              <Select.Option value="tom">Tom</Select.Option>
-            </Select>
-          </Form.Item>
         </Form>
       </div>
     );
