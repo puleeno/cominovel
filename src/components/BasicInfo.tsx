@@ -65,7 +65,7 @@ class BasicInfo extends Component<IProps, IState> {
           >
             <Select
               style={{ width: 200 }}
-              placeholder="Regions or Comic types"
+              placeholder="Country or Comic types"
             >
               <Option value="manga">Manga</Option>
               <Option value="manhua">Manhua</Option>

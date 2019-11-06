@@ -1,6 +1,6 @@
 import { FETCH_COMINOVEL, FETCH_COMINOVEL_FULLFILLED } from "./types";
 
-export function fetchCominovel(id: BigInt) {
+export function fetchCominovel(id: number) {
     return {
         payload: id,
         type: FETCH_COMINOVEL,

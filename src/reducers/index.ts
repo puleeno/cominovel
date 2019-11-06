@@ -1,17 +1,19 @@
 import { combineReducers } from "redux";
 
-import { IAppState } from "../reducers/App";
-import { cominovelInfo, ICominovelState } from "../reducers/cominovelReducer";
-import { appState } from "./App";
+import { appState, IAppState } from "./appReducer";
+import { cominovelInfo, ICominovelState } from "./cominovelReducer";
+import { ISeasonState, seasons } from "./seasonReducer";
 
 export interface IRootState {
     app: IAppState;
     cominovel: ICominovelState;
+    seasons: ISeasonState;
 }
 
 const reducers = combineReducers({
     app: appState,
     cominovel: cominovelInfo,
+    seasons,
 });
 
 export default reducers;

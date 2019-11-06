@@ -4,14 +4,14 @@ export interface IEndpoint {
 }
 
 export interface ICominovelProps {
-    currentID: BigInt;
+    currentID: number;
     endpoints: IEndpoint[];
     languages: any;
     messages: any;
 }
 
 export interface ICominovelData {
-    ID: BigInt | number;
+    ID: number;
     alternative_name: string;
     artist: string;
     audult: string;
@@ -19,18 +19,23 @@ export interface ICominovelData {
     badge: string;
     chapters: any;
     generes: string;
-    parent: BigInt | number;
+    parent: number;
     post_content: string;
     post_excerpt: string;
     post_modified: any;
     post_name: string;
-    post_parent: BigInt | number;
+    post_parent: number;
     post_status: string;
     post_title: string;
     post_type: string;
-    release: BigInt | number | string;
+    release: string;
     seasons: string;
     short_description: string;
     status: string;
     type: string;
+}
+
+export interface ISeason {
+    id: number;
+    name: string;
 }
