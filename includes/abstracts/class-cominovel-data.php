@@ -138,6 +138,7 @@ abstract class Cominovel_Data {
 				'seasons',
 				'audult',
 				'badge',
+				'rating_system',
 			)
 		);
 		foreach ( $custom_keys as $custom_key ) {

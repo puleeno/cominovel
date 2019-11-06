@@ -38,7 +38,13 @@ class Cominovel_Meta_Box_Comic_Data {
 			// This code is tricker to check cominovel data is loaded via Javascript
 			return;
 		}
-		$basic_fields = apply_filters( 'cominovel_main_meta_basic_fields', array( 'alternative_name' ) );
+		$basic_fields = apply_filters(
+			'cominovel_main_meta_basic_fields',
+			array(
+				'alternative_name',
+				'rating_system',
+			)
+		);
 		foreach ( $basic_fields as $basic_field ) {
 			if ( isset( $_POST[ $basic_field ] ) ) {
 				$data = $_POST[ $basic_field ];
