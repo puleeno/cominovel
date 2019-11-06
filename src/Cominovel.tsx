@@ -13,9 +13,17 @@ import { IRootState } from "./reducers";
 
 const { TabPane } = Tabs;
 type IProps = ReturnType<typeof mapDispatchToProps> & ReturnType<typeof mapStateToProps>;
-interface IState {}
+interface IState {
+  seasonLoaded: boolean;
+}
+
+const initState: IState = {
+  seasonLoaded: false,
+};
 
 class Cominovel extends Component<IProps, IState> {
+  public state: IState = initState;
+
   public UNSAFE_componentWillMount() {
     Setup.bootstrap();
   }
@@ -27,13 +35,23 @@ class Cominovel extends Component<IProps, IState> {
     this.props.fetchCominovel(window.Cominovel.currentID);
   }
 
-  public handleModeChange = (e: any) => {
-    const mode = e.target.value;
-    this.setState({ mode });
+  public handleModeChange = (tab: any) => {
+    if (tab === 'season') {
+      this.setState({
+        seasonLoaded: true,
+      });
+    }
+  }
+
+  public renderSeasons = () => {
+    if (!this.state.seasonLoaded) {
+      return;
+    }
+    return (<Seasons />);
   }
 
   public render() {
-    if (!this.props.isLoaded) {
+    if (this.props.isLoaded === null) {
       return(
         <Spin size="large" />
       );
@@ -43,38 +61,40 @@ class Cominovel extends Component<IProps, IState> {
         defaultActiveKey="1"
         tabPosition="left"
         type="card"
+        onChange={this.handleModeChange}
       >
           <TabPane
           tab="Basic Info"
-          key="1"
+          key="basic"
           >
             <BasicInfo />
           </TabPane>
 
           <TabPane
             tab="Chapters"
-            key="2"
+            key="chapter"
           >
             <Chapters />
           </TabPane>
 
           <TabPane
             tab="Seasons"
-            key="3"
+            key="season"
+
           >
-            <Seasons />
+            {this.renderSeasons()}
           </TabPane>
 
           <TabPane
             tab="Advanced"
-            key="4"
+            key="advanced"
           >
             <Advanced />
           </TabPane>
 
           <TabPane
             tab="Composer"
-            key="5"
+            key="composer"
           >
             <Composer />
           </TabPane>
@@ -85,6 +105,7 @@ class Cominovel extends Component<IProps, IState> {
 
 const mapStateToProps = (state: IRootState) => ({
   isLoaded: state.app.isLoaded,
+  seasons: state.seasons,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>

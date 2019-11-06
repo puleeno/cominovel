@@ -33,6 +33,7 @@ export interface ICominovelData {
     short_description: string;
     status: string;
     type: string;
+    rating_system: string;
 }
 
 export interface ISeason {

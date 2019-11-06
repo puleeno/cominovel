@@ -65,7 +65,7 @@ class BasicInfo extends Component<IProps, IState> {
           >
             <Select
               style={{ width: 200 }}
-              placeholder="Country or Comic types"
+              placeholder="Country or comic types"
             >
               <Option value="manga">Manga</Option>
               <Option value="manhua">Manhua</Option>
@@ -86,11 +86,11 @@ class BasicInfo extends Component<IProps, IState> {
           </Item>
 
           <Item
-            label="Release Year"
+            label="Publish Date"
           >
             <DatePicker
               style={{width: 200}}
-              mode="year"
+              placeholder="Select publish date"
             />
           </Item>
 
@@ -100,8 +100,7 @@ class BasicInfo extends Component<IProps, IState> {
             <Select
               mode="multiple"
               style={{ width: "100%" }}
-              placeholder="Please select"
-              defaultValue={["option1", "option2"]}
+              placeholder="Choose or add author"
             >
               <Option key="option1">Option 1</Option>
               <Option key="option2">Option 2</Option>

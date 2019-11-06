@@ -78,7 +78,7 @@ const columns = [
   },
   {
     dataIndex: "createdAt",
-    title: "Created At",
+    title: "Upload Date",
   },
   {
     render: (text: string, record: ChapterRow) => (

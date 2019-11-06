@@ -2,11 +2,11 @@ import { AnyAction } from "redux";
 import { IS_LOADED } from "../actions/types";
 
 export interface IAppState {
-    readonly isLoaded: boolean;
+    readonly isLoaded: boolean | null;
 }
 
 const initState: IAppState = {
-    isLoaded: false,
+    isLoaded: null,
 };
 
 export const appState = (previousState: IAppState = initState, action: AnyAction): IAppState => {

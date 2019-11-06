@@ -30,6 +30,7 @@ const initState: ICominovelState = {
         short_description: "",
         status: "",
         type: "",
+        rating_system: "",
     },
 };
 
