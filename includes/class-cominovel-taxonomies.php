@@ -152,7 +152,9 @@ class Cominovel_Taxonomies {
 				$args
 			)
 		);
+	}
 
+	public function register_built_in_taxonomies() {
 		$labels = array(
 			'name'          => __( 'Authors', 'cominovel' ),
 			'singular_name' => __( 'Author', 'cominovel' ),
@@ -161,8 +163,9 @@ class Cominovel_Taxonomies {
 			'labels'            => $labels,
 			'public'            => false,
 			'hierarchical'      => false,
-			'show_admin_column' => true,
+			'show_admin_column' => false,
 			'show_in_menu'      => false,
+			'_builtin'          => true,
 		);
 		register_taxonomy(
 			'author',
@@ -181,8 +184,9 @@ class Cominovel_Taxonomies {
 			'labels'            => $labels,
 			'public'            => false,
 			'hierarchical'      => false,
-			'show_admin_column' => true,
+			'show_admin_column' => false,
 			'show_in_menu'      => false,
+			'_builtin'          => true,
 		);
 		register_taxonomy(
 			'artist',
@@ -192,16 +196,14 @@ class Cominovel_Taxonomies {
 				$args
 			)
 		);
-	}
 
-	public function register_built_in_taxonomies() {
 		$labels = array(
 			'name'          => __( 'Statuses', 'cominovel' ),
 			'singular_name' => __( 'Status', 'cominovel' ),
 		);
 		$args   = array(
 			'labels'            => $labels,
-			'public'            => true,
+			'public'            => false,
 			'hierarchical'      => false,
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
