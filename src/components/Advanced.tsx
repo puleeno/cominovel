@@ -1,4 +1,4 @@
-import { Checkbox, Col, PageHeader, Row, Select } from "antd";
+import { Checkbox, Col, PageHeader, Row } from "antd";
 import React, { Component } from "react";
 import Form from "../antd/Form";
 
