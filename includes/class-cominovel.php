@@ -70,6 +70,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/cominovel-template-functions.php';
 
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-post-types.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-taxonomies.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-install.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-query.php';
 
