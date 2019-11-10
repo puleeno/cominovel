@@ -97,8 +97,11 @@ class Cominovel extends Component<IProps, IState> {
 
   public render() {
     if (this.props.isLoaded === null) {
-      return(
-        <Spin size="large" />
+      // ant-spin ant-spin-lg ant-spin-spinning
+      return (
+        <div className="cominovel-loading">
+          <Spin size="large" />
+        </div>
       );
     }
     return (
