@@ -7,8 +7,8 @@ return array (
   ),
   'js' => 
   array (
-    'library' => '2.039a3380.chunk.js',
-    'main' => 'main.f1e9f5ec.chunk.js',
+    'library' => '2.ad195be2.chunk.js',
+    'main' => 'main.2f83dcb7.chunk.js',
     'runtime' => 'runtime-main.77c67387.js',
   ),
 );
