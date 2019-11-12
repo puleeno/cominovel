@@ -60,6 +60,7 @@ class Cominovel_Taxonomies {
 			'labels'                => $labels,
 			'show_ui'               => true,
 			'show_admin_column'     => true,
+			'show_in_rest'          => true,
 			'update_count_callback' => '_update_post_term_count',
 			'query_var'             => true,
 		);
@@ -80,11 +81,11 @@ class Cominovel_Taxonomies {
 			'labels'       => $labels,
 			'public'       => true,
 			'hierarchical' => false,
-			'show_in_rest' => false,
+			'show_in_rest' => true,
 			'show_in_menu' => true,
 		);
 		register_taxonomy(
-			'country',
+			'cm_country',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_country_args',
@@ -120,6 +121,7 @@ class Cominovel_Taxonomies {
 				'hierarchical'      => false,
 				'show_admin_column' => self::check_active_data_type() === $post_type,
 				'show_in_menu'      => false,
+				'show_in_rest'      => true,
 			);
 			register_taxonomy(
 				"tax_{$post_type}",
@@ -141,11 +143,11 @@ class Cominovel_Taxonomies {
 			'labels'       => $labels,
 			'public'       => true,
 			'hierarchical' => false,
-			'show_in_rest' => false,
+			'show_in_rest' => true,
 			'show_in_menu' => false,
 		);
 		register_taxonomy(
-			'release',
+			'cm_release',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_release_args',
@@ -165,10 +167,11 @@ class Cominovel_Taxonomies {
 			'hierarchical'      => false,
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
+			'show_in_rest'      => true,
 			'_builtin'          => true,
 		);
 		register_taxonomy(
-			'author',
+			'cm_author',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_author_args',
@@ -186,10 +189,11 @@ class Cominovel_Taxonomies {
 			'hierarchical'      => false,
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
+			'show_in_rest'      => true,
 			'_builtin'          => true,
 		);
 		register_taxonomy(
-			'artist',
+			'cm_artist',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_artist_args',
@@ -207,6 +211,7 @@ class Cominovel_Taxonomies {
 			'hierarchical'      => false,
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
+			'show_in_rest'      => true,
 			'_builtin'          => true,
 		);
 		register_taxonomy(
