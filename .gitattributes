@@ -1,6 +1,6 @@
-export-ignore /public
-export-ignore /src
-export-ignore /node_modules
+export-ignore public
+export-ignore src
+export-ignore node_modules
 export-ignore .vscode
 export-ignore .sass-cache
 export-ignore tsconfig.json
