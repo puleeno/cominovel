@@ -142,8 +142,8 @@ class BasicInfo extends Component<IProps, IState> {
             label="Comic Type"
           >
             <Select
-              style={{ width: 200 }}
               placeholder="Country or comic types"
+              style={{ width: 200 }}
             >
               {this.renderCominovelCountries()}
             </Select>
@@ -152,8 +152,8 @@ class BasicInfo extends Component<IProps, IState> {
             label="Status"
           >
             <Select
-              style={{ width: 200 }}
               placeholder="The status of the comic"
+              style={{ width: 200 }}
             >
               {this.renderCominovelStatus()}
             </Select>
@@ -163,8 +163,8 @@ class BasicInfo extends Component<IProps, IState> {
             label="Publish Date"
           >
             <DatePicker
-              style={{width: 200}}
               placeholder="Select publish date"
+              style={{width: 200}}
             />
           </Item>
 
@@ -172,8 +172,8 @@ class BasicInfo extends Component<IProps, IState> {
             label="Authors"
           >
             <Select
-              style={{ width: "100%" }}
               placeholder="Choose or add author"
+              style={{ width: "100%" }}
             >
               {this.renderCominovelAuthors()}
             </Select>
@@ -189,8 +189,9 @@ class BasicInfo extends Component<IProps, IState> {
             label="Genres"
           >
             <Select
-              style={{ width: 200 }}
+              showSearch
               placeholder="The genre of comic"
+              style={{ width: 200 }}
             >
             {this.renderCominovelGenres()}
             </Select>
@@ -201,8 +202,8 @@ class BasicInfo extends Component<IProps, IState> {
           >
             <TextArea
               name="post_excerpt"
-              rows={4}
               onChange={(e) => this.setState({post_excerpt: e.target.value})}
+              rows={4}
               value={this.state.post_excerpt}
             />
           </Item>
