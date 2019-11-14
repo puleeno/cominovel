@@ -3,8 +3,11 @@ import {
 } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { AnyAction, bindActionCreators, Dispatch } from "redux";
+import { fetchTaxonomyTerms } from "../actions";
 import Form from "../antd/Form";
 import { ICominovelData } from "../interfaces/CominovelProps";
+import { ITermType } from "../interfaces/WordPressProps";
 import { IRootState } from "../reducers";
 
 const { Item } = Form;
@@ -13,7 +16,15 @@ const { TreeNode } = Tree;
 const { Search } = Input;
 const { TextArea } = Input;
 
-type IProps = ReturnType<typeof mapStateToProps>;
+interface ITermsProps {
+  genre?: ITermType;
+  cm_artist?: ITermType;
+  cm_author?: ITermType;
+  cm_status?: ITermType;
+  cm_country?: ITermType;
+}
+
+type IProps = ITermsProps & ReturnType<typeof mapStateToProps> & ReturnType <typeof mapDispatchToProps>;
 
 interface IState extends ICominovelData {
 }
@@ -39,6 +50,73 @@ class BasicInfo extends Component<IProps, IState> {
     if (this.props.info !== nextProps.info) {
       this.setState(nextProps.info);
     }
+  }
+
+  public componentDidMount() {
+    this.props.fetchTaxonomyTerms("genre", null, true);
+    this.props.fetchTaxonomyTerms("cm_artist");
+    this.props.fetchTaxonomyTerms("cm_author");
+    this.props.fetchTaxonomyTerms("cm_status");
+    this.props.fetchTaxonomyTerms("cm_country");
+  }
+
+  public renderItemKey(index: number, prefix: string = "item") {
+    return `${prefix}-${index}`;
+  }
+
+  public renderCominovelCountries() {
+    if (typeof this.props.cm_country === "object") {
+      return this.props.cm_country.map((country: ITermType, index: number) => {
+        return (
+          <Option key={this.renderItemKey(index)} value={country.id.toString()}>{country.name}</Option>
+        );
+      });
+    }
+    return null;
+  }
+
+  public renderCominovelStatus() {
+    if (typeof this.props.cm_status === "object") {
+      return this.props.cm_status.map((status: ITermType, index: number) => {
+        return (
+          <Option key={this.renderItemKey(index)} value={status.id.toString()}>{status.name}</Option>
+        );
+      });
+    }
+    return null;
+  }
+
+  public renderCominovelAuthors() {
+    if (typeof this.props.cm_author === "object") {
+      return this.props.cm_author.map((author: ITermType, index: number) => {
+        return (
+          <Option key={this.renderItemKey(index)} value={author.id.toString()}>{author.name}</Option>
+        );
+      });
+    }
+    return null;
+  }
+
+  public renderCominovelArtists() {
+    if (typeof this.props.cm_artist === "object") {
+      return this.props.cm_artist.map((artist: ITermType, index: number) => {
+        return (
+          <AutoComplete.Option key={artist.id.toString()}>{artist.name}</AutoComplete.Option>
+        );
+      });
+    }
+    return null;
+  }
+
+  public renderCominovelGenres() {
+    if (typeof this.props.genre === "object") {
+      return this.props.genre.map((genre: ITermType, index: number) => {
+        return (
+          <Option key={genre.id.toString()}>{genre.name}</Option>
+        );
+      });
+    }
+    return null;
   }
 
   public render() {
@@ -67,9 +145,7 @@ class BasicInfo extends Component<IProps, IState> {
               style={{ width: 200 }}
               placeholder="Country or comic types"
             >
-              <Option value="manga">Manga</Option>
-              <Option value="manhua">Manhua</Option>
-              <Option value="manhwa">Manhwa</Option>
+              {this.renderCominovelCountries()}
             </Select>
           </Item>
           <Item
@@ -79,9 +155,7 @@ class BasicInfo extends Component<IProps, IState> {
               style={{ width: 200 }}
               placeholder="The status of the comic"
             >
-              <Option value="manga">On Going</Option>
-              <Option value="manhua">Pending</Option>
-              <Option value="manhwa">Completed</Option>
+              {this.renderCominovelStatus()}
             </Select>
           </Item>
 
@@ -98,41 +172,28 @@ class BasicInfo extends Component<IProps, IState> {
             label="Authors"
           >
             <Select
-              mode="multiple"
               style={{ width: "100%" }}
               placeholder="Choose or add author"
             >
-              <Option key="option1">Option 1</Option>
-              <Option key="option2">Option 2</Option>
+              {this.renderCominovelAuthors()}
             </Select>
           </Item>
 
           <Item label="Artists">
           <AutoComplete style={{ width: "100%" }} placeholder="Tiểu Tôn Tuyết Đăng">
-            <AutoComplete.Option key="option1">Opion 1</AutoComplete.Option>
+            {this.renderCominovelArtists()}
           </AutoComplete>
           </Item>
 
           <Item
             label="Genres"
           >
-            <Search style={{ marginBottom: 8 }} placeholder="Search" />
-            <Tree
-              checkable
-              defaultExpandedKeys={["0-0-0", "0-0-1"]}
-              defaultSelectedKeys={["0-0-0", "0-0-1"]}
-              defaultCheckedKeys={["0-0-0", "0-0-1"]}
+            <Select
+              style={{ width: 200 }}
+              placeholder="The genre of comic"
             >
-              <TreeNode title="parent 1" key="0-0">
-                <TreeNode title="parent 1-0" key="0-0-0" disabled>
-                  <TreeNode title="leaf" key="0-0-0-0" disableCheckbox />
-                  <TreeNode title="leaf" key="0-0-0-1" />
-                </TreeNode>
-                <TreeNode title="parent 1-1" key="0-0-1">
-                  <TreeNode title={<span style={{ color: "#1890ff" }}>sss</span>} key="0-0-1-0" />
-                </TreeNode>
-              </TreeNode>
-            </Tree>
+            {this.renderCominovelGenres()}
+            </Select>
           </Item>
 
           <Item
@@ -153,8 +214,13 @@ class BasicInfo extends Component<IProps, IState> {
 
 const mapStateToProps = (state: IRootState) => {
   return {
+    ...state.terms,
     info: state.cominovel.info,
   };
 };
 
-export default connect(mapStateToProps)(BasicInfo);
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({
+  fetchTaxonomyTerms,
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasicInfo);
