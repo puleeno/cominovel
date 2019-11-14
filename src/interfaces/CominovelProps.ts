@@ -1,3 +1,5 @@
+import { Action } from "redux";
+
 export interface IEndpoint {
     GetComic: string;
     GetNovel: string;
@@ -39,4 +41,11 @@ export interface ICominovelData {
 export interface ISeason {
     id: number;
     name: string;
+}
+
+export interface ITaxonomyAction extends Action {
+    type: string;
+    taxonomy: string;
+    keyword?: string | null;
+    payload: any;
 }
