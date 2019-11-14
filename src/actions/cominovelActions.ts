@@ -2,6 +2,7 @@ import {
     FETCH_COMINOVEL,
     FETCH_COMINOVEL_FULLFILLED,
     FETCH_TAXONOMY_TERMS,
+    FETCH_TAXONOMY_TERMS_FULLFILLED,
 } from "./types";
 
 export function fetchCominovel(id: number) {
@@ -21,12 +22,21 @@ export function fetchCominovelData(payload: any) {
 export function fetchTaxonomyTerms(
     taxonomy: string = "genre",
     keyword: string | null = null,
-    treeView: boolean = true,
+    treeView: boolean = false,
 ) {
     return {
         keyword,
         taxonomy,
         treeView,
         type: FETCH_TAXONOMY_TERMS,
+    };
+}
+
+export function fetchTaxonomyTermsFullFilled(payload: any, taxonomy: string = "genre", keyword: string = "") {
+    return {
+        keyword,
+        payload,
+        taxonomy,
+        type: FETCH_TAXONOMY_TERMS_FULLFILLED,
     };
 }
