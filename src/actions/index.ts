@@ -1,5 +1,5 @@
 import { setAppStatus } from "./appActions";
-import { fetchCominovel, fetchCominovelData } from "./cominovelActions";
+import { fetchCominovel, fetchCominovelData, fetchTaxonomyTerms } from "./cominovelActions";
 import { fetchSeasons, fetchSeasonsFullFilled } from "./seasonActions";
 
 export {
@@ -8,4 +8,5 @@ export {
     fetchCominovelData,
     fetchSeasons,
     fetchSeasonsFullFilled,
+    fetchTaxonomyTerms,
 };
