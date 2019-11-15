@@ -5,10 +5,17 @@ class Cominovel_Taxonomies {
 	protected $allowed_post_types;
 
 	public function __construct() {
-		$this->allowed_post_types = self::get_allowed_post_types();
-		add_action( 'init', array( $this, 'register_taxonomies' ), 5 );
+		add_action( 'init', array( $this, 'setup_environment' ), 5 );
+		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_hidden_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_built_in_taxonomies' ) );
+	}
+
+	public function setup_environment() {
+		$this->allowed_post_types = apply_filters(
+			'cominovel_register_taxonomy_for_post_types',
+			self::get_allowed_post_types()
+		);
 	}
 
 	public static function get_allowed_post_types() {
