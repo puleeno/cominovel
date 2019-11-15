@@ -101,6 +101,7 @@ abstract class Cominovel_Data {
 	public function load_data() {
 		$this->parse_data_from_post();
 		$this->load_custom_data();
+		$this->load_taxonomies_data();
 	}
 
 	public function parse_data_from_post() {
@@ -147,6 +148,14 @@ abstract class Cominovel_Data {
 				$data = array_shift( $data );
 			}
 			$this->set( $custom_key, $data );
+		}
+	}
+
+	public function load_taxonomies_data() {
+		$default_taxonomies = array( 'genre', 'cm_status', 'cm_country', 'cm_artist', 'cm_author' );
+		$custom_taxonomies  = apply_filters( 'cominovel_load_custom_taxomies', array() );
+		foreach ( array_merge( $default_taxonomies, $custom_taxonomies ) as $taxonomy ) {
+			$this->set( "{$taxonomy}_terms", wp_get_post_terms( $this->data['ID'], $taxonomy ) );
 		}
 	}
 }
