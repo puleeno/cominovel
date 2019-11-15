@@ -12,8 +12,6 @@ import { IRootState } from "../reducers";
 
 const { Item } = Form;
 const { Option } = Select;
-const { TreeNode } = Tree;
-const { Search } = Input;
 const { TextArea } = Input;
 
 interface ITermsProps {
