@@ -1,5 +1,5 @@
 import {
-  AutoComplete, DatePicker, Input, PageHeader, Select, Tree,
+  AutoComplete, DatePicker, Input, PageHeader, Select,
 } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -9,14 +9,14 @@ import Form from "../antd/Form";
 import { ICominovelData } from "../interfaces/CominovelProps";
 import { ITermType } from "../interfaces/WordPressProps";
 import { IRootState } from "../reducers";
+import Artists from "./nested/Artists";
+import Genres from "./nested/Genres";
 
 const { Item } = Form;
 const { Option } = Select;
 const { TextArea } = Input;
 
 interface ITermsProps {
-  genre?: ITermType;
-  cm_artist?: ITermType;
   cm_author?: ITermType;
   cm_status?: ITermType;
   cm_country?: ITermType;
@@ -51,8 +51,6 @@ class BasicInfo extends Component<IProps, IState> {
   }
 
   public componentDidMount() {
-    this.props.fetchTaxonomyTerms("genre", null, true);
-    this.props.fetchTaxonomyTerms("cm_artist");
     this.props.fetchTaxonomyTerms("cm_author");
     this.props.fetchTaxonomyTerms("cm_status");
     this.props.fetchTaxonomyTerms("cm_country");
@@ -93,28 +91,6 @@ class BasicInfo extends Component<IProps, IState> {
       return this.props.cm_author.map((author: ITermType, index: number) => {
         return (
           <Option key={this.renderItemKey(index)} value={author.id.toString()}>{author.name}</Option>
-        );
-      });
-    }
-    return null;
-  }
-
-  public renderCominovelArtists() {
-    if (typeof this.props.cm_artist === "object") {
-      return this.props.cm_artist.map((artist: ITermType, index: number) => {
-        return (
-          <AutoComplete.Option key={artist.id.toString()}>{artist.name}</AutoComplete.Option>
-        );
-      });
-    }
-    return null;
-  }
-
-  public renderCominovelGenres() {
-    if (typeof this.props.genre === "object") {
-      return this.props.genre.map((genre: ITermType, index: number) => {
-        return (
-          <Option key={genre.id.toString()}>{genre.name}</Option>
         );
       });
     }
@@ -182,23 +158,8 @@ class BasicInfo extends Component<IProps, IState> {
             </Select>
           </Item>
 
-          <Item label="Artists">
-          <AutoComplete style={{ width: "100%" }} placeholder="Tiểu Tôn Tuyết Đăng">
-            {this.renderCominovelArtists()}
-          </AutoComplete>
-          </Item>
-
-          <Item
-            label="Genres"
-          >
-            <Select
-              showSearch
-              placeholder="The genre of comic"
-              style={{ width: 200 }}
-            >
-            {this.renderCominovelGenres()}
-            </Select>
-          </Item>
+          <Artists />
+          <Genres />
 
           <Item
             label="Short Description"
