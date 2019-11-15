@@ -60,6 +60,10 @@ class BasicInfo extends Component<IProps, IState> {
     this.props.fetchTaxonomyTerms("cm_country");
   }
 
+  public updateSelectedTaxonomyTerms = (e: any) => {
+    console.log(e);
+  }
+
   public renderItemKey(index: number, prefix: string = "item") {
     return `${prefix}-${index}`;
   }
@@ -144,6 +148,7 @@ class BasicInfo extends Component<IProps, IState> {
             <Select
               placeholder="Country or comic types"
               style={{ width: 200 }}
+              onChange={this.updateSelectedTaxonomyTerms}
             >
               {this.renderCominovelCountries()}
             </Select>
