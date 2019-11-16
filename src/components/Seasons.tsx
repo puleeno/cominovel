@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {  AnyAction, bindActionCreators, Dispatch } from "redux";
 import { fetchSeasons } from "../actions";
-import Form from "../antd/Form";
+import Form from "./antd/Form";
 import { IRootState } from "../reducers";
 
 type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispacthToProps>;

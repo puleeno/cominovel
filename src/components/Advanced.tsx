@@ -1,6 +1,6 @@
 import { Checkbox, Col, PageHeader, Row } from "antd";
 import React, { Component } from "react";
-import Form from "../antd/Form";
+import Form from "./antd/Form";
 
 interface IProps {
   form: any;
