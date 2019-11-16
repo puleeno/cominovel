@@ -2,6 +2,6 @@
 indent_size = 4
 indent_style = tab
 
-[*.jsx]
+[*.{jsx,ts,tsx,js}]
 indent_size = 2
 indent_style = space
