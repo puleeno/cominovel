@@ -1,29 +1,18 @@
-import {
-  DatePicker, Input, PageHeader, Select,
-} from "antd";
+import { Input, PageHeader } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
 import { fetchTaxonomyTerms } from "../actions";
 import { ICominovelData } from "../interfaces/CominovelProps";
-import { ITermType } from "../interfaces/WordPressProps";
 import { IRootState } from "../reducers";
 import Form from "./antd/Form";
-import Artists from "./nested/Artists";
-import Authors from "./nested/Authors";
-import Genres from "./nested/Genres";
+import { Artists, Authors, Countries, Genres, Release } from "./nested";
 
 const { Item } = Form;
-const { Option } = Select;
 const { TextArea } = Input;
 
-interface ITermsProps {
-  cm_author?: ITermType;
-  cm_status?: ITermType;
-  cm_country?: ITermType;
-}
 
-type IProps = ITermsProps & ReturnType<typeof mapStateToProps> & ReturnType <typeof mapDispatchToProps>;
+type IProps = ReturnType<typeof mapStateToProps> & ReturnType <typeof mapDispatchToProps>;
 
 interface IState extends ICominovelData {
 }
@@ -57,34 +46,8 @@ class BasicInfo extends Component<IProps, IState> {
     this.props.fetchTaxonomyTerms("cm_country");
   }
 
-  public updateSelectedTaxonomyTerms = (e: any) => {
-    console.log(e);
-  }
-
   public renderItemKey(index: number, prefix: string = "item") {
     return `${prefix}-${index}`;
-  }
-
-  public renderCominovelCountries() {
-    if (typeof this.props.cm_country === "object") {
-      return this.props.cm_country.map((country: ITermType, index: number) => {
-        return (
-          <Option key={this.renderItemKey(index)} value={country.id.toString()}>{country.name}</Option>
-        );
-      });
-    }
-    return null;
-  }
-
-  public renderCominovelStatus() {
-    if (typeof this.props.cm_status === "object") {
-      return this.props.cm_status.map((status: ITermType, index: number) => {
-        return (
-          <Option key={this.renderItemKey(index)} value={status.id.toString()}>{status.name}</Option>
-        );
-      });
-    }
-    return null;
   }
 
   public render() {
@@ -106,36 +69,8 @@ class BasicInfo extends Component<IProps, IState> {
             />
           </Item>
 
-          <Item
-            label="Comic Type"
-          >
-            <Select
-              placeholder="Country or comic types"
-              style={{ width: 200 }}
-              onChange={this.updateSelectedTaxonomyTerms}
-            >
-              {this.renderCominovelCountries()}
-            </Select>
-          </Item>
-          <Item
-            label="Status"
-          >
-            <Select
-              placeholder="The status of the comic"
-              style={{ width: 200 }}
-            >
-              {this.renderCominovelStatus()}
-            </Select>
-          </Item>
-
-          <Item
-            label="Publish Date"
-          >
-            <DatePicker
-              placeholder="Select publish date"
-              style={{width: 200}}
-            />
-          </Item>
+          <Countries />
+          <Release />
           <Authors />
           <Artists />
           <Genres />
