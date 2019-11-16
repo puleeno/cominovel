@@ -1,15 +1,16 @@
 import {
-  AutoComplete, DatePicker, Input, PageHeader, Select,
+  DatePicker, Input, PageHeader, Select,
 } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
 import { fetchTaxonomyTerms } from "../actions";
-import Form from "../antd/Form";
 import { ICominovelData } from "../interfaces/CominovelProps";
 import { ITermType } from "../interfaces/WordPressProps";
 import { IRootState } from "../reducers";
+import Form from "./antd/Form";
 import Artists from "./nested/Artists";
+import Authors from "./nested/Authors";
 import Genres from "./nested/Genres";
 
 const { Item } = Form;
@@ -86,17 +87,6 @@ class BasicInfo extends Component<IProps, IState> {
     return null;
   }
 
-  public renderCominovelAuthors() {
-    if (typeof this.props.cm_author === "object") {
-      return this.props.cm_author.map((author: ITermType, index: number) => {
-        return (
-          <Option key={this.renderItemKey(index)} value={author.id.toString()}>{author.name}</Option>
-        );
-      });
-    }
-    return null;
-  }
-
   public render() {
     return (
       <div className="cominovel-tab-content">
@@ -146,18 +136,7 @@ class BasicInfo extends Component<IProps, IState> {
               style={{width: 200}}
             />
           </Item>
-
-          <Item
-            label="Authors"
-          >
-            <Select
-              placeholder="Choose or add author"
-              style={{ width: "100%" }}
-            >
-              {this.renderCominovelAuthors()}
-            </Select>
-          </Item>
-
+          <Authors />
           <Artists />
           <Genres />
 
