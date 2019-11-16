@@ -40,16 +40,6 @@ class BasicInfo extends Component<IProps, IState> {
     }
   }
 
-  public componentDidMount() {
-    this.props.fetchTaxonomyTerms("cm_author");
-    this.props.fetchTaxonomyTerms("cm_status");
-    this.props.fetchTaxonomyTerms("cm_country");
-  }
-
-  public renderItemKey(index: number, prefix: string = "item") {
-    return `${prefix}-${index}`;
-  }
-
   public render() {
     return (
       <div className="cominovel-tab-content">
