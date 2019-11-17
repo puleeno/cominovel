@@ -125,8 +125,9 @@ class Cominovel_Taxonomies {
 			$args             = array(
 				'labels'            => $post_type_object->labels,
 				'public'            => false,
-				'hierarchical'      => false,
+				'hierarchical'      => true,
 				'show_admin_column' => self::check_active_data_type() === $post_type,
+				// 'show_ui'           => self::check_active_data_type() === $post_type,
 				'show_in_menu'      => false,
 				'show_in_rest'      => true,
 			);
