@@ -64,7 +64,7 @@ class Cominovel extends Component<IProps, IState> {
       tab="Chapters"
       key="chapter"
     >
-      {!this.state.chapterLoaded ? (<Chapters />) : null}
+      {this.state.chapterLoaded ? (<Chapters />) : null}
     </TabPane>
   )
 
@@ -73,7 +73,7 @@ class Cominovel extends Component<IProps, IState> {
       tab="Seasons"
       key="season"
     >
-      {!this.state.seasonLoaded ? (<Seasons />) : null}
+      {this.state.seasonLoaded ? (<Seasons />) : null}
     </TabPane>
   )
 
