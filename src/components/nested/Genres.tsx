@@ -16,11 +16,20 @@ class Genres extends Component<IProps> {
     this.props.fetchTaxonomyTerms("genre", null, true);
   }
 
+  public renderItemKey(index: number) {
+    return `genre${index}`;
+  }
+
   public renderCominovelGenres() {
     if (typeof this.props.genres === "object") {
       return this.props.genres.map((genre: ITermType, index: number) => {
         return (
-          <Select.Option key={genre.id.toString()}>{genre.name}</Select.Option>
+          <Select.Option
+            key={this.renderItemKey(index)}
+            value={genre.id}
+          >
+            {genre.name}
+          </Select.Option>
         );
       });
     }

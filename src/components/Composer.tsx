@@ -1,7 +1,7 @@
 import { Button, Checkbox, Col, Icon, PageHeader, Radio, Row, Select, Upload } from "antd";
 import React, { Component, FormEvent } from "react";
-import Form from "./antd/Form";
 import { IFileInfo } from "../interfaces/Composer";
+import Form from "./antd/Form";
 
 interface IProps {
   form: any;

@@ -11,18 +11,23 @@ type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatch
 
 class Authors extends Component<IProps> {
   public componentDidMount() {
-    this.props.fetchTaxonomyTerms();
+    this.props.fetchTaxonomyTerms("cm_author");
   }
 
-  public renderItemKey(index: number, prefix: string = "item") {
-    return `${prefix}-${index}`;
+  public renderItemKey(index: number) {
+    return `author${index}`;
   }
 
   public renderCominovelAuthors() {
     if (typeof this.props.authors === "object") {
       return this.props.authors.map((author: ITermType, index: number) => {
         return (
-          <Select.Option key={this.renderItemKey(index)} value={author.id.toString()}>{author.name}</Select.Option>
+          <Select.Option
+            key={this.renderItemKey(index)}
+            value={author.id.toString()}
+          >
+            {author.name}
+          </Select.Option>
         );
       });
     }

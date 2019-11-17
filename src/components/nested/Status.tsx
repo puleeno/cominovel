@@ -10,8 +10,12 @@ import Form from "../antd/Form";
 type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class Status extends Component<IProps> {
-  public renderItemKey(index: number, prefix: string = "item") {
-    return `${prefix}-${index}`;
+  public componentDidMount() {
+    this.props.fetchTaxonomyTerms("cm_status");
+  }
+
+  public renderItemKey(index: number) {
+    return `status${index}`;
   }
 
   public renderCominovelStatus() {

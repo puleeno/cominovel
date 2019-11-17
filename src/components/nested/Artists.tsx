@@ -16,11 +16,15 @@ class Artists extends Component<IProps> {
     this.props.fetchTaxonomyTerms("cm_artist");
   }
 
+  public renderItemKey(index: number) {
+    return `artist${index}`;
+  }
+
   public renderCominovelArtists() {
     if (typeof this.props.artists === "object") {
       return this.props.artists.map((artist: ITermType, index: number) => {
         return (
-          <AutoComplete.Option key={artist.id.toString()}>{artist.name}</AutoComplete.Option>
+          <AutoComplete.Option key={this.renderItemKey(index)}>{artist.name}</AutoComplete.Option>
         );
       });
     }
@@ -30,10 +34,10 @@ class Artists extends Component<IProps> {
   public render() {
     return (
       <Item label="Artists">
-          <AutoComplete style={{ width: "100%" }} placeholder="Tiểu Tôn Tuyết Đăng">
-            {this.renderCominovelArtists()}
-          </AutoComplete>
-          </Item>
+        <AutoComplete style={{ width: "100%" }} placeholder="Tiểu Tôn Tuyết Đăng">
+          {this.renderCominovelArtists()}
+        </AutoComplete>
+      </Item>
     );
   }
 }

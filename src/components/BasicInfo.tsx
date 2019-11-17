@@ -11,7 +11,6 @@ import { Artists, Authors, Countries, Genres, Release } from "./nested";
 const { Item } = Form;
 const { TextArea } = Input;
 
-
 type IProps = ReturnType<typeof mapStateToProps> & ReturnType <typeof mapDispatchToProps>;
 
 interface IState extends ICominovelData {
