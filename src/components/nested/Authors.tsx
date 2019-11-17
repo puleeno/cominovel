@@ -47,7 +47,7 @@ class Authors extends Component<IProps, IState> {
         return (
           <Select.Option
             key={this.renderItemKey(index)}
-            value={author.id.toString()}
+            value={author.id}
           >
             {author.name}
           </Select.Option>

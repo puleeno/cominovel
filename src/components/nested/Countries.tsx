@@ -62,8 +62,9 @@ class Countries extends Component<IProps, IState> {
     return this.state.selectedCountries.map((value: number, index: number) =>  {
       return (
         <Input
+          type="hidden"
           key={this.renderItemKey(index, "country_value")}
-          type="hidden" name={ taxName }
+          name={ taxName }
           value={value}
         />
       );
@@ -71,7 +72,6 @@ class Countries extends Component<IProps, IState> {
   }
 
   public render() {
-    const selectedMustBeNumber = this.state.selectedCountries[0];
     return (
       <Form.Item
             label="Comic Type"
@@ -79,7 +79,7 @@ class Countries extends Component<IProps, IState> {
             <Select
               placeholder="Country or comic types"
               style={{ width: 200 }}
-              value={selectedMustBeNumber}
+              value={this.state.selectedCountries[0] || undefined}
               onChange={this.handleChange}
             >
               {this.renderCominovelCountries()}

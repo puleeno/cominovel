@@ -77,10 +77,12 @@ class Artists extends Component<IProps, IState> {
     return (
       <Item label="Artists">
         <Select
-          style={{ width: "100%" }}
+          showSearch
+          optionFilterProp="children"
           placeholder="Tiểu Tôn Tuyết Đăng"
+          style={{ width: "100%" }}
           onChange={this.handleChange}
-          value={this.state.selectedArtists[0]}
+          value={this.state.selectedArtists[0] || undefined}
         >
         {this.renderCominovelArtists()}
         </Select>
