@@ -1,4 +1,5 @@
 import { Action } from "redux";
+import { ITermType } from "./WordPressProps";
 
 export interface IEndpoint {
     GetComic: string;
@@ -20,7 +21,6 @@ export interface ICominovelData {
     author: string;
     badge: string;
     chapters: any;
-    generes: string;
     parent: number;
     post_content: string;
     post_excerpt: string;
@@ -30,12 +30,15 @@ export interface ICominovelData {
     post_status: string;
     post_title: string;
     post_type: string;
-    release: string;
-    seasons: string;
+    season: string;
     short_description: string;
-    status: string;
-    type: string;
     rating_system: string;
+    cm_artist_terms: ITermType[];
+    cm_author_terms: ITermType[];
+    cm_country_terms: ITermType[];
+    cm_status_terms: ITermType[];
+    genre_terms: ITermType[];
+    cm_release_terms: ITermType[];
 }
 
 export interface ISeason {

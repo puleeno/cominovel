@@ -1,7 +1,7 @@
 export interface ITermType {
     count: number | bigint;
     description: string;
-    id: number | bigint;
+    id: number;
     link: string;
     meta: [];
     name: string;
