@@ -129,14 +129,8 @@ abstract class Cominovel_Data {
 			'cominovel_custom_data_keys',
 			array(
 				'alternative_name',
-				'type',
-				'status',
-				'release',
-				'author',
-				'artist',
-				'generes',
 				'short_description',
-				'seasons',
+				'season',
 				'audult',
 				'badge',
 				'rating_system',
@@ -151,11 +145,28 @@ abstract class Cominovel_Data {
 		}
 	}
 
+	protected function changeKeyTermIdToId( $terms ) {
+		$new_terms = [];
+		foreach ( $terms as $term ) {
+			$new_term       = (array) $term;
+			$new_term['id'] = $new_term['term_id'];
+			unset( $new_term['term_id'] );
+			$new_terms[] = $new_term;
+		}
+		unset( $term, $terms, $new_term );
+		return $new_terms;
+	}
+
 	public function load_taxonomies_data() {
-		$default_taxonomies = array( 'genre', 'cm_status', 'cm_country', 'cm_artist', 'cm_author' );
+		$default_taxonomies = array( 'genre', 'cm_status', 'cm_country', 'cm_artist', 'cm_author', 'cm_release' );
 		$custom_taxonomies  = apply_filters( 'cominovel_load_custom_taxomies', array() );
 		foreach ( array_merge( $default_taxonomies, $custom_taxonomies ) as $taxonomy ) {
-			$this->set( "{$taxonomy}_terms", wp_get_post_terms( $this->data['ID'], $taxonomy ) );
+			$this->set(
+				"{$taxonomy}_terms",
+				$this->changeKeyTermIdToId(
+					wp_get_post_terms( $this->data['ID'], $taxonomy )
+				)
+			);
 		}
 	}
 }
