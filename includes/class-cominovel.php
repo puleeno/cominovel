@@ -184,5 +184,12 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		public static function create_meta_key( $key ) {
 			return sprintf( 'cominovel_%s', $key );
 		}
+
+		/**
+		 * This method use to check Cominovel Develop Mode
+		 */
+		public static function is_dev_mode() {
+			return defined( 'COMINOVEL_DEV_MODE' ) && constant( 'COMINOVEL_DEV_MODE' );
+		}
 	}
 }

@@ -171,10 +171,10 @@ class Cominovel_Taxonomies {
 		);
 		$args   = array(
 			'labels'            => $labels,
-			'public'            => false,
-			'hierarchical'      => false,
+			'public'            => Cominovel::is_dev_mode(),
+			'hierarchical'      => true,
 			'show_admin_column' => false,
-			'show_in_menu'      => false,
+			'show_in_menu'      => Cominovel::is_dev_mode(),
 			'show_in_rest'      => true,
 		);
 		register_taxonomy(
@@ -192,10 +192,10 @@ class Cominovel_Taxonomies {
 		);
 		$args   = array(
 			'labels'            => $labels,
-			'public'            => false,
-			'hierarchical'      => false,
+			'public'            => Cominovel::is_dev_mode(),
+			'hierarchical'      => true,
 			'show_admin_column' => false,
-			'show_in_menu'      => false,
+			'show_in_menu'      => Cominovel::is_dev_mode(),
 			'show_in_rest'      => true,
 		);
 		register_taxonomy(
