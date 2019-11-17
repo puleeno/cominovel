@@ -87,7 +87,7 @@ class Cominovel_Taxonomies {
 		$args   = array(
 			'labels'       => $labels,
 			'public'       => true,
-			'hierarchical' => false,
+			'hierarchical' => true,
 			'show_in_rest' => true,
 			'show_in_menu' => true,
 		);
