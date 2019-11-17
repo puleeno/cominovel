@@ -1,8 +1,10 @@
-import { AutoComplete } from "antd";
+import { Input, Select } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import { fetchTaxonomyTerms } from "../../actions";
+import { TAXONOMY_ARTIST } from "../../common/constants";
+import { TermHelpers } from "../../helpers";
 import { ITermType } from "../../interfaces/WordPressProps";
 import { IRootState} from "../../reducers";
 import Form from "../antd/Form";
@@ -10,33 +12,79 @@ import Form from "../antd/Form";
 const { Item } = Form;
 
 type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+interface IState {
+  selectedArtists: number[];
+}
 
-class Artists extends Component<IProps> {
+class Artists extends Component<IProps, IState> {
+  public state: IState = {
+    selectedArtists: this.props.selectedArtists,
+  };
+
   public componentDidMount() {
     this.props.fetchTaxonomyTerms("cm_artist");
   }
 
-  public renderItemKey(index: number) {
-    return `artist${index}`;
+  public UNSAFE_componentWillReceiveProps(nextProps: IProps) {
+    if (nextProps.selectedArtists !== this.props.selectedArtists) {
+      this.setState({
+        selectedArtists: nextProps.selectedArtists,
+      });
+    }
+  }
+
+  public handleChange = (value: any) => {
+    this.setState({
+      selectedArtists: [value],
+    });
+  }
+
+  public renderItemKey(index: number, prefix: string = "artist") {
+    return `${prefix}${index}`;
   }
 
   public renderCominovelArtists() {
     if (typeof this.props.artists === "object") {
       return this.props.artists.map((artist: ITermType, index: number) => {
         return (
-          <AutoComplete.Option key={this.renderItemKey(index)}>{artist.name}</AutoComplete.Option>
+          <Select.Option
+            key={this.renderItemKey(index, "artist_option")}
+            value={artist.id}
+          >
+            {artist.name}
+          </Select.Option>
         );
       });
     }
     return null;
   }
 
+  public renderSelectedArtist() {
+    const taxName = "tax_input[" + TAXONOMY_ARTIST + "][]";
+    return this.state.selectedArtists.map((artistId: number, index: number) => {
+      return(
+        <Input
+          key={this.renderItemKey(index, "artist_option")}
+          type="hidden"
+          name={taxName}
+          value={artistId}
+        />
+      );
+    });
+  }
+
   public render() {
     return (
       <Item label="Artists">
-        <AutoComplete style={{ width: "100%" }} placeholder="Tiểu Tôn Tuyết Đăng">
-          {this.renderCominovelArtists()}
-        </AutoComplete>
+        <Select
+          style={{ width: "100%" }}
+          placeholder="Tiểu Tôn Tuyết Đăng"
+          onChange={this.handleChange}
+          value={this.state.selectedArtists[0]}
+        >
+        {this.renderCominovelArtists()}
+        </Select>
+        {this.renderSelectedArtist()}
       </Item>
     );
   }
@@ -44,6 +92,7 @@ class Artists extends Component<IProps> {
 
 const mapStateToProps = (state: IRootState) => ({
   artists: state.terms.cm_artist || [],
+  selectedArtists: TermHelpers.extractTermIds(state.cominovel.info.cm_artist_terms || []),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
