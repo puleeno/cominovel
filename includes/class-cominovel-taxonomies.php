@@ -176,7 +176,6 @@ class Cominovel_Taxonomies {
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
 			'show_in_rest'      => true,
-			'_builtin'          => true,
 		);
 		register_taxonomy(
 			'cm_author',
@@ -198,7 +197,6 @@ class Cominovel_Taxonomies {
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
 			'show_in_rest'      => true,
-			'_builtin'          => true,
 		);
 		register_taxonomy(
 			'cm_artist',
