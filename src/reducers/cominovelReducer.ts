@@ -10,7 +10,6 @@ const initState: ICominovelState = {
     info: {
         ID: 0,
         alternative_name: "",
-        artist: "",
         audult: "",
         author: "",
         badge: "",
