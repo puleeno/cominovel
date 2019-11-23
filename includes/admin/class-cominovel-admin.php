@@ -20,6 +20,7 @@ class Cominovel_Admin {
 		 * Load Cominovel Settings
 		 */
 		require_once dirname( __FILE__ ) . '/settings/class-cominovel-admin-setting-storage.php';
+		require_once dirname( __FILE__ ) . '/settings/class-cominonovel-admin-setting-permalinks.php';
 	}
 
 	public function init_admin_hooks() {
