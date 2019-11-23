@@ -25,18 +25,19 @@ class Cominovel_Query {
 		);
 		if ( $this->isChapter ) {
 			list($comic, $chapter) = explode( '/', $query->query['name'] );
-			$parents               = get_posts(
-				array(
-					'post_type'   => $query->get( 'post_type' ),
-					'name'        => $comic,
-					'post_parent' => 0,
-				)
+			$args                  = array(
+				'post_type'   => $query->get( 'post_type' ),
+				'name'        => $comic,
+				'post_parent' => 0,
+				'fields'      => 'ids',
 			);
+			$parents               = get_posts( $args );
+
 			return get_posts(
 				array(
-					'post_type'   => 'chapter',
-					'name'        => $chapter,
-					'post_parent' => $parents,
+					'post_type'       => 'chapter',
+					'name'            => $chapter,
+					'post_parent__in' => $parents,
 				)
 			);
 		}
