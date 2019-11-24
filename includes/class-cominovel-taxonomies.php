@@ -70,6 +70,7 @@ class Cominovel_Taxonomies {
 			'show_in_rest'          => true,
 			'update_count_callback' => '_update_post_term_count',
 			'query_var'             => true,
+			'rewrite'               => array( 'slug' => apply_filters( 'cominovel_taxonomy_genre_slug', 'genre' ) ),
 		);
 		register_taxonomy(
 			'genre',
