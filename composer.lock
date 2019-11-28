@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d3cd5c4ffbf31dad986154adb97a2f4",
+    "content-hash": "7e0229782134f41e2b030666e8f582f1",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -131,16 +131,16 @@
         },
         {
             "name": "puleeno/wallery",
-            "version": "dev-master",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/puleeno/wallery.git",
-                "reference": "fce999e1f562ec3afbbfcb40428658107df3c5e6"
+                "reference": "f011ae30d3a09c7860c3bdace52458bf47bc4d0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/puleeno/wallery/zipball/fce999e1f562ec3afbbfcb40428658107df3c5e6",
-                "reference": "fce999e1f562ec3afbbfcb40428658107df3c5e6",
+                "url": "https://api.github.com/repos/puleeno/wallery/zipball/f011ae30d3a09c7860c3bdace52458bf47bc4d0d",
+                "reference": "f011ae30d3a09c7860c3bdace52458bf47bc4d0d",
                 "shasum": ""
             },
             "type": "library",
@@ -160,7 +160,7 @@
                 }
             ],
             "description": "WordPress gallery for meta box and frontend post",
-            "time": "2019-10-15T13:11:03+00:00"
+            "time": "2019-11-28T15:54:25+00:00"
         },
         {
             "name": "ramphor/plugin-core",
@@ -307,7 +307,6 @@
     "stability-flags": {
         "jankx/breadcrumb": 20,
         "jankx/fields": 20,
-        "puleeno/wallery": 20,
         "ramphor/plugin-core": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
