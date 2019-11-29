@@ -60,11 +60,19 @@ class Cominovel_Admin_Assets {
 				Cominovel_Post_Types::get_allowed_post_types()
 			)
 		) {
+			wp_register_script( 'cominovel-locale', rest_url( 'cominovel/v1/locale/' . get_locale() . '.js' ), array(), Cominovel::VERSION, true );
 			if ( $this->run_mode === 'dev' ) {
 				$this->register_dev_react_assets();
 			} else {
 				$this->register_prod_react_assets();
 			}
+
+			// Localize the script with new data
+			$endpoints = array(
+				'fetchComic' => rest_url( 'cominovel/v1/comic/<post_id>' ),
+			);
+			wp_localize_script( Cominovel::NAME, 'cominovel_enpoints', $endpoints );
+			wp_enqueue_script( Cominovel::NAME );
 		}
 	}
 
@@ -87,12 +95,11 @@ class Cominovel_Admin_Assets {
 	}
 
 	public function register_dev_react_assets() {
-		wp_register_script( 'cominovel-locale', rest_url( 'cominovel/v1/locale/' . get_locale() . '.js' ), array(), Cominovel::VERSION, true );
 		wp_register_script( 'cominovel-bundle', $this->dev_asset_url( 'static/js/bundle.js' ), array(), Cominovel::VERSION, true );
 		wp_register_script( 'cominovel-runtime', $this->dev_asset_url( 'static/js/0.chunk.js' ), array(), Cominovel::VERSION, true );
-		wp_register_script( 'cominovel-main', $this->dev_asset_url( 'static/js/main.chunk.js' ), array( 'cominovel-locale', 'cominovel-bundle', 'cominovel-runtime' ), Cominovel::VERSION, true );
+		wp_register_script( Cominovel::NAME, $this->dev_asset_url( 'static/js/main.chunk.js' ), array( 'cominovel-locale', 'cominovel-bundle', 'cominovel-runtime' ), Cominovel::VERSION, true );
 
-		wp_enqueue_script( 'cominovel-main' );
+		wp_enqueue_script( Cominovel::NAME );
 	}
 
 	public function register_prod_react_assets() {
@@ -106,7 +113,6 @@ class Cominovel_Admin_Assets {
 		wp_register_script( Cominovel::NAME, cominovel_asset_url( 'js/' . $assets_config['js']['main'] ), array( 'cominovel-locale', 'cominovel-runtime', 'cominovel-libraries' ), Cominovel::VERSION, true );
 
 		wp_enqueue_style( Cominovel::NAME );
-		wp_enqueue_script( Cominovel::NAME );
 	}
 }
 
