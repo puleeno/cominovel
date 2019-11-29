@@ -2,8 +2,7 @@ import { Action } from "redux";
 import { ITermType } from "./WordPressProps";
 
 export interface IEndpoint {
-    GetComic: string;
-    GetNovel: string;
+    url: string;
 }
 
 export interface ICominovelProps {
