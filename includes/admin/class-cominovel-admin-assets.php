@@ -27,7 +27,6 @@ class Cominovel_Admin_Assets {
 		}
 		add_action( 'current_screen', array( $this, 'get_screen' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_react_app' ) );
-		add_action( 'admin_footer', array( $this, 'init_cominovel_info' ), 5 );
 	}
 
 	public function get_screen() {
@@ -60,7 +59,6 @@ class Cominovel_Admin_Assets {
 				Cominovel_Post_Types::get_allowed_post_types()
 			)
 		) {
-			wp_register_script( 'cominovel-locale', rest_url( 'cominovel/v1/locale/' . get_locale() . '.js' ), array(), Cominovel::VERSION, true );
 			if ( $this->run_mode === 'dev' ) {
 				$this->register_dev_react_assets();
 			} else {
@@ -68,36 +66,29 @@ class Cominovel_Admin_Assets {
 			}
 
 			// Localize the script with new data
-			$endpoints = array(
-				'fetchComic' => rest_url( 'cominovel/v1/comic/<post_id>' ),
+			$languages = require COMINOVEL_INC_DIR . '/languages/react-app-languages.php';
+			$messages  = require COMINOVEL_INC_DIR . '/languages/react-app-messages.php';
+			wp_localize_script(
+				Cominovel::NAME,
+				'Cominovel',
+				apply_filters(
+					'cominovel_global_js_object',
+					array(
+						'endpoints' => cominovel_endpoints(),
+						'currentID' => $GLOBALS['post']->ID,
+						'languages' => $languages,
+						'messages'  => $messages,
+					)
+				)
 			);
-			wp_localize_script( Cominovel::NAME, 'cominovel_enpoints', $endpoints );
 			wp_enqueue_script( Cominovel::NAME );
 		}
-	}
-
-	public function init_cominovel_info() {
-		if (
-			$this->current_screen->base !== 'post' ||
-			! in_array(
-				$this->current_screen->id,
-				Cominovel_Post_Types::get_allowed_post_types()
-			)
-		) {
-			return;
-		}
-		?>
-		<script type="text/javascript">
-			window.Cominovel = window.Cominovel || {};
-			window.Cominovel.currentID = <?php echo $GLOBALS['post']->ID; ?>;
-		</script>
-		<?php
 	}
 
 	public function register_dev_react_assets() {
 		wp_register_script( 'cominovel-bundle', $this->dev_asset_url( 'static/js/bundle.js' ), array(), Cominovel::VERSION, true );
 		wp_register_script( 'cominovel-runtime', $this->dev_asset_url( 'static/js/0.chunk.js' ), array(), Cominovel::VERSION, true );
-		wp_register_script( Cominovel::NAME, $this->dev_asset_url( 'static/js/main.chunk.js' ), array( 'cominovel-locale', 'cominovel-bundle', 'cominovel-runtime' ), Cominovel::VERSION, true );
+		wp_register_script( Cominovel::NAME, $this->dev_asset_url( 'static/js/main.chunk.js' ), array( 'cominovel-bundle', 'cominovel-runtime' ), Cominovel::VERSION, true );
 
 		wp_enqueue_script( Cominovel::NAME );
 	}
@@ -110,7 +101,7 @@ class Cominovel_Admin_Assets {
 		wp_register_script( 'cominovel-locale', rest_url( 'cominovel/v1/locale/' . get_locale() . '.js' ), array(), Cominovel::VERSION, true );
 		wp_register_script( 'cominovel-runtime', cominovel_asset_url( 'js/' . $assets_config['js']['runtime'] ), null, Cominovel::VERSION, true );
 		wp_register_script( 'cominovel-libraries', cominovel_asset_url( 'js/' . $assets_config['js']['library'] ), null, Cominovel::VERSION, true );
-		wp_register_script( Cominovel::NAME, cominovel_asset_url( 'js/' . $assets_config['js']['main'] ), array( 'cominovel-locale', 'cominovel-runtime', 'cominovel-libraries' ), Cominovel::VERSION, true );
+		wp_register_script( Cominovel::NAME, cominovel_asset_url( 'js/' . $assets_config['js']['main'] ), array( 'cominovel-runtime', 'cominovel-libraries' ), Cominovel::VERSION, true );
 
 		wp_enqueue_style( Cominovel::NAME );
 	}
