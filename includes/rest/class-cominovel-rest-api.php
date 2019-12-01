@@ -16,40 +16,7 @@ class Cominovel_Rest_Api {
 	}
 
 	public function register_new_endpoint() {
-		register_rest_route(
-			'cominovel/v1',
-			'/locale/(\w+)\.js',
-			array(
-				'method'   => 'GET',
-				'callback' => array( $this, 'languages' ),
-			)
-		);
-
 		new Cominovel_Rest_Data();
-	}
-
-	public function languages( WP_REST_Request $request ) {
-		add_filter(
-			'wp_headers',
-			function( $headers ) {
-				$headers['Content-Type'] = 'text/javascript';
-				return $headers;
-			}
-		);
-
-		$languages_config = require dirname( __FILE__ ) . '/configs/react-app-languages.php';
-		$messages_config  = require dirname( __FILE__ ) . '/configs/react-app-messages.php';
-		$json             = sprintf(
-			'window.Cominovel = window.Cominovel || {};%1$s'
-				. 'window.Cominovel.languages = %2$s;%1$s'
-				. 'window.Cominovel.messages = %3$s',
-			"\n",
-			json_encode( $languages_config ),
-			json_encode( $messages_config )
-		);
-
-		header( 'Content-Type: text/javascript' );
-		die( $json );
 	}
 }
 
