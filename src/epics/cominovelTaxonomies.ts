@@ -12,7 +12,7 @@ export const fetchTaxonomyTerms: Epic<Action<any>, Action<any>> = (action$) => a
         (action: AnyAction) => {
             const taxonomy = action.taxonomy || "genre";
             return from(
-                ajax.getJSON(`http://loveofboys.io/wp-json/wp/v2/${taxonomy}`),
+                ajax.getJSON(window.Cominovel.endpoints.wpv2 + taxonomy),
             ).pipe(
                 map((response: any) => fetchTaxonomyTermsFullFilled(response, taxonomy, action.keyword)),
             );

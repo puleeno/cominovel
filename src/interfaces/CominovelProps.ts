@@ -1,13 +1,14 @@
 import { Action } from "redux";
 import { ITermType } from "./WordPressProps";
 
-export interface IEndpoint {
-    url: string;
+export interface IEndpoints {
+    wpv2: string,
+    fetchComic: string,
 }
 
 export interface ICominovelProps {
     currentID: number;
-    endpoints: IEndpoint[];
+    endpoints: IEndpoints;
     languages: any;
     messages: any;
 }

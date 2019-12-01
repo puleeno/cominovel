@@ -12,7 +12,9 @@ const fetchCominovelEpic: Epic<Action<any>, Action<any>, void> = (action$) => ac
     ofType(FETCH_COMINOVEL),
     mergeMap(
         (action: AnyAction) => from(
-            ajax.getJSON(`http://loveofboys.io/wp-json/cominovel/v1/comic/${action.payload}`),
+            ajax.getJSON(
+              window.Cominovel.endpoints.fetchComic.replace("<post_id>", action.payload),
+            ),
         ).pipe(
             map((response: any) => {
                 store.dispatch(setAppStatus(true));
