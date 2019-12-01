@@ -65,7 +65,7 @@ class Cominovel_Taxonomies {
 		$args   = array(
 			'hierarchical'          => true,
 			'labels'                => $labels,
-			'show_ui'               => true,
+			'show_ui'               => false,
 			'show_admin_column'     => true,
 			'show_in_rest'          => true,
 			'update_count_callback' => '_update_post_term_count',
@@ -88,6 +88,7 @@ class Cominovel_Taxonomies {
 		$args   = array(
 			'labels'       => $labels,
 			'public'       => true,
+			'show_ui'      => false,
 			'hierarchical' => true,
 			'show_in_rest' => true,
 			'show_in_menu' => true,
@@ -128,7 +129,7 @@ class Cominovel_Taxonomies {
 				'public'            => false,
 				'hierarchical'      => true,
 				'show_admin_column' => self::check_active_data_type() === $post_type,
-				// 'show_ui'           => self::check_active_data_type() === $post_type,
+				'show_ui'           => false,
 				'show_in_menu'      => false,
 				'show_in_rest'      => true,
 			);
@@ -151,6 +152,7 @@ class Cominovel_Taxonomies {
 		$args   = array(
 			'labels'       => $labels,
 			'public'       => true,
+			'show_ui'      => false,
 			'hierarchical' => false,
 			'show_in_rest' => true,
 			'show_in_menu' => false,
@@ -173,6 +175,7 @@ class Cominovel_Taxonomies {
 		$args   = array(
 			'labels'            => $labels,
 			'public'            => false,
+			'show_ui'           => false,
 			'hierarchical'      => true,
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
@@ -194,6 +197,7 @@ class Cominovel_Taxonomies {
 		$args   = array(
 			'labels'            => $labels,
 			'public'            => false,
+			'show_ui'           => false,
 			'hierarchical'      => true,
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
@@ -216,6 +220,7 @@ class Cominovel_Taxonomies {
 			'labels'            => $labels,
 			'public'            => false,
 			'hierarchical'      => false,
+			'show_ui'           => false,
 			'show_admin_column' => false,
 			'show_in_menu'      => false,
 			'show_in_rest'      => true,
