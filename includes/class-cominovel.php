@@ -51,6 +51,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 
 		public function define_constants() {
 			$this->define( 'COMINOVEL_ABSPATH', plugin_dir_path( COMINOVEL_PLUGIN_FILE ) );
+			$this->define( 'COMINOVEL_INC_DIR', sprintf( '%sincludes', COMINOVEL_ABSPATH ) );
 			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf( '%stemplates', COMINOVEL_ABSPATH ) );
 		}
 
