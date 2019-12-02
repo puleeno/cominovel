@@ -59,14 +59,15 @@ abstract class Cominovel_Data {
 		if ( $this->post && $this->post->post_parent === 0 ) {
 			$chapters = apply_filters( 'cominovel_pre_load_chapters', $chapters, $this );
 			if ( empty( $chapters ) ) {
-				$chapters = get_posts(
-					array(
-						'post_type'      => 'chapter',
-						'post_parent'    => $this->ID,
-						'post_status'    => 'publish',
-						'posts_per_page' => -1,
-					)
+				$args     = array(
+					'post_type'      => 'chapter',
+					'post_parent'    => $this->ID,
+					'post_status'    => 'publish',
+					'posts_per_page' => -1,
+					'orderby'        => 'name',
+					'order'          => 'asc',
 				);
+				$chapters = get_posts( apply_filters( 'cominovel_load_chapters_args', $args, $this ) );
 			}
 		}
 		$this->set( 'chapters', apply_filters( 'cominovel_load_chapters', $chapters ) );
