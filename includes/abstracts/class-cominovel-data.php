@@ -27,6 +27,24 @@ abstract class Cominovel_Data {
 		$this->autoload_data( $autoload );
 	}
 
+	public function __get( $name ) {
+		if ( isset( $this->data[ $name ] ) ) {
+			return $this->data[ $name ];
+		}
+
+		return __return_empty_string();
+	}
+
+	public function set( $name, $value ) {
+		$this->data[ $name ] = $value;
+	}
+
+	public function sort_the_chapters( $orderby ) {
+		global $wpdb;
+		$orderby = "{$wpdb->posts}.post_title+0 ASC, {$wpdb->posts}.post_title ASC";
+		return $orderby;
+	}
+
 	public function autoload_data( $autoload ) {
 		if ( $autoload ) {
 			if ( $this->ID > 0 ) {
@@ -42,20 +60,9 @@ abstract class Cominovel_Data {
 		}
 	}
 
-	public function __get( $name ) {
-		if ( isset( $this->data[ $name ] ) ) {
-			return $this->data[ $name ];
-		}
-
-		return __return_empty_string();
-	}
-
-	public function set( $name, $value ) {
-		$this->data[ $name ] = $value;
-	}
-
 	public function load_chapters() {
-		$chapters = array();
+		add_filter( 'posts_orderby', array( $this, 'sort_the_chapters' ) );
+		$chapters = false;
 		if ( $this->post && $this->post->post_parent === 0 ) {
 			$chapters = apply_filters( 'cominovel_pre_load_chapters', $chapters, $this );
 			if ( empty( $chapters ) ) {
@@ -64,13 +71,12 @@ abstract class Cominovel_Data {
 					'post_parent'    => $this->ID,
 					'post_status'    => 'publish',
 					'posts_per_page' => -1,
-					'orderby'        => 'name',
-					'order'          => 'asc',
 				);
-				$chapters = get_posts( apply_filters( 'cominovel_load_chapters_args', $args, $this ) );
+				$wp_query = new WP_Query( apply_filters( 'cominovel_load_chapters_args', $args, $this ) );
 			}
 		}
-		$this->set( 'chapters', apply_filters( 'cominovel_load_chapters', $chapters ) );
+		remove_filter( 'posts_orderby', array( $this, 'sort_the_chapters' ) );
+		$this->set( 'chapters', apply_filters( 'cominovel_load_chapters', $wp_query ) );
 	}
 
 	public function get_first_chapter_id() {

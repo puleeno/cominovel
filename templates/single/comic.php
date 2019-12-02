@@ -74,17 +74,20 @@
 	<div class="<?php echo $has_sidebar ? 'cm-block-inner' : 'cm-inner'; ?>">
 		<div class="cm-chapter-list">
 		<?php
-		global $post;
-		foreach ( $comic->chapters as $index => $post ) {
-			do_action( 'cominovel_before_comic_loop_chapter', $post, $index );
+		if ($comic->chapters) {
+			global $post;
+			while ( $comic->chapters->have_posts()) {
+				$comic->chapters->the_post();
+				do_action( 'cominovel_before_comic_loop_chapter', $post, $index );
 
-			setup_postdata( $post );
-			$chapter = Cominovel_Chapter::load_basic_info( $post );
-			cominovel_template( 'loop/chapter', compact( 'comic', 'chapter' ) );
+				setup_postdata( $post );
+				$chapter = Cominovel_Chapter::load_basic_info( $post );
+				cominovel_template( 'loop/chapter', compact( 'comic', 'chapter' ) );
 
-			do_action( 'cominovel_after_comic_loop_chapter', $post, $index );
-		}
+				do_action( 'cominovel_after_comic_loop_chapter', $post, $index );
+			}
 			wp_reset_postdata();
+		}
 		?>
 		</div>
 		<?php if ( $has_sidebar ) : ?>
