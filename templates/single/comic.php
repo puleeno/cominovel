@@ -80,7 +80,7 @@
 
 			setup_postdata( $post );
 			$chapter = Cominovel_Chapter::load_basic_info( $post );
-			cominovel_template( 'loop/chapter', compact( 'chapter' ) );
+			cominovel_template( 'loop/chapter', compact( 'comic', 'chapter' ) );
 
 			do_action( 'cominovel_after_comic_loop_chapter', $post, $index );
 		}

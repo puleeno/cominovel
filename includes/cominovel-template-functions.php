@@ -6,10 +6,20 @@ function cominovel_echo( $text, $context = null ) {
 	echo wp_kses_post( $text );
 }
 
-function cm_post_thumbnail( $size = 'thumbnail' ) {
+function cm_comic_thumbnail( $size, $attr = array(), $comic_id = null ) {
+	if ( is_null( $comic_id ) ) {
+		$comic_id = $GLOBALS['post']->ID;
+	}
+	$thumbnail_id = get_post_thumbnail_id( $comic_id );
+	return wp_get_attachment_image( $thumbnail_id, $size, false, $attr );
+}
+
+function cm_post_thumbnail( $size = 'thumbnail', $attr = array(), $comic_id = null ) {
 	if ( has_post_thumbnail() ) {
 		the_post_thumbnail( $size );
+		return;
 	}
+	echo cm_comic_thumbnail( $size, $attr, $comic_id );
 }
 
 function cm_the_title( $title, $tag = 'h3' ) {
