@@ -9,6 +9,8 @@ if ( have_posts() ) {
 	$first_chapter = $comic->get_first_chapter_id();
 	$breadcrumb    = Cominovel_Breadcrumb::create( $comic );
 
+	// Load the comic chapters to render chapter list.
+	$comic->load_chapters();
 	cominovel_template( 'single/comic', compact( 'comic', 'has_sidebar', 'breadcrumb', 'is_oneshot', 'first_chapter' ) );
 }
 

@@ -4,6 +4,9 @@ get_header( 'novel' );
 if ( have_posts() ) {
 	the_post();
 	$novel = new Cominovel_Novel( $GLOBALS['post'] );
+
+	// Load the comic chapters to render chapter list.
+	$comic->load_chapters();
 	cominovel_template( 'single/novel', compact( 'novel' ) );
 }
 
