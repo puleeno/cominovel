@@ -39,9 +39,10 @@ abstract class Cominovel_Data {
 		$this->data[ $name ] = $value;
 	}
 
-	public function sort_the_chapters( $orderby ) {
-		global $wpdb;
-		$orderby = "{$wpdb->posts}.post_title+0 ASC, {$wpdb->posts}.post_title ASC";
+	public function sort_the_chapters( $orderby, $query ) {
+		if ( $query->get( 'orderby' ) != 'title_number' ) {
+			return $orderby;
+		}
 		return $orderby;
 	}
 
@@ -61,7 +62,8 @@ abstract class Cominovel_Data {
 	}
 
 	public function load_chapters() {
-		add_filter( 'posts_orderby', array( $this, 'sort_the_chapters' ) );
+		add_filter( 'posts_orderby', array( $this, 'sort_the_chapters' ), 10, 2 );
+		// add_filter('query', function ($query){die($query);});
 		$chapters = false;
 		if ( $this->post && $this->post->post_parent === 0 ) {
 			$chapters = apply_filters( 'cominovel_pre_load_chapters', $chapters, $this );
@@ -71,6 +73,8 @@ abstract class Cominovel_Data {
 					'post_parent'    => $this->ID,
 					'post_status'    => 'publish',
 					'posts_per_page' => -1,
+					'orderby'        => 'title_number',
+					'order'          => 'ASC',
 				);
 				$wp_query = new WP_Query( apply_filters( 'cominovel_load_chapters_args', $args, $this ) );
 			}
