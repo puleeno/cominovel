@@ -24,7 +24,7 @@ class Release extends Component<IProps> {
 }
 
 const mapStateToProps = (state: IRootState) => ({
-  release: state.cominovel.info.cm_release_terms,
+  release: state.cominovel.info.cmn_release_terms,
 });
 
 export default connect(mapStateToProps)(Release);

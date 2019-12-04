@@ -64,8 +64,8 @@ class Cominovel_Meta_Box_Comic_Data {
 		return apply_filters(
 			'cominovel_link_builtin_taxonomy_terms_to_post_types',
 			array(
-				'author' => 'cm_author',
-				'artist' => 'cm_artist',
+				'author' => 'cmn_author',
+				'artist' => 'cmn_artist',
 				'comic'  => 'tax_comic',
 				'novel'  => 'tax_novel',
 			)

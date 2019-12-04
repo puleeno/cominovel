@@ -6,7 +6,7 @@ function cominovel_echo( $text, $context = null ) {
 	echo wp_kses_post( $text );
 }
 
-function cm_comic_thumbnail( $size, $attr = array(), $comic_id = null ) {
+function cmn_comic_thumbnail( $size, $attr = array(), $comic_id = null ) {
 	if ( is_null( $comic_id ) ) {
 		$comic_id = $GLOBALS['post']->ID;
 	}
@@ -14,27 +14,27 @@ function cm_comic_thumbnail( $size, $attr = array(), $comic_id = null ) {
 	return wp_get_attachment_image( $thumbnail_id, $size, false, $attr );
 }
 
-function cm_post_thumbnail( $size = 'thumbnail', $attr = array(), $comic_id = null ) {
+function cmn_post_thumbnail( $size = 'thumbnail', $attr = array(), $comic_id = null ) {
 	if ( has_post_thumbnail() ) {
 		the_post_thumbnail( $size );
 		return;
 	}
-	echo cm_comic_thumbnail( $size, $attr, $comic_id );
+	echo cmn_comic_thumbnail( $size, $attr, $comic_id );
 }
 
-function cm_the_title( $title, $tag = 'h3' ) {
+function cmn_the_title( $title, $tag = 'h3' ) {
 	echo wp_kses_post( sprintf( '<%1$s class="item-title">%2$s</%1$s>', $tag, $title ) );
 }
 
 
-function cm_the_author() {
+function cmn_the_author() {
 	echo wp_kses_post(
 		'<a href="#">Puleeno</a>'
 	);
 }
 
 
-function cm_the_likes() {
+function cmn_the_likes() {
 	echo wp_kses_post( '199 Tr' );
 }
 

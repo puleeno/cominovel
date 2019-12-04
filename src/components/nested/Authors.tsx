@@ -20,7 +20,7 @@ class Authors extends Component<IProps, IState> {
   };
 
   public componentDidMount() {
-    this.props.fetchTaxonomyTerms("cm_author");
+    this.props.fetchTaxonomyTerms("cmn_author");
   }
 
   public UNSAFE_componentWillReceiveProps(nextProps: IProps) {
@@ -92,8 +92,8 @@ class Authors extends Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: IRootState) => ({
-  authors: state.terms.cm_author || [],
-  selectedAuthors: TermHelpers.extractTermIds(state.cominovel.info.cm_author_terms || []),
+  authors: state.terms.cmn_author || [],
+  selectedAuthors: TermHelpers.extractTermIds(state.cominovel.info.cmn_author_terms || []),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({

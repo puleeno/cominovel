@@ -22,7 +22,7 @@ class Artists extends Component<IProps, IState> {
   };
 
   public componentDidMount() {
-    this.props.fetchTaxonomyTerms("cm_artist");
+    this.props.fetchTaxonomyTerms("cmn_artist");
   }
 
   public UNSAFE_componentWillReceiveProps(nextProps: IProps) {
@@ -93,8 +93,8 @@ class Artists extends Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: IRootState) => ({
-  artists: state.terms.cm_artist || [],
-  selectedArtists: TermHelpers.extractTermIds(state.cominovel.info.cm_artist_terms || []),
+  artists: state.terms.cmn_artist || [],
+  selectedArtists: TermHelpers.extractTermIds(state.cominovel.info.cmn_artist_terms || []),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({

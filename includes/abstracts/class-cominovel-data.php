@@ -169,7 +169,7 @@ abstract class Cominovel_Data {
 	}
 
 	public function load_taxonomies_data() {
-		$default_taxonomies = array( 'genre', 'cm_status', 'cm_country', 'cm_artist', 'cm_author', 'cm_release' );
+		$default_taxonomies = array( 'genre', 'cmn_status', 'cmn_country', 'cmn_artist', 'cmn_author', 'cmn_release' );
 		$custom_taxonomies  = apply_filters( 'cominovel_load_custom_taxomies', array() );
 		foreach ( array_merge( $default_taxonomies, $custom_taxonomies ) as $taxonomy ) {
 			$this->set(

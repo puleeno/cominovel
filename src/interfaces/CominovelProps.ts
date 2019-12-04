@@ -32,12 +32,12 @@ export interface ICominovelData {
     season: string;
     short_description: string;
     rating_system: string;
-    cm_artist_terms: ITermType[];
-    cm_author_terms: ITermType[];
-    cm_country_terms: ITermType[];
-    cm_status_terms: ITermType[];
+    cmn_artist_terms: ITermType[];
+    cmn_author_terms: ITermType[];
+    cmn_country_terms: ITermType[];
+    cmn_status_terms: ITermType[];
     genre_terms: ITermType[];
-    cm_release_terms: ITermType[];
+    cmn_release_terms: ITermType[];
 }
 
 export interface ISeason {

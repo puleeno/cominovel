@@ -11,7 +11,7 @@ type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatch
 
 class Status extends Component<IProps> {
   public componentDidMount() {
-    this.props.fetchTaxonomyTerms("cm_status");
+    this.props.fetchTaxonomyTerms("cmn_status");
   }
 
   public renderItemKey(index: number) {
@@ -46,7 +46,7 @@ class Status extends Component<IProps> {
 }
 
 const mapStateToProps = (state: IRootState) => ({
-  statues: state.terms.cm_status,
+  statues: state.terms.cmn_status,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({

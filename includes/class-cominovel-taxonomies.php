@@ -94,7 +94,7 @@ class Cominovel_Taxonomies {
 			'show_in_menu' => true,
 		);
 		register_taxonomy(
-			'cm_country',
+			'cmn_country',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_country_args',
@@ -103,7 +103,7 @@ class Cominovel_Taxonomies {
 		);
 
 		register_taxonomy(
-			'cm_tag',
+			'cmn_tag',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_tag',
@@ -158,7 +158,7 @@ class Cominovel_Taxonomies {
 			'show_in_menu' => false,
 		);
 		register_taxonomy(
-			'cm_release',
+			'cmn_release',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_release_args',
@@ -182,7 +182,7 @@ class Cominovel_Taxonomies {
 			'show_in_rest'      => true,
 		);
 		register_taxonomy(
-			'cm_author',
+			'cmn_author',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_author_args',
@@ -204,7 +204,7 @@ class Cominovel_Taxonomies {
 			'show_in_rest'      => true,
 		);
 		register_taxonomy(
-			'cm_artist',
+			'cmn_artist',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_artist_args',
@@ -227,7 +227,7 @@ class Cominovel_Taxonomies {
 			'_builtin'          => true,
 		);
 		register_taxonomy(
-			'cm_status',
+			'cmn_status',
 			$this->allowed_post_types,
 			apply_filters(
 				'cominovel_taxonomy_args_cominovel_status_args',

@@ -20,7 +20,7 @@ class Countries extends Component<IProps, IState> {
   };
 
   public componentDidMount() {
-    this.props.fetchTaxonomyTerms("cm_country");
+    this.props.fetchTaxonomyTerms("cmn_country");
   }
 
   public UNSAFE_componentWillReceiveProps(nextProps: IProps) {
@@ -91,8 +91,8 @@ class Countries extends Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: IRootState) => ({
-  countries: state.terms.cm_country || [],
-  selectedCountries: TermHelpers.extractTermIds(state.cominovel.info.cm_country_terms || []),
+  countries: state.terms.cmn_country || [],
+  selectedCountries: TermHelpers.extractTermIds(state.cominovel.info.cmn_country_terms || []),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({

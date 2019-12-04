@@ -4,7 +4,7 @@
 			<a class="item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<div class="overlay"></div>
 				<div class="link-inner">
-					<?php cm_post_thumbnail( $image_size ); ?>
+					<?php cmn_post_thumbnail( $image_size ); ?>
 				</div>
 			</a>
 		</div>
@@ -17,7 +17,7 @@
 			<?php if ( in_array( 'title', $fields ) ) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php
-				cm_the_title(
+				cmn_the_title(
 					get_the_title(),
 					$title_tag
 				);
@@ -27,7 +27,7 @@
 
 			<?php if ( in_array( 'author', $fields ) ) : ?>
 				<div class="item-author">
-					<?php cm_the_author(); ?>
+					<?php cmn_the_author(); ?>
 				</div>
 			<?php endif; ?>
 
