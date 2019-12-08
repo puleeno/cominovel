@@ -18,23 +18,11 @@ class Cominovel_Meta_Box_Comic_Data {
 			'advanced',
 			'high'
 		);
-
-		add_meta_box(
-			'cominovel-cloud-storage',
-			__( 'Cloud Storages', 'cominovel' ),
-			array( $this, 'cloud_storage' ),
-			Cominovel_Post_Types::get_allowed_post_types(),
-			'side'
-		);
 	}
 
 	public function render() {
 		cominovel_core_template( 'metaboxes/cominovel', [], 'admin' );
 	}
-
-	public function cloud_storage() {
-	}
-
 	public function save_cominovel_data( $post_id, $post ) {
 		if ( empty( $_POST['cominovel_loaded'] ) ) {
 			// This code is tricker to check cominovel data is loaded via Javascript

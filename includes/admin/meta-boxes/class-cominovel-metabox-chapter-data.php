@@ -51,17 +51,6 @@ class Cominovel_Metabox_Chapter_Data {
 				'high'
 			);
 		}
-
-		add_meta_box(
-			'cominovel_cloud_storages',
-			__( 'Cloud Storages', 'cominovel' ),
-			array( $this, 'cloud_storage' ),
-			'chapter',
-			'side',
-		);
-	}
-
-	public function cloud_storage() {
 	}
 
 	public function chapter_information( $post ) {
