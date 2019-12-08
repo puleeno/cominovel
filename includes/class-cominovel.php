@@ -74,6 +74,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-taxonomies.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-install.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-query.php';
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-storage-manager.php';
 
 			/**
 			 * Load libraries via composer
