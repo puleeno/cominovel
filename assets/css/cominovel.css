@@ -12,13 +12,6 @@
   border-radius: 0 !important;
 }
 
-.ui-bootstrap a {
-  color: #ffe000;
-}
-.ui-bootstrap a:hover {
-  color: #998600;
-}
-
 @media (min-width: 576px) {
   .cm-layouts .items {
     margin-left: -10px;
