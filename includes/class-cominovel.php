@@ -14,7 +14,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 	 * Class Cominovel is the main class of Cominovel plugin
 	 */
 	class Cominovel {
-		const NAME    = 'cominovel';
+		const NAME = 'cominovel';
 
 		public $info;
 
@@ -55,7 +55,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			$this->define( 'COMINOVEL_INC_DIR', sprintf( '%sincludes', COMINOVEL_ABSPATH ) );
 			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf( '%stemplates', COMINOVEL_ABSPATH ) );
 
-			if (!function_exists('get_plugin_data')) {
+			if ( ! function_exists( 'get_plugin_data' ) ) {
 				require_once ABSPATH . 'wp-admin/includes/plugin.php';
 			}
 			$this->info = get_plugin_data( COMINOVEL_PLUGIN_FILE );

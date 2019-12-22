@@ -6,6 +6,8 @@ class Cominovel_Frontend {
 		add_filter( 'cominovel_edit_comic_node', array( __CLASS__, 'edit_comic_node' ), 10, 2 );
 		add_action( 'widgets_init', array( __CLASS__, 'register_sidebar' ), 15 );
 		add_action( 'admin_bar_menu', array( __CLASS__, 'add_edit_chapter_link' ), 75 );
+		add_action( 'excerpt_length', array( __CLASS__, 'limit_the_short_description' ) );
+		add_filter( 'excerpt_more', array( __CLASS__, 'dyad_excerpt_continue_reading' ) );
 	}
 
 	public function change_edit_chapter_link_to_comic( $wp_admin_bar ) {
@@ -61,6 +63,19 @@ class Cominovel_Frontend {
 		$wp_admin_bar->add_node( $args );
 	}
 
+	public static function limit_the_short_description( $length ) {
+		if ( in_array( get_post_type(), array( 'comic', 'novel' ) ) ) {
+			return 15;
+		}
+		return $length;
+	}
+
+	public static function dyad_excerpt_continue_reading( $readmore ) {
+		if ( in_array( get_post_type(), array( 'comic', 'novel' ) ) ) {
+			return '...';
+		}
+		return $readmore;
+	}
 }
 
 Cominovel_Frontend::init();
