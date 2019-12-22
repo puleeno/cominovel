@@ -15,7 +15,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 	 */
 	class Cominovel {
 		const NAME    = 'cominovel';
-		const VERSION = '1.0.12.0';
+
+		public $info;
 
 		/**
 		 * The instance of class Cominovel.
@@ -53,6 +54,15 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			$this->define( 'COMINOVEL_ABSPATH', plugin_dir_path( COMINOVEL_PLUGIN_FILE ) );
 			$this->define( 'COMINOVEL_INC_DIR', sprintf( '%sincludes', COMINOVEL_ABSPATH ) );
 			$this->define( 'COMINOVEL_TEMPLATES_DIR', sprintf( '%stemplates', COMINOVEL_ABSPATH ) );
+
+			if (!function_exists('get_plugin_data')) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
+			$this->info = get_plugin_data( COMINOVEL_PLUGIN_FILE );
+		}
+
+		public static function getVersion() {
+			return self::instance()->info['Version'];
 		}
 
 		public function includes() {

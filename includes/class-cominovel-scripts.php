@@ -7,7 +7,7 @@ class Cominovel_Scripts {
 	}
 
 	public function register_scripts() {
-		wp_register_style( Cominovel::NAME, cominovel_asset_url( 'css/cominovel.css' ), array(), Cominovel::VERSION );
+		wp_register_style( Cominovel::NAME, cominovel_asset_url( 'css/cominovel.css' ), array(), Cominovel::getVersion() );
 
 		wp_enqueue_style( Cominovel::NAME );
 	}
