@@ -10,7 +10,7 @@ class Cominovel_Frontend {
 		add_filter( 'excerpt_more', array( __CLASS__, 'dyad_excerpt_continue_reading' ) );
 	}
 
-	public function change_edit_chapter_link_to_comic( $wp_admin_bar ) {
+	public static function change_edit_chapter_link_to_comic( $wp_admin_bar ) {
 		$comic_object = get_post_type_object( 'comic' );
 		if ( ! isset( $comic_object->labels->edit_item ) ) {
 			return;
