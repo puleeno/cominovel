@@ -96,6 +96,10 @@ class Cominovel_Meta_Box_Comic_Data {
 	public function delete_builtin_links( $post_id ) {
 		$post_type           = get_post_type( $post_id );
 		$built_in_taxonomies = $this->get_builtin_taxonomy_post_types();
+		if (empty($built_in_taxonomies[ $post_type ])) {
+			return;
+		}
+
 		$taxonomy            = $built_in_taxonomies[ $post_type ];
 		$meta_key            = sprintf( '_%s_link_to_%s', $post_type, $taxonomy );
 		delete_post_meta( $post_id, $meta_key );

@@ -84,7 +84,7 @@ abstract class Cominovel_Data {
 	}
 
 	public function get_first_chapter_id() {
-		if ( $this->raw_data['first_chapter_id'] > 0 ) {
+		if ( isset($this->raw_data['first_chapter_id']) && $this->raw_data['first_chapter_id'] > 0 ) {
 			return $this->raw_data['first_chapter_id'];
 		}
 		return array_get( $this->chapters, 0, 0 );

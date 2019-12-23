@@ -76,6 +76,7 @@
 		<?php
 		if ($comic->chapters) {
 			global $post;
+			$index = 1;
 			while ( $comic->chapters->have_posts()) {
 				$comic->chapters->the_post();
 				do_action( 'cominovel_before_comic_loop_chapter', $post, $index );
@@ -85,6 +86,7 @@
 				cominovel_template( 'loop/chapter', compact( 'comic', 'chapter' ) );
 
 				do_action( 'cominovel_after_comic_loop_chapter', $post, $index );
+				$index++;
 			}
 			wp_reset_postdata();
 		}
