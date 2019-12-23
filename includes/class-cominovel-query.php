@@ -21,7 +21,9 @@ class Cominovel_Query {
 
 	public function parse_chapter_query( $posts, $query ) {
 		$this->isChapter = (
-			in_array( $query->query['post_type'], array( 'comic', 'novel' ) ) && false !== strpos( $query->query['name'], '/' )
+			!empty($query->query)
+				&& in_array( $query->query['post_type'], array( 'comic', 'novel' ) )
+				&& false !== strpos( $query->query['name'], '/' )
 		);
 		if ( $this->isChapter ) {
 			list($comic, $chapter) = explode( '/', $query->query['name'] );
