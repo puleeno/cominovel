@@ -56,21 +56,21 @@ class Cominovel_Admin_Menus {
 				$menu_slug,
 				__( 'Chapters', 'cominovel' ),
 				__( 'Chapters', 'cominovel' ),
-				'manage_options',
+				'edit_posts',
 				'edit.php?post_type=chapter&data_type=' . $post_type
 			);
 			add_submenu_page(
 				$menu_slug,
 				__( 'Artists', 'cominovel' ),
 				__( 'Artists', 'cominovel' ),
-				'manage_options',
+				'edit_posts',
 				'edit.php?post_type=artist&data_type=' . $post_type
 			);
 			add_submenu_page(
 				$menu_slug,
 				__( 'Authors', 'cominovel' ),
 				__( 'Authors', 'cominovel' ),
-				'manage_options',
+				'edit_posts',
 				'edit.php?post_type=author&data_type=' . $post_type
 			);
 		}
