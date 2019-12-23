@@ -20,9 +20,9 @@ abstract class Cominovel_Data {
 			$this->post = get_post( $this->ID );
 			$this->verify_post_data( $this->post );
 		}
-		if ( $this->post ) {
-			$this->set( 'post_type', $post->post_type );
-			$this->set( 'parent', (int) $post->post_parent );
+		if ( $this->post) {
+			$this->set( 'post_type', $this->post->post_type );
+			$this->set( 'parent', (int) $this->post->post_parent );
 		}
 		$this->autoload_data( $autoload );
 	}
