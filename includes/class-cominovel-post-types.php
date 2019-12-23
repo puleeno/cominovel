@@ -168,7 +168,7 @@ class Cominovel_Post_Types {
 			'show_in_menu'       => false,
 			'query_var'          => true,
 			'rewrite'            => array( 'slug' => 'chapter' ),
-			'capability_type'    => 'post',
+			// 'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
