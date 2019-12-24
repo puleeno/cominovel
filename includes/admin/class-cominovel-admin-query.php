@@ -32,7 +32,7 @@ class Cominovel_Admin_Query {
 		if ( false !== $counts ) {
 			return $counts;
 		}
-		$query   = "SELECT post_status, COUNT( * ) AS num_posts FROM blm_posts WHERE post_parent IN (SELECT ID FROM blm_posts WHERE post_type='novel') AND post_type = 'chapter' GROUP BY post_status";
+		$query   = "SELECT post_status, COUNT( * ) AS num_posts FROM {$wpdb->posts} WHERE post_parent IN (SELECT ID FROM {$wpdb->posts} WHERE post_type='novel') AND post_type = 'chapter' GROUP BY post_status";
 		$results = (array) $wpdb->get_results( $query, ARRAY_A );
 		$counts  = array_fill_keys( get_post_stati(), 0 );
 
