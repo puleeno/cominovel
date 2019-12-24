@@ -1,4 +1,6 @@
 <?php
+do_action( 'cominovel_before_comic_chapter_content', $chapter );
+
 cominovel_template( 'heading/chapter-content' );
 
 $pre_comic_content = apply_filters( 'cominovel_comic_content', false );
