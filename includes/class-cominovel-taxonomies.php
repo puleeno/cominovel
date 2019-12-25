@@ -63,12 +63,12 @@ class Cominovel_Taxonomies {
 			'not_found'         => __( 'No genres found', 'cominovel' ),
 		);
 		$args   = array(
-			'public' => true,
+			'public'                => true,
 			'labels'                => $labels,
 			'hierarchical'          => true,
 			'show_ui'               => true,
 			'show_admin_column'     => true,
-			'show_in_menu' => true,
+			'show_in_menu'          => true,
 			'show_in_rest'          => true,
 			'update_count_callback' => '_update_post_term_count',
 			'query_var'             => true,
@@ -88,13 +88,13 @@ class Cominovel_Taxonomies {
 			'singular_name' => __( 'Country', 'cominovel' ),
 		);
 		$args   = array(
-			'labels'       => $labels,
-			'public'       => true,
-			'show_ui'      => true,
-			'hierarchical' => true,
-			'show_admin_column'     => true,
-			'show_in_rest' => true,
-			'show_in_menu' => true,
+			'labels'            => $labels,
+			'public'            => true,
+			'show_ui'           => true,
+			'hierarchical'      => true,
+			'show_admin_column' => true,
+			'show_in_rest'      => true,
+			'show_in_menu'      => true,
 		);
 		register_taxonomy(
 			'cmn_country',

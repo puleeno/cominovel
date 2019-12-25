@@ -20,7 +20,7 @@ abstract class Cominovel_Data {
 			$this->post = get_post( $this->ID );
 			$this->verify_post_data( $this->post );
 		}
-		if ( $this->post) {
+		if ( $this->post ) {
 			$this->set( 'post_type', $this->post->post_type );
 			$this->set( 'parent', (int) $this->post->post_parent );
 		}
@@ -84,7 +84,7 @@ abstract class Cominovel_Data {
 	}
 
 	public function get_first_chapter_id() {
-		if ( isset($this->raw_data['first_chapter_id']) && $this->raw_data['first_chapter_id'] > 0 ) {
+		if ( isset( $this->raw_data['first_chapter_id'] ) && $this->raw_data['first_chapter_id'] > 0 ) {
 			return $this->raw_data['first_chapter_id'];
 		}
 		return array_get( $this->chapters, 0, 0 );
