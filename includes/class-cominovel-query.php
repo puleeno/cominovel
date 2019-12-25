@@ -31,14 +31,15 @@ class Cominovel_Query {
 			if ( count( $post_slug ) <= 1 ) {
 				return;
 			}
-			$this->isChapter                   = true;
-			$this->parent_type                 = $post_type;
-			list($this->parent_name, $chapter) = $post_slug;
+			$this->isChapter   = true;
+			$this->parent_type = $post_type;
+			$this->parent_name = $post_slug[0];
+			$chapter_name      = $post_slug[1];
 
 			$query = $wp_query->query;
 			if ( isset( $query[ $post_type ] ) ) {
 				unset( $query[ $post_type ] );
-				$query['chapter'] = $chapter;
+				$query['chapter'] = $chapter_name;
 			}
 			$query['post_type'] = 'chapter';
 			$wp_query->query    = $query;
@@ -46,7 +47,7 @@ class Cominovel_Query {
 			$query_vars = $wp_query->query_vars;
 			if ( isset( $query_vars[ $post_type ] ) ) {
 				unset( $query_vars[ $post_type ] );
-				$query_vars['chapter'] = $chapter;
+				$query_vars['chapter'] = $chapter_name;
 			}
 			$query_vars['post_type'] = 'chapter';
 			$wp_query->query_vars    = $query_vars;
