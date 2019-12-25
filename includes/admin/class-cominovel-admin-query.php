@@ -3,6 +3,7 @@ class Cominovel_Admin_Query {
 	public function __construct() {
 		add_filter( 'posts_where', array( $this, 'filter_chapters' ), 10, 2 );
 		add_filter( 'wp_count_posts', array( $this, 'filter_chapter_posts_count' ), 10, 3 );
+		add_filter( 'posts_fields', array( $this, 'the_chapter_title' ), 10, 2 );
 	}
 
 	public function filter_chapters( $where, $query ) {
@@ -44,6 +45,20 @@ class Cominovel_Admin_Query {
 		wp_cache_set( $cache_key, $counts, 'counts' );
 
 		return $counts;
+	}
+
+	public function the_chapter_title( $fields, $query ) {
+		$current_screen = get_current_screen();
+		if ( $query->get( 'post_type' ) == 'chapter' && $current_screen->id !== 'chapter' ) {
+			global $wpdb;
+
+			$fields .= ", CONCAT((SELECT p2.post_title FROM {$wpdb->posts} p2 WHERE";
+			$fields .= " p2.post_status='publish' AND p2.ID={$wpdb->posts}.post_parent LIMIT 1";
+			$fields .= "), ' - ', {$wpdb->posts}.post_title) as post_title";
+
+			return $fields;
+		}
+		return $fields;
 	}
 }
 
