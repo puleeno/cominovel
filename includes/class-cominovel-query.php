@@ -1,13 +1,15 @@
 <?php
 class Cominovel_Query {
-
 	protected $isChapter = false;
+	protected $parent_type;
+	protected $parent_name;
 
 	public function __construct() {
 		add_filter( 'post_type_link', array( $this, 'custom_chapter_link' ), 30, 2 );
 		$is_frontend = $this->is_frontend();
 		if ( $is_frontend ) {
-			add_filter( 'posts_pre_query', array( $this, 'parse_chapter_query' ), 10, 2 );
+			add_action( 'parse_query', array( $this, 'parse_chapter_query' ) );
+			add_filter( 'posts_where', array( $this, 'filter_chapter_by_parent' ), 10, 2 );
 		}
 	}
 
@@ -19,31 +21,49 @@ class Cominovel_Query {
 		return sprintf( '%s/%s', rtrim( $permalink, '/' ), $post->post_name );
 	}
 
-	public function parse_chapter_query( $posts, $query ) {
-		$this->isChapter = (
-			!empty($query->query)
-				&& in_array( $query->query['post_type'], array( 'comic', 'novel' ) )
-				&& false !== strpos( $query->query['name'], '/' )
-		);
-		if ( $this->isChapter ) {
-			list($comic, $chapter) = explode( '/', $query->query['name'] );
-			$args                  = array(
-				'post_type'   => $query->get( 'post_type' ),
-				'name'        => $comic,
-				'post_parent' => 0,
-				'fields'      => 'ids',
-			);
-			$parents               = get_posts( $args );
+	public function parse_chapter_query( $wp_query ) {
+		if ( is_single() && $wp_query->is_main_query() ) {
+			$post_type = $wp_query->get( 'post_type' );
+			if ( ! in_array( $post_type, array( 'comic', 'novel' ) ) && ! isset( $wp_query->query[ $post_type ] ) ) {
+				return;
+			}
+			$post_slug = explode( '/', $wp_query->query[ $post_type ] );
+			if ( count( $post_slug ) <= 1 ) {
+				return;
+			}
+			$this->isChapter                   = true;
+			$this->parent_type                 = $post_type;
+			list($this->parent_name, $chapter) = $post_slug;
 
-			return get_posts(
-				array(
-					'post_type'       => 'chapter',
-					'name'            => $chapter,
-					'post_parent__in' => $parents,
-				)
-			);
+			$query = $wp_query->query;
+			if ( isset( $query[ $post_type ] ) ) {
+				unset( $query[ $post_type ] );
+				$query['chapter'] = $chapter;
+			}
+			$query['post_type'] = 'chapter';
+			$wp_query->query    = $query;
+
+			$query_vars = $wp_query->query_vars;
+			if ( isset( $query_vars[ $post_type ] ) ) {
+				unset( $query_vars[ $post_type ] );
+				$query_vars['chapter'] = $chapter;
+			}
+			$query_vars['post_type'] = 'chapter';
+			$wp_query->query_vars    = $query_vars;
+			$wp_query->set( 'post_type', 'chapter' );
 		}
-		return $posts;
+	}
+
+	public function filter_chapter_by_parent( $where, $query ) {
+		if ( ! $this->isChapter ) {
+			return $where;
+		}
+		global $wpdb;
+
+		$where .= " AND post_parent IN (SELECT ID FROM {$wpdb->posts} WHERE post_type='";
+		$where .= $this->parent_type . "' AND post_status='publish' AND post_name='" . $this->parent_name . "')";
+
+		return $where;
 	}
 
 	protected function is_frontend() {
