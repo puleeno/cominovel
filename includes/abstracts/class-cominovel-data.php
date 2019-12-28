@@ -74,8 +74,8 @@ abstract class Cominovel_Data {
 					'post_parent'    => $this->ID,
 					'post_status'    => 'publish',
 					'posts_per_page' => -1,
-					'orderby'        => 'title_number',
-					'order'          => 'ASC',
+					'orderby'        => 'date',
+					'order'          => 'DESC',
 				);
 				$wp_query = new WP_Query( apply_filters( 'cominovel_load_chapters_args', $args, $this ) );
 			}
