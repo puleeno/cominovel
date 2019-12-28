@@ -1,6 +1,7 @@
 <?php
 
 class Cominovel_Shortcode {
+
 	protected static $instance;
 
 	public static function register( $attrs, $content ) {

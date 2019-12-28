@@ -1,5 +1,6 @@
 <?php
 abstract class Cominovel_Shortcode_Abstract {
+
 	protected $attributes;
 	protected $content;
 	protected $accepted_attributes;

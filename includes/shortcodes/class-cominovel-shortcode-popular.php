@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Shortcode_Popular extends Cominovel_Shortcode_Post {
+
 	protected $accepted_attributes = array(
 		'layout'        => 'summary',
 		'items_per_row' => 1,
@@ -16,36 +17,8 @@ class Cominovel_Shortcode_Popular extends Cominovel_Shortcode_Post {
 				'posts_per_page' => $this->get_posts_per_page(),
 			)
 		);
-		if ( $wp_query->have_posts() ) {
-			cominovel_template(
-				'block/start-loop',
-				array(
-					'items'         => array_get( $this->attributes, 'items_per_row' ),
-					'content_style' => array_get( $this->attributes, 'content_style' ),
-					'post_type'     => $post_type,
-					'layout'        => $layout,
-				)
-			);
-			while ( $wp_query->have_posts() ) {
-				$wp_query->the_post();
-				$post = $wp_query->post;
-				cominovel_template(
-					'loop/item-' . $layout,
-					array(
-						'item'       => $post->post_type === 'comic'
-							? new Cominovel_Comic( $post )
-							: new Cominovel_Novel( $post ),
-						'title_tag'  => array_get( $this->attributes, 'title_tag' ),
-						'image_size' => array_get( $this->attributes, 'image_size' ),
-						'fields'     => $this->parse_post_fields(),
-					)
-				);
-			}
-			echo '<div class="clearfix"></div>';
-			wp_reset_query();
-			cominovel_template( 'block/end-loop' );
-		} else {
-			cominovel_template( 'loop/no-content' );
-		}
+
+		$ui = new Cominovel_Layout( $wp_query, $this->attributes );
+		$ui->render();
 	}
 }
