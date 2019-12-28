@@ -1,6 +1,7 @@
 <?php
 class Cominovel_Admin_Menus {
 
+
 	protected $menu_positions;
 
 	public function __construct() {

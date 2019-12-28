@@ -2,6 +2,7 @@
 
 class Cominovel_Post_Types {
 
+
 	protected $allowed_post_types;
 
 	public function __construct() {

@@ -2,6 +2,7 @@
 
 class Cominovel_Template {
 
+
 	protected static $template_info;
 
 	protected $isSingle    = false;

@@ -2,6 +2,7 @@
 
 class Cominovel_Install {
 
+
 	public static function active() {
 		/**
 		 * Flush rewrite rules after register Cominovel post types

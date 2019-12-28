@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Storage_Manager {
+
 	public function __construct() {
 		if ( is_admin() ) {
 			add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );

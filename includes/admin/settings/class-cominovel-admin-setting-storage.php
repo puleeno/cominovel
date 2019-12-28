@@ -2,6 +2,7 @@
 
 class Cominovel_Admin_Setting_Storage {
 
+
 	protected static $instance;
 
 	protected $output;

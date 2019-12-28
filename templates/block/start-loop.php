@@ -8,4 +8,4 @@ echo wp_kses_post(
 	)
 );
 ?>
-	<div class="posts items <?php echo implode( ' ', $post_type ); ?>">
+	<div class="posts items <?php echo $post_type; ?>">

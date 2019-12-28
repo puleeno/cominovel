@@ -4,6 +4,7 @@ use Puleeno\Wallery\Factory\MetaboxFactory;
 
 class Cominovel_Metabox_Chapter_Data {
 
+
 	protected $wallery;
 	protected $post_type;
 	protected $is_chapter_edit;

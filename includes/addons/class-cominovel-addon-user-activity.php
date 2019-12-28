@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Addon_User_Activity {
+
 	public function update_last_login() {
 	}
 

@@ -1,5 +1,6 @@
 <?php
 class Cominoval_Admin_Wp_Table_Cominovel {
+
 	public function __construct() {
 
 		foreach ( Cominovel_Post_Types::get_allowed_post_types() as $post_type ) {

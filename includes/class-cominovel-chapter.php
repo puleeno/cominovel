@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Chapter extends Cominovel_Data {
+
 	public function __construct( $chapter = null ) {
 		parent::__construct( $chapter );
 		$this->load_parent_data();

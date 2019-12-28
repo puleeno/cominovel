@@ -3,6 +3,7 @@ use Jankx\SiteLayout\Layout;
 
 class Cominovel_Integrate_Jankx {
 
+
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'integrate' ) );
 	}

@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Cominovel_Admin_Assets {
 
+
 	protected $current_screen;
 	protected $run_mode = 'prod';
 	protected $dev_host = 'http://localhost';
@@ -52,8 +53,7 @@ class Cominovel_Admin_Assets {
 	}
 
 	public function register_react_app() {
-		if (
-			$this->current_screen->base === 'post' &&
+		if ( $this->current_screen->base === 'post' &&
 			in_array(
 				$this->current_screen->id,
 				Cominovel_Post_Types::get_allowed_post_types()
@@ -91,7 +91,7 @@ class Cominovel_Admin_Assets {
 			wp_enqueue_style( 'select2' );
 			add_action(
 				'admin_footer',
-				function() {
+				function () {
 					?>
 				<script>
 					(function($){

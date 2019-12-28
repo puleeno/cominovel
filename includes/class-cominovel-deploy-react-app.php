@@ -1,5 +1,6 @@
 <?php
 class Cominovel_Deploy_React_App {
+
 	protected $asset_config_file;
 	protected $root_dir;
 	protected $current_configs;

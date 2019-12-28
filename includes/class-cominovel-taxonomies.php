@@ -2,6 +2,7 @@
 
 class Cominovel_Taxonomies {
 
+
 	protected $allowed_post_types;
 
 	public function __construct() {

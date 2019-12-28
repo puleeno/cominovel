@@ -1,8 +1,8 @@
 <?php
 
 class Cominovel_Breadcrumb {
-	public function __construct() {
 
+	public function __construct() {
 	}
 
 	public function __toString() {

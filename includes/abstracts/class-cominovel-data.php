@@ -1,6 +1,7 @@
 <?php
 
 abstract class Cominovel_Data {
+
 	public $ID;
 	public $data = array();
 

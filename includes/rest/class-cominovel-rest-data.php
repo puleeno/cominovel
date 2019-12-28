@@ -2,6 +2,7 @@
 
 class Cominovel_Rest_Data {
 
+
 	public function __construct() {
 		$this->register_endpoint();
 	}

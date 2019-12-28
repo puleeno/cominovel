@@ -1,6 +1,7 @@
 <?php
 class Cominoval_Admin_Wp_Table_Chapters {
 
+
 	protected $current_screen;
 
 	public function __construct() {

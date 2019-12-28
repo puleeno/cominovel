@@ -89,5 +89,4 @@ function cominovel_related_content( $current_object = null ) {
 
 
 add_action( 'cominovel_before_chapter_list', 'cominovel_chapter_list_toolbars' );
-function cominovel_chapter_list_toolbars() {
-}
+function cominovel_chapter_list_toolbars() { }

@@ -2,6 +2,7 @@
 
 class Cominovel_Template_Loader {
 
+
 	protected static $instance;
 	protected $defaultTemplateDir;
 
