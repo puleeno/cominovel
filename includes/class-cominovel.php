@@ -104,6 +104,8 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
 
+			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-addons.php';
+
 			require_once COMINOVEL_ABSPATH . 'includes/shortcodes/class-cominovel-shortcode-post.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-layout.php';
 			require_once COMINOVEL_ABSPATH . 'includes/shortcodes/class-cominovel-shortcode.php';

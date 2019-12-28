@@ -63,8 +63,6 @@ abstract class Cominovel_Data {
 	}
 
 	public function load_chapters() {
-		add_filter( 'posts_orderby', array( $this, 'sort_the_chapters' ), 10, 2 );
-		// add_filter('query', function ($query){die($query);});
 		$chapters = false;
 		if ( $this->post && $this->post->post_parent === 0 ) {
 			$chapters = apply_filters( 'cominovel_pre_load_chapters', $chapters, $this );
@@ -74,13 +72,12 @@ abstract class Cominovel_Data {
 					'post_parent'    => $this->ID,
 					'post_status'    => 'publish',
 					'posts_per_page' => -1,
-					'orderby'        => 'date',
+					'orderby'        => 'menu_order',
 					'order'          => 'DESC',
 				);
 				$wp_query = new WP_Query( apply_filters( 'cominovel_load_chapters_args', $args, $this ) );
 			}
 		}
-		remove_filter( 'posts_orderby', array( $this, 'sort_the_chapters' ) );
 		$this->set( 'chapters', apply_filters( 'cominovel_load_chapters', $wp_query ) );
 	}
 
