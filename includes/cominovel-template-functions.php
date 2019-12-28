@@ -26,18 +26,15 @@ function cmn_the_title( $title, $tag = 'h3' ) {
 	echo wp_kses_post( sprintf( '<%1$s class="item-title">%2$s</%1$s>', $tag, $title ) );
 }
 
-
 function cmn_the_author() {
 	echo wp_kses_post(
 		'<a href="#">Puleeno</a>'
 	);
 }
 
-
 function cmn_the_likes() {
 	echo wp_kses_post( '199 Tr' );
 }
-
 
 add_action( 'cominovel_after_comic_chapter_content', 'cominovel_related_content' );
 add_action( 'cominovel_after_comic_content', 'cominovel_related_content' );
@@ -87,10 +84,8 @@ function cominovel_related_content( $current_object = null ) {
 	}
 }
 
-
 add_action( 'cominovel_before_chapter_list', 'cominovel_chapter_list_toolbars' );
 function cominovel_chapter_list_toolbars() { }
-
 
 function cmn_get_archive_title() {
 	$queried_object = get_queried_object();
@@ -102,5 +97,10 @@ function cmn_get_archive_title() {
 function cmn_get_search_title() {
 	$search_query = get_search_query();
 	$title        = sprintf( __( 'The search result: %s', 'cominovel' ), $search_query );
-	return apply_filters( 'cominovel_search_title', $title, $search_query );
+
+	return apply_filters(
+		'cominovel_search_title',
+		$title,
+		$search_query
+	);
 }
