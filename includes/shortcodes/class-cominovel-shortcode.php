@@ -20,7 +20,6 @@ class Cominovel_Shortcode {
 	}
 
 	public function include_shortcodes() {
-		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-post.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-daily.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-genre.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-tax-posts.php';

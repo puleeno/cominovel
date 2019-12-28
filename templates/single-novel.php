@@ -1,5 +1,5 @@
 <?php
-get_header( 'novel' );
+get_header( 'cominovel' );
 
 if ( have_posts() ) {
 	the_post();
@@ -13,4 +13,4 @@ if ( have_posts() ) {
 do_action( 'cominovel_sidebars' );
 
 // Get theme footer
-get_footer( 'novel' );
+get_footer( 'cominovel' );

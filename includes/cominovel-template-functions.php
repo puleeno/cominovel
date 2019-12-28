@@ -90,3 +90,17 @@ function cominovel_related_content( $current_object = null ) {
 
 add_action( 'cominovel_before_chapter_list', 'cominovel_chapter_list_toolbars' );
 function cominovel_chapter_list_toolbars() { }
+
+
+function cmn_get_archive_title() {
+	$queried_object = get_queried_object();
+	if ( isset( $queried_object->name ) ) {
+		return $queried_object->name;
+	}
+}
+
+function cmn_get_search_title() {
+	$search_query = get_search_query();
+	$title        = sprintf( __( 'The search result: %s', 'cominovel' ), $search_query );
+	return apply_filters( 'cominovel_search_title', $title, $search_query );
+}

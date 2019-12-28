@@ -11,7 +11,10 @@ class Cominovel_Layout {
 
 	public function render() {
 		$layout    = array_get( $this->args, 'layout', 'default' );
-		$post_type = array_get( $this->args, 'post_type', implode( ' ', $this->query->get( 'post_type' ) ) );
+		$post_type = array_get( $this->args, 'post_type', $this->query->get( 'post_type' ) );
+		if ( is_array( $post_type ) ) {
+			$post_type = implode( ' ', $post_type );
+		}
 
 		if ( $this->query->have_posts() ) {
 			cominovel_template(
@@ -35,7 +38,7 @@ class Cominovel_Layout {
 						'title_tag'  => array_get( $this->args, 'title_tag' ),
 						'image_size' => array_get( $this->args, 'image_size' ),
 						'fields'     => Cominovel_Shortcode_Post::parse_post_fields(
-							$this->args['fields']
+							array_get( $this->args, 'fields', '' )
 						),
 					)
 				);
