@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e0229782134f41e2b030666e8f582f1",
+    "content-hash": "9aeb78dfea60965b4dee639ba8f516bb",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -128,6 +128,39 @@
             ],
             "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
             "time": "2019-06-16T06:07:59+00:00"
+        },
+        {
+            "name": "jankx/pagination",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/pagination.git",
+                "reference": "4cdc6e4fe3d5de6c70867b38c44ea1589b80ed49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/pagination/zipball/4cdc6e4fe3d5de6c70867b38c44ea1589b80ed49",
+                "reference": "4cdc6e4fe3d5de6c70867b38c44ea1589b80ed49",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Pagination\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The WordPress pagination support multi styles: number, infinite loop, load more",
+            "time": "2019-12-28T11:18:59+00:00"
         },
         {
             "name": "puleeno/wallery",
@@ -310,7 +343,8 @@
         "ramphor/plugin-core": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
-        "ramphor/user-profile": 20
+        "ramphor/user-profile": 20,
+        "jankx/pagination": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
