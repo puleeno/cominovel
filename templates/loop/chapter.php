@@ -16,7 +16,7 @@
 				<?php cominovel_echo( $chapter->likes ); ?>
 			</div>
 			<div class="e-chapter right cm-update-date">
-				<?php cominovel_echo( '15/02/2018' ); ?>
+				<?php cominovel_echo( $chapter->created_date() ); ?>
 			</div>
 			<div class="clearfix"></div>
 		</div>

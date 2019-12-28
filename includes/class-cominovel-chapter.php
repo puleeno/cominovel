@@ -9,6 +9,7 @@ class Cominovel_Chapter extends Cominovel_Data {
 	public static function load_basic_info( $chapter ) {
 		$chapter = new self( $chapter, false );
 		$chapter->load_statistics();
+
 		return $chapter;
 	}
 
@@ -65,5 +66,12 @@ class Cominovel_Chapter extends Cominovel_Data {
 			'url'  => '',
 			'name' => '',
 		];
+	}
+
+	public function created_date() {
+		return get_the_date(
+			get_option( 'date_format' ),
+			$this->post
+		);
 	}
 }
