@@ -13,6 +13,13 @@ class Cominovel_Chapter extends Cominovel_Data {
 		return $chapter;
 	}
 
+	/**
+	 * The method don't support on chapter
+	 */
+	public function load_chapters() {
+		throw new \Exception( 'The chapter don\'t support Cominovel_Chapter::load_chapters() method' );
+	}
+
 	protected function load_parent_data() {
 		if ( empty( $this->ID ) ) {
 			return;
