@@ -27,7 +27,7 @@
 
 			<?php if ( in_array( 'author', $fields ) ) : ?>
 				<div class="item-author">
-					<?php cmn_the_author(); ?>
+					<?php echo $item->author(); ?>
 				</div>
 			<?php endif; ?>
 

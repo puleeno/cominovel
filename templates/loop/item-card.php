@@ -10,7 +10,7 @@
 					<div class="block-left">
 						<?php if ( in_array( 'author', $fields ) ) : ?>
 						<div class="author">
-							<?php cmn_the_author(); ?>
+							<?php echo $item->author(); ?>
 						</div>
 						<?php endif; ?>
 					</div>

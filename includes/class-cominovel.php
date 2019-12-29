@@ -156,6 +156,18 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			 * Register Cominovel Shortcode
 			 */
 			add_shortcode( 'cominovel', array( Cominovel_Shortcode::class, 'register' ) );
+
+			if ( class_exists( UserProfile::class ) ) {
+				UserProfile::init(
+					array(
+						'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
+						'login_styles'       => array(
+							LoginStyle::LOGIN_STYLE_WORDPRESS_NATIVE,
+							LoginStyle::LOGIN_STYLE_POPUP_MODAL,
+						),
+					)
+				);
+			}
 		}
 
 		public function frontend_includes() {
@@ -173,18 +185,6 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			do_action( 'before_cominovel_init' );
 
 			$this->load_plugin_textdomain();
-
-			if ( class_exists( UserProfile::class ) ) {
-				UserProfile::init(
-					array(
-						'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
-						'login_styles'       => array(
-							LoginStyle::LOGIN_STYLE_WORDPRESS_NATIVE,
-							LoginStyle::LOGIN_STYLE_POPUP_MODAL,
-						),
-					)
-				);
-			}
 		}
 
 		public function load_plugin_textdomain() {

@@ -26,12 +26,6 @@ function cmn_the_title( $title, $tag = 'h3' ) {
 	echo wp_kses_post( sprintf( '<%1$s class="item-title">%2$s</%1$s>', $tag, $title ) );
 }
 
-function cmn_the_author() {
-	echo wp_kses_post(
-		'<a href="#">Puleeno</a>'
-	);
-}
-
 function cmn_the_likes() {
 	echo wp_kses_post( '199 Tr' );
 }

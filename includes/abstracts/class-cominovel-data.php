@@ -178,4 +178,7 @@ abstract class Cominovel_Data {
 			);
 		}
 	}
+
+	public function author() {
+	}
 }
