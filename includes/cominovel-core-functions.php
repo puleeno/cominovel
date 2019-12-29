@@ -98,3 +98,12 @@ function cominovel_endpoints() {
 		)
 	);
 }
+
+/**
+ * This is feature is develop in the future.
+ *
+ * @return  boolean  Edit on front end is enaled.
+ */
+function frontend_edit_enabled() {
+	return false;
+}

@@ -1,17 +1,20 @@
 <?php
 class Cominovel_Query {
 
-	protected $isChapter = false;
+	protected $isChapter      = false;
+	protected $isChapterOrder = false;
 	protected $parent_type;
 	protected $parent_name;
 
 	public function __construct() {
 		add_filter( 'post_type_link', array( $this, 'custom_chapter_link' ), 30, 2 );
-		$is_frontend = $this->is_frontend();
-		if ( $is_frontend ) {
+		if ( $this->is_frontend() ) {
 			add_action( 'parse_query', array( $this, 'parse_chapter_query' ) );
 			add_filter( 'posts_where', array( $this, 'filter_chapter_by_parent' ), 10, 2 );
 			add_filter( 'posts_fields', array( $this, 'add_comic_name_to_chapter_title' ), 10, 2 );
+		}
+		if ( is_admin() || frontend_edit_enabled() ) {
+			add_filter( 'wp_insert_post_data', array( $this, 'add_menu_chapter_order' ), 10, 2 );
 		}
 	}
 
@@ -84,6 +87,16 @@ class Cominovel_Query {
 
 	protected function is_frontend() {
 		return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
+	}
+
+	public function add_menu_chapter_order( $data, $postarr ) {
+		if ( 'chapter' === $data['post_type'] && 0 < $data['post_parent'] ) {
+			global $wpdb;
+			$sql                = "SELECT MAX(menu_order) as max_order FROM {$wpdb->posts} WHERE post_type=%s AND post_parent=%d";
+			$max_order          = $wpdb->get_var( $wpdb->prepare( $sql, 'chapter', $data['post_parent'] ) );
+			$data['menu_order'] = $max_order;
+		}
+		return $data;
 	}
 }
 

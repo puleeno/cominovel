@@ -36,7 +36,12 @@ class Cominovel_Chapter extends Cominovel_Data {
 		$image_cache_key = sprintf( 'cominovel_comic_%d_images', $this->ID );
 		$images          = get_transient( $image_cache_key );
 		if ( empty( $images ) ) {
-			$image_ids = unserialize( array_get( $this->raw_data['cominovel_chapter_images'], 0 ) );
+			$image_ids = unserialize(
+				array_get(
+					array_get( $this->raw_data, 'cominovel_chapter_images', [] ),
+					0
+				)
+			);
 			$images    = array();
 			foreach ( (array) $image_ids as $image_id ) {
 				$image = array(

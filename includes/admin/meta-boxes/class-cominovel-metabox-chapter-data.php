@@ -95,14 +95,14 @@ class Cominovel_Metabox_Chapter_Data {
 	}
 
 	public function save_chapter_data( $post_id, $post ) {
-		if ( $post->post_type !== 'chapter' ) {
+		if ( 'chapter' !== $post->post_type || empty( $_POST['post_parent'] ) ) {
 			return;
 		}
 		$post->post_parent = $_POST['post_parent'];
 	}
 
 	public function allow_dupplicate_slug( $pre, $slug, $post_ID, $post_status, $post_type, $post_parent ) {
-		if ( $post_type === 'chapter' ) {
+		if ( 'chapter' === $post_type ) {
 			return sanitize_title( get_the_title( $post_ID ) );
 		}
 		return $pre;
