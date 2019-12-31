@@ -160,7 +160,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			if ( class_exists( UserProfile::class ) ) {
 				UserProfile::init(
 					array(
-						'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
+						// 'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
 						'theme_prefix'       => 'profiles',
 						'login_styles'       => array(
 							LoginStyle::LOGIN_STYLE_WORDPRESS_NATIVE,
