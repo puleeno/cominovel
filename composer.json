@@ -13,11 +13,11 @@
     "require": {
         "jankx/breadcrumb": "dev-master",
         "jankx/fields": "dev-master",
+        "jankx/pagination": "dev-master",
         "puleeno/wallery": "~1.0.5",
         "ramphor/plugin-core": "dev-master",
         "ramphor/seo-adapter": "dev-master",
         "ramphor/updater": "dev-master",
-        "ramphor/user-profile": "dev-master",
-        "jankx/pagination": "dev-master"
+        "ramphor/user-profile": "dev-master"
     }
 }

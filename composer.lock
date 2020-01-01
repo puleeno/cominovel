@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9aeb78dfea60965b4dee639ba8f516bb",
+    "content-hash": "58ff165506e1576424b7d172d3917ad5",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
-            "version": "dev-master",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hybridauth/hybridauth.git",
-                "reference": "4cb541daf091ee51fba7b7402d0302f09978cc85"
+                "reference": "020be6991e7ae9f1ffaabae6586245d2a9626273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/4cb541daf091ee51fba7b7402d0302f09978cc85",
-                "reference": "4cb541daf091ee51fba7b7402d0302f09978cc85",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/020be6991e7ae9f1ffaabae6586245d2a9626273",
+                "reference": "020be6991e7ae9f1ffaabae6586245d2a9626273",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2019-10-01T19:52:19+00:00"
+            "time": "2019-12-27T09:26:40+00:00"
         },
         {
             "name": "jankx/breadcrumb",
@@ -303,16 +303,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/user-profile.git",
-                "reference": "6f2b0ceea59d57b0fef03374b644b6416c2b61b3"
+                "reference": "891bdc0b0ecb126e28c49228a2a3df148777c9c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/6f2b0ceea59d57b0fef03374b644b6416c2b61b3",
-                "reference": "6f2b0ceea59d57b0fef03374b644b6416c2b61b3",
+                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/891bdc0b0ecb126e28c49228a2a3df148777c9c4",
+                "reference": "891bdc0b0ecb126e28c49228a2a3df148777c9c4",
                 "shasum": ""
             },
             "require": {
-                "hybridauth/hybridauth": "~3.0"
+                "hybridauth/hybridauth": "3.1.1"
             },
             "type": "library",
             "autoload": {
@@ -331,7 +331,7 @@
                 }
             ],
             "description": "User profile core for embed to other plugins or themes",
-            "time": "2019-09-19T01:09:05+00:00"
+            "time": "2020-01-01T12:38:23+00:00"
         }
     ],
     "packages-dev": [],
@@ -340,11 +340,11 @@
     "stability-flags": {
         "jankx/breadcrumb": 20,
         "jankx/fields": 20,
+        "jankx/pagination": 20,
         "ramphor/plugin-core": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
-        "ramphor/user-profile": 20,
-        "jankx/pagination": 20
+        "ramphor/user-profile": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
