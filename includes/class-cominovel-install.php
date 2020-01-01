@@ -11,7 +11,7 @@ class Cominovel_Install {
 		 */
 		add_action( 'init', 'flush_rewrite_rules', 90 );
 
-		if (class_exists(UserTable::class)) {
+		if ( class_exists( UserTable::class ) ) {
 			UserTable::create();
 		}
 	}

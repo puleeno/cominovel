@@ -9,6 +9,7 @@ class Cominovel_Frontend {
 		add_action( 'admin_bar_menu', array( __CLASS__, 'add_edit_chapter_link' ), 75 );
 		add_action( 'excerpt_length', array( __CLASS__, 'limit_the_short_description' ) );
 		add_filter( 'excerpt_more', array( __CLASS__, 'dyad_excerpt_continue_reading' ) );
+		add_filter( 'show_admin_bar', array( __CLASS__, 'hide_admin_bar' ) );
 	}
 
 	public static function change_edit_chapter_link_to_comic( $wp_admin_bar ) {
@@ -76,6 +77,13 @@ class Cominovel_Frontend {
 			return '...';
 		}
 		return $readmore;
+	}
+
+	public static function hide_admin_bar( $show_admin_bar ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return false;
+		}
+		return $show_admin_bar;
 	}
 }
 
