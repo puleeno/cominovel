@@ -1,5 +1,7 @@
 <?php
 
+use Ramphor\User\Db\UserTable;
+
 class Cominovel_Install {
 
 
@@ -8,6 +10,10 @@ class Cominovel_Install {
 		 * Flush rewrite rules after register Cominovel post types
 		 */
 		add_action( 'init', 'flush_rewrite_rules', 90 );
+
+		if (class_exists(UserTable::class)) {
+			UserTable::create();
+		}
 	}
 
 	public static function deactive() {

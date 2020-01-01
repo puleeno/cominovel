@@ -7,7 +7,6 @@
  */
 
 use Ramphor\User\Profile as UserProfile;
-use Ramphor\User\Components\LoginStyle\Enum as LoginStyle;
 
 if ( ! class_exists( 'Cominovel' ) ) {
 	/**
@@ -161,11 +160,7 @@ if ( ! class_exists( 'Cominovel' ) ) {
 				UserProfile::init(
 					array(
 						// 'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
-						'theme_prefix'       => 'profiles',
-						'login_styles'       => array(
-							LoginStyle::LOGIN_STYLE_WORDPRESS_NATIVE,
-							LoginStyle::LOGIN_STYLE_POPUP_MODAL,
-						),
+						'theme_prefix' => 'profiles',
 					)
 				);
 			}
