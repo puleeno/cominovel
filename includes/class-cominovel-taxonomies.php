@@ -224,9 +224,9 @@ class Cominovel_Taxonomies {
 			'labels'            => $labels,
 			'public'            => true,
 			'hierarchical'      => false,
-			'show_ui'           => false,
-			'show_admin_column' => false,
-			'show_in_menu'      => false,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_menu'      => true,
 			'show_in_rest'      => true,
 			'_builtin'          => true,
 		);
