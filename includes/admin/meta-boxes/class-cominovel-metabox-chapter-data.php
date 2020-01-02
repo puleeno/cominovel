@@ -13,6 +13,7 @@ class Cominovel_Metabox_Chapter_Data {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ), 5 );
 		add_action( 'admin_head', array( $this, 'hide_editor_area' ) );
 		add_action( 'save_post', array( $this, 'save_chapter_data' ), 10, 2 );
+		add_action( 'save_post', array( $this, 'clean_cache_chapter' ) );
 
 		add_filter( 'cominovel_register_post_type_chapter_args', array( $this, 'remove_editor_for_comic' ) );
 		add_filter( 'pre_wp_unique_post_slug', array( $this, 'allow_dupplicate_slug' ), 10, 6 );
@@ -94,7 +95,7 @@ class Cominovel_Metabox_Chapter_Data {
 		return $args;
 	}
 
-	public function save_chapter_data( $post_id, $post ) {
+	public function save_chapter_data( $post_ID, $post ) {
 		if ( 'chapter' !== $post->post_type || empty( $_POST['post_parent'] ) ) {
 			return;
 		}
@@ -106,6 +107,18 @@ class Cominovel_Metabox_Chapter_Data {
 			return sanitize_title( get_the_title( $post_ID ) );
 		}
 		return $pre;
+	}
+
+	public function clean_cache_chapter( $post_ID ) {
+		/**
+		 * Make the chapter images transient key from Post ID
+		 */
+		$image_cache_key = sprintf( 'cominovel_comic_%d_images', $post_ID );
+
+		/**
+		 * Delete the chapter images transient when update the chapter
+		 */
+		delete_transient( $image_cache_key );
 	}
 }
 new Cominovel_Metabox_Chapter_Data();
