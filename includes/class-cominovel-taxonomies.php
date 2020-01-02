@@ -222,7 +222,7 @@ class Cominovel_Taxonomies {
 		);
 		$args   = array(
 			'labels'            => $labels,
-			'public'            => false,
+			'public'            => true,
 			'hierarchical'      => false,
 			'show_ui'           => false,
 			'show_admin_column' => false,
@@ -230,6 +230,7 @@ class Cominovel_Taxonomies {
 			'show_in_rest'      => true,
 			'_builtin'          => true,
 		);
+
 		register_taxonomy(
 			'cmn_status',
 			$this->allowed_post_types,
