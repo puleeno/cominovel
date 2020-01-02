@@ -97,9 +97,11 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/abstracts/class-cominovel-data.php';
 			require_once COMINOVEL_ABSPATH . 'includes/abstracts/class-cominovel-shortcode-abstract.php';
 
-			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-comic.php';
-			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-novel.php';
-			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-chapter.php';
+			require_once COMINOVEL_ABSPATH . 'includes/data/class-cominovel-author.php';
+			require_once COMINOVEL_ABSPATH . 'includes/data/class-cominovel-comic.php';
+			require_once COMINOVEL_ABSPATH . 'includes/data/class-cominovel-novel.php';
+			require_once COMINOVEL_ABSPATH . 'includes/data/class-cominovel-chapter.php';
+
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
 

@@ -3,7 +3,7 @@
 		<div class="chapter-elements">
 			<div class="e-chapter cm-chapter-thumbnail">
 				<a href="<?php the_permalink(); ?>">
-					<?php cmn_post_thumbnail('medium', array(), $comic->ID); ?>
+					<?php cmn_post_thumbnail( 'medium', array(), $comic->ID ); ?>
 				</a>
 			</div>
 			<div class="e-chapter cm-chapter-name">

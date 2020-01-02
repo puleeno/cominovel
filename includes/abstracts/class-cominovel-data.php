@@ -81,6 +81,11 @@ abstract class Cominovel_Data {
 		$this->set( 'chapters', apply_filters( 'cominovel_load_chapters', $wp_query ) );
 	}
 
+	public function load_author() {
+		$author = new Cominovel_Author( $this->cmn_author_terms );
+		$this->set( 'author', $author );
+	}
+
 	public function get_first_chapter_id() {
 		if ( isset( $this->raw_data['first_chapter_id'] ) && $this->raw_data['first_chapter_id'] > 0 ) {
 			return $this->raw_data['first_chapter_id'];
@@ -107,10 +112,14 @@ abstract class Cominovel_Data {
 		return false;
 	}
 
-	public function load_data() {
+	public function load_data( $initData = false ) {
 		$this->parse_data_from_post();
 		$this->load_custom_data();
 		$this->load_taxonomies_data();
+
+		if ( $initData ) {
+			$this->load_author();
+		}
 	}
 
 	public function parse_data_from_post() {
@@ -140,7 +149,7 @@ abstract class Cominovel_Data {
 				'alternative_name',
 				'short_description',
 				'season',
-				'audult',
+				'adult',
 				'badge',
 				'rating_system',
 			)

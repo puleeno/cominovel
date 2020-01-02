@@ -16,7 +16,7 @@ export interface ICominovelProps {
 export interface ICominovelData {
     ID: number;
     alternative_name: string;
-    audult: string;
+    adult: string;
     author: string;
     badge: string;
     chapters: any;

@@ -11,6 +11,7 @@ if ( have_posts() ) {
 
 	// Load the comic chapters to render chapter list.
 	$comic->load_chapters();
+	$comic->load_data( true );
 	cominovel_template( 'single/comic', compact( 'comic', 'has_sidebar', 'breadcrumb', 'is_oneshot', 'first_chapter' ) );
 }
 

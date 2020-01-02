@@ -1,23 +1,23 @@
 <?php
 get_header( 'cominovel' );
 
-cominovel_template( 'heading/archive', array('title' => cmn_get_archive_title()) );
+cominovel_template( 'heading/archive', array( 'title' => cmn_get_archive_title() ) );
 
 global $wp_query;
-$args = array (
-	'image_size' => 'thumbnail',
-	'layout' => 'default',
+$args = array(
+	'image_size'    => 'thumbnail',
+	'layout'        => 'default',
 	'content_style' => 'dark-content',
-	'num' => 10,
-	'post_type' => 'comic',
-	'title' => '',
-	'type' => 'hot',
-	'title_tag' => 'h3',
-	'fields' => 'title,author,likes,genres',
+	'num'           => 10,
+	'post_type'     => 'comic',
+	'title'         => '',
+	'type'          => 'hot',
+	'title_tag'     => 'h3',
+	'fields'        => 'title,author,likes,genres',
 	'items_per_row' => 4,
 );
 
-$archive = new Cominovel_Layout($wp_query, $args);
+$archive = new Cominovel_Layout( $wp_query, $args );
 $archive->render();
 
 do_action( 'cominovel_sidebars' );

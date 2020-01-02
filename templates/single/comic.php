@@ -12,7 +12,7 @@
 			<?php if ( true ) : ?>
 			<div class="author">
 				<a href="<?php cominovel_echo( $comic->author->link ); ?>" title="<?php cominovel_echo( $comic->author->name ); ?>">
-					<?php cominovel_echo( '偶得女' ); ?>
+					<?php cominovel_echo( $comic->author->name ); ?>
 				</a>
 			</div>
 			<?php endif; ?>
@@ -74,10 +74,10 @@
 	<div class="<?php echo $has_sidebar ? 'cm-block-inner' : 'cm-inner'; ?>">
 		<div class="cm-chapter-list">
 		<?php
-		if ($comic->chapters) {
+		if ( $comic->chapters ) {
 			global $post;
 			$index = 1;
-			while ( $comic->chapters->have_posts()) {
+			while ( $comic->chapters->have_posts() ) {
 				$comic->chapters->the_post();
 				do_action( 'cominovel_before_comic_loop_chapter', $post, $index, $comic->chapters );
 
