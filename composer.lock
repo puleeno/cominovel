@@ -303,12 +303,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/user-profile.git",
-                "reference": "c4f95f5e2216cb6ec05aa15b58d97b6a4abacc28"
+                "reference": "10ed97279134af020f4c06a4f006ff2c9b6f49f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/c4f95f5e2216cb6ec05aa15b58d97b6a4abacc28",
-                "reference": "c4f95f5e2216cb6ec05aa15b58d97b6a4abacc28",
+                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/10ed97279134af020f4c06a4f006ff2c9b6f49f6",
+                "reference": "10ed97279134af020f4c06a4f006ff2c9b6f49f6",
                 "shasum": ""
             },
             "require": {
@@ -331,7 +331,7 @@
                 }
             ],
             "description": "User profile core for embed to other plugins or themes",
-            "time": "2020-01-02T08:37:50+00:00"
+            "time": "2020-01-02T16:27:35+00:00"
         }
     ],
     "packages-dev": [],
