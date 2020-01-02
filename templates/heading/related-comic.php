@@ -1,1 +1,1 @@
-<h3 class="cm-related-heading"><?php _e( 'Related Comics', 'cominovel' ); ?></h3>
+<h3 class="cm-related-heading"><?php _e( 'Có thể bạn thích!', 'cominovel' ); ?></h3>

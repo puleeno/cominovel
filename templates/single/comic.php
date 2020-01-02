@@ -55,7 +55,7 @@
 
 <?php if ( $comic->has_content() ) : ?>
 <div class="cm-summary">
-	<h3 class="summary-heading"><?php _e( 'Summary', 'cominovel' ); ?></h3>
+	<h3 class="summary-heading"><?php _e( 'Nội dung', 'cominovel' ); ?></h3>
 	<div class="cm-summary-content">
 		<?php the_content(); ?>
 	</div>
