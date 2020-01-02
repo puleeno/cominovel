@@ -4,7 +4,7 @@
 <div class="cm-featured">
 	<div class="cm-block-inner">
 		<div class="cm-main-image">
-			<?php the_post_thumbnail(); ?>
+			<?php cmn_post_thumbnail( 'large' ); ?>
 		</div>
 		<div class="cm-block-features">
 			<h1 class="cm-title cm-comic-name"><?php the_title(); ?></h1>
