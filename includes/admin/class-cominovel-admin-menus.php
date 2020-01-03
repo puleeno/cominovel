@@ -87,14 +87,6 @@ class Cominovel_Admin_Menus {
 
 	public function sort_cominovel_menus() {
 		global $submenu, $menu;
-		$submenu['cominovel'][0][0] = __( 'Settings', 'cominovel' );
-
-		foreach ( Cominovel_Post_Types::get_allowed_post_types() as $post_type ) {
-			$menu_key = 'edit.php?post_type=' . $post_type;
-			if ( empty( $submenu[ $menu_key ] ) ) {
-				continue;
-			}
-		}
 	}
 
 	public function set_chapters_active_menu() {

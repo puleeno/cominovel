@@ -67,6 +67,9 @@ class Cominovel_Frontend {
 
 	public static function limit_the_short_description( $length ) {
 		if ( in_array( get_post_type(), array( 'comic', 'novel' ) ) ) {
+			if (is_single()) {
+				return 40;
+			}
 			return 15;
 		}
 		return $length;
