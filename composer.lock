@@ -303,12 +303,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/user-profile.git",
-                "reference": "10ed97279134af020f4c06a4f006ff2c9b6f49f6"
+                "reference": "83c88d5055e4f2ac524259b577cd16e6cdf2b552"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/10ed97279134af020f4c06a4f006ff2c9b6f49f6",
-                "reference": "10ed97279134af020f4c06a4f006ff2c9b6f49f6",
+                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/83c88d5055e4f2ac524259b577cd16e6cdf2b552",
+                "reference": "83c88d5055e4f2ac524259b577cd16e6cdf2b552",
                 "shasum": ""
             },
             "require": {
