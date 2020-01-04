@@ -104,4 +104,5 @@ else :
 endif;
 ?>
 <?php do_action( 'cominovel_after_comic_content', $comic ); ?>
+
 <?php comments_template(); ?>
