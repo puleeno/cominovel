@@ -57,21 +57,27 @@ function cominovel_related_content( $current_object = null ) {
 				'layout'    => 'card',
 			)
 		);
+		$post_layouts = array(
+			'layout' => 'vcard',
+		);
 		while ( $wp_query->have_posts() ) {
 			$wp_query->the_post();
 			$post = $wp_query->post;
-			if ( apply_filters( 'cominovel_is_custom_post', false, $post, $this->query ) ) {
-				do_action( 'cominovel_custom_post_loop_content', $post, $this->args, $this->query );
+			if ( apply_filters( 'cominovel_is_custom_post', false, $post, $wp_query ) ) {
+				do_action( 'cominovel_custom_post_loop_content', $post, $post_layouts, $wp_query );
 			} else {
 				cominovel_template(
 					'loop/item-card',
-					array(
-						'item'       => $post->post_type === 'comic'
-							? new Cominovel_Comic( $post )
-							: new Cominovel_Novel( $post ),
-						'title_tag'  => 'h2',
-						'image_size' => 'medium',
-						'fields'     => array( 'title', 'author', 'likes' ),
+					array_merge(
+						$post_layouts,
+						array(
+							'item'       => $post->post_type === 'comic'
+								? new Cominovel_Comic( $post )
+								: new Cominovel_Novel( $post ),
+							'title_tag'  => 'h2',
+							'image_size' => 'medium',
+							'fields'     => array( 'title', 'author', 'likes' ),
+						)
 					)
 				);
 			}
