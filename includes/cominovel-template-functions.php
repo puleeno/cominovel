@@ -60,17 +60,21 @@ function cominovel_related_content( $current_object = null ) {
 		while ( $wp_query->have_posts() ) {
 			$wp_query->the_post();
 			$post = $wp_query->post;
-			cominovel_template(
-				'loop/item-card',
-				array(
-					'item'       => $post->post_type === 'comic'
-						? new Cominovel_Comic( $post )
-						: new Cominovel_Novel( $post ),
-					'title_tag'  => 'h2',
-					'image_size' => 'medium',
-					'fields'     => array( 'title', 'author', 'likes' ),
-				)
-			);
+			if ( apply_filters( 'cominovel_is_custom_post', false, $post, $this->query ) ) {
+				do_action( 'cominovel_custom_post_loop_content', $post, $this->args, $this->query );
+			} else {
+				cominovel_template(
+					'loop/item-card',
+					array(
+						'item'       => $post->post_type === 'comic'
+							? new Cominovel_Comic( $post )
+							: new Cominovel_Novel( $post ),
+						'title_tag'  => 'h2',
+						'image_size' => 'medium',
+						'fields'     => array( 'title', 'author', 'likes' ),
+					)
+				);
+			}
 		}
 		echo '<div class="clearfix"></div>';
 		wp_reset_query();
@@ -90,7 +94,7 @@ function cmn_get_archive_title() {
 
 function cmn_get_search_title() {
 	$search_query = get_search_query();
-	$title        = sprintf( __( 'The search result: %s', 'cominovel' ), $search_query );
+	$title        = sprintf( __( 'Kết quả tìm kiếm: %s', 'cominovel' ), $search_query );
 
 	return apply_filters(
 		'cominovel_search_title',
