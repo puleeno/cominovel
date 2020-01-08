@@ -79,7 +79,11 @@ class Cominovel_Metabox_Chapter_Data {
 				return $args;
 			}
 			$post = get_post( $_GET['post'] );
-			if ( $post->post_parent <= 0 || $post->post_type !== 'chapter' ) {
+			if (empty($post)) {
+				return $args;
+			}
+
+			if ( $post && $post->post_parent <= 0 || $post->post_type !== 'chapter' ) {
 				return $args;
 			}
 			if ( get_post_type( $post->post_parent ) !== 'comic' ) {
