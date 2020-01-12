@@ -49,6 +49,10 @@ class Cominovel_Admin_Query {
 	}
 
 	public function the_chapter_title( $fields, $query ) {
+		if ( ! function_exists( 'get_current_screen' ) ) {
+			return $fields;
+		}
+
 		$current_screen = get_current_screen();
 		if ( $query->get( 'post_type' ) == 'chapter' && $current_screen->id !== 'chapter' ) {
 			global $wpdb;
