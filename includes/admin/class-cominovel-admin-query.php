@@ -3,7 +3,7 @@ class Cominovel_Admin_Query {
 
 	public function __construct() {
 		add_filter( 'posts_where', array( $this, 'filter_chapters' ), 10, 2 );
-		add_filter( 'wp_count_posts', array( $this, 'filter_chapter_posts_count' ), 10, 3 );
+		// add_filter( 'wp_count_posts', array( $this, 'filter_chapter_posts_count' ), 10, 3 );
 		add_filter( 'posts_fields', array( $this, 'the_chapter_title' ), 10, 2 );
 	}
 
