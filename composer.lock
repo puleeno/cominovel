@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58ff165506e1576424b7d172d3917ad5",
+    "content-hash": "064e8b16931e5f32b9e82dfe73a545db",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -95,6 +95,39 @@
             ],
             "description": "The embed UI Breadcrumb for WordPress plugins and WordPress themes",
             "time": "2019-10-27T12:33:02+00:00"
+        },
+        {
+            "name": "jankx/field",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/field.git",
+                "reference": "0028ad5b271f7e1b0fa7bd7251a4efde92c6a936"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/field/zipball/0028ad5b271f7e1b0fa7bd7251a4efde92c6a936",
+                "reference": "0028ad5b271f7e1b0fa7bd7251a4efde92c6a936",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Fields\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
+            "time": "2019-07-15T04:42:51+00:00"
         },
         {
             "name": "jankx/fields",
@@ -331,7 +364,7 @@
                 }
             ],
             "description": "User profile core for embed to other plugins or themes",
-            "time": "2020-01-02T16:27:35+00:00"
+            "time": "2020-01-04T18:27:10+00:00"
         }
     ],
     "packages-dev": [],
@@ -339,7 +372,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "jankx/breadcrumb": 20,
-        "jankx/fields": 20,
+        "jankx/field": 20,
         "jankx/pagination": 20,
         "ramphor/plugin-core": 20,
         "ramphor/seo-adapter": 20,
