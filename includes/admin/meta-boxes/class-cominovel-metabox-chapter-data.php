@@ -79,7 +79,7 @@ class Cominovel_Metabox_Chapter_Data {
 				return $args;
 			}
 			$post = get_post( $_GET['post'] );
-			if (empty($post)) {
+			if ( empty( $post ) ) {
 				return $args;
 			}
 

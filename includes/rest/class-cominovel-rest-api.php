@@ -1,7 +1,7 @@
 <?php
 class Cominovel_Rest_Api {
 
-	const ENDPOINT_NAMESPACE  = 'cominovel/v1';
+	const NAMESPACE           = 'cominovel/v1';
 	const ENDPOINT_COMIC_INFO = '/comic';
 	const ENDPOINT_NOVEL_INFO = '/novel';
 
