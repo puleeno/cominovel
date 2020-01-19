@@ -2,8 +2,8 @@ import { Action } from "redux";
 import { ITermType } from "./WordPressProps";
 
 export interface IEndpoints {
-    wpv2: string,
-    fetchComic: string,
+    wpv2: string;
+    fetchComic: string;
 }
 
 export interface ICominovelProps {
@@ -15,8 +15,8 @@ export interface ICominovelProps {
 
 export interface ICominovelData {
     ID: number;
-    alternative_name: string;
     adult: string;
+    alternative_name: string;
     author: string;
     badge: string;
     chapters: any;

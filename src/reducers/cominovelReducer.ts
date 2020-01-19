@@ -9,8 +9,8 @@ export interface ICominovelState {
 const initState: ICominovelState = {
     info: {
         ID: 0,
+        adult: "",
         alternative_name: "",
-        audult: "",
         author: "",
         badge: "",
         chapters: [],
