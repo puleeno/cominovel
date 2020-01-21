@@ -33,6 +33,14 @@ class Cominovel_Rest_Data {
 			),
 			true
 		);
+		register_rest_route(
+			Cominovel_Rest_Api::NAMESPACE,
+			'/chapter/parent',
+			array(
+				'methods'  => 'PUT',
+				'callback' => array( $this, 'update_parent' ),
+			)
+		);
 	}
 
 	public function get_comic( WP_REST_Request $request ) {
@@ -78,5 +86,25 @@ class Cominovel_Rest_Data {
 				}
 			}
 		}
+	}
+
+	public function update_parent( WP_REST_Request $request ) {
+		parse_str( $request->get_body(), $body );
+		$post_id = array_get( $body, 'chapter_id' );
+		$post    = get_post( $post_id );
+		if ( empty( $post ) || 'chapter' !== $post->post_type ) {
+			return;
+		}
+
+		$postarr = array(
+			'ID'          => $post->ID,
+			'post_parent' => array_get( $body, 'parent' ),
+		);
+		wp_update_post( $postarr, $wp_error );
+
+		if ( is_wp_error( $wp_error ) ) {
+			wp_send_json_error( $wp_error );
+		}
+		wp_send_json_success();
 	}
 }

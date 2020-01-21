@@ -83,26 +83,26 @@ class Cominovel_Admin_Assets {
 			);
 			wp_enqueue_script( Cominovel::NAME );
 		}
+
 		if ( $this->current_screen->id === 'chapter' ) {
 			wp_register_style( 'select2', cominovel_asset_url( 'vendor/select2/css/select2.min.css' ), array(), '4.0.11' );
-			wp_register_script( 'select2', cominovel_asset_url( 'vendor/select2/js/select2.min.js' ), array(), '4.0.11', true );
-
-			wp_enqueue_script( 'select2' );
 			wp_enqueue_style( 'select2' );
-			add_action(
-				'admin_footer',
-				function () {
-					?>
-				<script>
-					(function($){
-						$(document).ready(function(){
-							$('#post_parent').select2();
-						})
-					})(jQuery);
-				</script>
-					<?php
-				}
+
+			wp_register_script( 'select2', cominovel_asset_url( 'vendor/select2/js/select2.min.js' ), array(), '4.0.11', true );
+			wp_register_script( 'cominovel-chapter', cominovel_asset_url( 'js/chapter.js' ), array( 'select2' ), '1.0.13', true );
+
+			wp_localize_script(
+				'cominovel-chapter',
+				'cominovel_chapter',
+				apply_filters(
+					'cominovel_global_chapter_js_object',
+					array(
+						'endpoints'  => cominovel_endpoints(),
+						'current_id' => $GLOBALS['post']->ID,
+					)
+				)
 			);
+			wp_enqueue_script( 'cominovel-chapter' );
 		}
 	}
 

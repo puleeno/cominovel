@@ -1,7 +1,8 @@
 <?php
 $current_parent_id = $post->post_parent;
 ?>
-<select name="post_parent" id="post_parent" class="widefat">
+<select name="post_parent" id="post_parent" class="widefat" required>
+	<option value="">Không chọn</option>
 	<?php foreach ( $posts as $post ) : ?>
 	<option
 		value="<?php echo $post->ID; ?>"
