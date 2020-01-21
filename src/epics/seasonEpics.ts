@@ -10,7 +10,7 @@ export const getCominovelSeasonsViaAjax:
     ofType(fetchSeasons),
     mergeMap(
       (action: AnyAction) => from(
-        ajax.getJSON(`http://loveofboys.io/wp-json/cominovel/v1/comic/${action.payload}`),
+        ajax.getJSON(`${window.Cominovel.endpoints.seasons}?post_id=${action.payload}`),
       ).pipe(
         map((response: any) => fetchSeasonsFullFilled(response)),
       ),

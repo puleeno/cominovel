@@ -1,9 +1,9 @@
 import { ISeasonState } from "../reducers/seasonReducer";
 import { FETCH_SEASONS, FETCH_SEASONS_FULLFILLED } from "./types";
 
-export function fetchSeasons(id: number) {
+export function fetchSeasons(postId: number) {
     return {
-        payload: id,
+        payload: postId,
         type: FETCH_SEASONS,
     };
 }

@@ -4,6 +4,7 @@ import { ITermType } from "./WordPressProps";
 export interface IEndpoints {
     wpv2: string;
     fetchComic: string;
+    seasons: string;
 }
 
 export interface ICominovelProps {

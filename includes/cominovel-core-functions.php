@@ -95,7 +95,8 @@ function cominovel_endpoints() {
 			'wpv2'                  => rest_url( 'wp/v2/' ),
 			'fetchComic'            => rest_url( 'cominovel/v1/comic/<post_id>' ),
 			'edit_link'             => admin_url( 'post.php?post=<post_id>&action=edit' ),
-			'update_chapter_parent' => rest_url( 'cominovel/v1/chapter/parent' ),
+			'update_chapter_parent' => rest_url( 'cominovel/v1/chapter/parent/' ),
+			'seasons'               => rest_url( 'cominovel/v1/seasons/' ),
 		)
 	);
 }
