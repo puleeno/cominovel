@@ -58,7 +58,7 @@ class Cominovel_Deploy_React_App {
 				$this->copied_files[] = $copied_file;
 			}
 		} else {
-			$files = glob( $source . '/*' );
+			$files = glob( $source . '/*.{css,js,map}', GLOB_BRACE );
 			foreach ( $files as $file ) {
 				if ( is_dir( $file ) ) {
 					$dir_name = basename( $file );
