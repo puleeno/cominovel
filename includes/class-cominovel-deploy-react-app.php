@@ -52,13 +52,18 @@ class Cominovel_Deploy_React_App {
 		}
 		if ( is_file( $source ) ) {
 			$file_name = basename( $source );
+			$ext       = pathinfo( $source, PATHINFO_EXTENSION );
+			if ( ! in_array( $ext, array( 'map', 'js', 'css' ) ) ) {
+				return;
+			}
+
 			$dest_file = sprintf( '%s/%s', $dest, $file_name );
 			if ( copy( $source, $dest_file ) && substr( $dest_file, -4 ) !== '.map' ) {
 				$copied_file          = str_replace( sprintf( '%s/assets/', $this->root_dir ), '', $dest_file );
 				$this->copied_files[] = $copied_file;
 			}
 		} else {
-			$files = glob( $source . '/*.{css,js,map}', GLOB_BRACE );
+			$files = glob( $source . '/*', GLOB_BRACE );
 			foreach ( $files as $file ) {
 				if ( is_dir( $file ) ) {
 					$dir_name = basename( $file );
