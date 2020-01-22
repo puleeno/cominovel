@@ -1,6 +1,16 @@
+.overlay-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+}
+
 .cm-featured {
-    padding-top: 20px;
     padding-bottom: 20px;
+    padding-top: 20px;
 
     .cm-main-image,
     .cm-block-features,
@@ -44,6 +54,7 @@
 .cm-block-inner {
     margin-left: -10px;
     margin-right: -10px;
+    padding-top: 180px;
 }
 
 .cm-chapter-list {}

@@ -1,10 +1,17 @@
 <div class="cominovel-breadcumb">
 	<?php echo $breadcrumb; ?>
 </div>
+
+
 <div class="cm-featured">
+	<div
+		class="overlay-bg blur"
+		style="background-image: url('<?php echo wp_get_attachment_image_url( get_post_thumbnail_id(), array( 1110, 200 ) ); ?>')"
+	></div>
+
 	<div class="cm-block-inner">
 		<div class="cm-main-image">
-			<?php cmn_post_thumbnail( 'large' ); ?>
+			<?php cmn_post_thumbnail( array( 215, 280 ) ); ?>
 		</div>
 		<div class="cm-block-features">
 			<h1 class="cm-title cm-comic-name"><?php the_title(); ?></h1>
