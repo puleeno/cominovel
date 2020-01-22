@@ -34,10 +34,10 @@ class Cominovel_Metabox_Chapter_Data {
 		$this->post_type = Cominovel_Post_Types::check_active_data_type(
 			isset( $_GET['post'] ) ? $_GET['post'] : 0
 		);
-		$post_type       = get_post_type_object( $this->post_type );
+
 		add_meta_box(
 			'cominovel_comic_of_chapter',
-			sprintf( __( 'Choose %s', 'cominovel' ), $post_type->labels->singular_name ),
+			__( 'Chapter Informations', 'cominovel' ),
 			array( $this, 'chapter_information' ),
 			'chapter',
 			'side'
@@ -56,13 +56,20 @@ class Cominovel_Metabox_Chapter_Data {
 	}
 
 	public function chapter_information( $post ) {
-		$posts = get_posts(
+		$posts          = get_posts(
 			array(
 				'post_type'      => $this->post_type,
 				'posts_per_page' => -1,
 			)
 		);
-		cominovel_core_template( 'metaboxes/chapter-info', compact( 'post', 'posts' ), 'admin' );
+		$post_type      = get_post_type_object( $this->post_type );
+		$seasons        = Cominovel_Db_Query::query_seasons( $post->post_parent );
+		$choosed_season = get_post_meta( $post->ID, '_season', true );
+		cominovel_core_template(
+			'metaboxes/chapter-info',
+			compact( 'post', 'posts', 'post_type', 'seasons', 'choosed_season' ),
+			'admin'
+		);
 	}
 
 	public function hide_editor_area() {
@@ -99,11 +106,17 @@ class Cominovel_Metabox_Chapter_Data {
 		return $args;
 	}
 
-	public function save_chapter_data( $post_ID, $post ) {
+	public function save_chapter_data( $post_id, $post ) {
 		if ( 'chapter' !== $post->post_type || empty( $_POST['post_parent'] ) ) {
 			return;
 		}
 		$post->post_parent = $_POST['post_parent'];
+
+		if ( empty( $_POST['cominovel_seasons'] ) ) {
+			delete_post_meta( $post_id, '_season' );
+		} else {
+			update_post_meta( $post_id, '_season', (int) $_POST['cominovel_seasons'] );
+		}
 	}
 
 	public function allow_dupplicate_slug( $pre, $slug, $post_ID, $post_status, $post_type, $post_parent ) {
