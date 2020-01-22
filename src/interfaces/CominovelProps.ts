@@ -42,8 +42,10 @@ export interface ICominovelData {
 }
 
 export interface ISeason {
-    id: number;
-    name: string;
+    meta_id: number;
+    meta_key: string;
+    meta_value: string;
+    post_id: number;
 }
 
 export interface ITaxonomyAction extends Action {

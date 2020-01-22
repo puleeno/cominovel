@@ -47,4 +47,16 @@ class Cominovel_Db_Query {
 			$season_id
 		);
 	}
+
+	public function update_season( $season_id, $season_name ) {
+		global $wpdb;
+		$sql = $wpdb->prepare(
+			"UPDATE {$wpdb->postmeta} SET meta_value=%s WHERE meta_id=%d AND meta_key=%s",
+			$season_name,
+			$season_id,
+			Cominovel_Rest_Data::SEASON_META
+		);
+
+		$wpdb->query( $sql );
+	}
 }

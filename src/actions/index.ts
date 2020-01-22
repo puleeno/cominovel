@@ -5,14 +5,15 @@ import {
     fetchTaxonomyTerms,
     fetchTaxonomyTermsFullFilled,
 } from "./cominovelActions";
-import { fetchSeasons, fetchSeasonsFullFilled } from "./seasonActions";
+import { fetchSeasons, fetchSeasonsFullFilled, updateSeasons } from "./seasonActions";
 
 export {
     setAppStatus,
     fetchCominovel,
     fetchCominovelData,
-    fetchSeasons,
-    fetchSeasonsFullFilled,
     fetchTaxonomyTerms,
     fetchTaxonomyTermsFullFilled,
+    fetchSeasons,
+    fetchSeasonsFullFilled,
+    updateSeasons,
 };

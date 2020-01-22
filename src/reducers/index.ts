@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
-
+import { ISeason } from "../interfaces/CominovelProps";
 import { appState, IAppState } from "./appReducer";
 import { cominovelInfo, ICominovelState } from "./cominovelReducer";
 import TaxonomyTerm from "./cominovelTaxonomy";
-import { ISeasonState, seasons } from "./seasonReducer";
+import { seasons } from "./seasonReducer";
 
 export interface IRootState {
     app: IAppState;
     cominovel: ICominovelState;
-    seasons: ISeasonState;
+    seasons: ISeason[];
     terms: any;
 }
 

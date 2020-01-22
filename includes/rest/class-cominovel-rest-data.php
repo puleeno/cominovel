@@ -78,13 +78,23 @@ class Cominovel_Rest_Data {
 			}
 
 			$seasons = $request->get_param( 'seasons' );
-			foreach ( $seasons  as $meta_id => $season ) {
+			foreach ( $seasons  as $season ) {
+				$season_name = array_get( $season, 'meta_value' );
+				if ( empty( $season_name ) ) {
+					continue;
+				}
+
+				$meta_id = array_get( $season, 'meta_id' );
 				if ( empty( $meta_id ) || empty( $db_season = Cominovel_Db_Query::query_seasons( $post_id, $meta_id ) ) ) {
-					add_post_meta( $post_id, self::SEASON_META, $season, true );
+					add_post_meta( $post_id, self::SEASON_META, $season_name );
 				} else {
-					update_post_meta( $post_id, self::SEASON_META, $season, $db_season->meta_value );
+					Cominovel_Db_Query::query_update_season( $meta_id, $season_name );
 				}
 			}
+
+			$seasons  = Cominovel_Db_Query::query_seasons( $post_id );
+			$response = new WP_REST_Response( $seasons );
+			return $response;
 		}
 	}
 

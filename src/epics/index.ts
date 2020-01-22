@@ -2,10 +2,11 @@ import { combineEpics } from "redux-observable";
 
 import fetchCominovel from "./cominovelEpics";
 import { fetchTaxonomyTerms } from "./cominovelTaxonomies";
-import { getCominovelSeasonsViaAjax } from "./seasonEpics";
+import { getCominovelSeasonsViaAjax, updateCominovelSeasons } from "./seasonEpics";
 
 export default combineEpics(
   fetchCominovel,
-  getCominovelSeasonsViaAjax,
   fetchTaxonomyTerms,
+  getCominovelSeasonsViaAjax,
+  updateCominovelSeasons,
 );

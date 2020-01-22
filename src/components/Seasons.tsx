@@ -1,8 +1,10 @@
 import { Button,  Icon, Input, PageHeader } from "antd";
+import serialize from "form-serialize";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {  AnyAction, bindActionCreators, Dispatch } from "redux";
-import { fetchSeasons } from "../actions";
+import { AnyAction, bindActionCreators, Dispatch } from "redux";
+import { fetchSeasons, updateSeasons } from "../actions";
+import { ISeason } from "../interfaces/CominovelProps";
 import { IRootState } from "../reducers";
 import Form from "./antd/Form";
 
@@ -25,24 +27,22 @@ const formItemLayout = {
 };
 
 class Seasons extends Component<IProps> {
-  public remove = (k: string) => {
+  public remove = (season: ISeason, k: number) => {
     const { form } = this.props;
     // can use data-binding to get
     const keys = form.getFieldValue("keys");
-    // We need at least one passenger
     if (keys.length === 1) {
       return;
     }
 
-    // can use data-binding to set
     form.setFieldsValue({
-      keys: keys.filter((key: string) => key !== k),
+      // tslint:disable-next-line: no-shadowed-variable
+      keys: keys.filter((season: ISeason, key: number) => key !== k),
     });
   }
 
   public add = () => {
     const { form } = this.props;
-    // can use data-binding to get
     const keys = form.getFieldValue("keys");
     const nextKeys = keys.concat(id++);
     // can use data-binding to set
@@ -56,40 +56,75 @@ class Seasons extends Component<IProps> {
     this.props.fetchSeasons(window.Cominovel.currentID);
   }
 
+  public saveSeason = (e: any) => {
+    const seasonForm = document.getElementById("cominovel-seasons") as any;
+    seasonForm.elements = seasonForm.querySelectorAll("input") as HTMLFormControlsCollection;
+
+    const data = serialize(seasonForm as HTMLFormElement, { hash: true });
+    this.props.updateSeasons(data.cominovel_seasons, window.Cominovel.currentID);
+  }
+
+  public renderFieldName(name: string, index: number) {
+    return `cominovel_seasons[${index}][${name}]`;
+  }
+
   public renderSeasons() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
-    getFieldDecorator("keys", { initialValue: [] });
+    getFieldDecorator("keys", { initialValue: this.props.seasons });
     const keys = getFieldValue("keys");
 
-    return keys.map((k: string, index: number) => (
+    return keys.map((season: ISeason, index: number) => {
+      const mapItemKey = `meta_${index}_${season.meta_id}`;
+      return (
       <Form.Item
         {...formItemLayout}
         label={`Seasons ${index + 1}`}
         required={false}
-        key={k}
+        key={mapItemKey}
       >
-        {getFieldDecorator(`names[${k}]`, {
+        {getFieldDecorator(this.renderFieldName("meta_id", index), {
+          initialValue: season.meta_id || "",
           rules: [
             {
               message: "Please input season name or delete this field.",
-              required: true,
-              whitespace: true,
+              whitespace: false,
             },
           ],
-          validateTrigger: ["onChange", "onBlur"],
-        })(<Input placeholder="Season name" style={{ width: "60%", marginRight: 8 }} />)}
-        {keys.length > 1 ? (
-          <Icon
-            className="dynamic-delete-button"
-            type="minus-circle-o"
-            onClick={() => this.remove(k)}
-          />
-        ) : null}
-      </Form.Item>
-    ));
-  }
+        })(
+          <Input type="hidden" name={this.renderFieldName("meta_id", index)} />,
+        )}
+        {
+          getFieldDecorator(this.renderFieldName("meta_value", index),
+          {
+            initialValue: season.meta_value,
+            rules: [
+              {
+                message: "Please input season name or delete this field.",
+                required: true,
+                whitespace: true,
+              },
+            ],
+            validateTrigger: ["onChange", "onBlur"],
+          })(<Input
+            placeholder="Season name"
+            name={this.renderFieldName("meta_value", index)}
+            style={{ width: "60%", marginRight: 8 }}
+          />)
+        }
 
-  public saveSeason = () => {
+        {
+          keys.length > 1 ? (
+            <Icon
+              className="dynamic-delete-button"
+              type="minus-circle-o"
+              onClick={() => this.remove(season, index)}
+            />
+          ) : null
+        }
+      </Form.Item>
+    );
+  },
+    );
   }
 
   public render() {
@@ -100,6 +135,7 @@ class Seasons extends Component<IProps> {
         <Form
           {...formItemLayout}
           labelAlign="left"
+          id="cominovel-seasons"
         >
           {this.renderSeasons()}
           <Form.Item>
@@ -124,6 +160,7 @@ const mapStateToProps = (state: IRootState) => ({
 
 const mapDispacthToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({
   fetchSeasons,
+  updateSeasons,
 }, dispatch);
 
 const WrappedDynamicFieldSet = Form.create({ name: "dynamic_form_item" })(Seasons);
