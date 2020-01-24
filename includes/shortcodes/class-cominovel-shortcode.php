@@ -27,6 +27,7 @@ class Cominovel_Shortcode {
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-hot.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-featured.php';
 		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-popular.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-shortcode-madara.php';
 	}
 
 	public function load_shortcodes( $attrs, $content ) {
@@ -41,6 +42,7 @@ class Cominovel_Shortcode {
 				'popular'   => Cominovel_Shortcode_Popular::class,
 				'ranking'   => Cominovel_Shortcode_Ranking::class,
 				'tax_posts' => Cominovel_Shortcode_Tax_Posts::class,
+				'madara'    => Cominovel_Shortcode_Madara::class,
 			)
 		);
 
