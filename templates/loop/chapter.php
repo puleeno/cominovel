@@ -1,5 +1,5 @@
 <div class="cm-loop-chapter">
-	<div class="cm-block-inner">
+	<div class="cm-lchapter-inner">
 		<div class="chapter-elements">
 			<div class="e-chapter cm-chapter-thumbnail">
 				<a href="<?php the_permalink(); ?>">

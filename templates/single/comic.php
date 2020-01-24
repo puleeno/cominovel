@@ -27,7 +27,7 @@
 				<?php the_excerpt(); ?>
 			</div>
 			<div class="cm-actions">
-				<div class="cm-block-inner">
+				<div class="cm-actions-inner">
 					<div class="cm-user-actions">
 					<?php if ( $first_chapter ) : ?>
 						<a class="btn btn-primary" href="<?php the_permalink( $first_chapter ); ?>">

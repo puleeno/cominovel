@@ -4,7 +4,7 @@ $next_chapter = $chapter->get_next_chapter();
 $prev_chapter = $chapter->get_previous_chapter();
 ?>
 <div class="chapter-navigation fixed-navigation">
-	<div class="cm-block-inner">
+	<div class="cm-more-actions-inner">
 		<div class="block-left">
 			<a href="<?php echo wp_kses_post( $prev_chapter['url'] ); ?>"><?php _e( 'Prev Chapter', 'cominovel' ); ?></a>
 		</div>
