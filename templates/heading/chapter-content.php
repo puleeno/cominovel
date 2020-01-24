@@ -1,5 +1,5 @@
 <div class="chapter-heading fixed-heading">
-	作品： 查看首页 - 人类进化论 - 第94话 新人类（19）
+	<?php the_title(); ?>
 	<div class="cm-chapter-inner">
 		<div class="block-left">
 		</div>
