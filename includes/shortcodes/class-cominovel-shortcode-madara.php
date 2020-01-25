@@ -3,7 +3,7 @@
  * The Cominovel shortcode with style look like Madara theme
  */
 
- class Cominovel_Shortcode_Madara extends Cominovel_Shortcode_Post {
+class Cominovel_Shortcode_Madara extends Cominovel_Shortcode_Post {
 
 	protected $accepted_attributes = array(
 		'fields'        => 'title,author,likes',
