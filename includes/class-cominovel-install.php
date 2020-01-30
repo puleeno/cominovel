@@ -29,8 +29,8 @@ class Cominovel_Install {
 			`user_id` BIGINT UNSIGNED NOT NULL,
 			`chapter_id` BIGINT UNSIGNED NOT NULL,
 			`liked` TINYINT NOT NULL DEFAULT 0,
-			`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-			`updated_at` TIMESTAMP,
+			`created_at` TIMESTAMP,
+			`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 			PRIMARY KEY (`like_id`)
 		)";
 		$wpdb->query( $sql );
@@ -40,9 +40,9 @@ class Cominovel_Install {
 			`user_id` BIGINT UNSIGNED NOT NULL,
 			`post_id` BIGINT UNSIGNED NOT NULL,
 			`followed` TINYINT NOT NULL DEFAULT 0,
-			`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-			`updated_at` TIMESTAMP,
-			PRIMARY KEY (`like_id`)
+			`created_at` TIMESTAMP,
+			`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY (`follow_id`)
 		)";
 		$wpdb->query( $sql );
 	}

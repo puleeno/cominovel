@@ -34,9 +34,9 @@
 							<?php _e( 'Read', 'comnovel' ); ?>
 						</a>
 					<?php endif; ?>
-						<a class="btn btn-default" href="<?php cominovel_echo( $comic->follow_url() ); ?>">
+						<form action="<?php cominovel_echo( $comic->follow_url() ); ?>">
 							<?php _e( 'Follow', 'comnovel' ); ?>
-						</a>
+						</form>
 					</div>
 
 					<div class="cm-statistics">

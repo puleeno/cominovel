@@ -14,10 +14,12 @@ class Cominovel_Rest_Api {
 
 	public function includes() {
 		require_once dirname( __FILE__ ) . '/class-cominovel-rest-data.php';
+		require_once dirname( __FILE__ ) . '/class-cominovel-rest-user.php';
 	}
 
 	public function register_new_endpoint() {
 		new Cominovel_Rest_Data();
+		new Cominovel_Rest_User();
 	}
 }
 
