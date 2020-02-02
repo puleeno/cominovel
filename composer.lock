@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "064e8b16931e5f32b9e82dfe73a545db",
+    "content-hash": "8825c93edaf150683927a45fd3518040",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -229,6 +229,34 @@
             "time": "2019-11-28T15:54:25+00:00"
         },
         {
+            "name": "ramphor/image-extra-features",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/image-extra-features.git",
+                "reference": "23b3f6aed63a553c1f678b87054716ff670922b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/image-extra-features/zipball/23b3f6aed63a553c1f678b87054716ff670922b7",
+                "reference": "23b3f6aed63a553c1f678b87054716ff670922b7",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Lazy load, compress images, cloud integrated for WordPress images.",
+            "time": "2020-02-02T18:59:33+00:00"
+        },
+        {
             "name": "ramphor/plugin-core",
             "version": "dev-master",
             "source": {
@@ -377,7 +405,8 @@
         "ramphor/plugin-core": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
-        "ramphor/user-profile": 20
+        "ramphor/user-profile": 20,
+        "ramphor/image-extra-features": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

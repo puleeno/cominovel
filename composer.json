@@ -18,6 +18,7 @@
         "ramphor/plugin-core": "dev-master",
         "ramphor/seo-adapter": "dev-master",
         "ramphor/updater": "dev-master",
-        "ramphor/user-profile": "dev-master"
+        "ramphor/user-profile": "dev-master",
+        "ramphor/image-extra-features": "dev-master"
     }
 }
