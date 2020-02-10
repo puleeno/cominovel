@@ -33,7 +33,7 @@ function cmn_the_likes() {
 add_action( 'cominovel_after_comic_chapter_content', 'cominovel_related_content' );
 add_action( 'cominovel_after_comic_content', 'cominovel_related_content' );
 function cominovel_related_content( $current_object = null ) {
-	$limit     = get_option( 'cominovel_related_limit_posts', 6 );
+	$limit     = get_option( 'cominovel_related_limit_posts', 4 );
 	$post_type = $current_object->post_type === 'chapter'
 	? get_post_type( $current_object->parent )
 	: $current_object->post_type;
@@ -52,7 +52,7 @@ function cominovel_related_content( $current_object = null ) {
 		cominovel_template(
 			'block/start-related',
 			array(
-				'items'     => 3,
+				'items'     => 4,
 				'post_type' => array( $post_type ),
 				'layout'    => 'card',
 			)
