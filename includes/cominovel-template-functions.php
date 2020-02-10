@@ -52,7 +52,7 @@ function cominovel_related_content( $current_object = null ) {
 		cominovel_template(
 			'block/start-related',
 			array(
-				'items'     => 6,
+				'items'     => 3,
 				'post_type' => array( $post_type ),
 				'layout'    => 'card',
 			)
