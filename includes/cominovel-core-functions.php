@@ -119,8 +119,24 @@ function cominovel_get_country( $post = null, $args = array() ) {
 
 	if ( in_array( $post->post_type, array( 'comic', 'novel' ) ) ) {
 		return wp_get_post_terms( $post->ID, 'cmn_country', $args );
-	} elseif ( $post->post_type ) {
+	} elseif ( $post->post_type == 'chapter' ) {
 		return wp_get_post_terms( $post->post_parent, 'cmn_country', $args );
+	}
+
+	return __return_empty_array();
+}
+
+function cominovel_get_tag( $post = null, $args = array() ) {
+	if ( null === $post ) {
+		$post = $GLOBALS['post'];
+	} else {
+		$post = get_post( $post );
+	}
+
+	if ( in_array( $post->post_type, array( 'comic', 'novel' ) ) ) {
+		return wp_get_post_terms( $post->ID, 'cmn_tag', $args );
+	} elseif ( $post->post_type == 'chapter' ) {
+		return wp_get_post_terms( $post->post_parent, 'cmn_tag', $args );
 	}
 
 	return __return_empty_array();
