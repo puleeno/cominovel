@@ -3,7 +3,7 @@ use Puleeno\Wallery\Wallery;
 use Puleeno\Wallery\Factory\MetaboxFactory;
 
 class Cominovel_Metabox_Chapter_Data {
-
+	const CHAPTER_IMAGES_META_KEY = 'cominovel_chapter_images';
 
 	protected $wallery;
 	protected $post_type;
@@ -20,7 +20,7 @@ class Cominovel_Metabox_Chapter_Data {
 
 		if ( class_exists( Wallery::class ) ) {
 			$this->wallery = new Wallery( new MetaboxFactory() );
-			$this->wallery->setId( 'cominovel_chapter_images' );
+			$this->wallery->setId( self::CHAPTER_IMAGES_META_KEY );
 		}
 	}
 
