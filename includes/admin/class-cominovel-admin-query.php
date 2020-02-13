@@ -15,7 +15,7 @@ class Cominovel_Admin_Query {
 		global $wpdb;
 		$post_type      = Cominovel_Post_Types::check_active_data_type();
 		$filter_chapter = sprintf(
-			'%1$s.post_parent IN(SELECT ID FROM %1$s WHERE post_type IN("%2$s")) OR post_parent=0',
+			'%1$s.post_parent IN(SELECT ID FROM %1$s WHERE post_type IN("%2$s"))',
 			$wpdb->posts,
 			$post_type,
 		);
