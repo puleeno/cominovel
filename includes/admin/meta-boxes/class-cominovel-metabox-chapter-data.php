@@ -130,7 +130,7 @@ class Cominovel_Metabox_Chapter_Data {
 		/**
 		 * Make the chapter images transient key from Post ID
 		 */
-		$image_cache_key = sprintf( 'cominovel_comic_%d_images', $post_ID );
+		$image_cache_key = sprintf( 'cominovel_chapter_%d_images', $post_ID );
 
 		/**
 		 * Delete the chapter images transient when update the chapter

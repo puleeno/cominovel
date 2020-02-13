@@ -33,7 +33,7 @@ class Cominovel_Chapter extends Cominovel_Data {
 	}
 
 	public function load_chapter_images() {
-		$image_cache_key = sprintf( 'cominovel_comic_%d_images', $this->ID );
+		$image_cache_key = sprintf( 'cominovel_chapter_%d_images', $this->ID );
 		$images          = get_transient( $image_cache_key );
 		if ( empty( $images ) ) {
 			$image_ids = unserialize(
