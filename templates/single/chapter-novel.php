@@ -5,8 +5,8 @@ cominovel_template( 'heading/chapter-content' );
 
 $pre_novel_content = apply_filters( 'cominovel_chapter_novel_content', false, $chapter );
 if ( empty( $pre_novel_content ) ) {
-	$total_images = count( $chapter->chapter_images );
-	cominovel_template( 'block/start-chapter', compact( 'chapter' ) );
+	$chapter_type = 'text';
+	cominovel_template( 'block/start-chapter', compact( 'chapter', 'chapter_type' ) );
 	the_content();
 	cominovel_template( 'block/end-chapter', compact( 'chapter' ) );
 } else {

@@ -1,1 +1,1 @@
-<div class="chapter-images">
+<div class="chapter-<?php echo $chapter_type; ?>">

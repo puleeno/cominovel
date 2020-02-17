@@ -6,7 +6,8 @@ cominovel_template( 'heading/chapter-content' );
 $pre_comic_content = apply_filters( 'cominovel_chapter_comic_content', false, $chapter );
 if ( empty( $pre_comic_content ) ) {
 	$total_images = count( $chapter->chapter_images );
-	cominovel_template( 'block/start-chapter', compact( 'chapter' ) );
+	$chapter_type = 'images';
+	cominovel_template( 'block/start-chapter', compact( 'chapter', 'chapter_type' ) );
 	foreach ( $chapter->chapter_images as $index => $image ) {
 		do_action( 'cominovel_content_before_image', $index, $total_images );
 		cominovel_template( 'loop/image', compact( 'index', 'image' ) );
