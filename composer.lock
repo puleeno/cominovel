@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b36bc951635506f863dc474b952475b4",
+    "content-hash": "db26f34e278d369fe6847f0392b91ee6",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -230,6 +230,42 @@
             ],
             "description": "The WordPress pagination support multi styles: number, infinite loop, load more",
             "time": "2019-12-28T11:18:59+00:00"
+        },
+        {
+            "name": "jankx/post-layout",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/post-layout.git",
+                "reference": "f99c7dab16035fc7cdf7da5e96ada5e1fd9c64f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/post-layout/zipball/f99c7dab16035fc7cdf7da5e96ada5e1fd9c64f9",
+                "reference": "f99c7dab16035fc7cdf7da5e96ada5e1fd9c64f9",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/template": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\PostLayout\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "WordPress post and custom post type layout generator",
+            "time": "2020-02-22T06:57:17+00:00"
         },
         {
             "name": "jankx/template",
@@ -508,12 +544,13 @@
         "jankx/breadcrumb": 20,
         "jankx/field": 20,
         "jankx/pagination": 20,
+        "jankx/template": 20,
+        "ramphor/image-extra-features": 20,
         "ramphor/plugin-core": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
         "ramphor/user-profile": 20,
-        "ramphor/image-extra-features": 20,
-        "jankx/template": 20
+        "jankx/post-layout": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

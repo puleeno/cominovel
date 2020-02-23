@@ -14,6 +14,7 @@
         "jankx/breadcrumb": "dev-master",
         "jankx/field": "dev-master",
         "jankx/pagination": "dev-master",
+        "jankx/post-layout": "dev-master",
         "jankx/template": "dev-master",
         "puleeno/wallery": "~1.0.5",
         "ramphor/image-extra-features": "dev-master",
