@@ -39,6 +39,10 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		}
 
 		public function __construct() {
+			add_action( 'plugins_loaded', array( $this, 'init' ) );
+		}
+
+		public function init() {
 			$this->define_constants();
 			$this->includes();
 			$this->hooks();
@@ -106,8 +110,6 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-frontend.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-template-loader.php';
 
-			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-addons.php';
-
 			require_once COMINOVEL_ABSPATH . 'includes/shortcodes/class-cominovel-shortcode-post.php';
 			require_once COMINOVEL_ABSPATH . 'includes/class-cominovel-layout.php';
 			require_once COMINOVEL_ABSPATH . 'includes/shortcodes/class-cominovel-shortcode.php';
@@ -152,8 +154,6 @@ if ( ! class_exists( 'Cominovel' ) ) {
 			register_activation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'active' ) );
 			register_deactivation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'deactive' ) );
 
-			add_action( 'init', array( $this, 'init' ) );
-
 			/**
 			 * Register Cominovel Shortcode
 			 */
@@ -178,12 +178,6 @@ if ( ! class_exists( 'Cominovel' ) ) {
 		private function theme_support_includes() {
 			require_once COMINOVEL_ABSPATH . 'includes/theme-supports/class-cominovel-integrate-elementor.php';
 			require_once COMINOVEL_ABSPATH . 'includes/theme-supports/class-cominovel-integrate-jankx.php';
-		}
-
-		public function init() {
-			do_action( 'before_cominovel_init' );
-
-			$this->load_plugin_textdomain();
 		}
 
 		public function load_plugin_textdomain() {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db26f34e278d369fe6847f0392b91ee6",
+    "content-hash": "eced25890a1588a9da884b88afa6774d",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -69,22 +69,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/asset.git",
-                "reference": "78ba3c5507b1fd6e99b1f9fd99e2e304df5e39b6"
+                "reference": "d3e733506805cb5d6bedd568ab8070a34d9d315c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/asset/zipball/78ba3c5507b1fd6e99b1f9fd99e2e304df5e39b6",
-                "reference": "78ba3c5507b1fd6e99b1f9fd99e2e304df5e39b6",
+                "url": "https://api.github.com/repos/jankx/asset/zipball/d3e733506805cb5d6bedd568ab8070a34d9d315c",
+                "reference": "d3e733506805cb5d6bedd568ab8070a34d9d315c",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Jankx\\Asset\\": "src/"
-                },
-                "files": [
-                    "helpers.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -97,7 +94,7 @@
                 }
             ],
             "description": "Jankx Assets is used to manage CSS, JS, libraries with beautiful syntax",
-            "time": "2020-02-16T13:13:52+00:00"
+            "time": "2020-02-24T15:27:18+00:00"
         },
         {
             "name": "jankx/breadcrumb",
@@ -105,13 +102,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/breadcrumb.git",
-                "reference": "8e18fcd62481af5972a0477c9ba56dcdbe66e25c"
+                "reference": "a4ce8ef683346eb48ca3f827e790306819b6cf80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/breadcrumb/zipball/8e18fcd62481af5972a0477c9ba56dcdbe66e25c",
-                "reference": "8e18fcd62481af5972a0477c9ba56dcdbe66e25c",
+                "url": "https://api.github.com/repos/jankx/breadcrumb/zipball/a4ce8ef683346eb48ca3f827e790306819b6cf80",
+                "reference": "a4ce8ef683346eb48ca3f827e790306819b6cf80",
                 "shasum": ""
+            },
+            "require": {
+                "puleeno/schema-org": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -130,7 +130,7 @@
                 }
             ],
             "description": "The embed UI Breadcrumb for WordPress plugins and WordPress themes",
-            "time": "2019-10-27T12:33:02+00:00"
+            "time": "2020-01-17T01:37:47+00:00"
         },
         {
             "name": "jankx/field",
@@ -273,12 +273,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "01ee7cbe208ad72b40582576c81b90f2121f4353"
+                "reference": "52306a7610e832a33d0f21389da69dc7153b7647"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/01ee7cbe208ad72b40582576c81b90f2121f4353",
-                "reference": "01ee7cbe208ad72b40582576c81b90f2121f4353",
+                "url": "https://api.github.com/repos/jankx/template/zipball/52306a7610e832a33d0f21389da69dc7153b7647",
+                "reference": "52306a7610e832a33d0f21389da69dc7153b7647",
                 "shasum": ""
             },
             "require": {
@@ -302,7 +302,7 @@
                 }
             ],
             "description": "Jankx template manager usable to load template with support override, caching",
-            "time": "2020-02-23T04:57:10+00:00"
+            "time": "2020-02-23T06:52:08+00:00"
         },
         {
             "name": "jankx/ui-framework",
@@ -336,6 +336,34 @@
             ],
             "description": "Jankx UI framework integrate with popular CSS frameworks",
             "time": "2020-01-13T03:44:54+00:00"
+        },
+        {
+            "name": "puleeno/schema-org",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/puleeno/schema-org-php.git",
+                "reference": "3f0b9fa46aa5a3c989383a21e2c136d47d4cd2d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/puleeno/schema-org-php/zipball/3f0b9fa46aa5a3c989383a21e2c136d47d4cd2d6",
+                "reference": "3f0b9fa46aa5a3c989383a21e2c136d47d4cd2d6",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Abstracts and Interfaces to implement  Structured Data on https://schema.org/",
+            "time": "2020-01-17T01:12:43+00:00"
         },
         {
             "name": "puleeno/wallery",
@@ -544,13 +572,13 @@
         "jankx/breadcrumb": 20,
         "jankx/field": 20,
         "jankx/pagination": 20,
+        "jankx/post-layout": 20,
         "jankx/template": 20,
         "ramphor/image-extra-features": 20,
         "ramphor/plugin-core": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
-        "ramphor/user-profile": 20,
-        "jankx/post-layout": 20
+        "ramphor/user-profile": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
