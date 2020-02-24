@@ -71,14 +71,6 @@ if ( ! class_exists( 'Cominovel' ) ) {
 
 		public function includes() {
 			/**
-			 * Interfaces
-			 */
-
-			/**
-			 * Abstract classes
-			 */
-
-			/**
 			 * Core classses
 			 */
 			require_once COMINOVEL_ABSPATH . 'includes/cominovel-core-functions.php';
