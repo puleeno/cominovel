@@ -1,5 +1,7 @@
 <?php
 class Cominovel_Chapter extends Cominovel_Data {
+	protected $prev_chapter;
+	protected $next_chapter;
 
 	public function __construct( $chapter = null ) {
 		parent::__construct( $chapter );
@@ -16,7 +18,7 @@ class Cominovel_Chapter extends Cominovel_Data {
 	/**
 	 * The method don't support on chapter
 	 */
-	public function load_chapters() {
+	final public function load_chapters() {
 		throw new \Exception( 'The chapter don\'t support Cominovel_Chapter::load_chapters() method' );
 	}
 
@@ -65,18 +67,24 @@ class Cominovel_Chapter extends Cominovel_Data {
 	}
 
 	public function get_next_chapter() {
+		if ( empty( $this->next_chapter ) ) {
+			return false;
+		}
 		return [
-			'id'   => '',
-			'url'  => '',
-			'name' => '',
+			'id'   => $this->next_chapter->ID,
+			'url'  => get_the_permalink( $this->next_chapter ),
+			'name' => $this->next_chapter->post_name,
 		];
 	}
 
 	public function get_previous_chapter() {
+		if ( empty( $this->prev_chapter ) ) {
+			return false;
+		}
 		return [
-			'id'   => '',
-			'url'  => '',
-			'name' => '',
+			'id'   => $this->prev_chapter->ID,
+			'url'  => get_the_permalink( $this->prev_chapter ),
+			'name' => $this->prev_chapter->post_name,
 		];
 	}
 
@@ -85,5 +93,28 @@ class Cominovel_Chapter extends Cominovel_Data {
 			get_option( 'date_format' ),
 			$this->post
 		);
+	}
+
+	protected function get_adjacent_post( $chapter_id, $is_previous = false, $limit = 1 ) {
+		global $wpdb;
+		$filter_sql = $wpdb->prepare( "SELECT post_parent from {$wpdb->posts} where ID=%s", $chapter_id );
+		$date_sql   = $wpdb->prepare( "SELECT post_date from {$wpdb->posts} where ID=%s", $chapter_id );
+		$operator   = $is_previous ? '<' : '>';
+		$sql        = $wpdb->prepare(
+			"SELECT * from {$wpdb->posts} where post_parent=({$filter_sql}) and post_type='chapter' and post_status='publish' and post_date {$operator} ({$date_sql}) and ID <> %d LIMIT %d",
+			$chapter_id,
+			$limit
+		);
+
+		$posts = array_map( 'get_post', $wpdb->get_results( $sql ) );
+		if ( $limit > 1 ) {
+			return $posts;
+		}
+		return array_shift( $posts );
+	}
+
+	public function load_adjacent_posts() {
+		$this->prev_chapter = $this->get_adjacent_post( $this->ID, true );
+		$this->next_chapter = $this->get_adjacent_post( $this->ID );
 	}
 }
