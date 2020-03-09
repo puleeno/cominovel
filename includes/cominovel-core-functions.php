@@ -42,19 +42,15 @@ function cominovel_asset_url( $path = '', $prefix = '' ) {
 }
 
 if ( ! function_exists( 'array_get' ) ) {
-	function array_get( $arr, $arrayIndex, $defaultValue = null ) {
-		if ( is_string( $arrayIndex ) ) {
-			$arrayIndex = explode( '.', $arrayIndex );
-		} else {
-			$arrayIndex = (array) $arrayIndex;
-		}
-		foreach ( $arrayIndex as $index ) {
-			if ( ! isset( $arr[ $index ] ) ) {
+	function array_get( $array, $key, $defaultValue = false ) {
+		$keys = explode( '.', $key );
+		foreach ( $keys as $key ) {
+			if ( ! isset( $array[ $key ] ) ) {
 				return $defaultValue;
 			}
-			$arr = $arr[ $index ];
+			$value = $array = $array[ $key ];
 		}
-		return $arr;
+		return $value;
 	}
 }
 
