@@ -7,6 +7,7 @@
  */
 
 use Ramphor\User\Profile as UserProfile;
+use Ramphor\PostViews\Counter as PostViewsCounter;
 
 if ( ! class_exists( 'Cominovel' ) ) {
 	/**
@@ -158,6 +159,10 @@ if ( ! class_exists( 'Cominovel' ) ) {
 						'theme_prefix' => 'profiles',
 					)
 				);
+			}
+			if ( class_exists( PostViewsCounter::class ) ) {
+				$counter = new PostViewsCounter( array( 'comic', 'novel', 'chapter' ), true );
+				$counter->register();
 			}
 		}
 
