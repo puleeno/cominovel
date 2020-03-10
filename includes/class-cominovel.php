@@ -38,13 +38,29 @@ final class Cominovel {
 	}
 
 	public function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'init' ) );
-	}
-
-	public function init() {
 		$this->define_constants();
 		$this->includes();
 		$this->hooks();
+	}
+
+	public function init() {
+		/**
+		 * Register Cominovel Shortcode
+		 */
+		add_shortcode( 'cominovel', array( Cominovel_Shortcode::class, 'register' ) );
+
+		if ( class_exists( UserProfile::class ) ) {
+			UserProfile::init(
+				array(
+					// 'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
+					'theme_prefix' => 'profiles',
+				)
+			);
+		}
+		if ( class_exists( PostViewsCounter::class ) ) {
+			$counter = new PostViewsCounter( array( 'comic', 'novel', 'chapter' ), true );
+			$counter->register();
+		}
 	}
 
 	private function define( $name, $value ) {
@@ -145,23 +161,7 @@ final class Cominovel {
 		register_activation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'active' ) );
 		register_deactivation_hook( COMINOVEL_PLUGIN_FILE, array( Cominovel_Install::class, 'deactive' ) );
 
-		/**
-		 * Register Cominovel Shortcode
-		 */
-		add_shortcode( 'cominovel', array( Cominovel_Shortcode::class, 'register' ) );
-
-		if ( class_exists( UserProfile::class ) ) {
-			UserProfile::init(
-				array(
-					// 'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
-					'theme_prefix' => 'profiles',
-				)
-			);
-		}
-		if ( class_exists( PostViewsCounter::class ) ) {
-			$counter = new PostViewsCounter( array( 'comic', 'novel', 'chapter' ), true );
-			$counter->register();
-		}
+		add_action( 'plugins_loaded', array( $this, 'init' ) );
 	}
 
 	public function frontend_includes() {
