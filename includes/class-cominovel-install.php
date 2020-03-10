@@ -1,10 +1,9 @@
 <?php
 
 use Ramphor\User\Db\UserTable;
+use Ramphor\PostViews\Setup as SetupPostViews;
 
 class Cominovel_Install {
-
-
 	public static function active() {
 		/**
 		 * Flush rewrite rules after register Cominovel post types
@@ -14,6 +13,11 @@ class Cominovel_Install {
 		if ( class_exists( UserTable::class ) ) {
 			UserTable::create();
 		}
+		if ( class_exists( SetupPostViews::class ) ) {
+			$post_views = new SetupPostViews();
+			$post_views->createTables();
+		}
+
 		self::create_tables();
 	}
 
