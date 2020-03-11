@@ -505,12 +505,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/post-views.git",
-                "reference": "ec31441a4781bb9dd9f9a4a05d46d014203cc982"
+                "reference": "1fadc258c4bc4b2542e266544c9b4ee4ebe7012a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/post-views/zipball/ec31441a4781bb9dd9f9a4a05d46d014203cc982",
-                "reference": "ec31441a4781bb9dd9f9a4a05d46d014203cc982",
+                "url": "https://api.github.com/repos/ramphor/post-views/zipball/1fadc258c4bc4b2542e266544c9b4ee4ebe7012a",
+                "reference": "1fadc258c4bc4b2542e266544c9b4ee4ebe7012a",
                 "shasum": ""
             },
             "type": "library",
