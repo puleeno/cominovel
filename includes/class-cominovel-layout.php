@@ -1,6 +1,5 @@
 <?php
 class Cominovel_Layout {
-
 	protected $query;
 	protected $args;
 
