@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e11cc65254eba13309ced0daba18d288",
+    "content-hash": "223d26e57523b301bc636f72fa073bac",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -164,39 +164,6 @@
             ],
             "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
             "time": "2019-07-15T04:42:51+00:00"
-        },
-        {
-            "name": "jankx/fields",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jankx/field.git",
-                "reference": "0bb791f1b7f7cf28f0a68f07c3252c8efe7a590f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jankx/field/zipball/0bb791f1b7f7cf28f0a68f07c3252c8efe7a590f",
-                "reference": "0bb791f1b7f7cf28f0a68f07c3252c8efe7a590f",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Jankx\\Fields\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Puleeno Nguyen",
-                    "email": "puleeno@gmail.com"
-                }
-            ],
-            "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
-            "time": "2019-06-16T06:07:59+00:00"
         },
         {
             "name": "jankx/pagination",
@@ -464,42 +431,6 @@
             "time": "2020-02-02T18:59:33+00:00"
         },
         {
-            "name": "ramphor/plugin-core",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ramphor/plugin-core.git",
-                "reference": "f525e35a7b6147344b01d9d8daea59ad9ff7507d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/plugin-core/zipball/f525e35a7b6147344b01d9d8daea59ad9ff7507d",
-                "reference": "f525e35a7b6147344b01d9d8daea59ad9ff7507d",
-                "shasum": ""
-            },
-            "require": {
-                "jankx/fields": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Ramphor\\Plugin\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Puleeno Nguyen",
-                    "email": "puleeno@gmail.com"
-                }
-            ],
-            "description": "The core of plugins are developed by The Ramphor Premium",
-            "time": "2019-10-17T04:59:33+00:00"
-        },
-        {
             "name": "ramphor/post-views",
             "version": "dev-master",
             "source": {
@@ -530,7 +461,7 @@
                 }
             ],
             "description": "Track visited posts and user view posts",
-            "time": "2020-03-09T09:53:41+00:00"
+            "time": "2020-03-10T14:28:15+00:00"
         },
         {
             "name": "ramphor/seo-adapter",
@@ -646,11 +577,10 @@
         "jankx/post-layout": 20,
         "jankx/template": 20,
         "ramphor/image-extra-features": 20,
-        "ramphor/plugin-core": 20,
+        "ramphor/post-views": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
-        "ramphor/user-profile": 20,
-        "ramphor/post-views": 20
+        "ramphor/user-profile": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
