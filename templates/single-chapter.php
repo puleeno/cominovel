@@ -3,7 +3,7 @@ get_header( 'cominovel' );
 
 if ( have_posts() ) {
 	the_post();
-	$chapter      = new Cominovel_Chapter( $GLOBALS['post'] );
+	$chapter = new Cominovel_Chapter( $GLOBALS['post'] );
 	$chapter->load_adjacent_posts();
 	$sub_template = 'none';
 	if ( $chapter->parent_type ) {

@@ -13,9 +13,9 @@ if ( have_posts() ) {
 	$comic->load_chapters();
 	$comic->load_data( true );
 
-	do_action('cominovel_before_comic_content', $comic);
+	do_action( 'cominovel_before_comic_content', $comic );
 	cominovel_template( 'single/comic', compact( 'comic', 'has_sidebar', 'breadcrumb', 'is_oneshot', 'first_chapter' ) );
-	do_action('cominovel_after_comic_content', $comic);
+	do_action( 'cominovel_after_comic_content', $comic );
 }
 
 do_action( 'cominovel_sidebars' );
