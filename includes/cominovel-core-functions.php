@@ -2,10 +2,9 @@
 use Jankx\Template\Template;
 use Jankx\Template\Loader;
 
-function cominovel_core_template( $template, $data = array(), $parent_template_directory = '', $require_once = false ) {
-	$template_loader = Cominovel_Template_Loader::instance();
-	$template        = $template_loader->core_template( $template, $parent_template_directory );
-	if ( $template ) {
+function cominovel_core_template( $template, $data = array(), $require_once = false ) {
+	$template = sprintf( '%s/admin/templates/%s.php', COMINOVEL_INC_DIR, $template );
+	if ( file_exists( $template ) ) {
 		extract( $data );
 		if ( $require_once ) {
 			require_once $template;
