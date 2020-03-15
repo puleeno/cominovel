@@ -11,7 +11,6 @@ class Cominovel_Query {
 		if ( $this->is_frontend() ) {
 			add_action( 'parse_query', array( $this, 'parse_chapter_query' ) );
 			add_filter( 'posts_where', array( $this, 'filter_chapter_by_parent' ), 10, 2 );
-			add_filter( 'posts_fields', array( $this, 'add_comic_name_to_chapter_title' ), 10, 2 );
 		}
 		if ( is_admin() || frontend_edit_enabled() ) {
 			// add_filter( 'wp_insert_post_data', array( $this, 'add_menu_chapter_order' ), 10, 2 );
@@ -70,19 +69,6 @@ class Cominovel_Query {
 		$where .= $this->parent_type . "' AND post_status='publish' AND post_name='" . $this->parent_name . "')";
 
 		return $where;
-	}
-
-	public function add_comic_name_to_chapter_title( $fields, $query ) {
-		if ( ! $this->isChapter ) {
-			return $fields;
-		}
-		global $wpdb;
-
-		$fields .= ", CONCAT((SELECT post_title FROM {$wpdb->posts} WHERE post_type='" . $this->parent_type;
-		$fields .= "' AND post_status='publish' AND post_name='" . $this->parent_name . "' LIMIT 1";
-		$fields .= "), ' - ', post_title) as post_title";
-
-		return $fields;
 	}
 
 	protected function is_frontend() {
