@@ -66,7 +66,7 @@ class Cominovel_Template {
 	}
 
 	public function load_template( $template ) {
-		if ( ! $this->useTemplate ) {
+		if ( $this->useTemplate . '.php' === basename( $template ) || ! $this->useTemplate ) {
 			return $template;
 		}
 		if ( $this->isCominovel ) {
