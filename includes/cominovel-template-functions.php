@@ -22,6 +22,18 @@ function cmn_post_thumbnail( $size = 'thumbnail', $attr = array(), $comic_id = n
 	echo cmn_comic_thumbnail( $size, $attr, $comic_id );
 }
 
+function cmn_the_post_thumbnail( $post = null ) {
+	if ( is_null( $post ) ) {
+		$post = $GLOBALS['post'];
+	} elseif ( ! $post instanceof WP_Post ) {
+		$post = get_post( $post );
+	}
+	if ( empty( $post ) ) {
+		cominovel_template( 'item/no-thumbnail' );
+		return;
+	}
+}
+
 function cmn_the_title( $title, $tag = 'h3' ) {
 	echo wp_kses_post( sprintf( '<%1$s class="item-title">%2$s</%1$s>', $tag, $title ) );
 }
@@ -106,5 +118,28 @@ function cmn_get_search_title() {
 		'cominovel_search_title',
 		$title,
 		$search_query
+	);
+}
+
+function cmn_the_tag( $post_id = null ) {
+	if ( is_null( $post_id ) ) {
+		$post_id = get_the_ID();
+	}
+	$tags = wp_get_post_terms( $post_id, 'cmn_tag' );
+	cominovel_template( 'item/tags', compact( 'tags' ) );
+}
+
+function cmn_the_views( $post_id = null ) {
+	if ( $post_id === null ) {
+		$post_id = get_the_ID();
+	}
+	$meta_views_key = '_ramphor_post_views';
+	$total_views    = get_post_meta( $post_id, $meta_views_key, true );
+
+	cominovel_template(
+		'item/views',
+		[
+			'views' => $total_views,
+		]
 	);
 }
