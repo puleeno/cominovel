@@ -51,10 +51,8 @@ final class Cominovel {
 
 		if ( class_exists( UserProfile::class ) ) {
 			UserProfile::init(
-				array(
-					// 'templates_location' => sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
-					'theme_prefix' => 'profiles',
-				)
+				sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
+				'cominovel/users'
 			);
 		}
 		if ( class_exists( PostViewsCounter::class ) ) {
