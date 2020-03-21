@@ -143,8 +143,8 @@ function cominovel_get_tag( $post = null, $args = array() ) {
 	return __return_empty_array();
 }
 
-function cominovel_filter_user_likes_posts($postwhere, $query = null) {
+function cominovel_filter_user_likes_posts( $postwhere, $query = null ) {
 }
 
-function cominovel_filter_user_follows_posts($postwhere, $query = null) {
+function cominovel_filter_user_follows_posts( $postwhere, $query = null ) {
 }

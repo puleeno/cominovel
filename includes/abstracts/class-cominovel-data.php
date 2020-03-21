@@ -190,4 +190,8 @@ abstract class Cominovel_Data {
 
 	public function author() {
 	}
+
+	public function get_url() {
+		return get_the_permalink( $this->ID );
+	}
 }
