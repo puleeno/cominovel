@@ -47,8 +47,8 @@ class Cominovel_Chapter extends Cominovel_Data {
 			$images    = array();
 			foreach ( (array) $image_ids as $image_id ) {
 				$image = array(
-					'ID'  => $image_id,
-					'url' => wp_get_attachment_url( $image_id ),
+					'ID'    => $image_id,
+					'image' => wp_get_attachment_image( $image_id, 'full' ),
 				);
 
 				array_push( $images, $image );
