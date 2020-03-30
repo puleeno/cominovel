@@ -59,6 +59,7 @@ function cominovel_related_content( $current_object = null ) {
 
 	$wp_query = new WP_Query( $args );
 	if ( $wp_query->have_posts() ) {
+		echo wp_kses_post( '<div class="cominovel-realate-posts">' );
 		cominovel_template( 'heading/related-' . $post_type );
 
 		cominovel_template(
@@ -94,7 +95,7 @@ function cominovel_related_content( $current_object = null ) {
 				);
 			}
 		}
-		echo '<div class="clearfix"></div>';
+		echo '</div><div class="clearfix"></div>';
 		wp_reset_query();
 		cominovel_template( 'block/end-related' );
 	}
