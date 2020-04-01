@@ -1,8 +1,5 @@
 <?php
 class Cominovel_Meta_Box_Comic_Data {
-
-
-
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'register_meta_box' ) );
 		add_action( 'save_post', array( $this, 'save_cominovel_data' ), 10, 2 );

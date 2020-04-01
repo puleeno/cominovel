@@ -1,9 +1,6 @@
 <?php
 
 class Cominovel_Admin_Meta_Boxes {
-
-
-
 	public function __construct() {
 		$this->include_meta_boxes();
 		$this->init_hooks();

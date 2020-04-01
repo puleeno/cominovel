@@ -14,8 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Cominovel_Admin_Assets class.
  */
 class Cominovel_Admin_Assets {
-
-
 	protected $current_screen;
 	protected $run_mode = 'prod';
 	protected $dev_host = 'http://localhost';
