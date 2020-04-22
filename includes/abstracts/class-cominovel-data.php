@@ -40,6 +40,10 @@ abstract class Cominovel_Data {
 		$this->data[ $name ] = $value;
 	}
 
+	public function is_valid() {
+		return $this->ID > 0;
+	}
+
 	public function sort_the_chapters( $orderby, $query ) {
 		if ( $query->get( 'orderby' ) != 'title_number' ) {
 			return $orderby;
@@ -186,6 +190,18 @@ abstract class Cominovel_Data {
 				)
 			);
 		}
+	}
+
+	public function the_title( $echo = true ) {
+		if ( ! $this->post instanceof WP_Post ) {
+			return;
+		}
+
+		$title = apply_filters( 'the_title', $this->post->post_title, $this->ID );
+		if ( ! $echo ) {
+			return $title;
+		}
+		echo wp_kses_post( $title );
 	}
 
 	public function author() {
