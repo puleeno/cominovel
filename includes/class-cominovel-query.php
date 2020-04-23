@@ -13,7 +13,7 @@ class Cominovel_Query {
 			add_filter( 'posts_where', array( $this, 'filter_chapter_by_parent' ), 10, 2 );
 		}
 		if ( is_admin() || frontend_edit_enabled() ) {
-			// add_filter( 'wp_insert_post_data', array( $this, 'add_menu_chapter_order' ), 10, 2 );
+			add_filter( 'wp_insert_post_data', array( $this, 'add_menu_chapter_order' ), 10, 2 );
 		}
 	}
 
