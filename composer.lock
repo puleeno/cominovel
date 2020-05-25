@@ -69,12 +69,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/asset.git",
-                "reference": "a39896eb4cdf064d399602f5fa26240d25633341"
+                "reference": "ba620c8cdec831adc2fafbcdf34afa00f2312fb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/asset/zipball/a39896eb4cdf064d399602f5fa26240d25633341",
-                "reference": "a39896eb4cdf064d399602f5fa26240d25633341",
+                "url": "https://api.github.com/repos/jankx/asset/zipball/ba620c8cdec831adc2fafbcdf34afa00f2312fb1",
+                "reference": "ba620c8cdec831adc2fafbcdf34afa00f2312fb1",
                 "shasum": ""
             },
             "type": "library",
@@ -94,7 +94,7 @@
                 }
             ],
             "description": "Jankx Assets is used to manage CSS, JS, libraries with beautiful syntax",
-            "time": "2020-03-06T00:14:04+00:00"
+            "time": "2020-04-12T10:16:21+00:00"
         },
         {
             "name": "jankx/breadcrumb",
@@ -164,6 +164,39 @@
             ],
             "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
             "time": "2019-07-15T04:42:51+00:00"
+        },
+        {
+            "name": "jankx/helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/helpers.git",
+                "reference": "98e5c06724d07de99679d554b499a9cf54e2224a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/98e5c06724d07de99679d554b499a9cf54e2224a",
+                "reference": "98e5c06724d07de99679d554b499a9cf54e2224a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The helpers for Jankx Framework",
+            "time": "2020-04-14T00:56:23+00:00"
         },
         {
             "name": "jankx/pagination",
@@ -240,12 +273,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "c9044dc12109c964a511e66d01acfc507618286b"
+                "reference": "92d75c2099d3d62f5bc911f313e98ff345b768b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/c9044dc12109c964a511e66d01acfc507618286b",
-                "reference": "c9044dc12109c964a511e66d01acfc507618286b",
+                "url": "https://api.github.com/repos/jankx/template/zipball/92d75c2099d3d62f5bc911f313e98ff345b768b2",
+                "reference": "92d75c2099d3d62f5bc911f313e98ff345b768b2",
                 "shasum": ""
             },
             "require": {
@@ -270,7 +303,7 @@
                 }
             ],
             "description": "Jankx template manager usable to load template with support override, caching",
-            "time": "2020-03-09T04:10:32+00:00"
+            "time": "2020-04-14T16:23:58+00:00"
         },
         {
             "name": "jankx/template-engine",
@@ -278,13 +311,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template-engine.git",
-                "reference": "4c6e62d01128fd6be7c57b5812c6cb62ec3786c0"
+                "reference": "cfd235ed3cfb6787ac9f3ef1693d2ec566bfff91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template-engine/zipball/4c6e62d01128fd6be7c57b5812c6cb62ec3786c0",
-                "reference": "4c6e62d01128fd6be7c57b5812c6cb62ec3786c0",
+                "url": "https://api.github.com/repos/jankx/template-engine/zipball/cfd235ed3cfb6787ac9f3ef1693d2ec566bfff91",
+                "reference": "cfd235ed3cfb6787ac9f3ef1693d2ec566bfff91",
                 "shasum": ""
+            },
+            "require": {
+                "jankx/helpers": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -303,7 +339,7 @@
                 }
             ],
             "description": "The template engine for Jankx Framework",
-            "time": "2020-03-09T03:38:00+00:00"
+            "time": "2020-04-14T00:58:03+00:00"
         },
         {
             "name": "jankx/ui-framework",
@@ -374,12 +410,12 @@
             "version": "1.0.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/puleeno/wallery.git",
+                "url": "https://github.com/ramphor/wallery.git",
                 "reference": "f011ae30d3a09c7860c3bdace52458bf47bc4d0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/puleeno/wallery/zipball/f011ae30d3a09c7860c3bdace52458bf47bc4d0d",
+                "url": "https://api.github.com/repos/ramphor/wallery/zipball/f011ae30d3a09c7860c3bdace52458bf47bc4d0d",
                 "reference": "f011ae30d3a09c7860c3bdace52458bf47bc4d0d",
                 "shasum": ""
             },
@@ -436,12 +472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/post-views.git",
-                "reference": "1fadc258c4bc4b2542e266544c9b4ee4ebe7012a"
+                "reference": "444b67f0b9204884df3cf85ddec9b35c58f5a215"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/post-views/zipball/1fadc258c4bc4b2542e266544c9b4ee4ebe7012a",
-                "reference": "1fadc258c4bc4b2542e266544c9b4ee4ebe7012a",
+                "url": "https://api.github.com/repos/ramphor/post-views/zipball/444b67f0b9204884df3cf85ddec9b35c58f5a215",
+                "reference": "444b67f0b9204884df3cf85ddec9b35c58f5a215",
                 "shasum": ""
             },
             "type": "library",
@@ -461,7 +497,7 @@
                 }
             ],
             "description": "Track visited posts and user view posts",
-            "time": "2020-03-10T14:28:15+00:00"
+            "time": "2020-03-29T17:08:25+00:00"
         },
         {
             "name": "ramphor/seo-adapter",
@@ -535,12 +571,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/user-profile.git",
-                "reference": "e1d14ce09186051b2a7f874e68845733f8141c52"
+                "reference": "661bf574b1c2c8deae69f2021f763e57ecdc4627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/e1d14ce09186051b2a7f874e68845733f8141c52",
-                "reference": "e1d14ce09186051b2a7f874e68845733f8141c52",
+                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/661bf574b1c2c8deae69f2021f763e57ecdc4627",
+                "reference": "661bf574b1c2c8deae69f2021f763e57ecdc4627",
                 "shasum": ""
             },
             "require": {
@@ -564,7 +600,7 @@
                 }
             ],
             "description": "User profile core for embed to other plugins or themes",
-            "time": "2020-03-09T05:36:33+00:00"
+            "time": "2020-03-20T00:26:48+00:00"
         }
     ],
     "packages-dev": [],
@@ -585,5 +621,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
