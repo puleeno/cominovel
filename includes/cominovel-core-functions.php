@@ -19,7 +19,7 @@ function cominovel_core_template( $template, $data = array(), $require_once = fa
  */
 function cominovel_template( $templates, $data = [], $context = '', $echo = true ) {
 	if ( empty( $GLOBALS['cominovel_template'] ) ) {
-		$GLOBALS['cominovel_template'] = Template::getInstance(
+		$GLOBALS['cominovel_template'] = Template::getLoader(
 			COMINOVEL_TEMPLATES_DIR,
 			'cominovel'
 		);

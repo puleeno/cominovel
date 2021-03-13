@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "223d26e57523b301bc636f72fa073bac",
+    "content-hash": "d191b83b6a5574c4ad1440c00a9290cd",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -64,50 +64,17 @@
             "time": "2019-12-27T09:26:40+00:00"
         },
         {
-            "name": "jankx/asset",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jankx/asset.git",
-                "reference": "ba620c8cdec831adc2fafbcdf34afa00f2312fb1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jankx/asset/zipball/ba620c8cdec831adc2fafbcdf34afa00f2312fb1",
-                "reference": "ba620c8cdec831adc2fafbcdf34afa00f2312fb1",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Jankx\\Asset\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Puleeno Nguyen",
-                    "email": "puleeno@gmail.com"
-                }
-            ],
-            "description": "Jankx Assets is used to manage CSS, JS, libraries with beautiful syntax",
-            "time": "2020-04-12T10:16:21+00:00"
-        },
-        {
             "name": "jankx/breadcrumb",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/breadcrumb.git",
-                "reference": "a4ce8ef683346eb48ca3f827e790306819b6cf80"
+                "reference": "5f960057fad80117d1b38de700f32719d613f178"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/breadcrumb/zipball/a4ce8ef683346eb48ca3f827e790306819b6cf80",
-                "reference": "a4ce8ef683346eb48ca3f827e790306819b6cf80",
+                "url": "https://api.github.com/repos/jankx/breadcrumb/zipball/5f960057fad80117d1b38de700f32719d613f178",
+                "reference": "5f960057fad80117d1b38de700f32719d613f178",
                 "shasum": ""
             },
             "require": {
@@ -117,7 +84,10 @@
             "autoload": {
                 "psr-4": {
                     "Jankx\\Breadcrumb\\": "src/"
-                }
+                },
+                "files": [
+                    "./functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -130,40 +100,7 @@
                 }
             ],
             "description": "The embed UI Breadcrumb for WordPress plugins and WordPress themes",
-            "time": "2020-01-17T01:37:47+00:00"
-        },
-        {
-            "name": "jankx/field",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jankx/field.git",
-                "reference": "0028ad5b271f7e1b0fa7bd7251a4efde92c6a936"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jankx/field/zipball/0028ad5b271f7e1b0fa7bd7251a4efde92c6a936",
-                "reference": "0028ad5b271f7e1b0fa7bd7251a4efde92c6a936",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Jankx\\Fields\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Puleeno Nguyen",
-                    "email": "puleeno@gmail.com"
-                }
-            ],
-            "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
-            "time": "2019-07-15T04:42:51+00:00"
+            "time": "2020-11-03T14:46:12+00:00"
         },
         {
             "name": "jankx/helpers",
@@ -171,18 +108,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/helpers.git",
-                "reference": "98e5c06724d07de99679d554b499a9cf54e2224a"
+                "reference": "546ca41950a3d4a8c1bf20b169158c6a987fd350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/helpers/zipball/98e5c06724d07de99679d554b499a9cf54e2224a",
-                "reference": "98e5c06724d07de99679d554b499a9cf54e2224a",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/546ca41950a3d4a8c1bf20b169158c6a987fd350",
+                "reference": "546ca41950a3d4a8c1bf20b169158c6a987fd350",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/helpers.php"
+                    "./loader.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -196,7 +133,7 @@
                 }
             ],
             "description": "The helpers for Jankx Framework",
-            "time": "2020-04-14T00:56:23+00:00"
+            "time": "2021-03-02T19:28:33+00:00"
         },
         {
             "name": "jankx/pagination",
@@ -204,19 +141,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/pagination.git",
-                "reference": "4cdc6e4fe3d5de6c70867b38c44ea1589b80ed49"
+                "reference": "217a8a644c2cb03f203a6fb42689e784df77ba54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/pagination/zipball/4cdc6e4fe3d5de6c70867b38c44ea1589b80ed49",
-                "reference": "4cdc6e4fe3d5de6c70867b38c44ea1589b80ed49",
+                "url": "https://api.github.com/repos/jankx/pagination/zipball/217a8a644c2cb03f203a6fb42689e784df77ba54",
+                "reference": "217a8a644c2cb03f203a6fb42689e784df77ba54",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Jankx\\Pagination\\": "src/"
-                }
+                },
+                "files": [
+                    "./functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -229,7 +169,7 @@
                 }
             ],
             "description": "The WordPress pagination support multi styles: number, infinite loop, load more",
-            "time": "2019-12-28T11:18:59+00:00"
+            "time": "2021-01-04T05:47:30+00:00"
         },
         {
             "name": "jankx/post-layout",
@@ -237,12 +177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/post-layout.git",
-                "reference": "99983e3c05183eab7c096218afa3a14c2ef01394"
+                "reference": "58edd1389f22fb0369284f8c40ad50b2c508f2ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/post-layout/zipball/99983e3c05183eab7c096218afa3a14c2ef01394",
-                "reference": "99983e3c05183eab7c096218afa3a14c2ef01394",
+                "url": "https://api.github.com/repos/jankx/post-layout/zipball/58edd1389f22fb0369284f8c40ad50b2c508f2ed",
+                "reference": "58edd1389f22fb0369284f8c40ad50b2c508f2ed",
                 "shasum": ""
             },
             "require": {
@@ -265,7 +205,7 @@
                 }
             ],
             "description": "WordPress post and custom post type layout generator",
-            "time": "2020-02-25T15:30:03+00:00"
+            "time": "2021-03-07T08:29:24+00:00"
         },
         {
             "name": "jankx/template",
@@ -273,18 +213,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "92d75c2099d3d62f5bc911f313e98ff345b768b2"
+                "reference": "5147a87ed34617316d15880dbf00035cfad46283"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/92d75c2099d3d62f5bc911f313e98ff345b768b2",
-                "reference": "92d75c2099d3d62f5bc911f313e98ff345b768b2",
+                "url": "https://api.github.com/repos/jankx/template/zipball/5147a87ed34617316d15880dbf00035cfad46283",
+                "reference": "5147a87ed34617316d15880dbf00035cfad46283",
                 "shasum": ""
             },
             "require": {
-                "jankx/asset": "dev-master",
-                "jankx/template-engine": "dev-master",
-                "jankx/ui-framework": "dev-master"
+                "jankx/template-engine": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -302,8 +240,8 @@
                     "email": "puleeno@gmail.com"
                 }
             ],
-            "description": "Jankx template manager usable to load template with support override, caching",
-            "time": "2020-04-14T16:23:58+00:00"
+            "description": "Jankx Template is used to load the template support override, caching.",
+            "time": "2021-01-28T02:33:57+00:00"
         },
         {
             "name": "jankx/template-engine",
@@ -311,12 +249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template-engine.git",
-                "reference": "cfd235ed3cfb6787ac9f3ef1693d2ec566bfff91"
+                "reference": "d8a4def1fc18a54aa13ca29734b45519ab8b5eef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template-engine/zipball/cfd235ed3cfb6787ac9f3ef1693d2ec566bfff91",
-                "reference": "cfd235ed3cfb6787ac9f3ef1693d2ec566bfff91",
+                "url": "https://api.github.com/repos/jankx/template-engine/zipball/d8a4def1fc18a54aa13ca29734b45519ab8b5eef",
+                "reference": "d8a4def1fc18a54aa13ca29734b45519ab8b5eef",
                 "shasum": ""
             },
             "require": {
@@ -339,43 +277,7 @@
                 }
             ],
             "description": "The template engine for Jankx Framework",
-            "time": "2020-04-14T00:58:03+00:00"
-        },
-        {
-            "name": "jankx/ui-framework",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jankx/ui-framework.git",
-                "reference": "4bba63be1b9afcd06d386e4ee5bb5fae81af77d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jankx/ui-framework/zipball/4bba63be1b9afcd06d386e4ee5bb5fae81af77d9",
-                "reference": "4bba63be1b9afcd06d386e4ee5bb5fae81af77d9",
-                "shasum": ""
-            },
-            "require": {
-                "jankx/template-engine": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Jankx\\UI\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Puleeno Nguyen",
-                    "email": "puleeno@gmail.com"
-                }
-            ],
-            "description": "Jankx UI framework integrate with popular CSS frameworks",
-            "time": "2020-03-02T00:33:13+00:00"
+            "time": "2020-12-31T15:42:16+00:00"
         },
         {
             "name": "puleeno/schema-org",
@@ -439,6 +341,39 @@
             "time": "2019-11-28T15:54:25+00:00"
         },
         {
+            "name": "ramphor/fields",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/fields.git",
+                "reference": "5b886d4d0e5338fb3f21948233ebaf5c62c511a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/fields/zipball/5b886d4d0e5338fb3f21948233ebaf5c62c511a4",
+                "reference": "5b886d4d0e5338fb3f21948233ebaf5c62c511a4",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramphor\\Fields\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Jankx Fields is a simple framework used to create meta box, settings, form, etc",
+            "time": "2020-09-15T02:16:23+00:00"
+        },
+        {
             "name": "ramphor/image-extra-features",
             "version": "dev-master",
             "source": {
@@ -467,24 +402,60 @@
             "time": "2020-02-02T18:59:33+00:00"
         },
         {
+            "name": "ramphor/plugin-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/plugin-core.git",
+                "reference": "7dd85a5ff1b2c49d2a7781d5e6a6749a7db5c26d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/plugin-core/zipball/7dd85a5ff1b2c49d2a7781d5e6a6749a7db5c26d",
+                "reference": "7dd85a5ff1b2c49d2a7781d5e6a6749a7db5c26d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramphor\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The core of plugins are developed by The Ramphor Premium",
+            "time": "2021-02-22T01:44:53+00:00"
+        },
+        {
             "name": "ramphor/post-views",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/post-views.git",
-                "reference": "444b67f0b9204884df3cf85ddec9b35c58f5a215"
+                "reference": "3f8e228e5a4f686ba12c5d76774a0a9455c99a4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/post-views/zipball/444b67f0b9204884df3cf85ddec9b35c58f5a215",
-                "reference": "444b67f0b9204884df3cf85ddec9b35c58f5a215",
+                "url": "https://api.github.com/repos/ramphor/post-views/zipball/3f8e228e5a4f686ba12c5d76774a0a9455c99a4d",
+                "reference": "3f8e228e5a4f686ba12c5d76774a0a9455c99a4d",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Ramphor\\PostViews\\": "src/"
-                }
+                },
+                "files": [
+                    "./functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -497,7 +468,7 @@
                 }
             ],
             "description": "Track visited posts and user view posts",
-            "time": "2020-03-29T17:08:25+00:00"
+            "time": "2020-12-31T05:55:26+00:00"
         },
         {
             "name": "ramphor/seo-adapter",
@@ -571,17 +542,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/user-profile.git",
-                "reference": "661bf574b1c2c8deae69f2021f763e57ecdc4627"
+                "reference": "f0c302ebfe8e4b51511b404ecfbc3ad8865b72b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/661bf574b1c2c8deae69f2021f763e57ecdc4627",
-                "reference": "661bf574b1c2c8deae69f2021f763e57ecdc4627",
+                "url": "https://api.github.com/repos/ramphor/user-profile/zipball/f0c302ebfe8e4b51511b404ecfbc3ad8865b72b6",
+                "reference": "f0c302ebfe8e4b51511b404ecfbc3ad8865b72b6",
                 "shasum": ""
             },
             "require": {
                 "hybridauth/hybridauth": "3.1.1",
-                "jankx/template": "dev-master"
+                "jankx/template": "dev-master",
+                "ramphor/plugin-core": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -600,7 +572,7 @@
                 }
             ],
             "description": "User profile core for embed to other plugins or themes",
-            "time": "2020-03-20T00:26:48+00:00"
+            "time": "2021-02-22T01:45:10+00:00"
         }
     ],
     "packages-dev": [],
@@ -608,7 +580,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "jankx/breadcrumb": 20,
-        "jankx/field": 20,
         "jankx/pagination": 20,
         "jankx/post-layout": 20,
         "jankx/template": 20,
@@ -616,6 +587,7 @@
         "ramphor/post-views": 20,
         "ramphor/seo-adapter": 20,
         "ramphor/updater": 20,
+        "ramphor/fields": 20,
         "ramphor/user-profile": 20
     },
     "prefer-stable": false,

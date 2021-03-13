@@ -12,7 +12,6 @@
     "minimum-stability": "dev",
     "require": {
         "jankx/breadcrumb": "dev-master",
-        "jankx/field": "dev-master",
         "jankx/pagination": "dev-master",
         "jankx/post-layout": "dev-master",
         "jankx/template": "dev-master",
@@ -21,6 +20,7 @@
         "ramphor/post-views": "dev-master",
         "ramphor/seo-adapter": "dev-master",
         "ramphor/updater": "dev-master",
+        "ramphor/fields": "dev-master",
         "ramphor/user-profile": "dev-master"
     }
 }

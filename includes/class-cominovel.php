@@ -6,8 +6,10 @@
  * @author  Puleeno Nguyen <puleeno@gmail.com>
  */
 
+use Jankx\Template\Template;
 use Ramphor\User\Profile as UserProfile;
 use Ramphor\PostViews\Counter as PostViewsCounter;
+use Ramphor\PostViews\Handlers\UserHandler;
 
 /**
  * Class Cominovel is the main class of Cominovel plugin
@@ -50,14 +52,28 @@ final class Cominovel {
 		add_shortcode( 'cominovel', array( Cominovel_Shortcode::class, 'register' ) );
 
 		if ( class_exists( UserProfile::class ) ) {
-			UserProfile::init(
-				sprintf( '%s/templates/users', COMINOVEL_ABSPATH ),
-				'cominovel/users'
-			);
+			$userTemplatesDir = sprintf( '%s/templates/users', COMINOVEL_ABSPATH );
+            $profileTemplateLoader = Template::getLoader(
+                $userTemplatesDir,
+                apply_filters('cominovel_user_profile_template_directory', 'cominovel/users'),
+                'wordpress'
+            );
+            $userProfile = UserProfile::getInstance();
+            $userProfile->registerTemplate(
+                'cominovel',
+                $profileTemplateLoader
+            );
 		}
 		if ( class_exists( PostViewsCounter::class ) ) {
 			$counter = new PostViewsCounter( array( 'comic', 'novel', 'chapter' ), true );
-			$counter->register();
+
+			$userHandler = new UserHandler(true);
+			$userHandler->setRemoteIP(wp_get_client_ip_address());
+			$userHandler->setUserId(get_current_user_id());
+			$userHandler->setExpireTime(1 * 24 * 60 * 60); // 1 day
+
+			$counter->addHandle($userHandler);
+        	$counter->count();
 		}
 	}
 
